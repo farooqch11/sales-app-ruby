@@ -18,7 +18,7 @@
                           {name: 'Transportation'},
 													{name: 'Other'}])
 
-store = Company.last
-for i in (1..2000)
-  store.item_categories.create(:name => "#{i}Name", :description => "#{i}Description" )
-end
+# store = Company.last
+# for i in (1..2000)
+#   store.item_categories.create(:name => "#{i}Name", :description => "#{i}Description" )
+# end
