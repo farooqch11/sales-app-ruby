@@ -1,0 +1,23 @@
+<div class="well breadcrumbs">
+	<div class="row hidden-print">
+		<div class="col-sm-8 left">
+			<strong><%= Date.today.to_s(:long) %></strong> - 
+			<%= @store.store_name.blank? ? "PushVendor Point of Sale" : @store.store_name %>
+		</div>
+		<div class="col-sm-4 right">
+			<%= params[:controller] %> <%= params[:action] == 'index' ? '' : "/ #{params[:action]}" %>
+		</div>
+	</div>
+	<div class="row visible-print">
+		<div class="col-sm-8 left">
+			<strong><%= Date.today.to_s(:long) %></strong><br />
+			<%= @store.store_name.blank? ? "PushVendor Point of Sale" : @store.store_name %></br />
+			<%= @store.address.blank? ? "-" : @store.address %></br />
+			<%= @store.city.blank? ? "-" : @store.city %></br />
+			<%= @store.state.blank? ? "-" : @store.state %></br />
+			<%= @store.zip.blank? ? "-" : @store.zip %></br />
+		</div>
+		<div class="col-sm-4 right">
+		</div>
+	</div>
+</div>

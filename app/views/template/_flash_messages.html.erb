@@ -1,0 +1,112 @@
+<%if flash[:alert].present? || flash[:toastr].present? || flash[:error].present? || flash[:errors].present? || flash[:success].present? || flash[:notice].present? || flash[:info].present?%>
+
+    <%if flash[:alert].present?%>
+        <script>
+            $.amaran({
+                'theme'     :'colorful',
+                'content'   :{
+                    bgcolor:'#FFC333',
+                    color:'#fff',
+                    message:"<%= flash[:alert] %>"
+                },
+                'cssanimationOut'   :'slideRight',
+                'outEffect'         :'slideRight',
+                'closeOnClick'  :true,
+                'position'          :'top right',
+                'closeButton': true
+            });
+        </script>
+    <%end%>
+
+    <%if flash[:error].present?%>
+        <script>
+            $.amaran({
+                'theme'     :'colorful',
+                'content'   :{
+                    bgcolor:'#D04B2B',
+                    color:'#fff',
+                    message:"<%= flash[:error] %>"
+                },
+                'cssanimationOut'   :'slideRight',
+                'outEffect'         :'slideRight',
+                'closeOnClick'  :true,
+                'position'          :'top right',
+                'closeButton': true
+            });
+        </script>
+    <%end%>
+
+    <%if flash[:errors].present?%>
+        <%flash[:errors].each do |e|%>
+            <script>
+                $.amaran({
+                    'theme'     :'colorful',
+                    'content'   :{
+                        bgcolor:'#D04B2B',
+                        color:'#fff',
+                        message:"<%= e %>"
+                    },
+                    'cssanimationOut'   :'slideRight',
+                    'outEffect'         :'slideRight',
+                    'closeOnClick'  :true,
+                    'position'          :'top right',
+                    'closeButton': true
+                });
+            </script>
+        <%end%>
+    <%end%>
+
+    <%if flash[:success].present?%>
+        <script>
+            $.amaran({
+                'theme'     :'colorful',
+                'content'   :{
+                    bgcolor:'#80C14B',
+                    color:'#fff',
+                    message:"<%= flash[:success] %>"
+                },
+                'cssanimationOut'   :'slideRight',
+                'outEffect'         :'slideRight',
+                'closeOnClick'  :true,
+                'position'          :'top right',
+                'closeButton': true
+            });
+        </script>
+    <%end%>
+
+    <%if flash[:notice].present?%>
+        <script>
+            $.amaran({
+                'theme'     :'colorful',
+                'content'   :{
+                    bgcolor:'#80C14B',
+                    color:'#fff',
+                    message:"<%= flash[:notice] %>"
+                },
+                'cssanimationOut'   :'slideRight',
+                'outEffect'         :'slideRight',
+                'closeOnClick'  :true,
+                'position'          :'top right',
+                'closeButton': true
+            });
+        </script>
+    <%end%>
+
+    <%if flash[:info].present?%>
+        <script>
+            $.amaran({
+                'theme'     :'colorful',
+                'content'   :{
+                    bgcolor:'#35A4DA',
+                    color:'#fff',
+                    message:"<%= flash[:info] %>"
+                },
+                'cssanimationOut'   :'slideRight',
+                'outEffect'         :'slideRight',
+                'closeOnClick'  :true,
+                'position'          :'top right',
+                'closeButton': true
+            });
+        </script>
+    <%end%>
+<%end%>

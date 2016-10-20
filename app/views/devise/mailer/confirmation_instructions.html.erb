@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title> Tend360.com - Email</title>
+</head>
+<body style="background-color: #eef2f6; font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;">
+<div align="center">
+  <br/><br/>
+  <div style="background: #fcfcfc; border-bottom: 1px solid #eee; width: 450px; padding: 25px 35px 10px 35px;">
+    <div align="left">
+      <h1 style="font-size: 26px; font-weight: 200; color: #000; margin: 0 0 10px 0;">Hello <%=@resource.company.company_name%></h1>
+      <p style="font-size: 19px;font-weight: 300; color: #666; line-height: 1.5;">
+        Welcome to <b> Tend360 </b>.
+        You can now start using your account instantly, In order to access your account please use the below link. <br/> <br/>
+        <b><a href="<%="http://#{@resource.tend360_url}/users/confirmation?confirmation_token=#{@token}"%>"  style="color:#65bd77;text-decoration:none;">Please confirm your account</a> </b>
+        <!--<a href="<%#="http://#{@company.slug}.#{COMPANY_URL}/company/activate/#{@token}"%>" style="background: #65bd77; padding:3px 12px 3px 12px; display: inline-block; text-decoration: none; color: #fff; border-radius: 1px;">Activate Now</a>-->
+      </p>
+
+      <p style="font-size:16px;color:#666;">
+        Thank you and have a great day!</p>
+      <br/>
+      </p>
+      <%#= render 'user_mailer/hr_footer'%>
+
+    </div>
+  </div>
+  <p style="font-size:13px;color:#666;" >For any questions or queries please send us an email at <a href="mailto: info@tend360.com" style="color:#65bd77;text-decoration:none;">info@tend360.com</a></p>
+
+</div>
+</body>
+
+</html>

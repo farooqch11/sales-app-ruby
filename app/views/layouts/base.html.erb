@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class=" bg-white">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <meta name="robots" content="noindex">
+      <meta name="googlebot" content="noindex">
+      <title>Tend360 | Register</title>
+     <!--  <meta name="description" content="<%#= @store.store_description.blank? ? "PushVendor Point of Sale" : @store.store_description %>"> -->
+      <meta name="viewport" content ="width=device-width; initial-scale=1.0;">
+
+      <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+      <%= stylesheet_link_tag "base", media: "all", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag :base, "data-turbolinks-track" => true %>
+
+      <%= csrf_meta_tags %>
+
+    </head>
+    <body >
+        <section class="vbox">
+             <%= render :partial => 'template/base_header' %>
+    		 <%#= render :partial => 'template/alerts' %>
+             <%= yield %>
+        </section>
+
+      <%= yield :javascript %>
+    </body>
+    <%=render partial: 'template/flash_messages'%>
+</html>

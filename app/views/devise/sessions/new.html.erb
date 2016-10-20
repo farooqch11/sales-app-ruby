@@ -1,0 +1,30 @@
+
+<section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+  <div class="container aside-xxl">
+    <section class="m-t-lg">
+        <%= form_for("user", :url => user_session_path, html: { "data-validate": "parsley" , class: "form-signin panel-body wrapper-lg", role: "form" }) do |f| %>
+
+      <div class="form-group">
+          <label class="control-label">Email</label>
+        <%= f.email_field :email, :class => 'form-control input-lg',  :placeholder => 'test@example.com' , required: true ,autofocus: true , email: true %>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Password</label>
+          <%= f.password_field :password, id: "inputPassword" , :class => 'form-control input-lg', :placeholder => 'Password' , required: true %>
+        </div>
+          <div class="line line-dashed"></div>
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :remember_me , class: "parsley-validated"%> Keep me logged in
+          </label>
+        </div>
+          <button class="btn btn-primary btn-lg btn-block" value="Sign in" type="submit">Sign in</button>
+
+      <%end%>
+    </section>
+    </div>
+</section>
+
+
+
+  	<%#= render "devise/shared/links" %>

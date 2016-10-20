@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Trend360</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html class="app">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="robots" content="noindex">
+      <meta name="googlebot" content="noindex">
+      <title><%= @store.store_name.blank? ? "Tend360 Point of Sale" : @store.store_name %></title>
+      <meta name="description" content="<%= @store.store_description.blank? ? "Tend360 Point of Sale" : @store.store_description %>">
+      <meta name="viewport" content ="width=device-width; initial-scale=1.0;">
+      <%= javascript_include_tag :application, "data-turbolinks-track" => true %>
+      <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 
-<%= yield %>
+		  <%= csrf_meta_tags %>
 
-</body>
+    </head>
+    
+    <body>
+        <section class="vbox">
+          <% if user_signed_in? %>
+              <%= render partial: 'template/menu' %>
+          <% end %>
+          <section>
+            <section class="hbox stretch">
+              <%= render partial: 'template/left_aside' %>
+              <%= yield %>
+              <%= yield :javascript %>
+            </section>
+          </section>
+        </section>
+    </body>
+    <%=render partial: 'template/flash_messages'%>
 </html>
