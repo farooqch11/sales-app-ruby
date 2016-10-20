@@ -19,10 +19,10 @@ class BaseController < ActionController::Base
   def set_company
     # companies = Company.where(sub_domain: request.subdomain)
     companies = Company.where(sub_domain: request.subdomain) || []
-    if companies.count > 0
-      @company = companies.first
-    elsif request.subdomain != "www"
-      redirect_to root_url(subdomain: 'www')
-    end
+    # if companies.count > 0
+    #   @company = companies.first
+    # elsif request.subdomain != "www"
+    #   redirect_to root_url(subdomain: 'www')
+    # end
   end
 end

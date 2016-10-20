@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :authenticate_user!
-  before_filter :set_store
+  before_filter :set_company
   layout :layout_by_resource
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -31,12 +31,12 @@ class ApplicationController < ActionController::Base
 
   ##
   # set_store loads the global companies.
-  def set_store
+  def set_company
     @company  ||= Company.find_by_sub_domain request.subdomain
-    if request.subdomain.blank?
-      redirect_to root_url(subdomain: 'www')
-    elsif request.subdomain != "www" && @company.nil?
-      redirect_to root_url(subdomain: 'www')
-    end
+    # if request.subdomain.blank?
+    #   redirect_to root_url(subdomain: 'www')
+    # elsif request.subdomain != "www" && @company.nil?
+    #   redirect_to root_url(subdomain: 'www')
+    # end
   end
 end
