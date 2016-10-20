@@ -3,7 +3,7 @@ class CreateItemCategories < ActiveRecord::Migration
   	add_column :items, :item_category_id, :integer
 
     create_table :item_categories do |t|
-      t.references :company , index: true , foreign_key: true
+      t.integer :company_id
     	t.string :name
     	t.text :description
       t.timestamps

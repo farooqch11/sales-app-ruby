@@ -16,10 +16,6 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #
-# Indexes
-#
-#  index_customers_on_company_id  (company_id)
-#
 
 class Customer < ActiveRecord::Base
   has_many :sales

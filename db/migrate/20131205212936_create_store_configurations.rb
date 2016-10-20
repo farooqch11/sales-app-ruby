@@ -2,7 +2,7 @@ class CreateStoreConfigurations < ActiveRecord::Migration
   def change
     create_table :companies do |t|
       t.string :company_name  , unique: true
-      t.references :business_type
+      t.integer :business_type_id
       t.text   :company_description
       t.string :logo
       t.string :sub_domain , unique: true
