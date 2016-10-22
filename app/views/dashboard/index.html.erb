@@ -3,11 +3,11 @@
     <section class="scrollable padder">
       <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
         <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Workset</li>
+        <li class="active"><%= current_user.company_name.titleize %></li>
       </ul>
       <div class="m-b-md">
-        <h3 class="m-b-none">Workset</h3>
-        <small>Welcome back, Noteman</small>
+        <h3 class="m-b-none"><% current_user.company_name.titleize %></h3>
+        <small>Welcome back, <%= current_user.username.present? ? current_user.username.titleize : current_user.email %></small>
       </div>
       <section class="panel panel-default">
         <div class="row m-l-none m-r-none bg-light lter">
@@ -105,228 +105,21 @@
               <div class="line pull-in"></div>
               <div class="row m-t-sm">
                 <div class="col-xs-4">
-                  <small class="text-muted block">Market</small>
+                  <small class="text-muted block">Monthly</small>
                   <span>$1500.00</span>
                 </div>
                 <div class="col-xs-4">
-                  <small class="text-muted block">Referal</small>
-                  <span>$600.00</span>
+                  <small class="text-muted block">Today</small>
+                  <span>$540.00</span>
                 </div>
                 <div class="col-xs-4">
-                  <small class="text-muted block">Affiliate</small>
+                  <small class="text-muted block">Profit</small>
                   <span>$400.00</span>
                 </div>
               </div>
             </div>
           </section>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-          <h4 class="m-t-none">Todos</h4>
-          <ul class="list-group gutter list-group-lg list-group-sp sortable">
-            <li class="list-group-item box-shadow">
-              <a href="#" class="pull-right" data-dismiss="alert">
-                <i class="fa fa-times icon-muted"></i>
-              </a>
-                      <span class="pull-left media-xs">
-                        <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-1" data-toggle="class:text-lt text-success" class="active">
-                          <i class="fa fa-square-o fa-fw text"></i>
-                          <i class="fa fa-check-square-o fa-fw text-active text-success"></i>
-                        </a>
-                      </span>
-              <div class="clear text-success text-lt" id="todo-1">
-                Browser compatibility
-              </div>
-            </li>
-            <li class="list-group-item box-shadow">
-              <a href="#" class="pull-right" data-dismiss="alert">
-                <i class="fa fa-times icon-muted"></i>
-              </a>
-                      <span class="pull-left media-xs">
-                        <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-2" data-toggle="class:text-lt text-danger">
-                          <i class="fa fa-square-o fa-fw text"></i>
-                          <i class="fa fa-check-square-o fa-fw text-active text-danger"></i>
-                        </a>
-                      </span>
-              <div class="clear" id="todo-2">
-                Looking for more example templates
-              </div>
-            </li>
-            <li class="list-group-item box-shadow">
-              <a href="#" class="pull-right" data-dismiss="alert">
-                <i class="fa fa-times icon-muted"></i>
-              </a>
-                      <span class="pull-left media-xs">
-                        <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-3" data-toggle="class:text-lt">
-                          <i class="fa fa-square-o fa-fw text"></i>
-                          <i class="fa fa-check-square-o fa-fw text-active text-success"></i>
-                        </a>
-                      </span>
-              <div class="clear" id="todo-3">
-                Customizing components
-              </div>
-            </li>
-            <li class="list-group-item box-shadow">
-              <a href="#" class="pull-right" data-dismiss="alert">
-                <i class="fa fa-times icon-muted"></i>
-              </a>
-                      <span class="pull-left media-xs">
-                        <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-4" data-toggle="class:text-lt">
-                          <i class="fa fa-square-o fa-fw text"></i>
-                          <i class="fa fa-check-square-o fa-fw text-active text-success"></i>
-                        </a>
-                      </span>
-              <div class="clear" id="todo-4">
-                The fastest way to get started
-              </div>
-            </li>
-            <li class="list-group-item box-shadow">
-              <a href="#" class="pull-right" data-dismiss="alert">
-                <i class="fa fa-times icon-muted"></i>
-              </a>
-                      <span class="pull-left media-xs">
-                        <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-5" data-toggle="class:text-lt">
-                          <i class="fa fa-square-o fa-fw text"></i>
-                          <i class="fa fa-check-square-o fa-fw text-active text-success"></i>
-                        </a>
-                      </span>
-              <div class="clear" id="todo-5">
-                HTML5 doctype required
-              </div>
-            </li>
-            <li class="list-group-item box-shadow">
-              <a href="#" class="pull-right" data-dismiss="alert">
-                <i class="fa fa-times icon-muted"></i>
-              </a>
-                      <span class="pull-left media-xs">
-                        <i class="fa fa-sort icon-muted fa m-r-sm"></i>
-                        <a  href="#todo-6" data-toggle="class:text-lt">
-                          <i class="fa fa-square-o fa-fw text"></i>
-                          <i class="fa fa-check-square-o fa-fw text-active text-success"></i>
-                        </a>
-                      </span>
-              <div class="clear" id="todo-6">
-                LessCSS compiling
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <section class="panel b-light">
-            <header class="panel-heading bg-primary dker no-border"><strong>Calendar</strong></header>
-            <div id="calendar" class="bg-primary m-l-n-xxs m-r-n-xxs"></div>
-            <div class="list-group">
-              <a href="#" class="list-group-item text-ellipsis">
-                <span class="badge bg-danger">7:30</span>
-                Meet a friend
-              </a>
-              <a href="#" class="list-group-item text-ellipsis">
-                <span class="badge bg-success">9:30</span>
-                Have a kick off meeting with .inc company
-              </a>
-              <a href="#" class="list-group-item text-ellipsis">
-                <span class="badge bg-light">19:30</span>
-                Milestone release
-              </a>
-            </div>
-          </section>
-        </div>
-      </div>
-      <div>
-        <div class="btn-group m-b" data-toggle="buttons">
-          <label class="btn btn-sm btn-default active">
-            <input type="radio" name="options" id="option1"> Timeline
-          </label>
-          <label class="btn btn-sm btn-default">
-            <input type="radio" name="options" id="option2"> Activity
-          </label>
-        </div>
-        <section class="comment-list block">
-          <article id="comment-id-1" class="comment-item">
-                    <span class="fa-stack pull-left m-l-xs">
-                      <i class="fa fa-circle text-info fa-stack-2x"></i>
-                      <i class="fa fa-play-circle text-white fa-stack-1x"></i>
-                    </span>
-            <section class="comment-body m-b-lg">
-              <header>
-                <a href="#"><strong>John smith</strong></a> shared a <a href="#" class="text-info">video</a> to you
-                        <span class="text-muted text-xs">
-                          24 minutes ago
-                        </span>
-              </header>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.</div>
-            </section>
-          </article>
-          <!-- .comment-reply -->
-          <article id="comment-id-2" class="comment-reply">
-            <article class="comment-item">
-              <a class="pull-left thumb-sm">
-                <img src="images/avatar_default.jpg" class="img-circle">
-              </a>
-              <section class="comment-body m-b-lg">
-                <header>
-                  <a href="#"><strong>John smith</strong></a>
-                          <span class="text-muted text-xs">
-                            26 minutes ago
-                          </span>
-                </header>
-                <div> Morbi id neque quam. Aliquam.</div>
-              </section>
-            </article>
-            <article class="comment-item">
-              <a class="pull-left thumb-sm">
-                <img src="images/avatar.jpg" class="img-circle">
-              </a>
-              <section class="comment-body m-b-lg">
-                <header>
-                  <a href="#"><strong>Mike</strong></a>
-                          <span class="text-muted text-xs">
-                            26 minutes ago
-                          </span>
-                </header>
-                <div>Good idea.</div>
-              </section>
-            </article>
-          </article>
-          <!-- / .comment-reply -->
-          <article id="comment-id-2" class="comment-item">
-                    <span class="fa-stack pull-left m-l-xs">
-                      <i class="fa fa-circle text-danger fa-stack-2x"></i>
-                      <i class="fa fa-file-o text-white fa-stack-1x"></i>
-                    </span>
-            <section class="comment-body m-b-lg">
-              <header>
-                <a href="#"><strong>John Doe</strong></a>
-                        <span class="text-muted text-xs">
-                          1 hour ago
-                        </span>
-              </header>
-              <div>Lorem ipsum dolor sit amet, consecteter adipiscing elit.</div>
-            </section>
-          </article>
-          <article id="comment-id-2" class="comment-item">
-                    <span class="fa-stack pull-left m-l-xs">
-                      <i class="fa fa-circle text-success fa-stack-2x"></i>
-                      <i class="fa fa-check text-white fa-stack-1x"></i>
-                    </span>
-            <section class="comment-body m-b-lg">
-              <header>
-                <a href="#"><strong>Jonathan</strong></a> completed a task
-                        <span class="text-muted text-xs">
-                          1 hour ago
-                        </span>
-              </header>
-              <div>Consecteter adipiscing elit.</div>
-            </section>
-          </article>
-        </section>
-        <a href="#" class="btn btn-default btn-sm m-b"><i class="fa fa-plus icon-muted"></i> more</a>
       </div>
     </section>
   </section>

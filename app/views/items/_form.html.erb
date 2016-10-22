@@ -1,70 +1,87 @@
-<%= form_for(@item) do |f| %>
-  <%= render :partial => 'template/form_errors', :object => @item %>
 
-<div class="panel panel-default">
-  <div class="panel-body">
+<section id="content m-t-lg">
+  <section class="vbox">
+    <section class="scrollable padder m-t-lg">
+      <div class="col-sm-12">
+        <section class="panel panel-default" >
+          <header class="panel-heading" style="background:#FFF;">
+            <h3 style="color:#717171;"><%= params[:action] == "new" ? "Create" : "" %>Item Category</h3>
+          </header>
+          <div class="panel-body">
 
-   
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>Category</label>
-          <%= f.collection_select :item_category_id, ItemCategory.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"}  %>
-        </div>
-      </div>
-    </div>
+            <%= form_for @item do |f|  %>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Category</label>
+                      <%= f.collection_select :item_category_id, @categories, :id, :name, {prompt: "Select a category"}, {class: "form-control"}  %>
+                    </div>
+                  </div>
+                </div>
 
 
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>SKU</label>
-          <%= f.text_field :sku, :class => "form-control", :placeholder => "Item Sku" %>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>Name of Item</label>
-          <%= f.text_field :name, :class => "form-control", :placeholder => "Item Name" %>
-        </div>
-      </div>
-    </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>SKU</label>
+                      <%= f.text_field :sku, :class => "form-control", :placeholder => "Item Sku" %>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Name of Item</label>
+                      <%= f.text_field :name, :class => "form-control", :placeholder => "Item Name" %>
+                    </div>
+                  </div>
+                </div>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>Price</label>
-          <%= f.text_field :price, :class => "form-control", :placeholder => "Item Price" %>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>Stock Amount</label>
-          <%= f.text_field :stock_amount, :class => "form-control", :placeholder => "Amount in Stock" %>
-        </div>
-      </div>
-    </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Price</label>
+                      <%= f.text_field :price, :class => "form-control", :placeholder => "Item Price" %>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Stock Amount</label>
+                      <%= f.text_field :stock_amount, :class => "form-control", :placeholder => "Amount in Stock" %>
+                    </div>
+                  </div>
+                </div>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>Cost Price</label>
-          <%= f.text_field :cost_price, :class => "form-control", :placeholder => "Cost of Item" %>
-        </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Cost Price</label>
+                      <%= f.text_field :cost_price, :class => "form-control", :placeholder => "Cost of Item" %>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Description</label>
+                      <%= f.text_area :description, :class => "form-control", :placeholder => "Item Description" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="line line-dashed line-lg pull-in"></div>
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                    <%= f.submit :class=>"btn btn-primary" %>
+                    <%= button_tag "Cancel", :type => 'reset',:class=>"btn" %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </section>
       </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label>Description</label>
-          <%= f.text_area :description, :class => "form-control", :placeholder => "Item Description" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
+  </section>
+  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+</section>
 
-<div class="row">
-  <div class="col-sm-12">
-    <%= f.submit 'Update Item', :class => "btn btn-success btn-lg" %>
-  </div>
-</div>
-<% end %>
+<script>
+    $('#edit_item_<%= @item.id%>').validate();
+</script>
+

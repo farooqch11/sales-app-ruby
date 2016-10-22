@@ -1,28 +1,25 @@
 class ItemCategoriesController < ApplicationController
-  before_action :set_item_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_item_category, only: [:show,:new, :update, :destroy]
 
   def index
-    @item_categories = current_store.item_categories.paginate(page: params[:page], per_page: 20)
-    @item_category = current_store.item_categories.new
-  end
-
-  def new
-
+    @item_categories = current_company.item_categories.paginate(page: params[:page], per_page: 20)
+    @item_category = current_company.item_categories.new
   end
 
   def show
   end
 
-  def edit
+  def new
   end
 
   def create
-    @item_category = current_store.item_categories.new(item_category_params)
+    @item_category = current_company.item_categories.new(item_category_params)
 
     if @item_category.save
-      flash[:notice] = 'Item category was successfully created.'
-      redirect_to @item_category
+      flash[:success] = 'Item category was successfully created.'
+      redirect_to item_categories_url
     else
+      flash.now[:errors] = @item_category.errors.full_messages
       render action: 'new'
     end
   end
@@ -32,14 +29,15 @@ class ItemCategoriesController < ApplicationController
       flash[:success] = 'Item category was successfully updated.'
       redirect_to @item_category
     else
-      render action: 'edit'
+      flash[:errors] = @item_category.errors.full_messages
+      render action: 'show'
     end
   end
 
   def destroy
     name = @item_category.name
     if @item_category.destroy
-      flash[:success] = 'Item category was successfully deleted.'
+      flash[:success] = 'Item category successfully deleted.'
     end
     redirect_to item_categories_url
   end
@@ -48,7 +46,7 @@ class ItemCategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item_category
-    @item_category = current_store.item_categories.find(params[:id]) || []
+    @item_category = current_company.item_categories.find_by_id(params[:id]) || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

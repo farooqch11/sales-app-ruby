@@ -4,7 +4,7 @@
 #
 #  id                       :integer          not null, primary key
 #  company_id               :integer
-#  username                 :string           default(""), not null
+#  username                 :string
 #  email                    :string           default(""), not null
 #  encrypted_password       :string           default(""), not null
 #  photo                    :string
@@ -38,7 +38,7 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
-#  index_users_on_username              (username) UNIQUE
+#  index_users_on_username              (username)
 #
 
 class User < ActiveRecord::Base
@@ -55,6 +55,14 @@ class User < ActiveRecord::Base
 
   def is_owner?
     self.company.owner_id == self.id ? true : false
+  end
+
+  def company_name
+    self.company.company_name.blank? ? "Tend360 Point of Sale" : self.company.company_name
+  end
+
+  def company_description
+    self.company.company_description.blank? ? "Tend360 Point of Sale" : self.company.company_description
   end
 
   def photo

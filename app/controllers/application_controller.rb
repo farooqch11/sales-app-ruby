@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_company
-    @company  ||= Company.find_by_sub_domain request.subdomain
+    @company  ||= current_user.company
   end
 
   helper_method :current_company

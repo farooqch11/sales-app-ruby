@@ -12,7 +12,7 @@
                 <h5 class="text-center text-center-xs"><p id="web-url" style="color:#7cbc20;"></p></h5>
 
                 <div class="form-group col-md-6">
-                    <%= f.label :business_name ,class: "control-label"%>
+                    <%= f.label "Business Name" ,class: "control-label"%>
                     <%= f.text_field :company_name, class: 'form-control input-lg' , placeholder: "eg. Your name or store" ,:onkeyup=>"showWebUrl();", required: true,minlength: "3" , autocomplete: "off"%>
                 </div>
 

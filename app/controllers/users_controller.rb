@@ -5,21 +5,21 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = @company.users.paginate(page: params[:page], per_page: 20)
+    @users = current_company.users.paginate(page: params[:page], per_page: 20)
   end
 
   def show
   end
 
   def new
-    @user = @company.users.new
+    @user = current_company.users.new
   end
 
   def edit
   end
 
   def create
-    @user = @company.users.new(user_params)
+    @user = current_company.users.new(user_params)
 
     if @user.save
       flash[:notice] = 'User was successfully created.'
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def new_user
-    @user = @company.users.new(email: params[:user][:email],
+    @user = current_company.users.new(email: params[:user][:email],
                      username: params[:user][:username],
                      password: params[:user][:password],
                      password_confirmation: params[:user][:password_confirmation])
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = @store.users.find_by_id(params[:id]) || []
+    @user = current_company.users.find_by_id(params[:id]) || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

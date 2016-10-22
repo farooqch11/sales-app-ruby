@@ -1,5 +1,9 @@
 class CompaniesController < BaseController
   before_action :set_new_company , only: [:new]
+
+  def new
+  end
+
   def create
 
     @company = Company.new(store_params)
@@ -46,7 +50,7 @@ class CompaniesController < BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def store_params
-    params.require(:company).permit(:company_name,:business_type_id , :country , owner_attributes:[:id, :username , :email, :password, :password_confirmation])
+    params.require(:company).permit(:company_name,:business_type_id , :country , owner_attributes:[:id, :email, :password, :password_confirmation])
                                                 # :store_description,
                                                 # :sub_domain,
                                                 # :address,

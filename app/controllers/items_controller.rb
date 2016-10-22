@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
       flash[:notice] = 'Item was successfully created.'
       redirect_to @item
     else
+      flash.now[:errors] = @item.errors.full_messages
       render action: 'new'
     end
   end
@@ -39,7 +40,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.published = false
     @item.save
-
+    flash[:success] = 'Item successfully Deleted.'
     redirect_to items_url
   end
 
@@ -52,7 +53,7 @@ class ItemsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_item
     @item = Item.find(params[:id])
-    @categories = ItemCategory.all
+    @categories = current_company.item_categories || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -198,5 +198,5 @@ PushvendorPos::Application.routes.draw do
 
   # match '' , to: 'companies#show' , constraints: lambda {|r| r.subdomain.present? && r.subdomain != "www"}
     root 'companies#new'
-  # root 'dashboard#index'
+    # root 'dashboard#index'
 end

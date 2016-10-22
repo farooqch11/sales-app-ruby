@@ -1,0 +1,42 @@
+<section id="content m-t-lg">
+  <section class="vbox">
+    <section class="scrollable padder m-t-lg">
+      <div class="col-sm-12">
+        <section class="panel panel-default" >
+          <header class="panel-heading" style="background:#FFF;">
+            <h3 style="color:#717171;">Update Item Category</h3>
+          </header>
+          <div class="panel-body">
+            <%= form_for @item_category, html: {class: "bs-example form-horizontal"} do |f|  %>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Name<span class="text-danger">*</span></label>
+                  <div class="col-lg-10">
+                    <%= f.text_field :name, class: "form-control" , required: true%>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Description</label>
+                  <div class="col-lg-10">
+                    <%=f.text_area :description, :class=>"form-control",:rows => 12%>
+                    <span class="help-block m-b-none ">Give some information about the item category</span>
+                  </div>
+                </div>
+                <div class="line line-dashed line-lg pull-in"></div>
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                    <%= f.submit :class=>"btn btn-primary" %>
+                    <%= button_tag "Cancel", :type => 'reset',:class=>"btn" %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>
+  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+</section>
+
+<script>
+    $('#edit_item_category_<%= @item_category.id%>').validate();
+</script>
