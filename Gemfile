@@ -36,6 +36,7 @@ gem 'will_paginate-bootstrap', '1.0.1'
 # For Featuring
 #------------------------------------------
 gem 'country_select'
+gem 'mailgun_rails'
 
 
 group :doc do

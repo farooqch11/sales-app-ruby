@@ -80,6 +80,38 @@ PushvendorPos::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  # config.action_mailer.smtp_settings = {
+  #     :address              => "smtp.gmail.com",
+  #     :port                 => 587,
+  #     :user_name            => ENV['gmail_username'],
+  #     :password             => ENV['gmail_password'],
+  #     :authentication       => "plain",
+  #     :enable_starttls_auto => true
+  # }
+
+  # SMTP settings for mailgun
+  # ActionMailer::Base.smtp_settings = {
+  #     :port           => 587,
+  #     :address        => "smtp.mailgun.org",
+  #     :domain         => ENV['domain'],
+  #     :user_name      => ENV['username'],
+  #     :password       => ENV['password'],
+  #     :authentication => :plain,
+  # }
+
   # for Devise
-  config.action_mailer.default_url_options = { :host => 'http://www.example.com' }
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_url_options = { :host => 'https://tend360.herokuapp.com' }
+
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: "key-bcb280695a70093c5db5a5c044ffed1a",
+      domain: "sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org"
+  }
+
+
+
 end
