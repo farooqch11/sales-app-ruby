@@ -14,11 +14,13 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  item_category_id :integer
+#  company_id       :integer
 #
 
 class Item < ActiveRecord::Base
 	has_many :line_items
 	belongs_to :item_category
+	belongs_to :company
 
 	validates :sku, presence: true, uniqueness: true
 	validates :name, presence: true, uniqueness: true

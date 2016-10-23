@@ -15,7 +15,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Category</label>
-                      <%= f.collection_select :item_category_id, @categories, :id, :name, {prompt: "Select a category"}, {class: "form-control"}  %>
+                      <%= f.collection_select :item_category_id, current_company.item_categories , :id, :name, {prompt: "Select a category"}, {class: "form-control"}  %>
                     </div>
                   </div>
                 </div>

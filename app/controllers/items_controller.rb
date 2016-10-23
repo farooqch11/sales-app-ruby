@@ -2,11 +2,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.paginate(page: params[:page], per_page: 20).where(published: true)
+    @items = current_company.items.paginate(page: params[:page], per_page: 20).where(published: true)
   end
 
   def new
-    @item = Item.new
+    @item = current_company.items.new
   end
 
   def show
@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_company.items.new(item_params)
     @item.published = true
 
     if @item.save
@@ -45,14 +45,14 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.all.where('name ILIKE ?', "%#{params[:search][:item_name]}%")
+    @items = current_company.items.all.where('name ILIKE ?', "%#{params[:search][:item_name]}%")
   end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item
-    @item = Item.find(params[:id])
+    @item = current_company.items.find(params[:id])
     @categories = current_company.item_categories || []
   end
 

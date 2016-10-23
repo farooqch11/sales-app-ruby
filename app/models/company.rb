@@ -29,6 +29,7 @@ class Company < ActiveRecord::Base
   has_many :users , dependent: :destroy
   has_many :customers , dependent: :destroy
   has_many :item_categories , dependent: :destroy
+  has_many :items , dependent: :destroy
   belongs_to :owner, class_name: "User", foreign_key: "owner_id"
   belongs_to :business_type
 
