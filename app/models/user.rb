@@ -53,6 +53,8 @@ class User < ActiveRecord::Base
 
   before_create :set_confirm_password
 
+  before_create :set_username
+
   def is_owner?
     self.company.owner_id == self.id ? true : false
   end
@@ -71,6 +73,10 @@ class User < ActiveRecord::Base
 
   def tend360_url
     Rails.env.development? ? self.company.sub_domain + ".lvh.me:3000" : "tend360.herokuapp.com"
+  end
+
+  def set_username
+    self.username = self.email
   end
 
 
