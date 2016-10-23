@@ -8,4 +8,18 @@
     <!--<i class="fa fa-cog"></i>-->
     <!--</a>-->
   </div>
+  <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+    <li>
+      <% if user_signed_in? %>
+          <a href="<%= dashboard_index_path %>">
+                <span class="thumb-sm avatar pull-left">
+                  <%= image_tag current_user.photo %>
+                </span>
+            <span class="font-bold"><%= current_user.username %></span>
+          </a>
+      <% else %>
+        <%= link_to "Sign In" , new_user_session_path , class: "font-bold" %>
+      <% end %>
+    </li>
+  </ul>
 </header>
