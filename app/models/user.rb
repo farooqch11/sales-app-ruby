@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
   end
 
   def tend360_url
-    Rails.env.development? ? self.company.sub_domain + ".lvh.me:3000" : "tend360.com"
+    Rails.env.development? ? self.company.sub_domain + ".lvh.me:3000" : "tend360.herokuapp.com"
   end
 
 
