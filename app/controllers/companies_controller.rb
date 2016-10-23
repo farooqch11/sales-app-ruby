@@ -9,8 +9,11 @@ class CompaniesController < BaseController
     @company = Company.new(store_params)
     if @company.valid?
       # @company.time_zone = cookies["browser.timezone"] if cookies["browser.timezone"].present?
-      @company.save
-      flash[:success] =  "Registration Successfull. Please confirm your email In order to access your account."
+      if @company.save
+        flash[:success] =  "Registration Successfull. Please confirm your email In order to access your account."
+      else
+        flash.now[:errors] = @company.errors.full_messages
+      end
       # sign_in @store.owner
       return render 'new'
     else
