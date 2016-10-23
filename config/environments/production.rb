@@ -108,22 +108,21 @@ PushvendorPos::Application.configure do
   #     api_key: 'key-bcb280695a70093c5db5a5c044ffed1a',
   #     domain: 'sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org'
   # }
-
+  # for Devise
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_url_options = { :host => 'https://tend360.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
+      :domain               => 'tend360.herokuapp.com',
       :user_name            => "faizuali4@gmail.com",
       :password             => "f8a1i8z4u",
       :authentication       => "plain",
       :enable_starttls_auto => true
   }
 
-  
-  # for Devise
-  config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = { :host => 'https://tend360.herokuapp.com' }
 
 
 
