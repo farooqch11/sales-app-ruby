@@ -118,7 +118,7 @@ PushvendorPos::Application.configure do
       :port                 => 587,
       :domain               => 'tend360.herokuapp.com',
       :user_name            => "faizuali4@gmail.com",
-      :password             => "f8a1i8z4u",
+      :password             => "faizanahmad04",
       :authentication       => "plain",
       :enable_starttls_auto => true
   }
