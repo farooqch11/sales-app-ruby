@@ -34,18 +34,18 @@ PushvendorPos::Application.configure do
   # config.action_mailer.delivery_method = :letter_opener
   # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-      api_key: 'key-bcb280695a70093c5db5a5c044ffed1a',
-      domain: 'sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org'
-  }
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #     api_key: 'key-bcb280695a70093c5db5a5c044ffed1a',
+  #     domain: 'sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org'
+  # }
 
   # SMTP settings for gmail
   # config.action_mailer.smtp_settings = {
   #     :address              => "smtp.gmail.com",
   #     :port                 => 587,
   #     :user_name            => 'faizuali4@gmail.com',
-  #     :password             => 'f8a1i8z4u',
+  #     :password             => 'faizanahmad04',
   #     :authentication       => "plain",
   #     :enable_starttls_auto => true
   # }
@@ -76,8 +76,8 @@ PushvendorPos::Application.configure do
 
   config.eager_load = true
   config.action_mailer.default_url_options = { :host => 'https://tend360.herokuapp.com' }
-  # config.action_mailer.delivery_method = :letter_opener
-  # config.action_mailer.default_url_options = {host: 'lvh.me'}
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = {host: 'lvh.me'}
 
   # Do not compress assets
   config.assets.compress = false
