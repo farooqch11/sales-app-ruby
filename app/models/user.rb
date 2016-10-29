@@ -31,6 +31,9 @@
 #  can_remove_sales         :boolean          default(FALSE)
 #  created_at               :datetime
 #  updated_at               :datetime
+#  salary                   :float
+#  skills                   :string
+#  role_id                  :integer
 #
 # Indexes
 #
@@ -51,18 +54,96 @@ class User < ActiveRecord::Base
 
   # validates :username, :presence => true, :uniqueness => true
   belongs_to :company
+  belongs_to :role
 
   before_create :set_confirm_password
 
   before_create :set_username
 
+  before_save  :set_user_role
+
   def is_owner?
     self.company.owner_id == self.id ? true : false
   end
 
+  def set_user_role
+    # modules
+    # A. User/account & setting
+    # B. Home/Dashboard per location
+    # C. Home/Dashboard for all locations
+    # D. INVENTORY MANAGEMENT                            =     can_update_items
+    # E. Employee/payroll management                     =     can_update_users
+    # F. Expenses
+    # G. customers/Vendors
+    # H. social media management
+    # I. SAles/pos                                       =     can_remove_sales
+    # J. Bank reconciliations per location
+    # K. Bank reconciliations for all locations
+
+    # Role Number 1: General Manager (A, B, C, D, E, F, G,H, I, J,K)
+    # Role Number 2: Store Manager/ Supervisor    (B,E,F,J,D,I)
+    # Role Number 3: Cashier (managing the POS for location assigned) (I,J)
+    # Role Number 4: Customer Service Manager (G,H)
+    # Role Number 5: Inventory Manager (D,F)
+    # Role Number 6: Warehouse manager: (D&F for All the materials across all locations)
+
+    self.can_update_sale_discount = false
+    self.can_update_users         = false
+    self.can_update_items         = false
+    self.can_update_configuration = false
+    self.can_view_reports         = false
+    self.can_remove_sales         = false
+
+    if self.is_general_manager?
+      self.can_update_sale_discount = true
+      self.can_update_users         = true
+      self.can_update_items         = true # D
+      self.can_update_configuration = true
+      self.can_view_reports         = true
+      self.can_remove_sales         = true
+    elsif self.is_store_manager?
+      self.can_update_users         = true # E
+      self.can_update_items         = true # D
+      self.can_remove_sales         = true # I
+    elsif self.is_cashier?
+      self.can_remove_sales         = true # I
+    elsif self.is_inventory_manager?
+      self.can_update_items         = true # D
+    elsif self.is_warehouse_manager?
+      self.can_update_items         = true # D
+
+    end
+  end
+
+  def is_general_manager?
+    self.role_id == Role.general_manager.id
+  end
+
+  def is_cashier?
+    self.role_id == Role.cashier.id
+  end
+
+  def is_inventory_manager?
+    self.role_id == Role.inventory_manager.id
+  end
+
+  def is_store_manager?
+    self.role_id == Role.store_manager.id
+  end
+
+  def is_warehouse_manager?
+    self.role_id == Role.warehouse_manager.id
+  end
+
+  def is_customer_service_manager?
+    self.role_id == Role.customer_service_manager.id
+  end
+
+
   def company_name
     self.company.company_name.blank? ? "Tend360 Point of Sale" : self.company.company_name
   end
+
 
   def company_description
     self.company.company_description.blank? ? "Tend360 Point of Sale" : self.company.company_description

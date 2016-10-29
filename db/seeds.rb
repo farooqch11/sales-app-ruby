@@ -18,6 +18,19 @@
                           {name: 'Transportation'},
 													{name: 'Other'}])
 
+    Role.create!([{id: 1 , name: "General Manager"},
+                  {id: 2 , name: "Store Manager/ Supervisor"} ,
+                  {id: 3 , name: "Cashier"} ,
+                  {id: 4 , name: "Customer Service Manager"},
+                  {id: 5 , name: "Inventory Manager"},
+                  {id: 6 , name: "Warehouse manager"}])
+
+company = User.find_by_email("faizan@faizan.com").company
+
+for i in (1..2000)
+  company.users.create(:email => "#{i}Name@Name#{i}.com", role_id: 1 , password: '1234zxcv' , password_confirmation: '1234zxcv' , username: "#{i}Name" )
+end
+
 # store = Company.last
 # for i in (1..2000)
 #   store.item_categories.create(:name => "#{i}Name", :description => "#{i}Description" )

@@ -127,6 +127,8 @@ PushvendorPos::Application.routes.draw do
   resources :item_categories
   resources 'companies'
 
+  get "/configuration" => "companies#show"
+
   resources :reports do
     collection do
       get 'total_report'
