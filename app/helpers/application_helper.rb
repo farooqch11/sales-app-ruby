@@ -59,6 +59,6 @@ module ApplicationHelper
   end
 
   def config
-    @store
+    current_company
   end
 end

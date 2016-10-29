@@ -4,7 +4,7 @@
 #
 #  id                       :integer          not null, primary key
 #  company_id               :integer
-#  username                 :string
+#  username                 :string           default(""), not null
 #  email                    :string           default(""), not null
 #  encrypted_password       :string           default(""), not null
 #  photo                    :string
@@ -34,11 +34,12 @@
 #
 # Indexes
 #
+#  index_users_on_company_id            (company_id)
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
-#  index_users_on_username              (username)
+#  index_users_on_username              (username) UNIQUE
 #
 
 class User < ActiveRecord::Base

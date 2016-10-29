@@ -9,6 +9,10 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+# Indexes
+#
+#  index_item_categories_on_company_id  (company_id)
+#
 
 class ItemCategory < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
