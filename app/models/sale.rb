@@ -12,6 +12,7 @@
 #  comments         :text
 #  created_at       :datetime
 #  updated_at       :datetime
+#  company_id       :integer
 #
 
 class Sale < ActiveRecord::Base

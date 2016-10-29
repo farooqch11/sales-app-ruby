@@ -24,6 +24,10 @@
 //= require jquery.validate
 //= require amaran/jquery.amaran
 //= require amaran/jquery.amaran.min
+//= require appear/jquery.appear
+//= require scroll/smoothscroll
+//= require landing
+
  function showWebUrl() {
      $("#web-url").show();
      $("#web-url").html("<b style='color:#424748;'>Company URL </b>- <b>http://" + $('#store_store_name').val().toLowerCase().replace(/ /g,'').replace(/[^\w-]+/g,'').replace(/[_]+/g,'-') + ".tend360.com</b>");

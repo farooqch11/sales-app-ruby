@@ -1,5 +1,5 @@
 class SalesController < ApplicationController
-  before_action :set_store
+  # before_action :set_store
 
   def index
     @sales = Sale.paginate(page: params[:page], per_page: 2).order('id DESC')
@@ -338,10 +338,10 @@ class SalesController < ApplicationController
   end
 
   def get_tax_rate
-    if @store.tax_rate.blank?
+    if current_company.tax_rate.blank?
       return 0.00
     else
-      return @store.tax_rate.to_f * 0.01
+      return current_company.tax_rate.to_f * 0.01
     end
   end
 end

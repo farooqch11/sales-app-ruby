@@ -16,8 +16,19 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #
+# Indexes
+#
+#  index_customers_on_company_id  (company_id)
+#
 
 class Customer < ActiveRecord::Base
   has_many :sales
   belongs_to :company
+
+  before_save :set_currency
+
+  def set_currency
+    self.currency = '$'
+  end
+
 end
