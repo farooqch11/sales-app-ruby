@@ -47,7 +47,7 @@ class CompaniesController < BaseController
 
   def set_new_company
     @company = Company.new
-    @company.build_owner
+    @company.build_owner(role_id: Role.general_manager.id)
   end
 
   # Use callbacks to share common setup or constraints between actions.
