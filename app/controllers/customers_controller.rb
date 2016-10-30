@@ -2,36 +2,38 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customers = @store.customers.paginate(page: params[:page], per_page: 20).where(published: true)
+    @customers = current_company.customers.paginate(page: params[:page], per_page: 20).where(published: true)
   end
 
   def new
-    @customer = @store.customers.new
+    @customer = current_company.customers.new
   end
 
   def show
   end
 
   def edit
-    @customer = @store.customers.find(params[:id])
+    @customer = current_company.customers.find(params[:id])
   end
 
   def create
-    @customer = @store.customers.new(customer_params)
+    @customer = current_company.customers.new(customer_params)
 
     if @customer.save
-      flash[:notice] = 'Customer was successfully created.'
+      flash[:success] = 'Customer was successfully created.'
       redirect_to @customer
     else
+      flash[:errors] = @customer.errors.full_messages
       render action: 'new'
     end
   end
 
   def update
     if @customer.update(customer_params)
-      flash[:notice] = 'Customer was successfully updated.'
+      flash[:success] = 'Customer was successfully updated.'
       redirect_to @customer
     else
+      flash[:errors] = @customer.errors.full_messages
       render action: 'edit'
     end
   end
@@ -39,7 +41,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer.published = false
     @customer.save
-
+    flash[:success] = 'Successfully Deleted.'
     redirect_to customers_url
   end
 
@@ -47,13 +49,13 @@ class CustomersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_customer
-    @customer = @store.customers.find(params[:id])
+    @customer = current_company.customers.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_params
     params.require(:customer).permit(:first_name,
-                                     :store_id,
+                                     :company_id,
                                      :last_name,
                                      :phone_number,
                                      :email_address,

@@ -92,16 +92,15 @@
                 </li>
               </ul>
             </li>
-            <% if current_user.can_update_users  == true %>
-                <li  class="<%= "#"  %>">
-                  <a href="<%= "#" %>"  class="<%= "#"  %>" >
+
+                <li  class="<%= customers_active  %>">
+                  <a href="<%= customers_path %>"  class="<%= customers_active  %>" >
                     <i class="fa fa-user icon">
-                      <b class="bg-warning"></b>
+                      <b class="bg-dark"></b>
                     </i>
-                    <span>Customers</span>
+                    <span>CUSTOMERS</span>
                   </a>
                 </li>
-            <% end %>
 
             <% if current_user.can_update_users  == true %>
                 <li  class="<%= "#"  %>">
@@ -109,7 +108,7 @@
                     <i class="fa fa-user icon">
                       <b class="bg-danger"></b>
                     </i>
-                    <span>Orders</span>
+                    <span>SALES</span>
                   </a>
                 </li>
             <% end %>

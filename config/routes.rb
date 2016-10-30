@@ -153,7 +153,7 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
-  # resources :customers
+  resources :customers
 
   resources :items do
     get 'search'
