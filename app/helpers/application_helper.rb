@@ -1,6 +1,6 @@
 module ApplicationHelper
   def raw_sales
-    sales = Sale.all
+    sales = current_company.sales || []
     total = 0.00
     for sale in sales
       unless sale.total_amount.blank?
@@ -12,7 +12,7 @@ module ApplicationHelper
 
 
   def payment_total
-    payments = Payment.all
+    payments = current_company.payments || []
     payment_total = 0.00
     for payment in payments
       payment_total += payment.amount.blank? ? 0.00 : payment.amount_after_change
@@ -28,7 +28,7 @@ module ApplicationHelper
 
   def sales_total_today
     total = 0.00
-    sales = Payment.where("created_at >= ?", Time.zone.now.beginning_of_day)
+    sales = current_company.payments.where("payments.created_at >= ?", Time.zone.now.beginning_of_day) || []
     for sale in sales
       total += sale.amount
     end
@@ -60,6 +60,10 @@ module ApplicationHelper
 
   def customers_active
     active_class? 'customers'
+  end
+
+  def reports_active
+    active_class? 'reports'
   end
 
   def config

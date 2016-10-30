@@ -12,6 +12,7 @@
 
 class Payment < ActiveRecord::Base
   belongs_to :sale
+  belongs_to :company
 
   def amount_after_change
     value = self.sale.total_amount - self.amount

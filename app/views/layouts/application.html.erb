@@ -26,7 +26,10 @@
           <% end %>
           <section>
             <section class="hbox stretch">
-              <%= render partial: 'template/left_aside' if params[:controller] != "sales" && params[:action] != "edit"%>
+              <% if params[:controller].downcase != "sales" && params[:action].downcase != "edit" %>
+              <% end %>
+                <%= render partial: 'template/left_aside'%>
+
               <%= yield %>
               <%= yield :javascript %>
             </section>
