@@ -54,7 +54,7 @@ class Company < ActiveRecord::Base
   private
 
   def set_owner_company_id
-    self.owner.update_columns({company_id: id})
+    self.owner.update_columns({company_id: id ,role_id: Role.general_manager.id, can_update_users: true , can_update_items: true , can_update_configuration: true , can_view_reports: true , can_update_sale_discount: true , can_remove_sales: true})
   end
 
   def set_company_domian

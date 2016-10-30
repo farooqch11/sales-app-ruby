@@ -16,12 +16,12 @@ class CompaniesController < BaseController
   def create
 
     @company = Company.new(store_params)
-    if @company.valid? && @company.save
+    if @company.valid? && @company.owner.valid? && @company.save
       # @company.time_zone = cookies["browser.timezone"] if cookies["browser.timezone"].present?
       flash[:success] =  "Registration Successfull. Please confirm your email In order to access your account."
       redirect_to root_path
     else
-      flash.now[:errors] = @company.errors.full_messages
+      flash.now[:errors] = @company.errors.full_messages + @company.owner.errors.full_messages
       return render 'new'
     end
   end
@@ -61,7 +61,7 @@ class CompaniesController < BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def store_params
-    params.require(:company).permit(:company_name,:business_type_id , :country , owner_attributes:[:id, :email, :password, :password_confirmation])
+    params.require(:company).permit(:company_name,:business_type_id , :country , owner_attributes:[:id, :email, :password, :role_id ,  :password_confirmation])
                                                 # :store_description,
                                                 # :sub_domain,
                                                 # :address,

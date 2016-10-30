@@ -16,7 +16,7 @@ class Role < ActiveRecord::Base
   end
 
   def self.store_manager
-    find_by_name("Store Manager")
+    find_by_name("Store Manager/ Supervisor")
   end
 
 

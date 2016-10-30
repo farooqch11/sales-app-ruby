@@ -61,7 +61,9 @@ class User < ActiveRecord::Base
 
   before_create :set_username
 
-  before_save  :set_user_role
+  # after_create  :set_user_role
+
+  before_save :set_user_role
 
   def is_owner?
     self.company.owner_id == self.id ? true : false
@@ -112,7 +114,6 @@ class User < ActiveRecord::Base
       self.can_update_items         = true # D
     elsif self.is_warehouse_manager?
       self.can_update_items         = true # D
-
     end
   end
 
