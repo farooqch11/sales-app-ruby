@@ -55,7 +55,7 @@ module ApplicationHelper
   end
 
   def item_categories_active
-    active_class? 'item_categories'
+    params[:controller] == 'item_categories' ||  params[:controller] == 'items' ? 'active' : ''
   end
 
   def customers_active
