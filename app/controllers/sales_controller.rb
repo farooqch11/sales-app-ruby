@@ -2,11 +2,11 @@ class SalesController < ApplicationController
   # before_action :set_store
 
   def index
-    @sales = Sale.paginate(page: params[:page], per_page: 2).order('id DESC')
+    @sales = current_company.sales.paginate(page: params[:page], per_page: 2).order('id DESC')
   end
 
   def new
-    @sale = Sale.create
+    @sale = current_user.sales.create(company_id: current_company.id)
     redirect_to controller: 'sales', action: 'edit', id: @sale.id
   end
 
@@ -19,8 +19,8 @@ class SalesController < ApplicationController
     @sale.line_items.build
     @sale.payments.build
 
-    @custom_item = Item.new
-    @custom_customer = Customer.new
+    @custom_item = current_company.items.new
+    @custom_customer = current_company.customers.new
   end
 
   def destroy
@@ -43,11 +43,11 @@ class SalesController < ApplicationController
     populate_items
 
     if params[:search][:item_category].blank?
-      @available_items = Item.all.where('name ILIKE ? AND published = true OR description ILIKE ? AND published = true OR sku ILIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").limit(5)
+      @available_items = current_company.items.all.where('name ILIKE ? AND published = true OR description ILIKE ? AND published = true OR sku ILIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").limit(5)
     elsif params[:search][:item_name].blank?
-      @available_items = Item.where(item_category_id: params[:search][:item_category]).limit(5)
+      @available_items = current_company.items.where(item_category_id: params[:search][:item_category]).limit(5)
     else
-      @available_items = Item.all.where('name ILIKE ? AND published = true AND item_category_id = ? OR description ILIKE ? AND published = true AND item_category_id = ? OR sku ILIKE ? AND published = true AND item_category_id = ?', "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}").limit(5)
+      @available_items = current_company.items.all.where('name ILIKE ? AND published = true AND item_category_id = ? OR description ILIKE ? AND published = true AND item_category_id = ? OR sku ILIKE ? AND published = true AND item_category_id = ?', "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}").limit(5)
     end
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class SalesController < ApplicationController
   def update_customer_options
     set_sale
     populate_items
-    @available_customers = Customer.all.where('last_name ILIKE ? AND published = true OR first_name ILIKE ? AND published = true OR email_address ILIKE ? AND published = true OR phone_number ILIKE ? AND published = true', "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%").limit(5)
+    @available_customers = current_company.customers.all.where('last_name ILIKE ? AND published = true OR first_name ILIKE ? AND published = true OR email_address ILIKE ? AND published = true OR phone_number ILIKE ? AND published = true', "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%").limit(5)
 
     respond_to do |format|
       format.js { ajax_refresh }
@@ -153,7 +153,7 @@ class SalesController < ApplicationController
     set_sale
     populate_items
 
-    custom_item = Item.new
+    custom_item = current_company.items.new
     custom_item.sku = "CI#{(rand(5..30) + rand(5..30)) * 11}_#{(rand(5..30) + rand(5..30)) * 11}"
     custom_item.name = params[:custom_item][:name]
     custom_item.description = params[:custom_item][:description]
@@ -181,7 +181,7 @@ class SalesController < ApplicationController
     set_sale
     populate_items
 
-    custom_customer = Customer.new
+    custom_customer = current_company.customers.new
     custom_customer.first_name = params[:custom_customer][:first_name]
     custom_customer.last_name = params[:custom_customer][:last_name]
     custom_customer.email_address = params[:custom_customer][:email_address]
@@ -210,7 +210,7 @@ class SalesController < ApplicationController
 
   def override_price
     @sale = Sale.find(params[:override_price][:sale_id])
-    item = Item.where(sku: params[:override_price][:line_item_sku]).first
+    item = current_company.items.where(sku: params[:override_price][:line_item_sku]).first
     line_item = LineItem.where(sale_id: params[:override_price][:sale_id], item_id: item.id).first
     line_item.price = params[:override_price][:price].gsub('$', '')
     line_item.save
@@ -224,7 +224,7 @@ class SalesController < ApplicationController
   end
 
   def sale_discount
-    @sale = Sale.find(params[:sale_discount][:sale_id])
+    @sale = current_company.sales.find(params[:sale_discount][:sale_id])
 
     @sale.discount = params[:sale_discount][:discount]
     @sale.save
@@ -290,12 +290,12 @@ class SalesController < ApplicationController
     if @sale.blank?
       if params[:sale_id].blank?
         if params[:search].blank?
-          @sale = Sale.find(params[:id])
+          @sale = current_company.sales.find(params[:id])
         else
-          @sale = Sale.find(params[:search][:sale_id])
+          @sale = current_company.sales.find(params[:search][:sale_id])
         end
       else
-        @sale = Sale.find(params[:sale_id])
+        @sale = current_company.sales.find(params[:sale_id])
       end
     end
   end
@@ -306,6 +306,8 @@ class SalesController < ApplicationController
                                  :tax,
                                  :discount,
                                  :total_amount,
+                                 :user_id,
+                                 :company_id,
                                  :tax_paid,
                                  :amount_paid,
                                  :paid,
@@ -317,22 +319,22 @@ class SalesController < ApplicationController
   end
 
   def populate_items
-    @available_items = Item.all.where(published: true).limit(5)
+    @available_items = current_company.items.all.where(published: true).limit(5)
   end
 
   def populate_customers
-    @available_customers = Customer.all.where(published: true).limit(5)
+    @available_customers = current_company.customers.all.where(published: true).limit(5)
   end
 
   def remove_item_from_stock(item_id, quantity)
-    item = Item.find(item_id)
+    item = current_company.items.find(item_id)
     item.stock_amount = item.stock_amount - quantity
     item.amount_sold += quantity
     item.save
   end
 
   def return_item_to_stock(item_id, quantity)
-    item = Item.find(item_id)
+    item = current_company.items.find(item_id)
     item.stock_amount = item.stock_amount + quantity
     item.save
   end

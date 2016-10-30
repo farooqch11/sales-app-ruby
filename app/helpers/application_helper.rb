@@ -58,6 +58,10 @@ module ApplicationHelper
     active_class? 'item_categories'
   end
 
+  def customers_active
+    active_class? 'customers'
+  end
+
   def config
     current_company
   end

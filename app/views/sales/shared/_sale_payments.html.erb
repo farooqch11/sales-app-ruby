@@ -1,4 +1,4 @@
-<h4 class="text-primary"><span class="glyphicon glyphicon-credit-card"></span> Payments</h4>
+<h4 class="text-info"><span class="glyphicon glyphicon-credit-card"></span> Payments</h4>
   <hr class="hidden-print" />
 
   <table class="table table-striped table-bordered table-hover">
@@ -30,13 +30,13 @@
   </table>
 
 <% if @sale.remaining_balance <= 0.00 && @sale.payments.count > 0 %>
-  <div class="alert alert-success hidden-print">Payment Complete</div>
-  Change Due: <%= number_to_currency(@sale.change_due, unit: config.currency) %>
+  <div class="alert alert-info hidden-print">Payment Complete</div>
+  Change Due: <%= number_to_currency(@sale.change_due, unit: current_company.currency) %>
 <% else %>
-  <h4 class="text-primary hidden-print"><span class="glyphicon glyphicon-shopping-cart"></span> Balance</h4>
+  <h4 class="text-info hidden-print"><span class="glyphicon glyphicon-shopping-cart"></span> Balance</h4>
 
   <div class="alert alert-danger hidden-print">
-    <%= number_to_currency(@sale.remaining_balance, unit: config.currency) %>
+    <%= number_to_currency(@sale.remaining_balance, unit: current_company.currency) %>
   </div>
 
 
@@ -44,7 +44,7 @@
 
   <% unless @sale.total_amount.blank? %>
     <!-- Button trigger modal -->
-    <button class="btn btn-primary btn-lg hidden-print" data-toggle="modal" data-target="#makePayment">
+    <button class="btn btn-info btn-lg hidden-print" data-toggle="modal" data-target="#makePayment">
       Make Payment
     </button>  
   <% end %>

@@ -37,6 +37,8 @@ gem 'will_paginate-bootstrap', '1.0.1'
 #------------------------------------------
 gem 'country_select'
 gem 'mailgun_rails'
+gem 'countries'
+gem 'currencies'
 
 
 group :doc do

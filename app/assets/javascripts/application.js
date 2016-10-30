@@ -25,4 +25,5 @@
 //= require libs/underscore-min
 //= require fuelux/fuelux
 //= require fuelux/demo.datagrid
+//= require select2/select2.min
 //= require_tree .

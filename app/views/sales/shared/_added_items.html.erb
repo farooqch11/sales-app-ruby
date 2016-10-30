@@ -20,7 +20,7 @@
             <td><%= e.text_field :name, :class => "form-control", :placeholder => "Item", :readonly => true %></td>
             <td><%= e.text_area :description, :class => "form-control", :placeholder => "Description", :readonly => true %></td>
             <td>
-              <input type="text" id="line_item_price" class='form-control price_control' value="<%= number_to_currency(@line_item.price, unit: config.currency) %>">
+              <input type="text" id="line_item_price" class='form-control price_control' value="<%= number_to_currency(@line_item.price, unit: current_company.currency) %>">
             </td>
             <td class="amount">
               <%= text_field(:line_item, :quantity, :class => 'form-control price_control', :readonly => 'readonly') %>
@@ -34,7 +34,7 @@
                 <% end %>
               </div>
             </td>
-            <td><input class="form-control" type="text" value="<%= number_to_currency(@line_item.total_price, unit: config.currency) %>" placeholder="Total Price" readonly="readonly"></td>
+            <td><input class="form-control" type="text" value="<%= number_to_currency(@line_item.total_price, unit: current_company.currency) %>" placeholder="Total Price" readonly="readonly"></td>
           </tr>
         <% end %>
       <% end %>

@@ -1,93 +1,70 @@
 <%= fields_for @user do |f|%>
-  <%= render :partial => 'template/form_errors', :object => @user %>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">User Details</div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>Email</label>
-            <%= f.text_field :email, :class => "form-control", :placeholder => "Email Address" %>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>User Name</label>
-            <%= f.text_field :username, :class => "form-control", :placeholder => "User Name" %>
-          </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>User Name</label>
+          <%= f.text_field :username, :class => "form-control input-lg ", :placeholder => "Enter Employee Name" %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>Password</label>
-            <%= f.text_field :password, :class => "form-control", :placeholder => "Secret Password", :type => "password" %>
-          </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Email<span class="text-danger"> *</span></label>
+          <%= f.text_field :email, required: true , :class => "form-control input-lg ", :placeholder => "Email Address" %>
         </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>Password Confirmation</label>
-            <%= f.text_field :password, :class => "form-control", :placeholder => "Secret Password", :type => "password" %>
-          </div>
+      </div>
+
+
+    </div>
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Salary</label>
+          <%= f.text_field :salary, :class => "form-control input-lg ", :placeholder => "Enter Salary" %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Skills</label>
+          <%= f.text_field :skills, :class => "form-control input-lg ", :placeholder => "Enter Employee Skills" %>
         </div>
       </div>
     </div>
-  </div>
 
-  <% unless @user.id.blank? || @user.id == 1 %>
-    <div class="panel panel-default">
-      <div class="panel-heading">Permissions</div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="checkbox">
-              <label>
-                <%= f.check_box :can_update_configuration %>
-                Can change store configuration
-              </label>
-            </div>
-            <div class="checkbox">
-              <label>
-                <%= f.check_box :can_update_users %>
-                Can update users
-              </label>
-            </div>
-            <div class="checkbox">
-              <label>
-                <%= f.check_box :can_update_items %>
-                Can update items
-              </label>
-            </div>
-            <div class="checkbox">
-              <label>
-                <%= f.check_box :can_view_reports %>
-                Can view reports
-              </label>
-            </div>
-            <!-- <div class="checkbox">
-              <label>
-                <%= f.check_box :can_update_sale_discount %>
-                Can give discounts
-              </label>
-            </div> -->
-            <div class="checkbox">
-              <label>
-                <%= f.check_box :can_remove_sales %>
-                Can delete sales
-              </label>
-            </div>
-          </div>
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Password<span class="text-danger"> *</span></label>
+          <%= f.text_field :password, :class => "form-control input-lg ", :placeholder => "Secret Password", :type => "password" , required: true %>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Password Confirmation</label>
+          <%= f.text_field :password, required: true , :class => "form-control input-lg ", :placeholder => "Secret Password", :type => "password" %>
         </div>
       </div>
     </div>
-  <% end %>
 
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label>Role<span class="text-danger"> *</span></label>
+        <%= f.select(:role_id, @roles.collect {|role| [ role.name, role.id ] }, {prompt: 'Select Employee Role'} ,required: true , class: "form-control input-lg select2-container select2-container-active" ) %>
+      </div>
 
-
-  <div class="row">
-  <div class="col-sm-12">
-    <%= f.submit 'Update User', :class => "btn btn-success btn-lg" %>
-  </div>
-</div>
+    </div>
+    <div class="line line-dashed line-lg pull-in"></div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <%= f.submit :class=>"btn btn-info btn-md" %>
+        <%= button_tag "Cancel", :type => 'reset',:class=>"btn btn-md" %>
+      </div>
+    </div>
 <% end %>
+
+

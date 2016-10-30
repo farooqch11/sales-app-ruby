@@ -28,27 +28,26 @@
                 <i class="fa fa-dashboard icon">
                   <b class="bg-danger"></b>
                 </i>
-                <span>Dashboared</span>
+                <span>HOME</span>
               </a>
             </li>
-            <li  class="<%= users_active  %>">
-              <a href="#"  class="<%= users_active  %>" >
-                <i class="fa fa-user icon">
-                  <b class="bg-warning"></b>
-                </i>
-                        <span class="pull-right">
-                          <i class="fa fa-angle-down text"></i>
-                          <i class="fa fa-angle-up text-active"></i>
-                        </span>
-                <span>Users</span>
-              </a>
-            </li>
+
+            <% if current_user.can_update_users  == true %>
+                <li  class="<%= users_active  %>">
+                  <a href="<%= users_path %>"  class="<%= users_active  %>" >
+                    <i class="fa fa-user icon">
+                      <b class="bg-warning"></b>
+                    </i>
+                    <span>EMPLOYEES</span>
+                  </a>
+                </li>
+            <% end %>
             <li >
               <a href="<%= item_categories_path %>" class="<%= item_categories_active%>" >
                 <i class="fa fa-rocket icon">
                   <b class="bg-success"></b>
                 </i>
-                <span>sales</span>
+                <span>Expenses</span>
               </a>
             </li>
             <li >
@@ -59,6 +58,8 @@
                 <span>Reports</span>
               </a>
             </li>
+
+
             <li class="<%= item_categories_active%>" >
               <a href="#item_category"  class="<%= item_categories_active%>" >
                 <i class="fa fa-file-text icon">
@@ -68,7 +69,7 @@
                           <i class="fa fa-angle-down text"></i>
                           <i class="fa fa-angle-up text-active"></i>
                         </span>
-                <span>Items</span>
+                <span>INVENTORY</span>
               </a>
               <ul class="nav lt">
                 <li >
@@ -91,6 +92,26 @@
                 </li>
               </ul>
             </li>
+
+                <li  class="<%= customers_active  %>">
+                  <a href="<%= customers_path %>"  class="<%= customers_active  %>" >
+                    <i class="fa fa-user icon">
+                      <b class="bg-dark"></b>
+                    </i>
+                    <span>CUSTOMERS</span>
+                  </a>
+                </li>
+
+            <% if current_user.can_update_users  == true %>
+                <li  class="<%= "#"  %>">
+                  <a href="<%= "#" %>"  class="<%= "#"  %>" >
+                    <i class="fa fa-user icon">
+                      <b class="bg-danger"></b>
+                    </i>
+                    <span>SALES</span>
+                  </a>
+                </li>
+            <% end %>
           </ul>
         </nav>
         <!-- / nav -->

@@ -32,6 +32,7 @@ class Company < ActiveRecord::Base
   has_many :items , dependent: :destroy
   belongs_to :owner, class_name: "User", foreign_key: "owner_id"
   belongs_to :business_type
+  has_many :sales
 
   # validates :company_name,presence: true,uniqueness: {case_sensitive: false}
   validates_length_of :company_name, :minimum => 3,:message => "must be atleat 3 characters"
@@ -44,6 +45,8 @@ class Company < ActiveRecord::Base
 
   before_create :set_company_domian
 
+  before_create :set_currency
+
   def logo
     super.present? ? super : 'logo.png'
   end
@@ -51,10 +54,15 @@ class Company < ActiveRecord::Base
   private
 
   def set_owner_company_id
-    self.owner.update_columns({company_id: id , can_update_users: true , can_update_items: true , can_update_configuration: true , can_view_reports: true , can_update_sale_discount: true , can_remove_sales: true})
+    self.owner.update_columns({company_id: id ,role_id: Role.general_manager.id, can_update_users: true , can_update_items: true , can_update_configuration: true , can_view_reports: true , can_update_sale_discount: true , can_remove_sales: true})
   end
 
   def set_company_domian
     self.sub_domain = self.company_name.parameterize("").gsub("_","-")
+  end
+
+  def set_currency
+    c = ISO3166::Country.find_country_by_alpha2(country.upcase)
+    self.currency = c.currency.symbol
   end
 end

@@ -9,11 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require amaran/amaran.min
+ *= require landing
  *= require bootstrap
  *= require animate
  *= require font-awesome.min
  *= require font
- *= require landing
  *= require app
- *= require style
  */
+.jquery-validate-error{
+  color: red !important;
+}
