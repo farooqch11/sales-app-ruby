@@ -68,7 +68,7 @@
                       <td><%= item.item_category.blank? ? '-' : item.item_category.name %></td>
                       <td><%= item.stock_amount %></td>
                       <td><%= item.amount_sold %></td>
-                      <td><%#= number_to_currency(item.price , unit: config.currency)%></td>
+                      <td><%= number_to_currency(item.price , unit: current_company.currency)%></td>
                       <td class="text-right">
                         <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_item_path(item), class: "btn btn-info"%>
                         <%=link_to raw("<i class= 'fa fa-times'></i>"),item, class: "btn btn-danger",:method => :delete, data: {:confirm => "Are you sure you want to delete this item?"}%>

@@ -50,14 +50,17 @@
                 <span>EXPENSES</span>
               </a>
             </li>
-            <li class="<%= reports_active%>" >
-              <a href="<%= reports_path %>" class="<% reports_active%>" >
-                <i class="fa fa-pencil-square-o icon">
-                  <b class="bg-info"></b>
-                </i>
-                <span>REPORTS</span>
-              </a>
-            </li>
+
+            <% if current_user.can_view_reports %>
+                <li class="<%= reports_active%>" >
+                  <a href="<%= reports_path %>" class="<% reports_active%>" >
+                    <i class="fa fa-pencil-square-o icon">
+                      <b class="bg-info"></b>
+                    </i>
+                    <span>REPORTS</span>
+                  </a>
+                </li>
+            <% end %>
 
 
             <li class="<%= item_categories_active%>" >
