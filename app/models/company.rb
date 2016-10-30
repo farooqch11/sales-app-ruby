@@ -32,6 +32,7 @@ class Company < ActiveRecord::Base
   has_many :items , dependent: :destroy
   belongs_to :owner, class_name: "User", foreign_key: "owner_id"
   belongs_to :business_type
+  has_many :sales
 
   # validates :company_name,presence: true,uniqueness: {case_sensitive: false}
   validates_length_of :company_name, :minimum => 3,:message => "must be atleat 3 characters"

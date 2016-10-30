@@ -19,7 +19,7 @@
 
       <tbody>
         <%= fields_for @sale do |f|%>
-          <%= f.fields_for :customer, Customer.find(@sale.customer.id) do |e| %>
+          <%= f.fields_for :customer, current_company.customers.find(@sale.customer.id) do |e| %>
             <tr>
               <td><%= e.text_field :first_name, :class => "form-control", :placeholder => "First Name", :readonly => true %></td>
               <td><%= e.text_field :last_name, :class => "form-control", :placeholder => "Last Name", :readonly => true %></td>

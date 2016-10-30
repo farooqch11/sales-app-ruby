@@ -13,6 +13,7 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  company_id       :integer
+#  user_id          :integer
 #
 
 class Sale < ActiveRecord::Base
@@ -21,6 +22,8 @@ class Sale < ActiveRecord::Base
   has_many :items, through: :line_items
   has_many :connections, through: :customer
   has_many :payments, dependent: :destroy
+  belongs_to :company
+  belongs_to :users
 
   accepts_nested_attributes_for :line_items, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true

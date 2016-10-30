@@ -2,25 +2,25 @@
   <tbody>
     <tr>
       <td>Base Price: </td>
-      <td><%= number_to_currency(@sale.amount, unit: config.currency) %></td>
+      <td><%= number_to_currency(@sale.amount, unit: current_company.currency) %></td>
     </tr>
     <% unless @sale.discount.blank? %>
       <tr>
         <td>Discount: </td>
-        <td><%= number_to_currency(@sale.get_discounted_amount, unit: config.currency) %></td>
+        <td><%= number_to_currency(@sale.get_discounted_amount, unit: current_company.currency) %></td>
       </tr>
     <% end %>
     <tr>
       <td>Tax: </td>
-      <td><%= number_to_currency(@sale.tax, unit: config.currency) %></td>
+      <td><%= number_to_currency(@sale.tax, unit: current_company.currency) %></td>
     </tr>
     <tr>
       <td>Total Price: </td>
-      <td><%= number_to_currency(@sale.amount, unit: config.currency) %></td>
+      <td><%= number_to_currency(@sale.amount, unit: current_company.currency) %></td>
     </tr>
     <tr>
       <td>Balance: </td>
-      <td><%= number_to_currency(@sale.total_amount, unit: config.currency) %></td>
+      <td><%= number_to_currency(@sale.total_amount, unit: current_company.currency) %></td>
     </tr>
   </tbody>
 </table>

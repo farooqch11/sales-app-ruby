@@ -55,6 +55,7 @@ class User < ActiveRecord::Base
   # validates :username, :presence => true, :uniqueness => true
   belongs_to :company
   belongs_to :role
+  has_many :sales
 
   before_create :set_confirm_password
 
