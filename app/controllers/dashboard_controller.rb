@@ -1,12 +1,12 @@
 class DashboardController < ApplicationController
   def index
-    @recent_sales = Sale.all.order('id DESC').limit(10)
-    @popular_items = Item.all.order('amount_sold DESC').limit(10)
+    @recent_sales  = current_company.sales.all.order('id DESC').limit(10)
+    @popular_items = current_company.items.all.order('amount_sold DESC').limit(10)
   end
 
   def create_sale_with_product
-    @sale = Sale.create
-    item = Item.find(params[:item_id])
+    @sale = current_company.sales.create
+    item  = current_company.items.find(params[:item_id])
 
     LineItem.create(item_id: params[:item_id].to_i,
                     quantity: params[:quantity].to_i,
@@ -25,10 +25,10 @@ class DashboardController < ApplicationController
   end
 
   def get_tax_rate
-    if @store.tax_rate.blank?
+    if current_company.tax_rate.blank?
       return 0.00
     else
-      return @store.tax_rate.to_f * 0.01
+      return current_company.tax_rate.to_f * 0.01
     end
   end
 end

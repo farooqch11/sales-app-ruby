@@ -66,6 +66,10 @@ module ApplicationHelper
     active_class? 'reports'
   end
 
+  def sales_active
+    active_class? 'sales'
+  end
+
   def config
     current_company
   end
