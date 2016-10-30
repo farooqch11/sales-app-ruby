@@ -56,6 +56,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'User was successfully updated.'
       redirect_to @user
     else
+      flash[:errors] = @user.errors.full_messages
       render action: 'edit'
     end
   end
