@@ -47,7 +47,7 @@
                 <i class="fa fa-rocket icon">
                   <b class="bg-success"></b>
                 </i>
-                <span>Expenses</span>
+                <span>EXPENSES</span>
               </a>
             </li>
             <li class="<%= reports_active%>" >
@@ -62,7 +62,7 @@
 
             <li class="<%= item_categories_active%>" >
               <a href="#item_category"  class="<%= item_categories_active%>" >
-                <i class="fa fa-file-text icon">
+                <i class="fa fa-clipboard icon">
                   <b class="bg-primary"></b>
                 </i>
                         <span class="pull-right">
@@ -95,21 +95,22 @@
 
                 <li  class="<%= customers_active  %>">
                   <a href="<%= customers_path %>"  class="<%= customers_active  %>" >
-                    <i class="fa fa-user icon">
+                    <i class="fa fa-male icon">
                       <b class="bg-dark"></b>
                     </i>
                     <span>CUSTOMERS</span>
                   </a>
                 </li>
-
-                <li  class="<%= sales_active  %>">
-                  <a href="<%= sales_path %>"  class="<%= sales_active  %>" >
-                    <i class="fa fa-user icon">
-                      <b class="bg-danger"></b>
-                    </i>
-                    <span>SALES</span>
-                  </a>
-                </li>
+                <% if current_user.can_update_items %>
+                    <li  class="<%= sales_active  %>">
+                      <a href="<%= sales_path %>"  class="<%= sales_active  %>" >
+                        <i class="fa fa-shopping-cart icon">
+                          <b class="bg-danger"></b>
+                        </i>
+                        <span>SALES</span>
+                      </a>
+                    </li>
+                <% end %>
           </ul>
         </nav>
         <!-- / nav -->

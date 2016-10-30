@@ -2,7 +2,7 @@ class SalesController < ApplicationController
   # before_action :set_store
 
   def index
-    @sales = current_company.sales.paginate(page: params[:page], per_page: 2).order('id DESC')
+    @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order('id DESC')
   end
 
   def new
@@ -209,7 +209,7 @@ class SalesController < ApplicationController
   end
 
   def override_price
-    @sale = Sale.find(params[:override_price][:sale_id])
+    @sale = current_company.sales.find(params[:override_price][:sale_id])
     item = current_company.items.where(sku: params[:override_price][:line_item_sku]).first
     line_item = LineItem.where(sale_id: params[:override_price][:sale_id], item_id: item.id).first
     line_item.price = params[:override_price][:price].gsub('$', '')
