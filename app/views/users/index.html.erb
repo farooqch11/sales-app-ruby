@@ -61,7 +61,7 @@
                       <td><%= user.username %></td>
                       <td><%= user.email %></td>
                       <td><%= user.role.name %></td>
-                      <td><%= user.salary.present? ? user.salary : '-' %></td>
+                      <td><%= number_to_currency(user.salary , unit: current_company.currency)%></td>
                       <td><%= user.confirmed? ? 'Confirmed' : 'Pending'%></td>
                       <td class="text-right">
                         <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_user_path(user), class: "btn btn-info"%>
