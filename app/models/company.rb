@@ -35,11 +35,12 @@ class Company < ActiveRecord::Base
   has_many :sales
 
   has_many :payments, :through => :sales
+  has_many :line_items, :through => :sales
 
   # validates :company_name,presence: true,uniqueness: {case_sensitive: false}
   validates_length_of :company_name, :minimum => 3,:message => "must be atleat 3 characters"
   validates_length_of :company_name, :maximum => 50,:message => "can have maximum of 50 characters"
-  validates :sub_domain ,:uniqueness => true
+  validates :sub_domain , uniqueness: true
 
   accepts_nested_attributes_for :owner
 
@@ -52,6 +53,18 @@ class Company < ActiveRecord::Base
   def logo
     super.present? ? super : 'logo.png'
   end
+
+  def name
+    self.company_name.humanize
+  end
+
+  # def tax_rate
+  #   self.tax_rate.blank? ? 'not configured' : self.tax_rate
+  # end
+
+  # def tax_rate
+  #   self.tax_rate.blank? ? 0.00 : self.tax_rate.to_f * 0.01
+  # end
 
   private
 

@@ -11,7 +11,22 @@
 // about supported directives.
 //
 
-//= require base
+//= require jquery
+//= require jquery_ujs
+//= require jquery.min
+//= require bootstrap.min
+//= require parsley/parsley.extend
+//= require jquery.validate.min
+//= require jquery.validate.extended
+//= require amaran/jquery.amaran
+//= require amaran/jquery.amaran.min
+//= require parsley/parsley.min
+//= require app
+//= require app.plugin
+//= require slimscroll/jquery.slimscroll.min
+//= require appear/jquery.appear
+//= require scroll/smoothscroll
+//= require landing
 //= require charts/easypiechart/jquery.easy-pie-chart
 //= require charts/sparkline/jquery.sparkline.min
 //= require charts/flot/jquery.flot.min
@@ -26,4 +41,6 @@
 //= require fuelux/fuelux
 //= require fuelux/demo.datagrid
 //= require select2/select2.min
-//= require_tree .
+//= require sweetalert.min
+//= require awesomplete.min
+//= require main

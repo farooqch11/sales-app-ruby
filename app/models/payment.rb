@@ -14,13 +14,8 @@ class Payment < ActiveRecord::Base
   belongs_to :sale
   belongs_to :company
 
-  def amount_after_change
-    value = self.sale.total_amount - self.amount
 
-    if value >= 0
-      return self.amount
-    else
-      return self.sale.total_amount
-    end
+  def amount_after_change
+    (self.sale.total_amount - self.amount) >= 0 ? self.amount : self.sale.total_amount
   end
 end

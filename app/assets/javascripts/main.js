@@ -22,7 +22,7 @@ $(document).ready(function(){
 		$.ajax({
       type: "POST",
       url: '/sales/override_price', //sumbits it to the given url of the form
-      data: {override_price: { price: $(this).val(), line_item_sku: $(this).parent().parent().find('.line_item_sku').val(), sale_id: $(document).find('.sale_id').html() }},
+      data: {override_price: { price: $(this).val(), line_item_sku: $(this).parent().parent().find('.line_item_sku').val()} ,id: $('#search_sale_id').val() },
       dataType: "script",
       success: function() {
       	console.log('price updated');
@@ -35,7 +35,7 @@ $(document).ready(function(){
 		$.ajax({
       type: "POST",
       url: '/sales/sale_discount', //sumbits it to the given url of the form
-      data: {sale_discount: { discount: $(this).val(), sale_id: $(document).find('.sale_id').html() }},
+      data: {discount: $(this).val(), id: $('#search_sale_id').val()},
       dataType: "script",
       success: function() {
       	console.log('sale discounted');
@@ -98,16 +98,17 @@ $(document).ready(function(){
 	var input = $('#search_item_name')[0];
 	var sale_id = $('#search_sale_id')[0];
 	  Awesomplete.$.bind(input, {
-		  "awesomplete-selectcomplete": function(evt) {		  	
+		  "awesomplete-selectcomplete": function(evt) {
+              alert(input);
 		   $.ajax({
 		      type: "GET",
 		      url: '/sales/create_line_item', //sumbits it to the given url of the form
-		      data: { item_id: parseInt(input.value.split(".|")[0]), quantity: 1, sale_id: parseInt(sale_id.value)},
+		      data: { item_id: parseInt(input.value.split(".|")[0]), quantity: 1, id:  $('#search_sale_id').val() },
 		      dataType: "script",
 		      success: function() {
 		      	// prepare the search box for the new entry
 		      	input.value = "";
-		      	// console.log('line item created');
+		      	 console.log('line item created');
 		      }
 		    });
 		  }

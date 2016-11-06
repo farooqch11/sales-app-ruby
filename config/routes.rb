@@ -142,7 +142,7 @@ PushvendorPos::Application.routes.draw do
 
   resources :payments do
     collection do
-      get 'make_payment'
+      post 'make_payment'
     end
   end
 
@@ -164,7 +164,7 @@ PushvendorPos::Application.routes.draw do
 
   resources :sales do
     collection do
-      get 'update_line_item_options'
+      post 'update_line_item_options'
       get 'update_customer_options'
       get 'create_line_item'
       get 'update_totals'
@@ -176,6 +176,9 @@ PushvendorPos::Application.routes.draw do
       get 'add_comment'
       post 'override_price'
       post 'sale_discount'
+    end
+    member do
+      get 'invoice'
     end
   end
 

@@ -19,7 +19,7 @@
   		</option>
   	<% end %>
   </select>
-  <span class="input-group-addon"><%=current_company.currency %><%= @sale.discount.blank? ? 0 : number_to_currency(@sale.get_discounted_amount, unit: '') %></span>
+  <span class="input-group-addon"><%=current_company.currency %><%= @sale.discount.blank? ? 0 : number_to_currency(@sale.get_discounted_amount, unit: current_company.currency) %></span>
 </div>
 
 <label>Tax(<%= current_company.tax_rate.blank? ? 'not configured' : current_company.tax_rate %>)</label>
@@ -31,6 +31,6 @@
 
 <label class="text-info">Total Price</label>
 <div class="input-group has-success total_price_output">
-  <span class="input-group-addon price_output"><%=config.currency %></span>
+  <span class="input-group-addon price_output"><%=current_company.currency %></span>
   <input type="text" class="form-control price_output" readonly value=<%= number_to_currency(@sale.total_amount, unit: '') %>>
 </div> 

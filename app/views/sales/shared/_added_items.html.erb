@@ -14,7 +14,7 @@
     <tbody>
       <%= fields_for @sale do |f|%>
         <%= f.fields_for :items do |e| %>
-          <% @line_item = LineItem.where(:sale_id => @sale.id, :item_id => e.object.id).first %>
+          <% @line_item = @sale.line_items.where( item_id: e.object.id).first %>
           <tr>
             <td><%= e.text_field :sku, :class => "form-control line_item_sku", :placeholder => "SKU", :readonly => true %></td>
             <td><%= e.text_field :name, :class => "form-control", :placeholder => "Item", :readonly => true %></td>

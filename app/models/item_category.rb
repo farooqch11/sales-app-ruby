@@ -19,4 +19,6 @@ class ItemCategory < ActiveRecord::Base
 	has_many :items
 	belongs_to :company
 
+	default_scope {order(name: :asc)}
+
 end

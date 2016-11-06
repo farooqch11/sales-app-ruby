@@ -1,6 +1,6 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-signin" }) do |f| %>
 	<%= devise_error_messages! %>
-	<h2 class="form-signin-heading">Tend360</h2>
+	<h2 class="form-signin-heading"><%= SITE_NAME %></h2>
 
   <%= f.email_field :username, :class => 'form-control', :placeholder => 'Email Address' %>
 
@@ -9,6 +9,6 @@
 
   <button class="btn btn-lg btn-info btn-block" type="submit">Sign up</button>
   <%= render "devise/shared/links" %>
-  <p class="copyright">Copyright &copy; 2016 Tend360</p>
+  <p class="copyright">Copyright &copy; 2016 <%= SITE_NAME %></p>
 <% end %>
 

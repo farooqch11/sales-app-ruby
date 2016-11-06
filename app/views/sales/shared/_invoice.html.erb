@@ -1,0 +1,104 @@
+<section id="content">
+  <section class="vbox bg-white">
+    <header class="header b-b b-light hidden-print">
+      <button href="#" class="btn btn-sm btn-info pull-right invoice-<%= @sale.id%>" onClick="window.print();">Print</button>
+      <p>Invoice</p>
+    </header>
+    <section class="scrollable wrapper">
+      <%= image_tag('logo-white.png' ,  class: 'm-r-sm' , style: "height: 50px") %>
+      <!--<i class="fa fa-apple fa fa-3x"></i>-->
+      <div class="row">
+        <div class="col-xs-6">
+          <h4><%= @sale.company.name %></h4>
+          <!--<p><a href="http://www.apple.com">www.apple.com</a></p>-->
+          <!--<p>1 Infinite Loop <br>-->
+          <!--95014 Cuperino, CA<br>-->
+          <!--United States-->
+          <!--</p>-->
+          <!--<p>-->
+          <!--Telephone:  800-692-7753<br>-->
+          <!--Fax:  800-692-7753-->
+          <!--</p>-->
+        </div>
+        <!--<div class="col-xs-6 text-right">-->
+        <!--<p class="h4">#<%#= @sale.id%></p>-->
+        <!--<h5><%#= @sale.updated_at.strftime("%b %d, %Y %I:%M %p") %></h5>-->
+        <!--</div>-->
+      </div>
+      <!--<div class="well m-t">-->
+      <!--<div class="row">-->
+      <!--<div class="col-xs-6">-->
+      <!--<strong>TO:</strong>-->
+      <!--<h4>John Smith</h4>-->
+      <!--<p>-->
+      <!--2nd Floor<br>-->
+      <!--St John Street, Aberdeenshire 2541<br>-->
+      <!--United Kingdom<br>-->
+      <!--Phone: 031-432-678<br>-->
+      <!--Email: youemail@gmail.com<br>-->
+      <!--</p>-->
+      <!--</div>-->
+      <!--<div class="col-xs-6">-->
+      <!--<strong>SHIP TO:</strong>-->
+      <!--<h4>John Smith</h4>-->
+      <!--<p>-->
+      <!--2nd Floor<br>-->
+      <!--St John Street, Aberdeenshire 2541<br>-->
+      <!--United Kingdom<br>-->
+      <!--Phone: 031-432-678<br>-->
+      <!--Email: youemail@gmail.com<br>-->
+      <!--</p>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <p class="m-t m-b">Order date: <strong><%= @sale.updated_at.strftime("%d %b %Y %I:%M %p") %></strong><br>
+        <!--Order status: <span class="label bg-success">Shipped</span><br>-->
+        Order ID: <strong>#<%= @sale.id%></strong>
+      </p>
+      <div class="line"></div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>SKU</th>
+          <th>ITEM</th>
+          <th width="140">UNIT PRICE</th>
+          <th width="60">QTY</th>
+          <th width="90">TOTAL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @sale.line_items.each do |s|%>
+            <tr>
+              <td><%= s.item.sku %></td>
+              <td><%= s.item.name%></td>
+              <td><%= value_in_currency s.price%></td>
+              <td><%= s.quantity%></td>
+              <td><%= value_in_currency s.total_price %></td>
+            </tr>
+        <% end %>
+        <tr>
+          <td colspan="4" class="text-right"><strong>Subtotal</strong></td>
+          <td><%= value_in_currency @sale.amount%></td>
+        </tr>
+
+
+        <tr>
+          <td colspan="4" class="text-right no-border"><strong>VAT Included in Total</strong> (<%= current_company.tax_rate.blank? ? 'not configured' : current_company.tax_rate.to_s + '%' %>)</td>
+          <td><%= value_in_currency @sale.tax%></td>
+        </tr>
+
+        <tr>
+          <td colspan="4" class="text-right no-border"><strong>Discount</strong> (<%= @sale.discount.to_f * 100%>%)</td>
+          <td><%= value_in_currency @sale.get_discounted_amount%></td>
+        </tr>
+
+        <tr>
+          <td colspan="4" class="text-right no-border"><strong>Total</strong></td>
+          <td><strong><%= value_in_currency @sale.total_amount%></strong></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+</section>

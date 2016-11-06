@@ -23,28 +23,24 @@ class Sale < ActiveRecord::Base
   has_many :connections, through: :customer
   has_many :payments, dependent: :destroy
   belongs_to :company
-  belongs_to :users
+  belongs_to :user
 
   accepts_nested_attributes_for :line_items, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
   accepts_nested_attributes_for :payments, allow_destroy: true
 
-  def remaining_balance
-    if self.total_amount.blank?
-      balance = 0.00
-    else
-      balance = self.total_amount - paid_total
-    end
+  before_create :set_company_id
 
-    if balance < 0
-      return 0
-    else
-      return balance.round(2)
-    end
+
+
+  def remaining_balance
+    balance = self.total_amount.blank? ? 0.00 : (self.total_amount - paid_total)
+    return balance < 0 ? 0 : balance.round(2)
   end
 
   def get_discounted_amount
-    self.total_amount * self.discount
+    # self.total_amount * self.discount
+    (self.amount + self.tax)  * self.discount
   end
 
   def paid_total
@@ -73,4 +69,14 @@ class Sale < ActiveRecord::Base
     self.customer_id = customer_id
     self.save
   end
+
+  def final_amount
+    self.amount + self.tax - self.get_discounted_amount
+
+  end
+
+  private
+    def set_company_id
+      self.company = self.user.company
+    end
 end

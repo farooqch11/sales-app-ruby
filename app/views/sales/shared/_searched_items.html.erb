@@ -19,7 +19,7 @@
             <td><%= item.sku %></td>
             <td><%= item.name %></td>
             <td><%= item.description %></td>
-            <td><%= number_to_currency(item.price, unit: config.currency) %></td>
+            <td><%= number_to_currency(item.price, unit: current_company.currency) %></td>
             <td class="add_to_current_sale"><%= link_to url_for(:controller => 'sales', :action => 'create_line_item', :item_id => item.id, :sale_id => @sale.id, :quantity => 1), :remote => true do %><p><span class="glyphicon glyphicon-plus"></span></p><% end %></td>
           </tr>
         <% end %>
