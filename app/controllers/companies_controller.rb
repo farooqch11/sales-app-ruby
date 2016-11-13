@@ -32,8 +32,7 @@ class CompaniesController < BaseController
   end
 
   def update
-    set_configuration
-    authorize! :read, current_company
+    # authorize! :read, current_user
 
     if current_company.update(store_params)
       flash[:notice] = 'Configurations have been successfully updated.'

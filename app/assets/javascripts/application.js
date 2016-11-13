@@ -32,6 +32,8 @@
 //= require charts/flot/jquery.flot.min
 //= require charts/flot/jquery.flot.tooltip.min
 //= require charts/flot/jquery.flot.resize
+//= require charts/flot/jquery.flot.orderBars
+//= require charts/flot/jquery.flot.pie.min
 //= require charts/flot/jquery.flot.grow
 //= require charts/flot/demo
 //= require calendar/bootstrap_calendar
@@ -43,4 +45,6 @@
 //= require select2/select2.min
 //= require sweetalert.min
 //= require awesomplete.min
+//= require datepicker/bootstrap-datepicker
+//= require combodate/combodate
 //= require main

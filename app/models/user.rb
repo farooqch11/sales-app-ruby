@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable , :confirmable, :lockable
 
 
-  # validates :username, :presence => true, :uniqueness => true
+  validates :username, presence: true
   belongs_to :company
   belongs_to :role
   has_many :sales

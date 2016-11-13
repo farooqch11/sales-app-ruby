@@ -46,6 +46,10 @@ module ApplicationHelper
     params[:controller] == controller ? 'active' : ''
   end
 
+  def is_active controller
+    params[:controller] == controller ? 'active' : ''
+  end
+
   def dashboard_active
     active_class? 'dashboard'
   end

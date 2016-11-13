@@ -1,10 +1,12 @@
 <section id="content">
+
   <section class="vbox">
     <section class="scrollable padder">
       <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
         <li><a href="<%= "#" %>"><i class="fa fa-home"></i> Home</a></li>
         <li class="active"><%= current_user.company_name.titleize %></li>
       </ul>
+      <%= render 'template/statistics'%>
       <div class="m-b-md">
         <h3 class="m-b-none"><% current_user.company_name.titleize %></h3>
         <small>Welcome back, <%= current_user.username.present? ? current_user.username.titleize : current_user.email %></small>

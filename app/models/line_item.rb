@@ -17,5 +17,8 @@ class LineItem < ActiveRecord::Base
   belongs_to :item
   belongs_to :company
 
+  #Validations
+  validates :quantity, numericality: { only_integer: true , greater_than: 0 }
+
   
 end

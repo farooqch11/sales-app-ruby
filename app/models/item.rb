@@ -22,8 +22,12 @@ class Item < ActiveRecord::Base
 	belongs_to :item_category
 	belongs_to :company
 
-	validates :sku, presence: true, uniqueness: true
-	validates :name, presence: true, uniqueness: true
+	validates :sku, presence: true
+	validates :name, presence: true
 	validates :price, presence: true
 	validates :stock_amount, presence: true
+
+	validates_uniqueness_of :sku, scope: [:company_id , :sku]
+	validates_uniqueness_of :name, scope: [:company_id , :name]
+
 end

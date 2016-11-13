@@ -13,7 +13,7 @@ class SalesController < ApplicationController
 
   def new
     @sale = current_user.sales.create
-    redirect_to controller: 'sales', action: 'edit', id: @sale.id
+    redirect_to edit_sale_path(@sale)
   end
 
   def edit

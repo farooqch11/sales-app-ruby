@@ -1,4 +1,5 @@
 class CreateRoles < ActiveRecord::Migration
+
   def migrate(direction)
     super
     # Create a default Roles
@@ -9,6 +10,7 @@ class CreateRoles < ActiveRecord::Migration
                   {id: 5 , name: "Inventory Manager"},
                   {id: 6 , name: "Warehouse manager"}])
   end
+
   def change
     create_table :roles do |t|
       t.string :name

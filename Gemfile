@@ -39,6 +39,8 @@ gem 'country_select'
 gem 'mailgun_rails'
 gem 'countries'
 gem 'currencies'
+gem 'activeadmin', github: 'activeadmin'
+gem 'figaro'
 
 
 group :doc do

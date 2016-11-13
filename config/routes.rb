@@ -124,10 +124,15 @@
 
 PushvendorPos::Application.routes.draw do
 
+
+  devise_for :sites, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  resources :expenses
   resources :item_categories
   resources 'companies'
 
-  get "/configuration" => "companies#show"
+  get "/configuration" => "companies#update"
 
   resources :reports do
     collection do
@@ -188,8 +193,8 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
+  # devise_for :users
   devise_for :users
-
   resources :users do
 
     collection do
@@ -197,11 +202,13 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
+  resources :static , only: [:index]
+
   match '/', to: 'companies#new', constraints: { subdomain: 'www' }, via: [:get, :post, :put, :patch, :delete]
   match '/', to: 'dashboard#index', constraints: { subdomain: /.+/ }, via: [:get, :post, :put, :patch, :delete]
 
 
   # match '' , to: 'companies#show' , constraints: lambda {|r| r.subdomain.present? && r.subdomain != "www"}
   #   root 'companies#new'
-    root 'companies#index'
+    root 'static#index'
 end

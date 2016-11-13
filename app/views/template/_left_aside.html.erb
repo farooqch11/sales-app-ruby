@@ -42,8 +42,8 @@
                   </a>
                 </li>
             <% end %>
-            <li >
-              <a href="<%= "#" %>" class="<%= " #" %>" >
+            <li class="<%= is_active 'expenses' %>">
+              <a href="<%= expenses_path %>" class="<%= is_active 'expenses' %>" >
                 <i class="fa fa-rocket icon">
                   <b class="bg-success"></b>
                 </i>
@@ -136,13 +136,13 @@
                 <li >
                   <a href="<%= items_path %>" class="<%= item_categories_active%>" >
                     <i class="fa fa-angle-right"></i>
-                    <span>Items</span>
+                    <span>Bank Reconciliations</span>
                   </a>
                 </li>
                 <li >
                   <a href="<%= items_path %>" class="<%= item_categories_active%>" >
                     <i class="fa fa-angle-right"></i>
-                    <span>Purchase Items</span>
+                    <span>Expenses</span>
                   </a>
                 </li>
               </ul>

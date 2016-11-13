@@ -34,4 +34,4 @@ end
 # store = Company.last
 # for i in (1..2000)
 #   store.item_categories.create(:name => "#{i}Name", :description => "#{i}Description" )
-# end
+# endAdminAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')Site.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

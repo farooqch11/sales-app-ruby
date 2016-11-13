@@ -69,8 +69,8 @@
         <tbody>
         <% @sale.line_items.each do |s|%>
             <tr>
-              <td><%= s.item.sku %></td>
-              <td><%= s.item.name%></td>
+              <td><%= link_to s.item.sku , s.item , target: '_blank' %></td>
+              <td><%= link_to  s.item.name , s.item , target: '_blank'%></td>
               <td><%= value_in_currency s.price%></td>
               <td><%= s.quantity%></td>
               <td><%= value_in_currency s.total_price %></td>

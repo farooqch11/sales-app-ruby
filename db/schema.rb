@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028204137) do
+ActiveRecord::Schema.define(version: 20161111223213) do
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "business_types", force: :cascade do |t|
     t.string   "name"
@@ -56,6 +74,20 @@ ActiveRecord::Schema.define(version: 20161028204137) do
 
   add_index "customers", ["company_id"], name: "index_customers_on_company_id"
 
+  create_table "expenses", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "attachment"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "purpose"
+    t.datetime "paid_time"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "expenses", ["company_id"], name: "index_expenses_on_company_id"
+
   create_table "item_categories", force: :cascade do |t|
     t.integer  "company_id"
     t.string   "name"
@@ -99,6 +131,12 @@ ActiveRecord::Schema.define(version: 20161028204137) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sales", force: :cascade do |t|
     t.decimal  "amount",           precision: 8, scale: 2
     t.decimal  "total_amount",     precision: 8, scale: 2
@@ -110,6 +148,28 @@ ActiveRecord::Schema.define(version: 20161028204137) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_id"
+    t.integer  "user_id"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.string   "name",         null: false
+    t.string   "logo"
+    t.string   "url"
+    t.string   "facebook_url"
+    t.string   "google_url"
+    t.string   "twitter_url"
+    t.string   "map_url"
+    t.text     "description"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "tag_line"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "country"
+    t.string   "address"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -141,6 +201,9 @@ ActiveRecord::Schema.define(version: 20161028204137) do
     t.boolean  "can_remove_sales",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "salary"
+    t.string   "skills"
+    t.integer  "role_id"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id"

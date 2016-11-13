@@ -1,55 +1,71 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Customer Details</div>
-  <div class="panel-body">
+
   <%= form_for(@customer) do |f| %>
-    <%= render :partial => 'template/form_errors', :object => @customer %>
+
+
 
       <div class="row">
         <div class="col-sm-6">
           <label>First Name</label>
-          <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name" %>
+          <div class="form-group">
+            <%= f.text_field :first_name, :class => "form-control input-lg", :placeholder => "First Name" %>
+          </div>
         </div>
         <div class="col-sm-6">
           <label>Last Name</label>
-          <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
+          <div class="form-group">
+            <%= f.text_field :last_name, :class => "form-control input-lg", :placeholder => "Last Name" %>
+          </div>
         </div>
       </div>
 
         <div class="row">
           <div class="col-sm-6">
             <label>Phone Number</label>
-            <%= f.text_field :phone_number, :class => "form-control", :placeholder => "Phone Number" %>
-          </div>
+            <div class="form-group">
+                <%= f.text_field :phone_number, :class => "form-control input-lg", :placeholder => "Phone Number" %>
+            </div>
+            </div>
           <div class="col-sm-6">
             <label>Email Address</label>
-            <%= f.text_field :email_address, :class => "form-control", :id =>  "exampleInputEmail1", :placeholder => "Email Address" %>
-          </div>
+            <div class="form-group">
+                <%= f.text_field :email_address, :class => "form-control input-lg", :id =>  "exampleInputEmail1", :placeholder => "Email Address" %>
+            </div>
+            </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <label>Address</label>
-            <%= f.text_field :address, :class => "form-control", :placeholder => "Address" %>
+            <div class="form-group">
+                <%= f.text_field :address, :class => "form-control input-lg", :placeholder => "Address" %>
+            </div>
           </div>
           <div class="col-sm-6">
             <label>City</label>
-            <%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
+            <div class="form-group">
+                <%= f.text_field :city, :class => "form-control input-lg", :placeholder => "City" %>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <label>State</label>
-            <%= f.text_field :state, :class => "form-control", :placeholder => "State" %>
+            <div class="form-group">
+                <%= f.text_field :state, :class => "form-control input-lg", :placeholder => "State" %>
+            </div>
           </div>
           <div class="col-sm-6">
             <label>Zip</label>
-            <%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
+            <div class="form-group">
+                <%= f.text_field :zip, :class => "form-control input-lg", :placeholder => "Zip" %>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <%= f.submit 'Update Customer', :class => "btn btn-success btn-lg" %>
-          </div>
+
+      <div class="line line-dashed line-lg pull-in"></div>
+      <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+          <%= f.submit :class=>"btn btn-info btn-md" %>
+          <%= button_tag "Cancel", :type => 'reset',:class=>"btn btn-md" %>
         </div>
+      </div>
       <% end %>
-  </div>
-</div> 

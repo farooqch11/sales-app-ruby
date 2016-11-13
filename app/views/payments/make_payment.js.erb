@@ -2,4 +2,3 @@ $('.sale_totals').html("<%= escape_javascript render('sales/shared/sale_totals')
 $('.sale_payments').html("<%= escape_javascript render('sales/shared/sale_payments') %>");
 $('.make_payment').html("<%= escape_javascript render('sales/shared/payment') %>");
 $('.modal-footer button').click();
-$('#invoice-<%= @sale.id%> .modal-body').html("<%= escape_javascript render('sales/shared/invoice') %>");

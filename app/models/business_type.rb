@@ -10,4 +10,7 @@
 
 class BusinessType < ActiveRecord::Base
   has_many :companies
+
+  #Validates
+  validates :name , presence: true , uniqueness: true
 end

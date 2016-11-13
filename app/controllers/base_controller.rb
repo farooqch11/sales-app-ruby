@@ -12,6 +12,12 @@ class BaseController < ActionController::Base
   #   redirect_to root_url, alert: exception.message
   # end
 
+  def current_site
+    @site  ||= Site.last
+  end
+
+  helper_method :current_site
+
   private
 
   ##

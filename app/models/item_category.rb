@@ -15,7 +15,12 @@
 #
 
 class ItemCategory < ActiveRecord::Base
-	validates :name, presence: true, uniqueness: true
+
+	#Validations
+	validates :name, presence: true
+	validates_uniqueness_of :name, scope: [:company_id , :name]
+
+	#Associations
 	has_many :items
 	belongs_to :company
 

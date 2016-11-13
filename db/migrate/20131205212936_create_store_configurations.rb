@@ -14,7 +14,7 @@ class CreateStoreConfigurations < ActiveRecord::Migration
       t.string :currency
       t.decimal :tax_rate, :precision => 8, :scale => 2
       t.integer :owner_id, :integer
-      t.boolean :status , default: false
+      t.integer :status , default: false
       t.timestamps
     end
 

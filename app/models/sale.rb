@@ -17,6 +17,16 @@
 #
 
 class Sale < ActiveRecord::Base
+
+  #Callbacks
+  # validates :discount, numericality: { message: "%{value} seems wrong" } , on: :update
+  # validates :tax, numericality: { message: "%{value} seems wrong" } , on: :update
+  # validates :remaining_amount, numericality: { message: "%{value} seems wrong" }, on: :update
+  # validates :total_amount, numericality: { message: "%{value} seems wrong" }, on: :update
+  # validates :amount, numericality: { message: "%{value} seems wrong" }, on: :update
+
+
+  #Associations
   belongs_to :customer
   has_many :line_items, dependent: :destroy
   has_many :items, through: :line_items

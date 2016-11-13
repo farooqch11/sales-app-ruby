@@ -13,11 +13,18 @@ class ApplicationController < ActionController::Base
   end
 
   def current_company
-    @company  ||= current_user.company
+    @company  ||= current_user.company if !current_user.nil?
   end
 
   helper_method :current_company
 
+  def after_sign_in_path_for(resource)
+   if resource.class.name == 'User'
+      return dashboard_index_path
+    else
+      super
+    end
+  end
   protected
 
   def layout_by_resource
@@ -33,7 +40,7 @@ class ApplicationController < ActionController::Base
   ##
   # set_store loads the global companies.
   def set_company
-    @company  ||= Company.find_by_sub_domain request.subdomain
+    # @company  ||= Company.find_by_sub_domain request.subdomain
     # if request.subdomain.blank?
     #   redirect_to root_url(subdomain: 'www')
     # elsif request.subdomain != "www" && @company.nil?
