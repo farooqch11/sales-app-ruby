@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
 
   before_create :set_confirm_password
 
-  before_create :set_username
+  before_validation :set_username
 
   # after_create  :set_user_role
 
@@ -143,12 +143,12 @@ class User < ActiveRecord::Base
 
 
   def company_name
-    self.company.company_name.blank? ? "Tend360 Point of Sale" : self.company.company_name
+    self.company.company_name.blank? ? "Managehub360 Point of Sale" : self.company.company_name
   end
 
 
   def company_description
-    self.company.company_description.blank? ? "Tend360 Point of Sale" : self.company.company_description
+    self.company.company_description.blank? ? "Managehub360 Point of Sale" : self.company.company_description
   end
 
   def photo
@@ -156,7 +156,7 @@ class User < ActiveRecord::Base
   end
 
   def tend360_url
-    Rails.env.development? ? self.company.sub_domain + ".lvh.me:3000" : "tend360.herokuapp.com"
+    Rails.env.development? ? self.company.sub_domain + ".lvh.me:3000" : "managehub360.herokuapp.com"
   end
 
   def set_username
