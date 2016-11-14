@@ -15,7 +15,7 @@ class ConfigurationController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def company_params
-    params.require(:company).permit(:company_description ,:logo ,:city , :address , :tax_rate , :state , :zip)
+    params.require(:company).permit(:company_name , :company_description ,:logo ,:city , :address , :tax_rate , :state , :zip)
     # :store_description,
     # :sub_domain,
     # :address,
