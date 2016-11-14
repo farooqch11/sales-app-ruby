@@ -131,8 +131,7 @@ PushvendorPos::Application.routes.draw do
   resources :expenses
   resources :item_categories
   resources 'companies'
-
-  get "/configuration" => "companies#update"
+  resources :configuration
 
   resources :reports do
     collection do

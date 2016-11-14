@@ -1,0 +1,94 @@
+<section id="content ">
+  <section class="scrollable padder">
+    <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+      <li><a href="<%= configuration_index_path %>"><i class="fa fa-user"></i> Configuration</a></li>
+      <li class="active"><%= current_company.name%></li>
+    </ul>
+  </section>
+  <section class="vbox">
+    <section class="scrollable padder m-t-lg">
+      <div class="col-sm-12">
+        <section class="panel panel-default" >
+          <header class="panel-heading" style="background:#FFF;">
+            <h3 style="color:#717171;">Edit <%= current_company.name%></h3>
+          </header>
+          <div class="panel-body">
+            <%= form_for current_company, {url: configuration_path(current_company) , method: 'patch'} do |f| %>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Company Name</label>
+                      <%= f.text_field :company_name, :class => "form-control disable", value: current_company.company_name , :placeholder => "Name of store" %>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Company Description</label>
+                      <%= f.text_area :company_description, :class => "form-control", :placeholder => "Description of store" %>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Address</label>
+                      <%= f.text_field :address, :class => "form-control", :placeholder => "Address" %>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>City</label>
+                      <%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>State</label>
+                      <%= f.text_field :state, :class => "form-control", :placeholder => "State" %>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Zip</label>
+                      <%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <!--<div class="col-sm-6">-->
+                    <!--<div class="form-group">-->
+                      <!--<label>Currency</label>-->
+                      <!--<%= f.select :currency, currencies, {}, {:class => "form-control"}  %>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Tax Rate</label>
+                      <%= f.text_field :tax_rate, :class => "form-control", :placeholder => "8.25" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="line line-dashed line-lg pull-in"></div>
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                    <%= f.submit :class=>"btn btn-info btn-md" %>
+                    <%= button_tag "Cancel", :type => 'reset',:class=>"btn btn-md" %>
+                  </div>
+                </div>
+            <% end %>
+        </div>
+    </section>
+    </div>
+  </section>
+</section>
+<a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+</section>
+
+
+

@@ -42,14 +42,6 @@
                   </a>
                 </li>
             <% end %>
-            <li class="<%= is_active 'expenses' %>">
-              <a href="<%= expenses_path %>" class="<%= is_active 'expenses' %>" >
-                <i class="fa fa-rocket icon">
-                  <b class="bg-success"></b>
-                </i>
-                <span>EXPENSES</span>
-              </a>
-            </li>
 
             <% if current_user.can_view_reports %>
                 <li class="<%= reports_active%>" >
@@ -115,7 +107,7 @@
                     </li>
                 <% end %>
 
-            <li  class="<%= customers_active  %>">
+            <li  class="<%= (is_active 'expenses') || (is_active 'configuration') %>">
               <a href="#item_category"  class="<%= item_categories_active%>" >
                 <i class="fa fa-clipboard icon">
                   <b class="bg-primary"></b>
@@ -128,19 +120,19 @@
               </a>
               <ul class="nav lt">
                 <li >
-                  <a href="<%= item_categories_path %>" class="<%= item_categories_active%>" >
+                  <a href="<%= configuration_index_path %>">
                     <i class="fa fa-angle-right"></i>
                     <span>Configuration</span>
                   </a>
                 </li>
                 <li >
-                  <a href="<%= items_path %>" class="<%= item_categories_active%>" >
+                  <a href="<%= items_path %>" >
                     <i class="fa fa-angle-right"></i>
                     <span>Bank Reconciliations</span>
                   </a>
                 </li>
                 <li >
-                  <a href="<%= items_path %>" class="<%= item_categories_active%>" >
+                  <a href="<%= expenses_path %>">
                     <i class="fa fa-angle-right"></i>
                     <span>Expenses</span>
                   </a>

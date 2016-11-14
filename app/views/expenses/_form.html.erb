@@ -13,12 +13,12 @@
             <h3 style="color:#717171;"><%= head %></h3>
           </header>
           <div class="panel-body">
-            <%= form_for(@expense) do |f| %>
+            <%= form_for @expense , multipart: true do |f| %>
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
                       <%= f.label :attachment %>
-                      <%= f.text_field :attachment, :class => "form-control input-lg "%>
+                      <%= f.file_field :attachment, :class => "form-control input-lg "%>
                     </div>
                   </div>
 
@@ -52,7 +52,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <%= f.label :paid_time %>
-                      <%= f.datetime_select :paid_time , html: {:class => "form-control combodate",'data-format': "DD-MM-YYYY HH:mm" , 'data-template': "D  MMM  YYYY  -  HH : mm"} , style: "display: none;"%>
+                      <%= f.datetime_select :paid_time ,:class => "form-control combodate", html: {'data-format': "DD-MM-YYYY HH:mm" , 'data-template': "D  MMM  YYYY  -  HH : mm"} , style: "display: none;"%>
                       <div class="col-sm-10">
                         <input type="text" class="combodate form-control" data-format="DD-MM-YYYY HH:mm" data-template="D  MMM  YYYY  -  HH : mm" name="datetime" value="21-12-2012 20:30" style="display: none;"><span class="combodate"><select class="day form-control" style="width: auto;"><option value=""></option>
                         <option value="1">1</option>
@@ -187,7 +187,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Type<span class="text-danger"> *</span></label>
-                      <%= f.text_field :type, required: true , :class => "form-control input-lg " %>
+                      <%= f.text_field :expense_type, required: true , :class => "form-control input-lg " %>
                     </div>
                   </div>
                 </div>

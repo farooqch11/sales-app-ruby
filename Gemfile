@@ -41,6 +41,7 @@ gem 'countries'
 gem 'currencies'
 gem 'activeadmin', github: 'activeadmin'
 gem 'figaro'
+gem 'carrierwave'
 
 
 group :doc do

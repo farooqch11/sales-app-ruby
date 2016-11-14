@@ -25,7 +25,6 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = current_company.expenses.new(expense_params)
-
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
@@ -40,6 +39,7 @@ class ExpensesController < ApplicationController
   # PATCH/PUT /expenses/1
   # PATCH/PUT /expenses/1.json
   def update
+
     respond_to do |format|
       if @expense.update(expense_params)
         format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
@@ -49,6 +49,7 @@ class ExpensesController < ApplicationController
         format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /expenses/1
@@ -69,6 +70,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:attachment, :company_id,:start_date, :end_date, :purpose, :paid_time, :type)
+      params.require(:expense).permit(:attachment, :company_id,:start_date, :end_date, :purpose, :paid_time, :expense_type)
     end
 end

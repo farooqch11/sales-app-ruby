@@ -34,12 +34,7 @@ class CompaniesController < BaseController
   def update
     # authorize! :read, current_user
 
-    if current_company.update(store_params)
-      flash[:notice] = 'Configurations have been successfully updated.'
-      redirect_to '/companies'
-    else
-      render controller: 'companies'
-    end
+
   end
 
   private

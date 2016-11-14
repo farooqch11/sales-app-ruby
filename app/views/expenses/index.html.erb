@@ -58,12 +58,12 @@
                 <% @expenses.each do |expense| %>
                     <tr>
                       <!--<td><input type="checkbox" name="user[]" value="<%#= user.id %>"></td>-->
-                      <td><%= expense.attachment %></td>
+                      <td><%= image_tag expense.attachment, style: 'widh: 50px ; width: 50px ' %></td>
                       <td><%= expense.start_date %></td>
                       <td><%= expense.end_date %></td>
                       <td><%= expense.purpose %></td>
                       <td><%= expense.paid_time %></td>
-                      <td><%= expense.type %></td>
+                      <td><%= expense.expense_type %></td>
                       <td class="text-right">
                         <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_expense_path(expense), class: "btn btn-info"%>
                         <%=link_to raw("<i class= 'fa fa-times'></i>"),expense, class: "btn btn-danger",:method => :delete, data: {:confirm => "Are you sure?"}%>
