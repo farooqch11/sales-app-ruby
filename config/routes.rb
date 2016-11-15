@@ -125,6 +125,8 @@
 PushvendorPos::Application.routes.draw do
 
 
+  get "password/change", to: "passwords#edit" , as: :change_password
+
   devise_for :sites, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -132,6 +134,11 @@ PushvendorPos::Application.routes.draw do
   resources :item_categories
   resources 'companies'
   resources :configuration
+  resources :passwords , only: [:edit , :update]
+  resources :customers
+  resources :static , only: [:index]
+  resources :line_items
+
 
   resources :reports do
     collection do
@@ -142,7 +149,7 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
-  resources :line_items
+
 
   resources :payments do
     collection do
@@ -157,7 +164,7 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
-  resources :customers
+
 
   resources :items do
     get 'search'
@@ -195,13 +202,12 @@ PushvendorPos::Application.routes.draw do
   # devise_for :users
   devise_for :users
   resources :users do
-
     collection do
       post 'new_user'
     end
   end
 
-  resources :static , only: [:index]
+
 
   match '/', to: 'companies#new', constraints: { subdomain: 'www' }, via: [:get, :post, :put, :patch, :delete]
   match '/', to: 'dashboard#index', constraints: { subdomain: /.+/ }, via: [:get, :post, :put, :patch, :delete]

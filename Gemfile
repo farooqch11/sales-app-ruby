@@ -23,6 +23,8 @@ gem 'jbuilder', '2.4.1'
 # -----------------------------------------
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 gem 'cancancan', '1.13.1'
+gem 'activeadmin', github: 'activeadmin'
+gem 'figaro'
 
 
 # -----------------------------------------
@@ -31,6 +33,9 @@ gem 'cancancan', '1.13.1'
 gem 'sass-rails'
 gem 'bootstrap-sass', '3.3.6'
 gem 'will_paginate-bootstrap', '1.0.1'
+gem 'breadcrumbs_on_rails', '~> 2.3.0'
+
+
 
 #------------------------------------------
 # For Featuring
@@ -39,10 +44,16 @@ gem 'country_select'
 gem 'mailgun_rails'
 gem 'countries'
 gem 'currencies'
-gem 'activeadmin', github: 'activeadmin'
-gem 'figaro'
-gem 'carrierwave'
 
+
+gem 'best_in_place', '~> 3.0.1'
+
+#------------------------------------------
+# For Multimedia Uploading
+#------------------------------------------
+gem 'carrierwave'
+gem "mini_magick"
+gem 'fog'
 
 group :doc do
   gem 'sdoc', require: false

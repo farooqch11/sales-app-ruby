@@ -25,6 +25,8 @@
 
 class Site < ActiveRecord::Base
 
+  mount_uploader :logo, AttachmentUploader
+
   #Validations
   # validates :there_can_only_be_one_site
   validates :name, :logo , presence: true

@@ -20,6 +20,7 @@
 #  status              :boolean          default(FALSE)
 #  created_at          :datetime
 #  updated_at          :datetime
+#  low_stock_alert     :integer
 #
 
 class Company < ActiveRecord::Base
