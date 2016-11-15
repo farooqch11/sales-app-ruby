@@ -13,6 +13,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  low_stock_alert :float
+#  amount          :float
 #
 # Indexes
 #
