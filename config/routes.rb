@@ -126,6 +126,7 @@ PushvendorPos::Application.routes.draw do
 
 
   get "password/change", to: "passwords#edit" , as: :change_password
+  get 'configuration' , to: "configuration#edit" , as: :configuration
 
   devise_for :sites, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -133,7 +134,7 @@ PushvendorPos::Application.routes.draw do
   resources :expenses
   resources :item_categories
   resources 'companies'
-  resources :configuration
+  resources :configuration , only: [:edit , :update]
   resources :passwords , only: [:edit , :update]
   resources :customers
   resources :static , only: [:index]
