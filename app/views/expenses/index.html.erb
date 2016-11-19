@@ -66,8 +66,8 @@
                       <td><%= expense.paid_time %></td>
                       <td><%= expense.expense_type %></td>
                       <td class="text-right">
-                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_expense_path(expense), class: "btn btn-info"%>
-                        <%=link_to raw("<i class= 'fa fa-times'></i>"),expense, class: "btn btn-danger",:method => :delete, data: {:confirm => "Are you sure?"}%>
+                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_expense_path(expense), class: "btn btn-dark"%>
+                        <%=link_to raw("<i class= 'fa fa-times'></i>"),expense, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}%>
                       </td>
                     </tr>
                 <% end %>

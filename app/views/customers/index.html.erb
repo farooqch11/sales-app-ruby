@@ -58,8 +58,8 @@
                       <td><%= customer.last_name %></td>
                       <td><%= customer.first_name %></td>
                       <td class="text-right">
-                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_customer_path(customer), class: "btn btn-info"%>
-                        <%=link_to raw("<i class= 'fa fa-times'></i>"),customer, class: "btn btn-danger",:method => :delete, data: {:confirm => "Are you sure?"}%>
+                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_customer_path(customer), class: "btn btn-dark"%>
+                        <%=link_to raw("<i class= 'fa fa-times'></i>"),customer, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}%>
                       </td>
                     </tr>
                 <% end %>

@@ -1,0 +1,159 @@
+<section id="content">
+  <%=render partial: "template/bread_crums"%>
+  <section class="vbox">
+    <section class="scrollable padder">
+      <div class="col-sm-12">
+        <section class="panel panel-default">
+          <header class="panel-heading" style="background:#FFF;">
+            <h3 style="color:#717171;">Edit Company</h3>
+          </header>
+          <div class="panel-body">
+            <%= form_for current_company , html: {class: "bs-example form-horizontal"} do |f|  %>
+
+                <div class="form-group">
+                  <%= f.label :company_name , class: 'col-lg-2 control-label' %>
+                  <div class="col-lg-10">
+                    <%= f.text_field :company_name, :class=>"form-control" %>                    <!--<span class="help-block m-b-none">Website URL.</span>-->
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Entity</label>
+                  <div class="col-lg-10">
+                    <%= f.select :business_type_id, BusinessType.all.collect{|e|e.to_s.titleize},{},:class=>"form-control", placeholder:"Select Entity Type" %>
+                    <!--<span class="help-block m-b-none">Website URL.</span>-->
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Company Logo</label>
+                  <div class="col-sm-10">
+                    <%= f.file_field :logo, :class=>"btn btn-default",data: { fp_crop_ratio: "*/4", fp_button_class: 'btn btn-default',fp_button_text: 'Upload'}%>
+
+                    <%#= f.file_field :logo, :class=>"filestyle",:style=>"display:none" ,"data-icon" => "false",  "data-classButton" => "btn btn-default",  "data-classInput" => "form-control inline input-s" %>
+                    <span class="help-block m-b-none">Please crop the logo properly.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                <label class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                <%= f.text_field :email, :class=>"form-control" %>
+                </div>
+                </div>
+
+                <div class="form-group">
+                <label class="col-lg-2 control-label">Phone</label>
+                <div class="col-lg-10">
+                <%= f.text_field :phone, :class=>"form-control" %>
+                </div>
+                </div>
+                <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Tag Line</label>-->
+                <!--<div class="col-lg-10">-->
+                <!--<%#= f.text_field :tag_line, :class=>"form-control" %>-->
+                <!--<span class="help-block m-b-none">Company tag-line or slogon</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Description</label>
+                  <div class="col-lg-10">
+                    <%= f.text_area :company_description, rows: "8",placeholder: "Description/About your Company", class: "form-control" %>
+                  </div>
+                </div>
+
+                <legend>Tax rate & Stock Alert</legend>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Currency</label>
+                  <div class="col-lg-10">
+                    <%= f.select :currency ,ISO3166::Country.all.map(&:currency).first(10).collect{ |c| c.name} , {} ,class:"form-control" %>
+                    <span class="help-block m-b-none">Default is Dollar</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Tax Rate</label>
+                  <div class="col-lg-10">
+                    <%= f.text_field :tax_rate, value: '0.0' , :class=>"form-control" %>
+                    <span class="help-block m-b-none">Tax Apply To Orders</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Low Stock Alert</label>
+                  <div class="col-lg-10">
+                    <%= f.number_field :low_stock_alert, value: 0 ,class:"form-control" %>
+                    <span class="help-block m-b-none">Stock Alerts For Products</span>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <legend>Company Main Address / Head Office</legend>
+                <!--<%#= f.fields_for :locations do |f|%>-->
+                <!--<%# #next if !f.object.is_main_location?%>-->
+                <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Name</label>-->
+                <!--<div class="col-lg-10">-->
+                <!--<%#= f.text_field :name, :class=>"form-control" %>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Address</label>-->
+                <!--<div class="col-lg-10">-->
+                <!--<%#= f.text_field :address, :class=>"form-control" %>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="form-group">
+                  <%= f.label :country , class:"control-label col-lg-2" %>
+                  <div class="col-lg-10">
+                    <%= f.country_select("country" ,  {prompt: 'Select Country'} ,{ class: "form-control select2-container select2-container-active" , required: true } ) %>
+                  </div>
+                </div>
+                <div class="form-group">
+                <label class="col-lg-2 control-label">City</label>
+                <div class="col-lg-10">
+                <%= f.text_field :city, :class=>"form-control" %>
+                </div>
+                </div>
+                <div class="form-group">
+                <label class="col-lg-2 control-label">State</label>
+                <div class="col-lg-10">
+                <%= f.text_field :state, :class=>"form-control" %>
+                </div>
+                </div>
+                <div class="form-group">
+                <label class="col-lg-2 control-label">Zip Code</label>
+                <div class="col-lg-10">
+                <%= f.text_field :zip, :class=>"form-control" %>
+                </div>
+                </div>
+                <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Country</label>-->
+                <!--<div class="col-lg-10">-->
+                <!--<%#= f.select :country,COUNTRIES, {},{:class=>"form-control  input-lg"}  %>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<%#end%>-->
+
+                <div class="line line-dashed line-lg pull-in"></div>
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                    <%= f.submit 'Save/Configuration' , class:"btn btn-info" %>
+                    <%= button_tag "Cancel", type: 'reset',:class=>"btn" %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>
+</section>
+
+
+
+

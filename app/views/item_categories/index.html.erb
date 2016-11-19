@@ -61,8 +61,8 @@
                       <td><%=item_category.name%></td>
                       <td><%=item_category.description%></td>
                       <td class="text-right">
-                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),item_category_path(item_category), class: "btn btn-info"%>
-                        <%=link_to raw("<i class= 'fa fa-times'></i>"),item_category_path(item_category), class: "btn btn-danger",:method => :delete, data: {:confirm => "Are you sure you want to delete this category?"}%>
+                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),item_category_path(item_category), class: "btn btn-dark"%>
+                        <%=link_to raw("<i class= 'fa fa-times'></i>"),item_category_path(item_category), class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure you want to delete this category?"}%>
                       </td>
 
                     </tr>

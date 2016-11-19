@@ -1,21 +1,23 @@
 class ConfigurationController < ApplicationController
-  def index
 
+  def edit
+    add_breadcrumb current_company.company_name.titleize, '#', options: { title: current_company.company_name.titleize }
+    add_breadcrumb "EDIT", '#', options: { title: "COMPANY EDIT" }
   end
 
   def update
     if current_company.update(company_params)
       flash[:success] = 'Configurations have been successfully updated.'
-      redirect_to configuration_index_path
+      redirect_to configuration_path
     else
       flash[:errors] = current_company.errors.full_messages
-      render 'index'
+      render 'edit'
     end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def company_params
-    params.require(:company).permit(:company_name , :company_description ,:logo ,:city , :address , :tax_rate , :state , :zip)
+    params.require(:company).permit(:company_name ,:email, :phone ,:low_stock_alert , :company_description ,:logo ,:city , :address , :tax_rate , :state , :zip)
     # :store_description,
     # :sub_domain,
     # :address,

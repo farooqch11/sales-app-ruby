@@ -21,23 +21,35 @@
 #  created_at          :datetime
 #  updated_at          :datetime
 #  low_stock_alert     :integer
+#  email               :string
+#  phone               :string
+#  is_activated        :boolean          default(TRUE)
+#  currency_name       :string
+#  currency_code       :string
 #
 
 class Company < ActiveRecord::Base
 
   # validates :store_name , :sub_domain , presence: true, uniqueness: true
 
+  #Image Uploading
+  mount_uploader :logo , AttachmentUploader
+
+  # Assiciations
   has_many :users , dependent: :destroy
   has_many :customers , dependent: :destroy
   has_many :item_categories , dependent: :destroy
   has_many :items , dependent: :destroy
-  belongs_to :owner, class_name: "User", foreign_key: "owner_id"
-  belongs_to :business_type
   has_many :sales
   has_many :expenses, dependent: :destroy
   has_many :payments, :through => :sales
   has_many :line_items, :through => :sales
+  has_many :locations , dependent: :destroy
 
+  belongs_to :owner, class_name: "User", foreign_key: "owner_id"
+  belongs_to :business_type
+
+  #Validations
   validates :company_name,presence: true,uniqueness: {case_sensitive: false}
   validates_length_of :company_name, :minimum => 3,:message => "must be atleat 3 characters"
   validates_length_of :company_name, :maximum => 50,:message => "can have maximum of 50 characters"

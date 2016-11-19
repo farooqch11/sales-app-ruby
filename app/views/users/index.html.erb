@@ -64,8 +64,8 @@
                       <td><%= number_to_currency(user.salary , unit: current_company.currency)%></td>
                       <td><%= user.confirmed? ? 'Confirmed' : 'Pending'%></td>
                       <td class="text-right">
-                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_user_path(user), class: "btn btn-info"%>
-                        <%=link_to raw("<i class= 'fa fa-times'></i>"),user, class: "btn btn-danger",:method => :delete, data: {:confirm => "Are you sure?"}%>
+                        <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_user_path(user), class: "btn btn-dark"%>
+                        <%=link_to raw("<i class= 'fa fa-times'></i>"),user, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}%>
                       </td>
                     </tr>
                 <% end %>

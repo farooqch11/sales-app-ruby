@@ -15,6 +15,7 @@
 #  published     :boolean          default(TRUE)
 #  created_at    :datetime
 #  updated_at    :datetime
+#  address_id    :integer
 #
 # Indexes
 #
@@ -22,8 +23,14 @@
 #
 
 class Customer < ActiveRecord::Base
-  has_many :sales
-  belongs_to :company
+
+  #Associations
+  has_many    :sales
+  belongs_to  :company
+  belongs_to  :address
+
+  #Nested Attributes
+  accepts_nested_attributes_for :address, allow_destroy: true
 
   def full_name
     (first_name + " " + last_name).titleize
