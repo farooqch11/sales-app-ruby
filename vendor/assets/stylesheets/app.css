@@ -573,7 +573,8 @@ a:hover .caret-white {
     width: 100%;
   }
   .vbox > header ~ section {
-    top: 50px;
+    /*top: 50px;*/
+    top: 71px;
   }
   .vbox > section.w-f {
     bottom: 50px;
@@ -2188,7 +2189,8 @@ fieldset[disabled] .btn-gplus.active {
   background-color: #f1f1f1;
 }
 .bg-dark {
-  background-color: #2e3e4e;
+  /*background-color: #2e3e4e;*/
+  background-color: #193048;
   color: #9db1c5;
 }
 .bg-dark.lt,
@@ -3197,6 +3199,14 @@ fieldset[disabled] .btn-gplus.active {
   .col-lg-2-4 {
     width: 20.000%;
     float: left;
+  }
+  .alter-header {
+    min-height: 71px !important;
+    background: #182F48 !important;
+  }
+  .alter-header-m-t
+  {
+    margin-top: 10px !important;
   }
 }
 @media (max-width: 767px) {
