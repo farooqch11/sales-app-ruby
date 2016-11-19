@@ -26,7 +26,7 @@
             <li  class="<%= dashboard_active  %>">
               <a href="<%= dashboard_index_path %>"   class="<%= dashboard_active %>">
                 <i class="fa fa-dashboard icon">
-                  <b class="bg-danger"></b>
+                  <b class="bg-dark"></b>
                 </i>
                 <span>HOME</span>
               </a>
@@ -36,7 +36,7 @@
                 <li  class="<%= users_active  %>">
                   <a href="<%= users_path %>"  class="<%= users_active  %>" >
                     <i class="fa fa-user icon">
-                      <b class="bg-warning"></b>
+                      <b class="bg-dark"></b>
                     </i>
                     <span>EMPLOYEES</span>
                   </a>
@@ -47,7 +47,7 @@
                 <li class="<%= reports_active%>" >
                   <a href="<%= reports_path %>" class="<% reports_active%>" >
                     <i class="fa fa-pencil-square-o icon">
-                      <b class="bg-info"></b>
+                      <b class="bg-dark"></b>
                     </i>
                     <span>REPORTS</span>
                   </a>
@@ -58,7 +58,7 @@
             <li class="<%= item_categories_active%>" >
               <a href="#item_category"  class="<%= item_categories_active%>" >
                 <i class="fa fa-clipboard icon">
-                  <b class="bg-primary"></b>
+                  <b class="bg-dark"></b>
                 </i>
                         <span class="pull-right">
                           <i class="fa fa-angle-down text"></i>
@@ -100,7 +100,7 @@
                     <li  class="<%= sales_active  %>">
                       <a href="<%= sales_path %>"  class="<%= sales_active  %>" >
                         <i class="fa fa-shopping-cart icon">
-                          <b class="bg-danger"></b>
+                          <b class="bg-dark"></b>
                         </i>
                         <span>SALES</span>
                       </a>
@@ -109,8 +109,8 @@
 
             <li  class="<%= (is_active 'expenses') || (is_active 'configuration') %>">
               <a href="#item_category"  class="<%= item_categories_active%>" >
-                <i class="fa fa-clipboard icon">
-                  <b class="bg-primary"></b>
+                <i class="fa fa-gear icon">
+                  <b class="bg-dark"></b>
                 </i>
                         <span class="pull-right">
                           <i class="fa fa-angle-down text"></i>
@@ -120,7 +120,7 @@
               </a>
               <ul class="nav lt">
                 <li >
-                  <a href="<%= configuration_index_path %>">
+                  <a href="<%= configuration_path %>">
                     <i class="fa fa-angle-right"></i>
                     <span>Configuration</span>
                   </a>

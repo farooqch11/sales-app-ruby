@@ -16,10 +16,10 @@
  *= require app
  *= require select2/select2
  *= require select2/theme
- *= require style
  *= require animate
  *= require awesomplete
  *= require sweetalert
  *= require datepicker/datepicker
+ *= require style
 
  */

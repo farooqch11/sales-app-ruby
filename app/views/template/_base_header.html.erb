@@ -1,25 +1,11 @@
-<header class="bg-dark dk header navbar navbar-fixed-top">
-  <div class="navbar-header aside-md">
+<header class="bg-dark dk header navbar navbar-fixed-top-xs alter-header">
+  <div class="navbar-header aside-md alter-header-m-t">
     <!--<a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">-->
     <!--<i class="fa fa-bars"></i>-->
     <!--</a>-->
-    <a href="#" class="navbar-brand" data-toggle="fullscreen" style="color: white"><%= image_tag('logo.png' , class: "m-r-sm" ,style: "min-height: 30px")  %></a>
+    <a href="#" class="navbar-brand" data-toggle="fullscreen" style="color: white"><%= image_tag('logo-without-caption.png' , class: "m-r-sm" ,style: "min-height: 57px")  %></a>
     <!--<a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">-->
     <!--<i class="fa fa-cog"></i>-->
     <!--</a>-->
   </div>
-  <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
-    <li>
-      <% if user_signed_in? %>
-          <a href="<%= dashboard_index_path %>">
-                <span class="thumb-sm avatar pull-left">
-                  <%= image_tag current_user.photo %>
-                </span>
-            <span class="font-bold"><%= current_user.username %></span>
-          </a>
-      <% else %>
-        <%= link_to "Sign In" , new_user_session_path , class: "font-bold" %>
-      <% end %>
-    </li>
-  </ul>
 </header>
