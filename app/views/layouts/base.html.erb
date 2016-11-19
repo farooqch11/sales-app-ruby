@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class=" bg-white">
+<html class="bg-white">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -23,10 +23,9 @@
       <%= csrf_meta_tags %>
 
     </head>
-    <body >
+    <body class='<%= yield :body_id%>' >
         <section class="vbox">
-             <%= render :partial => 'template/base_header' %>
-    		 <%#= render :partial => 'template/alerts' %>
+             <%= render partial: devise_controller? ? 'template/base_header' : 'template/landing_header' %>
              <%= yield %>
         </section>
 
