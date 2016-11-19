@@ -32,8 +32,16 @@ class Customer < ActiveRecord::Base
   #Nested Attributes
   accepts_nested_attributes_for :address, allow_destroy: true
 
+  #scopes
+  default_scope {order(first_name: :asc)}
+
+
   def full_name
     (first_name + " " + last_name).titleize
+  end
+
+  def email
+    email_address
   end
 
 end

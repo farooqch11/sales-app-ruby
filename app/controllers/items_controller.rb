@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
     if @item.save
       flash[:notice] = 'Item was successfully created.'
-      redirect_to @item
+      redirect_to new_item_path
     else
       flash.now[:errors] = @item.errors.full_messages
       render action: 'new'

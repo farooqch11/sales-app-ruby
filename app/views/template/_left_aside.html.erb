@@ -107,7 +107,40 @@
                     </li>
                 <% end %>
 
-            <li  class="<%= (is_active 'expenses') || (is_active 'configuration') %>">
+            <li  class="<%= (is_active 'expenses') || (is_active 'finance') %>">
+              <a href="#item_category"  class="<%= item_categories_active%>" >
+                <i class="fa fa-rocket icon">
+                  <b class="bg-dark"></b>
+                </i>
+                        <span class="pull-right">
+                          <i class="fa fa-angle-down text"></i>
+                          <i class="fa fa-angle-up text-active"></i>
+                        </span>
+                <span>FINANCE</span>
+              </a>
+              <ul class="nav lt">
+                <li >
+                  <a href="<%= configuration_path %>">
+                    <i class="fa fa-angle-right"></i>
+                    <span>Financial Dashboard</span>
+                  </a>
+                </li>
+                <li >
+                  <a href="<%= items_path %>" >
+                    <i class="fa fa-angle-right"></i>
+                    <span>Bank Reconciliations</span>
+                  </a>
+                </li>
+                <li >
+                  <a href="<%= expenses_path %>">
+                    <i class="fa fa-angle-right"></i>
+                    <span>Expenses</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li  class="<%= (is_active 'configuration') %>">
               <a href="#item_category"  class="<%= item_categories_active%>" >
                 <i class="fa fa-gear icon">
                   <b class="bg-dark"></b>
@@ -123,18 +156,6 @@
                   <a href="<%= configuration_path %>">
                     <i class="fa fa-angle-right"></i>
                     <span>Configuration</span>
-                  </a>
-                </li>
-                <li >
-                  <a href="<%= items_path %>" >
-                    <i class="fa fa-angle-right"></i>
-                    <span>Bank Reconciliations</span>
-                  </a>
-                </li>
-                <li >
-                  <a href="<%= expenses_path %>">
-                    <i class="fa fa-angle-right"></i>
-                    <span>Expenses</span>
                   </a>
                 </li>
               </ul>
