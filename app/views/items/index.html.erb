@@ -42,7 +42,7 @@
               <table class="table table-striped m-b-none">
                 <thead>
                 <tr>
-                  <th width="20"><input type="checkbox"></th>
+                  <th width="20"></th>
                   <!--<th class="th-sortable" data-toggle="class">Name-->
                               <!--<span class="th-sort">-->
                                 <!--<i class="fa fa-sort-down text"></i>-->
@@ -62,7 +62,8 @@
                 <tbody>
                 <% @items.each do |item| %>
                     <tr class="<%= item.stock_amount > 0 ? '' : 'danger' %>">
-                      <td><input type="checkbox" name="post[]" value="<%= item.id %>"></td>
+                      <td><%= image_tag item.photo, style: 'widh: 50px ; width: 50px ' %></td>
+
                       <td><%= item.sku %></td>
                       <td><%= item.name %></td>
                       <td><%= item.item_category.blank? ? '-' : item.item_category.name %></td>
