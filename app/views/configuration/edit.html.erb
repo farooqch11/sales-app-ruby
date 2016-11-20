@@ -18,7 +18,7 @@
                 <div class="form-group">
                   <label class="col-lg-2 control-label">Entity</label>
                   <div class="col-lg-10">
-                    <%= f.select :business_type_id, BusinessType.all.collect{|e|e.to_s.titleize},{},:class=>"form-control", placeholder:"Select Entity Type" %>
+                    <%= f.select :business_type_id, BusinessType.all.collect{|e|e.name.to_s.titleize},{},:class=>"form-control", placeholder:"Select Entity Type" %>
                     <!--<span class="help-block m-b-none">Website URL.</span>-->
                   </div>
                 </div>

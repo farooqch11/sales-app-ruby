@@ -1,6 +1,6 @@
 class PasswordsController < ApplicationController
   def edit
-    add_breadcrumb "CHANGE PASSWORD", :change_password_path, :options => { :title => "CHANGE PASSWORD" }
+    add_breadcrumb "CHANGE PASSWORD", :change_password_path, options: { title: "CHANGE PASSWORD" }
 
   end
 
