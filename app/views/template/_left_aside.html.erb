@@ -140,8 +140,8 @@
               </ul>
             </li>
 
-            <li  class="<%= (is_active 'configuration') %>">
-              <a href="#item_category"  class="<%= item_categories_active%>" >
+            <li  class="<%= is_setting_active %>">
+              <a href="#"  class="<%= is_setting_active %>" >
                 <i class="fa fa-gear icon">
                   <b class="bg-dark"></b>
                 </i>
@@ -156,6 +156,12 @@
                   <a href="<%= configuration_path %>">
                     <i class="fa fa-angle-right"></i>
                     <span>Configuration</span>
+                  </a>
+                </li>
+                <li >
+                  <a href="<%= locations_path %>">
+                    <i class="fa fa-angle-right"></i>
+                    <span>Locations</span>
                   </a>
                 </li>
               </ul>

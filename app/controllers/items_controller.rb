@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+
+  add_breadcrumb "ITEMS", "" , options: { title: "ITEMS"}
+
+
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,6 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    add_breadcrumb "NEW", new_item_path , options: { title: "NEW ITEM"}
     @item = current_company.items.new
   end
 
@@ -13,6 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    add_breadcrumb "EDIT", edit_item_path(@item) , options: { title: "EDIT ITEM"}
   end
 
   def create
@@ -61,6 +67,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image_url,
                                  :sku,
                                  :name,
+                                 :photo,
                                  :description,
                                  :price,
                                  :stock_amount,

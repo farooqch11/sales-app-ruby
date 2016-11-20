@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  #BreadCrumbs
+  add_breadcrumb "EMPLOYEES", "#" , options: { title: "EMPLOYEES"}
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   before_action :set_roles
@@ -14,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    add_breadcrumb "NEW", new_user_path , options: { title: "NEW EMPLOYEE"}
     @user = current_company.users.new
   end
 
@@ -80,6 +84,7 @@ class UsersController < ApplicationController
 
   def set_roles
     @roles = Role.all || []
+    @locations = current_company.locations.published || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
@@ -97,6 +102,7 @@ class UsersController < ApplicationController
                                  :can_update_configuration,
                                  :can_view_reports,
                                  :can_update_sale_discount,
-                                 :can_remove_sales)
+                                 :can_remove_sales,
+                                 location_ids: [] )
   end
 end

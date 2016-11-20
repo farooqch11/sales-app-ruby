@@ -91,6 +91,8 @@ class Company < ActiveRecord::Base
 
   def set_currency
     c = ISO3166::Country.find_country_by_alpha2(country.upcase)
-    self.currency = c.currency.symbol
+    self.currency      = c.currency.symbol
+    self.currency_name = c.currency.name
+    self.currency_code = c.currency.code
   end
 end

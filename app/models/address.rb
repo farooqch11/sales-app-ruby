@@ -18,4 +18,11 @@ class Address < ActiveRecord::Base
 
   has_one :customer
   has_one :location
+
+  def full_address
+    return "#{address_1}, #{city}, #{country}" if self.address_1 && city && country
+    return "#{city}, #{country}" if city && country
+    return "#{state}, #{country}" if state && country
+    return "#{country}" if country
+  end
 end

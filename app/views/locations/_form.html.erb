@@ -1,0 +1,74 @@
+
+  <section class="vbox">
+
+    <section class="scrollable padder">
+      <div class="col-sm-12">
+        <section class="panel panel-default" >
+          <header class="panel-heading" style="background:#FFF;">
+            <h3 style="color:#717171;">Locations</h3>
+          </header>
+          <div class="panel-body">
+            <%= form_for @location , html: {id:'location_validate' , class: "bs-example form-horizontal"} do |f|  %>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Name<em class="text-danger">*</em></label>
+                  <div class="col-lg-10">
+                    <%= f.text_field :name, class: "form-control", placeholder: "Location Name" , required: true%>
+                  </div>
+                </div>
+                <%= f.fields_for :address do |a| %>
+
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">Address</label>
+                      <div class="col-lg-10">
+                        <%= a.text_area :address_1, rows: "2",placeholder: "Enter Address", class: "form-control" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <%= a.label :country , class:"control-label col-lg-2" %>
+                      <div class="col-lg-10">
+                        <%= a.country_select("country" ,{selected: current_company.country} ,  { class: "form-control select2-container select2-container-active" , required: true } ) %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">City</label>
+                      <div class="col-lg-10">
+                        <%= a.text_field :city, :class=>"form-control" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">State</label>
+                      <div class="col-lg-10">
+                        <%= a.text_field :state, :class=>"form-control" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">Zip Code</label>
+                      <div class="col-lg-10">
+                        <%= a.text_field :zip, :class=>"form-control" %>
+                      </div>
+                    </div>
+                <% end %>
+
+
+                <div class="line line-dashed line-lg pull-in"></div>
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                    <%= f.submit :class=>"btn btn-info" %>
+                    <%= button_tag "Cancel", :type => 'reset',:class=>"btn" %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>
+  <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+<!--</section>-->
+
+<% content_for :scripts do %>
+    <script>
+        $('#location_validate').validate();
+    </script>
+  <% end %>
+

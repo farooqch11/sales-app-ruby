@@ -27,9 +27,10 @@
           <section>
             <section class="hbox stretch">
                   <%= render partial: 'template/left_aside'%>
-
-
-              <%= yield %>
+              <section id="content">
+                <%=render partial: "template/bread_crums" if params[:action] != 'index' %>
+                <%= yield %>
+              </section>
               <%= javascript_include_tag :application, "data-turbolinks-track" => true %>
               <%= yield(:scripts) %>
             </section>
@@ -37,5 +38,4 @@
         </section>
     </body>
     <%=render partial: 'template/flash_messages'%>
-
 </html>

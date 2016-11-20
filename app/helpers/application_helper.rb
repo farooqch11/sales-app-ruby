@@ -62,6 +62,10 @@ module ApplicationHelper
     params[:controller] == 'item_categories' ||  params[:controller] == 'items' ? 'active' : ''
   end
 
+  def is_setting_active
+    params[:controller] == 'configuration' ||  params[:controller] == 'locations' ? 'active' : ''
+  end
+
   def customers_active
     active_class? 'customers'
   end

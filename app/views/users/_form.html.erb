@@ -22,7 +22,7 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label>Salary</label>
-          <%= f.text_field :salary, :class => "form-control input-lg ", :placeholder => "Enter Salary" %>
+          <%= f.number_field :salary, :class => "form-control input-lg ", :placeholder => "Enter Salary" %>
         </div>
       </div>
 
@@ -53,10 +53,16 @@
 
     <div class="row">
       <div class="form-group col-sm-12">
+        <label>Location<span class="text-danger"> *</span></label>
+        <%= f.select(:location_ids, @locations.collect {|role| [ role.name, role.id ] },{} ,required: true , class: "form-control input-lg" , 'multiple':"multiple" ) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-12">
         <label>Role<span class="text-danger"> *</span></label>
         <%= f.select(:role_id, @roles.collect {|role| [ role.name, role.id ] }, {prompt: 'Select Employee Role'} ,required: true , class: "form-control input-lg select2-container select2-container-active" ) %>
       </div>
-
     </div>
     <div class="line line-dashed line-lg pull-in"></div>
     <div class="form-group">

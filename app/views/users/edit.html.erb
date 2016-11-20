@@ -1,12 +1,5 @@
-<section id="content ">
-  <section class="scrollable padder">
-    <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-      <li><a href="<%= users_path %>"><i class="fa fa-user"></i> Employees</a></li>
-      <li class="active">Edit</li>
-    </ul>
-  </section>
-  <section class="vbox">
-    <section class="scrollable padder m-t-lg">
+<section class="vbox">
+    <section class="scrollable padder">
       <div class="col-sm-12">
         <section class="panel panel-default" >
           <header class="panel-heading" style="background:#FFF;">
@@ -22,9 +15,9 @@
     </section>
   </section>
   <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
-</section>
-
-<script>
-    $('#new_user').validate();
-</script>
+<%= content_for :scripts do %>
+    <script>
+        $('#new_user').validate();
+    </script>
+<% end %>
 

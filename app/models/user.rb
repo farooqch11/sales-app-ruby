@@ -53,9 +53,13 @@ class User < ActiveRecord::Base
 
 
   validates :username, presence: true
+
+  #Associations
   belongs_to :company
   belongs_to :role
+  has_and_belongs_to_many :locations
   has_many :sales
+
 
   before_create :set_confirm_password
 
