@@ -14,8 +14,14 @@ class Payment < ActiveRecord::Base
   belongs_to :sale
   belongs_to :company
 
+  after_create :send_sale_invoice_to_customer
+
 
   def amount_after_change
     (self.sale.total_amount - self.amount) >= 0 ? self.amount : self.sale.total_amount
+  end
+
+  def send_sale_invoice_to_customer
+    UserMailer.send_sale_invoice_to_customer(self.sale).deliver
   end
 end

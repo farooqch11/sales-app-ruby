@@ -71,30 +71,30 @@
             <tr>
               <td><%= link_to s.item.sku , s.item , target: '_blank' %></td>
               <td><%= link_to  s.item.name , s.item , target: '_blank'%></td>
-              <td><%= value_in_currency s.price%></td>
+              <td><%#= value_in_currency s.price%></td>
               <td><%= s.quantity%></td>
-              <td><%= value_in_currency s.total_price %></td>
+              <td><%#= value_in_currency s.total_price %></td>
             </tr>
         <% end %>
         <tr>
           <td colspan="4" class="text-right"><strong>Subtotal</strong></td>
-          <td><%= value_in_currency @sale.amount%></td>
+          <td><%#= value_in_currency @sale.amount%></td>
         </tr>
 
 
         <tr>
-          <td colspan="4" class="text-right no-border"><strong>VAT Included in Total</strong> (<%= current_company.tax_rate.blank? ? 'not configured' : current_company.tax_rate.to_s + '%' %>)</td>
-          <td><%= value_in_currency @sale.tax%></td>
+          <td colspan="4" class="text-right no-border"><strong>VAT Included in Total</strong> (<%= @sale.company.tax_rate.blank? ? 'not configured' : @sale.company.tax_rate.to_s + '%' %>)</td>
+          <td><%#= value_in_currency @sale.tax%></td>
         </tr>
 
         <tr>
           <td colspan="4" class="text-right no-border"><strong>Discount</strong> (<%= @sale.discount.to_f * 100%>%)</td>
-          <td><%= value_in_currency @sale.get_discounted_amount%></td>
+          <td><%#= value_in_currency @sale.get_discounted_amount%></td>
         </tr>
 
         <tr>
           <td colspan="4" class="text-right no-border"><strong>Total</strong></td>
-          <td><strong><%= value_in_currency @sale.total_amount%></strong></td>
+          <td><strong><%#= value_in_currency @sale.total_amount%></strong></td>
         </tr>
         </tbody>
       </table>

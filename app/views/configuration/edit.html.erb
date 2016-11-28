@@ -6,7 +6,7 @@
             <h3 style="color:#717171;">Edit Company</h3>
           </header>
           <div class="panel-body">
-            <%= form_for current_company , html: {class: "bs-example form-horizontal"} do |f|  %>
+            <%= form_for current_company , url: edit_configuration_path(current_company) , method: :patch , html: {class: "bs-example form-horizontal"} do |f|  %>
 
                 <div class="form-group">
                   <%= f.label :company_name , class: 'col-lg-2 control-label' %>

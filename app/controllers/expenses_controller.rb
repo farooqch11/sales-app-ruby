@@ -1,5 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb 'EXPENSES', '#' , options: { title: 'EXPENSES' }
+
 
   # GET /expenses
   # GET /expenses.json
@@ -14,6 +16,7 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
+    add_breadcrumb 'NEW EXPENSE', new_expense_path , options: { title: 'NEW EXPENSE' }
     @expense = current_company.expenses.new
   end
 
@@ -70,6 +73,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:attachment, :company_id,:start_date, :end_date, :purpose, :paid_time, :expense_type)
+      params.require(:expense).permit(:attachment,:start_date, :end_date, :purpose,:amount , :paid_time, :expense_type)
     end
 end

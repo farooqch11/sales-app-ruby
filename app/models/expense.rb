@@ -29,10 +29,12 @@ class Expense < ActiveRecord::Base
   # User Avatar Validation
   validates_integrity_of  :attachment
   validate :image_size_validation
+  validates :amount, numericality: { message: "%{value} seems wrong" }
+
 
   private
   def image_size_validation
-    errors[:attachment] << "should be less than 500KB" if image.size > 0.5.megabytes
+    errors[:attachment] << "should be less than 500KB" if attachment.size > 0.5.megabytes
   end
 
 

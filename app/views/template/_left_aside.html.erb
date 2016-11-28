@@ -1,5 +1,6 @@
 <!-- .aside -->
-<aside class="bg-light lter b-r aside-md" id="nav">
+<aside class="bg-light lter nav-xs aside-md hidden-print" id="nav">
+  <!--<aside class="bg-dark lter nav-xs aside-md hidden-print" id="nav">-->
   <section class="vbox">
     <!--<header class="header bg-primary lter text-center clearfix">-->
       <!--&lt;!&ndash;<div class="btn-group">&ndash;&gt;-->
@@ -98,12 +99,26 @@
                 </li>
                 <% if current_user.can_update_items %>
                     <li  class="<%= sales_active  %>">
-                      <a href="<%= sales_path %>"  class="<%= sales_active  %>" >
+                      <a href="#"  class="<%= sales_active  %>" >
                         <i class="fa fa-shopping-cart icon">
                           <b class="bg-dark"></b>
                         </i>
                         <span>SALES</span>
                       </a>
+                      <ul class="nav lt">
+                        <li >
+                          <a href="<%= sales_path %>">
+                            <i class="fa fa-angle-right"></i>
+                            <span>Point of Sale</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="<%= items_path %>" >
+                            <i class="fa fa-angle-right"></i>
+                            <span>Sales Record</span>
+                          </a>
+                        </li>
+                      </ul>
                     </li>
                 <% end %>
 
@@ -173,30 +188,30 @@
     </section>
 
     <footer class="footer lt hidden-xs b-t b-light">
-      <!--<div id="chat" class="dropup">-->
-        <!--<section class="dropdown-menu on aside-md m-l-n">-->
-          <!--<section class="panel bg-white">-->
-            <!--<header class="panel-heading b-b b-light">Active chats</header>-->
-            <!--<div class="panel-body animated fadeInRight">-->
-              <!--<p class="text-sm">No active chats.</p>-->
-              <!--<p><a href="#" class="btn btn-sm btn-default">Start a chat</a></p>-->
-            <!--</div>-->
-          <!--</section>-->
-        <!--</section>-->
-      <!--</div>-->
-      <!--<div id="invite" class="dropup">-->
-        <!--<section class="dropdown-menu on aside-md m-l-n">-->
-          <!--<section class="panel bg-white">-->
-            <!--<header class="panel-heading b-b b-light">-->
-              <!--John <i class="fa fa-circle text-success"></i>-->
-            <!--</header>-->
-            <!--<div class="panel-body animated fadeInRight">-->
-              <!--<p class="text-sm">No contacts in your lists.</p>-->
-              <!--<p><a href="#" class="btn btn-sm btn-facebook"><i class="fa fa-fw fa-facebook"></i> Invite from Facebook</a></p>-->
-            <!--</div>-->
-          <!--</section>-->
-        <!--</section>-->
-      <!--</div>-->
+      <div id="chat" class="dropup">
+        <section class="dropdown-menu on aside-md m-l-n">
+          <section class="panel bg-white">
+            <header class="panel-heading b-b b-light">Active chats</header>
+            <div class="panel-body animated fadeInRight">
+              <p class="text-sm">No active chats.</p>
+              <p><a href="#" class="btn btn-sm btn-default">Start a chat</a></p>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div id="invite" class="dropup">
+        <section class="dropdown-menu on aside-md m-l-n">
+          <section class="panel bg-white">
+            <header class="panel-heading b-b b-light">
+              John <i class="fa fa-circle text-success"></i>
+            </header>
+            <div class="panel-body animated fadeInRight">
+              <p class="text-sm">No contacts in your lists.</p>
+              <p><a href="#" class="btn btn-sm btn-facebook"><i class="fa fa-fw fa-facebook"></i> Invite from Facebook</a></p>
+            </div>
+          </section>
+        </section>
+      </div>
       <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-default btn-icon">
         <i class="fa fa-angle-left text"></i>
         <i class="fa fa-angle-right text-active"></i>

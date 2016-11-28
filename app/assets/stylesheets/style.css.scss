@@ -29,3 +29,34 @@
   margin-top: 10px;
   font-size: 22px;
 }
+
+.nav-xs{
+  width: 75px;
+}
+
+.nav-xs{
+  min-width: 75px !important;
+  //background-color: #193048 !important;
+  section{
+    nav{
+      ul{
+        li{
+
+          a{
+            //border-bottom: 0.5px solid #F5F5F5;
+            span {
+
+              min-width: 75px !important;
+              text-align: center !important;
+            }
+            //span:hover{
+            //  background-color: #4cc0c1;
+            //}
+
+          }
+
+        }
+      }
+    }
+  }
+}

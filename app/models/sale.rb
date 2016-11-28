@@ -40,6 +40,7 @@ class Sale < ActiveRecord::Base
   accepts_nested_attributes_for :payments, allow_destroy: true
 
   before_create :set_company_id
+  # after_create  :send_sales_report_to_customer
 
 
 
