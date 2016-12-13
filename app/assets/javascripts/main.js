@@ -94,6 +94,19 @@ $(document).ready(function(){
 		}
 	});
 
+    // Empty full cart
+    $('#empty-cart').click(function(){
+        $.ajax({
+            type: "POST",
+            url: '/sales/empty_cart', //sumbits it to the given url of the form
+            data: { id: $('#search_sale_id').val()},
+            dataType: "script",
+            success: function() {
+                console.log('empty_cart');
+            }
+        });
+    });
+
 	// creates a line item for a sale
 	var input = $('#search_item_name')[0];
 	var sale_id = $('#search_sale_id')[0];

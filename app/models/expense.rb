@@ -30,6 +30,7 @@ class Expense < ActiveRecord::Base
   validates_integrity_of  :attachment
   validate :image_size_validation
   validates :amount, numericality: { message: "%{value} seems wrong" }
+  validates :expense_type , presence: true
 
 
   private

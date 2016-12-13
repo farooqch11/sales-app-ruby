@@ -1,15 +1,10 @@
-<h4 class="text-info"><span class="glyphicon"><%= current_company.currency %></span> Sale Totals</h4>
+<!--<h4 class="text-info"><span class="glyphicon"><%#= current_company.currency %></span> Sale Totals</h4>-->
 <hr />
 
-<label>Base Price</label>
-<div class="input-group">
-  <span class="input-group-addon"><%=current_company.currency %></span>
-  <input type="text" class="form-control" readonly value=<%= number_to_currency(@sale.amount, unit: '') %>>
-</div>
+<label>DISCOUNT</label>
 
-<label>Discount</label>
-
-<div class="input-group">
+<div class="row">
+  <div class="col-md-12">
   <select id="sale_discount" class="form-control sale-discount">
   	<% 0.step(100, 5) do |disc| %>
   		<% dec_discount = (disc.to_d / 100).to_s %>
@@ -19,18 +14,38 @@
   		</option>
   	<% end %>
   </select>
-  <span class="input-group-addon"><%=current_company.currency %><%= @sale.discount.blank? ? 0 : number_to_currency(@sale.get_discounted_amount, unit: current_company.currency) %></span>
-</div>
-
-<label>Tax(<%= current_company.tax_rate.blank? ? 'not configured' : current_company.tax_rate %>)</label>
-<div class="input-group">
-  <span class="input-group-addon"><%=current_company.currency %></span>
-  <input type="text" class="form-control" readonly value=<%= number_to_currency(@sale.tax, unit: '') %>>
+    </div>
 </div>
 <hr />
+<div class="row">
+    <div class="col-md-6">
+      <div class="pull-right">
+        <span class="text-muted text-center">SUB TOTAL:</span>
+        <span class="h3 block"><%= value_in_currency @sale.amount %></span>
+      </div>
+    </div>
+  <div class="col-md-6">
+    <div class="pull-right">
+      <span class="text-muted">DISCOUNT:</span>
+      <span class="h3 block">- <%= @sale.discount.blank? ? 0.0 : value_in_currency(@sale.get_discounted_amount) %></span>
+    </div>
+  </div>
+  <hr />
+  <div class="col-md-offset-6 col-md-6">
+    <div class="pull-right">
+      <span class="text-muted">TAX:</span>
+      <span class="h3 block"><%= value_in_currency @sale.tax %></span>
+    </div>
+  </div>
+</div>
 
-<label class="text-info">Total Price</label>
-<div class="input-group has-success total_price_output">
-  <span class="input-group-addon price_output"><%=current_company.currency %></span>
-  <input type="text" class="form-control price_output" readonly value=<%= number_to_currency(@sale.total_amount, unit: '') %>>
-</div> 
+
+
+<label class="text-info hidden">Total Price</label>
+<div class="input-group has-success total_price_output hidden">
+  <span class="input-group-addon price_output hidden"><%=current_company.currency %></span>
+  <input type="text" class="form-control price_output hidden" readonly value=<%= number_to_currency(@sale.total_amount, unit: '') %>>
+</div>
+<script>
+  $('.btn-charge').text('<%= value_in_currency(@sale.total_amount) %>');
+</script>

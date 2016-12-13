@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111223213) do
+ActiveRecord::Schema.define(version: 20161120081915) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip"
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -55,6 +67,12 @@ ActiveRecord::Schema.define(version: 20161111223213) do
     t.boolean  "status",                                      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "low_stock_alert"
+    t.string   "email"
+    t.string   "phone"
+    t.boolean  "is_activated",                                default: true
+    t.string   "currency_name"
+    t.string   "currency_code"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -70,6 +88,7 @@ ActiveRecord::Schema.define(version: 20161111223213) do
     t.boolean  "published",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "address_id"
   end
 
   add_index "customers", ["company_id"], name: "index_customers_on_company_id"
@@ -81,9 +100,11 @@ ActiveRecord::Schema.define(version: 20161111223213) do
     t.date     "end_date"
     t.text     "purpose"
     t.datetime "paid_time"
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "expense_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.float    "low_stock_alert"
+    t.float    "amount"
   end
 
   add_index "expenses", ["company_id"], name: "index_expenses_on_company_id"
@@ -111,6 +132,7 @@ ActiveRecord::Schema.define(version: 20161111223213) do
     t.datetime "updated_at"
     t.integer  "item_category_id"
     t.integer  "company_id"
+    t.string   "photo"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -122,6 +144,23 @@ ActiveRecord::Schema.define(version: 20161111223213) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.integer  "address_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "published",  default: true
+  end
+
+  create_table "locations_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "location_id"
+  end
+
+  add_index "locations_users", ["location_id"], name: "index_locations_users_on_location_id"
+  add_index "locations_users", ["user_id"], name: "index_locations_users_on_user_id"
 
   create_table "payments", force: :cascade do |t|
     t.integer  "sale_id"

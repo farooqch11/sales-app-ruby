@@ -13,5 +13,9 @@ $('.searched_items').html("<%= escape_javascript render('sales/shared/searched_i
 
 $('.searched_customers').html("<%= escape_javascript render('sales/shared/searched_customers') %>");
 
-
+$('.btn-charge').text("<%= value_in_currency(@sale.total_amount) %>");
 $('.edit_sale').show();
+ $('.item-eq').equalHeights();
+$('.task-card-photo').equalHeights();
+$('.item-img').equalHeights();
+$('.task-card-title').equalHeights();

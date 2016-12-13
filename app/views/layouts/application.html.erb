@@ -19,7 +19,7 @@
 
     </head>
     
-    <body class="bg-light lter b-r aside-md" >
+    <body class="bg-light lter b-r" >
         <section class="vbox">
           <% if user_signed_in? %>
               <%= render partial: 'template/menu' %>
@@ -28,11 +28,23 @@
             <section class="hbox stretch">
                   <%= render partial: 'template/left_aside'%>
               <section id="content">
-                <%=render partial: "template/bread_crums" if params[:action] != 'index' %>
+                <%#=render partial: "template/bread_crums" if params[:action] != 'index' %>
                 <%= yield %>
               </section>
               <%= javascript_include_tag :application, "data-turbolinks-track" => true %>
               <%= yield(:scripts) %>
+              <script>
+                  $(window).load(function() {
+                      $('.footer').equalHeights();
+
+
+                  });
+
+
+                  $(window).resize(function(){
+                      $('.footer').equalHeights();
+                  });
+                </script>
             </section>
           </section>
         </section>

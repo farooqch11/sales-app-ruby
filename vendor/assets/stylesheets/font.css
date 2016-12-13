@@ -2,20 +2,20 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;
-  src: local('Open Sans Light'), local('OpenSans-Light'), url('gotham/GothamLight.woff') format('woff');
-  /*src: local('Open Sans Light'), local('OpenSans-Light'), url('opensans/opensans-light-webfont.woff') format('woff');*/
+  /*src: local('Open Sans Light'), local('OpenSans-Light'), url('gotham/GothamLight.woff') format('woff');*/
+  src: local('Open Sans Light'), local('OpenSans-Light'), url('opensans/opensans-light-webfont.woff') format('woff');
 }
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  /*src: local('Open Sans'), local('OpenSans'), url('opensans/opensans-webfont.woff') format('woff');*/
-  src: local('Open Sans'), local('OpenSans'), url('gotham/GothamRegular.woff') format('woff');
+  src: local('Open Sans'), local('OpenSans'), url('opensans/opensans-webfont.woff') format('woff');
+  /*src: local('Open Sans'), local('OpenSans'), url('gotham/GothamRegular.woff') format('woff');*/
 }
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url('gotham/GothamBold.woff') format('woff');
-  /*src: local('Open Sans Bold'), local('OpenSans-Bold'), url('opensans/opensans-bold-webfont.woff') format('woff');*/
+  /*src: local('Open Sans Bold'), local('OpenSans-Bold'), url('gotham/GothamBold.woff') format('woff');*/
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url('opensans/opensans-bold-webfont.woff') format('woff');
 }

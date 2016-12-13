@@ -185,6 +185,8 @@ PushvendorPos::Application.routes.draw do
       get 'update_totals'
       get 'add_item'
       get 'remove_item'
+      get 'remove_lineitem'
+      post 'empty_cart'
       get 'create_customer_association'
       get 'create_custom_item'
       get 'create_custom_customer'

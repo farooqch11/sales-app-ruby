@@ -1,0 +1,201 @@
+.tasks-grid-col.purple .task-card.task {
+    border-top-color: #ac6bec;
+}
+.task-card.task {
+    padding-top: 20px;
+    border-top: solid 4px #00a8ff;
+    -webkit-border-radius: 5px 5px .25rem .25rem;
+    border-radius: 5px 5px .25rem .25rem;
+}
+.task-card {
+    margin: 0 0 30px;
+}
+.task-card .task-card-photo {
+    margin: 0 15px 10px;
+}
+.task-card .task-card-photo img {
+    display: block;
+    width: 100%;
+}
+.task-card .task-card-in {
+    padding: 0 15px;
+    position: relative;
+}
+
+.task-card .task-card-menu {
+    position: absolute;
+    top: 0;
+    right: 9px;
+}
+.task-card .task-card-menu button {
+    border: none;
+    background: 0 0;
+    color: #919fa9;
+}
+
+.task-card .task-card-menu .dropdown-menu {
+    min-width: auto;
+    margin-top: 0;
+}
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    color: #373a3c;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -o-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    -webkit-border-radius: .25rem;
+    border-radius: .25rem;
+}
+.dropdown-item {
+    font-size: .9375rem;
+}
+.dropdown-header, .dropdown-item {
+    padding: 4px 12px;
+}
+.dropdown-item .font-icon {
+    margin: 0 8px 0 0;
+    color: #adb7be;
+    transition: all .2s ease-in-out;
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: 16px;
+    position: relative;
+    top: -1px;
+}
+.dropdown-item {
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #373a3c;
+    text-align: inherit;
+    background: 0 0;
+    border: 0;
+}
+.btn, .dropdown-header, .dropdown-item, .input-group-btn, .label, .table-reflow tbody {
+    white-space: nowrap;
+}
+.dropdown-menu {
+    border-color: #d8e2e7;
+    margin-top: 6px;
+    /* font-size: .8125rem; */
+}
+
+.task-card .task-card-title {
+    margin: 0 15px 10px 0;
+}
+.task-card .task-card-footer {
+    padding: 8px 15px;
+    background: #f6f8fa;
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    border-top: solid 1px #d8e2e7;
+    zoom: 1;
+}
+.task-card .task-card-title a {
+    color: #343434;
+}
+.task-card .task-card-title-label {
+    color: #6c7a86;
+    font-size: .875rem;
+}
+.task-card .progress-compact-style {
+    margin: 0 0 3px;
+}
+.task-card .task-card-tags {
+    padding: 5px 0 11px;
+}
+.task-card .task-card-tags .label {
+    font-size: .875rem;
+    color: #6c7a86;
+    font-weight: 400;
+    margin: 0 3px 8px 0;
+}
+.label-light-grey {
+    background-color: #eceff4;
+    color: #919fa9;
+}
+.label {
+    font-size: .875rem;
+    font-weight: 600;
+    background-color: #adb7be;
+}
+.label {
+    display: inline-block;
+    padding: .25em .4em;
+    line-height: 1;
+    color: #fff;
+    vertical-align: baseline;
+    -webkit-border-radius: .25rem;
+    border-radius: .25rem;
+}
+.box-typical {
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #d8e2e7;
+    margin: 0 0 20px;
+}
+.tbl-cell, audio, canvas, img, video {
+    vertical-align: middle;
+}
+.task-card .task-card-meta-item {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 15px 0 0;
+    font-size: .875rem;
+    position: relative;
+    top: 1px;
+}
+.task-card .task-card-meta-item .font-icon {
+    color: #919fa9;
+    margin: 0 5px 0 0;
+}
+img {
+     -ms-interpolation-mode: bicubic;
+     border: none;
+ }
+.task-card .task-card-footer {
+    padding: 16px 5px;
+    background: #f6f8fa;
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    border-top: solid 1px #d8e2e7;
+    zoom: 1;
+}
+.task-card .task-card-meta-item {
+    float: left;
+    height: 32px;
+    line-height: 0px;
+    margin: 0 15px 0 0;
+    font-size: .875rem;
+    position: relative;
+    top: 1px;
+}
+.task-card .avatar-preview {
+    float: right;
+}
+.avatar-preview.avatar-preview-32 {
+    width: 32px;
+    height: 32px;
+}
+.avatar-preview {
+    display: inline-block;
+    vertical-align: middle;
+}

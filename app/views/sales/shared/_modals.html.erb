@@ -4,14 +4,72 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Payment Options</h4>
+          <h1 class="modal-title text-center" id="myModalLabel"><%= number_to_currency(@sale.remaining_balance, unit: current_company.currency) %></h1>
         </div>
         <div class="modal-body">
-          <%= render :partial => 'sales/shared/payment' %>
+          <%#= render :partial => 'sales/shared/payment' %>
+          <div class="make_payment row">
+            <%= form_for :payments, url: make_payment_payments_path, method: "post", remote: true , class: 'form-horizontal' do |f| %>
+                <div class="form-group">
+                  <label class="col-sm-12">Select Payment Option</label>
+                  <div class="col-sm-12">
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="line line-dashed line-lg pull-in"></div>
+                <div class="form-group">
+                  <label class="col-sm-12 control-label">Sent Receipt/Invoice to customer email</label>
+                  <div class="col-sm-offset-2 col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <!-- radio -->
+                        <div class="radio">
+                          <label class="radio-custom col-sm-2">
+                            <input type="radio" name="radio" checked="checked">
+                            <i class="fa fa-circle-o"></i>
+                            Yes
+                          </label>
+                          <label class="radio-custom col-sm-2">
+                            <input type="radio" name="radio">
+                            <i class="fa fa-circle-o"></i>
+                            No
+                          </label>
+                        </div></div></div></div></div>
+                <div class="form-group">
+                  <label class="col-sm-12 control-label">Print Receipt</label>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-offset-2 col-sm-12">
+                        <!-- radio -->
+                        <div class="radio">
+                          <label class="radio-custom col-sm-2">
+                            <input type="radio" name="radio-r" checked="checked">
+                            <i class="fa fa-circle-o"></i>
+                            Yes
+                          </label>
+                          <label class="radio-custom col-sm-2">
+                            <input type="radio" name="radio-r">
+                            <i class="fa fa-circle-o"></i>
+                            No
+                          </label>
+                        </div></div></div></div></div>
+                <label>Type</label>
+                <%= f.select :payment_type, PAYMENTS_METHODS , {}, { :class => "form-control" } %>
+                <!--<label>Amount</label>-->
+                <%= f.hidden_field :amount, :class => "form-control", :placeholder => "Amount", :value => number_to_currency(@sale.remaining_balance, unit: current_company.currency) %>
+                <%= f.hidden_field :sale_id, :value => @sale.id %>
+                <br />
+                <div class="modal-footer text-center">
+                  <%= submit_tag "Complete Sale", class: "btn btn-success btn-lg" %>
+                </div>
+
+            <% end %>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </div>
+
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->

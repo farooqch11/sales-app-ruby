@@ -8,6 +8,6 @@
 		<%= f.text_field :amount, :class => "form-control", :placeholder => "Amount", :value => number_to_currency(@sale.remaining_balance, unit: current_company.currency) %>
 		<%= f.hidden_field :sale_id, :value => @sale.id %>
 		<br />
-		<%= submit_tag "Submit Payment", :class => "btn btn-info btn-lg" %>
+		<%= submit_tag "Complete Sale", :class => "btn btn-success btn-lg" %>
 	<% end %>
 </div>

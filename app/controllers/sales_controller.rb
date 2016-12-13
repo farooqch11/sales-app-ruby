@@ -4,7 +4,7 @@ class SalesController < ApplicationController
   # protect_from_forgery with: :null_session
 
   before_action :set_sale , except: [:index , :new]
-  before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :add_item , :remove_item , :update_line_item_options , :edit , :update_customer_options , :create_line_item]
+  before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :update_customer_options , :create_line_item]
   before_action :populate_customers , only: [:populate_customers , :edit]
 
   def index
@@ -117,6 +117,22 @@ class SalesController < ApplicationController
     end
   end
 
+  #Empty Cart
+  def empty_cart
+
+    line_items = @sale.line_items.includes(:item) || []
+    line_items.each do |line_item|
+      line_item.item.stock_amount = line_item.item.stock_amount + line_item.quantity
+      line_item.item.save
+      line_item.destroy
+    end
+    # line_item = LineItem.where(sale_id: params[:sale_id], item_id: params[:item_id]).first
+    update_totals
+    respond_to do |format|
+      format.js { ajax_refresh }
+    end
+
+  end
   # Remove Item
   def remove_item
     # set_sale
@@ -135,6 +151,19 @@ class SalesController < ApplicationController
 
     update_totals
 
+    respond_to do |format|
+      format.js { ajax_refresh }
+    end
+  end
+  # Remove Item from line item
+  def remove_lineitem
+    line_item = @sale.line_items.find_by_id(params[:line_item])
+    if line_item.present?
+      line_item.item.stock_amount = line_item.item.stock_amount + line_item.quantity
+      line_item.item.save
+      line_item.destroy
+    end
+    update_totals
     respond_to do |format|
       format.js { ajax_refresh }
     end

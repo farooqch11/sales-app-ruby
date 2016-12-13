@@ -1,4 +1,36 @@
 FactoryGirl.define do
+  factory :location do
+    company_id 1
+    name "MyString"
+    address_id 1
+  end
+  factory :address do
+    address_1 "MyString"
+    address_2 "MyString"
+    city "MyString"
+    state "MyString"
+    country "MyString"
+    zip "MyString"
+    status 1
+    default ""
+  end
+  factory :site do
+    
+  end
+  factory :admin_user do
+    
+  end
+  factory :expense do
+    attachment "MyString"
+    start_date "2016-11-08"
+    end_date "2016-11-08"
+    purpose "MyText"
+    paid_time "2016-11-08 21:25:12"
+    type ""
+  end
+  factory :role do
+    name "MyString"
+  end
   factory :business_type do
     name "MyString"
   end
