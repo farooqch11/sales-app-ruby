@@ -3,7 +3,7 @@
   <aside class="aside-xl b-l b-r" id="note-list">
     <section class="vbox flex">
       <header class="header clearfix">
-        <span class="pull-right m-t"><button class="btn btn-dark btn-sm btn-icon" id="new-note" data-toggle="tooltip" data-placement="right" title="" data-original-title="New"><i class="fa fa-plus"></i></button></span>
+        <span class="pull-right m-t"><button class="btn btn-dark btn-sm btn-icon" id="new-note" data-toggle="tooltip" data-placement="right" title="" data-original-title="New"><i class="fa fa-bars"></i></button></span>
         <p class="h3">Activity</p>
         <div class="input-group m-t-sm m-b-sm">
           <span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>
@@ -18,14 +18,14 @@
               <ul id="note-items" class="list-group list-group-sp">
                 <% @sales.each do |sale|%>
                     <a href="<%= sale_path(sale) %>" >
-                <li class="list-group-item hover <%= params[:id] == sale.id ? 'active' : ''%>">
+                <li class="list-group-item hover <%= @sale.id == sale.id ? 'active bg-info' : ''%>">
                   <div class="media">
                     <span class="pull-left thumb-sm"><img src="<%= asset_path('pic1.png') %>"></span>
                     <div class="pull-right text-muted m-t-sm">
                       <%= sale.created_at.strftime('%I:%M %p')%>
                     </div>
                     <div class="media-body m-t-sm">
-                      <div><b> <%=value_in_currency(sale.total_amount) %> </b></div>
+                      <div><strong class="block"> <%=value_in_currency(sale.total_amount) %> </strong></div>
                       <!--<small class="text-muted">about 2 minutes ago</small>-->
                     </div>
                   </div>
@@ -51,17 +51,45 @@
       <section class="bg-light lter">
         <section class="hbox stretch">
           <aside>
+
             <section class="vbox b-b">
               <div class="col-sm-12">
-                <!--<div class="col-sm-6">-->
-                  <!--<a href="#" class="btn btn-default btn-lg">Issue Receipt</a>-->
-                <!--</div>-->
-                <!--<div class="col-sm-6">-->
-                  <!--<a href="#" class="btn btn-default btn-lg">Issue Refund</a>-->
-                <!--</div>-->
-                <section class="panel panel-default">
+
+                <section class="panel panel-default" style="border: none">
                   <!--<header class="panel-heading">-->
                     <!--Items-->
+                  <!--</header>-->
+                  <ul class="list-group alt" style="border: none">
+                    <li class="list-group-item" style="border: none">
+                      <div class="media">
+                        <b>CARD PAYMENT <%= @sale.created_at.strftime('%m/%d/%Y %I:%M %p')%></b>
+                      </div>
+                    </li>
+                        <li class="list-group-item" style="border: none">
+                          <div class="media">
+                            <span class="pull-left thumb-sm"><img src="<%= asset_path('pic3.png') %>"></span>
+                            <div class="pull-right text-mutted m-t-sm">
+                              <b><%= value_in_currency @sale.total_amount %></b>
+                            </div>
+                            <div class="media-body m-t-sm">
+                              <div><b>Card Number 9101</b></div>
+                            </div>
+                          </div>
+                        </li>
+                    <li class="list-group-item" style="border: none">
+                      <div class="media">
+                        <span class="pull-left thumb-sm"><img src="<%= asset_path('pic2.png') %>"></span>
+                        <div class="media-body m-t-sm">
+                          <div><b>RECEIPT NUMBER <%= @sale.id%></b></div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <section class="panel panel-default">
+                  <!--<header class="panel-heading">-->
+                  <!--Items-->
                   <!--</header>-->
                   <ul class="list-group alt">
                     <li class="list-group-item">
