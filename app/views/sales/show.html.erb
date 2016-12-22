@@ -56,10 +56,22 @@
               <div class="col-sm-12">
 
                 <section class="panel panel-default" style="border: none">
-                  <!--<header class="panel-heading">-->
-                    <!--Items-->
-                  <!--</header>-->
                   <ul class="list-group alt" style="border: none">
+                    <li class="list-group-item" style="border: none">
+                      <div class="media">
+                        <div class="media-body m-t-sm">
+                          <span class="col-sm-6">
+                            <a href="#" class="btn btn-default btn-lg btn-block col-sm-6">Issue Receipt</a>
+                            </span>
+                           <span class="col-sm-6">
+                            <a href="#" class="btn btn-default btn-lg btn-block col-sm-6">Issue Refund</a>
+                           </span>
+                        </div>
+                          <div>
+                        </div>
+                      </div>
+                    </li>
+
                     <li class="list-group-item" style="border: none">
                       <div class="media">
                         <b>CARD PAYMENT <%= @sale.created_at.strftime('%m/%d/%Y %I:%M %p')%></b>
