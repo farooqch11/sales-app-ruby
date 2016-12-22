@@ -16,6 +16,11 @@ class SalesController < ApplicationController
     redirect_to edit_sale_path(@sale)
   end
 
+  def show
+    @sale =  current_company.sales.find(params[:id])
+    @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
+  end
+
   def edit
     # set_sale
     # populate_items

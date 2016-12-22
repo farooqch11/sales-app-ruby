@@ -5,10 +5,10 @@
 #  id           :integer          not null, primary key
 #  sale_id      :integer
 #  amount       :decimal(8, 2)
-#  payment_type :integer
 #  created_at   :datetime
 #  updated_at   :datetime
 #  payment_term :integer
+#  payment_type :integer
 #
 
 class Payment < ActiveRecord::Base

@@ -1,0 +1,95 @@
+<section class="hbox stretch">
+  <!-- .aside -->
+  <aside class="aside-xl b-l b-r" id="note-list">
+    <section class="vbox flex">
+      <header class="header clearfix">
+        <span class="pull-right m-t"><button class="btn btn-dark btn-sm btn-icon" id="new-note" data-toggle="tooltip" data-placement="right" title="" data-original-title="New"><i class="fa fa-plus"></i></button></span>
+        <p class="h3">Activity</p>
+        <div class="input-group m-t-sm m-b-sm">
+          <span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>
+          <input type="text" class="form-control input-sm" id="search-note" placeholder="search">
+        </div>
+      </header>
+      <section>
+        <section>
+          <section>
+            <div class="padder">
+              <!-- note list -->
+              <ul id="note-items" class="list-group list-group-sp">
+                <% @sales.each do |sale|%>
+                    <a href="<%= sale_path(sale) %>" >
+                <li class="list-group-item hover <%= params[:id] == sale.id ? 'active' : ''%>">
+                  <div class="media">
+                    <span class="pull-left thumb-sm"><img src="<%= asset_path('pic1.png') %>"></span>
+                    <div class="pull-right text-muted m-t-sm">
+                      <%= sale.created_at.strftime('%I:%M %p')%>
+                    </div>
+                    <div class="media-body m-t-sm">
+                      <div><b> <%=value_in_currency(sale.total_amount) %> </b></div>
+                      <!--<small class="text-muted">about 2 minutes ago</small>-->
+                    </div>
+                  </div>
+
+                </li></a>
+                    <% end %>
+              </ul>
+              <!-- templates -->
+              <!-- note list -->
+              <p class="text-center">&nbsp;</p>
+            </div>
+          </section>
+        </section>
+      </section>
+    </section>
+  </aside>
+  <!-- /.aside -->
+  <aside id="note-detail">
+    <section class="vbox">
+      <header class="header bg-light lter bg-gradient b-note-b">
+        <p id="note-date"><b> <%=value_in_currency(@sale.total_amount) %> </b></p>
+      </header>
+      <section class="bg-light lter">
+        <section class="hbox stretch">
+          <aside>
+            <section class="vbox b-b">
+              <div class="col-sm-12">
+                <!--<div class="col-sm-6">-->
+                  <!--<a href="#" class="btn btn-default btn-lg">Issue Receipt</a>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6">-->
+                  <!--<a href="#" class="btn btn-default btn-lg">Issue Refund</a>-->
+                <!--</div>-->
+                <section class="panel panel-default">
+                  <!--<header class="panel-heading">-->
+                    <!--Items-->
+                  <!--</header>-->
+                  <ul class="list-group alt">
+                    <li class="list-group-item">
+                      <div class="media">
+                        <b>Items</b>
+                      </div>
+                    </li>
+                    <% @sale.line_items.each do |line| %>
+                        <li class="list-group-item">
+                          <div class="media">
+                            <span class="pull-left thumb-sm"><img src="<%= line.item.photo.present? ? line.item.photo : asset_path('product-no-image.jpg') %>"></span>
+                            <div class="pull-right text-mutted m-t-sm">
+                              <b><%= value_in_currency line.total_price %></b>
+                            </div>
+                            <div class="media-body m-t-sm">
+                              <div><b><%= line.item.name %></b></div>
+                            </div>
+                          </div>
+                        </li>
+                    <% end %>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </section>
+    </section>
+  </aside>
+</section>
