@@ -10,7 +10,7 @@
           <th>Last Name</th>
           <th>Email Address</th>
           <th>Phone Number</th>
-          <th>Address</th>
+          <th>Country</th>
           <th>City</th>
           <th>State</th>
           <th>zip</th>
@@ -25,10 +25,12 @@
               <td><%= e.text_field :last_name, :class => "form-control", :placeholder => "Last Name", :readonly => true %></td>
               <td><%= e.text_field :email_address, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
               <td><%= e.text_field :phone_number, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
-              <td><%= e.text_field :address, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
-              <td><%= e.text_field :city, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
-              <td><%= e.text_field :state, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
-              <td><%= e.text_field :zip, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
+              <%= e.fields_for :address do |a| %>
+              <td><%= a.text_field :country, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
+              <td><%= a.text_field :city, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
+              <td><%= a.text_field :state, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
+              <td><%= a.text_field :zip, :class => "form-control", :placeholder => "Email Address", :readonly => true %></td>
+              <% end %>
             </tr>
           <% end %>
         <% end %>

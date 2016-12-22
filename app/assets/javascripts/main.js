@@ -22,7 +22,7 @@ $(document).ready(function(){
 		$.ajax({
       type: "POST",
       url: '/sales/override_price', //sumbits it to the given url of the form
-      data: {override_price: { price: $(this).val(), line_item_sku: $(this).parent().parent().find('.line_item_sku').val()} ,id: $('#search_sale_id').val() },
+      data: {override_price: { price: $(this).val(), item_id: $(this).parent().parent().find('.item_id').val()} ,id: $('#search_sale_id').val() },
       dataType: "script",
       success: function() {
       	console.log('price updated');
@@ -105,6 +105,22 @@ $(document).ready(function(){
                 console.log('empty_cart');
             }
         });
+    });
+
+    $('.cash').click(function(){
+        $('#payments_payment_type').val('cash');
+    });
+
+
+    $('.card').click(function(){
+        $('#payments_payment_type').val('credit_card');
+    });
+
+    $('.cash_card').click(function(){
+        $('#payments_payment_type').val('cash_and_card');
+    });
+    $('.payment_term').click(function(){
+        $('#payments_payment_type').val('payment_term');
     });
 
 	// creates a line item for a sale

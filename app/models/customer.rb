@@ -28,6 +28,7 @@ class Customer < ActiveRecord::Base
   has_many    :sales
   belongs_to  :company
   belongs_to  :address
+  has_many    :payments , through: :sales
 
   #Nested Attributes
   accepts_nested_attributes_for :address, allow_destroy: true

@@ -5,13 +5,12 @@ $('.sale_totals').html("<%= escape_javascript render('sales/shared/sale_totals')
 $('.sale_payments').html("<%= escape_javascript render('sales/shared/sale_payments') %>");
 $('.added_customer').html("<%= escape_javascript render('sales/shared/added_customer') %>");
 $('#makePayment .modal-body').html("<%= escape_javascript render('sales/shared/payment') %>");
-$('#customItem .modal-body').html("<%= escape_javascript render('sales/shared/create_custom_item') %>");
-$('#customCustomer .modal-body').html("<%= escape_javascript render('sales/shared/create_custom_customer') %>");
+//$('#customItem .modal-body').html("<%#= escape_javascript render('sales/shared/create_custom_item') %>");
+//$('#customCustomer .modal-body').html("<%#= escape_javascript render('sales/shared/create_custom_customer') %>");
 
 $('.print_totals').html("<%= escape_javascript render('sales/shared/invoice_totals') %>");
-$('.searched_items').html("<%= escape_javascript render('sales/shared/searched_items') %>");
 
-$('.searched_customers').html("<%= escape_javascript render('sales/shared/searched_customers') %>");
+//$('.searched_customers').html("<%#= escape_javascript render('sales/shared/searched_customers' , available_customers: @available_customers) %>");
 
 $('.btn-charge').text("<%= value_in_currency(@sale.total_amount) %>");
 $('.edit_sale').show();
@@ -19,3 +18,31 @@ $('.edit_sale').show();
 $('.task-card-photo').equalHeights();
 $('.item-img').equalHeights();
 $('.task-card-title').equalHeights();
+<%if flash[:alert].present? || flash[:toastr].present? || flash[:error].present? || flash[:errors].present? || flash[:success].present? || flash[:notice].present? || flash[:info].present?%>
+
+<%if flash[:alert].present?%>
+flash_alert("<%= flash[:alert] %>");
+<%end%>
+
+<%if flash[:error].present?%>
+flash_error("<%= flash[:error] %>");
+<%end%>
+
+<%if flash[:errors].present?%>
+<%flash[:errors].each do |e|%>
+flash_error("<%= e %>");
+<%end%>
+<%end%>
+
+<%if flash[:success].present?%>
+flash_success("<%= flash[:success] %>");
+<%end%>
+
+<%if flash[:notice].present?%>
+flash_notice("<%= flash[:notice] %>");
+<%end%>
+
+<%if flash[:info].present?%>
+flash_info("<%= flash[:info] %>");
+<%end%>
+<%end%>

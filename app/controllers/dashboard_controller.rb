@@ -4,6 +4,10 @@ class DashboardController < ApplicationController
     @popular_items = current_company.items.all.order('amount_sold DESC').limit(10)
   end
 
+  def finance
+
+  end
+
   def create_sale_with_product
     @sale = current_company.sales.create
     item  = current_company.items.find(params[:item_id])

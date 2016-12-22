@@ -1,13 +1,74 @@
 <div class="make_payment">
-	<h4 class="text-info"><span class="glyphicon"><%= current_company.currency %></span> Add a payment</h4>
-	<hr />
-	<%= form_for :payments, url: make_payment_payments_path, method: "post", remote: true do |f| %>
-		<label>Type</label>
-		<%= f.select :payment_type, PAYMENTS_METHODS , {}, { :class => "form-control" } %>
-		<label>Amount</label>
-		<%= f.text_field :amount, :class => "form-control", :placeholder => "Amount", :value => number_to_currency(@sale.remaining_balance, unit: current_company.currency) %>
-		<%= f.hidden_field :sale_id, :value => @sale.id %>
-		<br />
-		<%= submit_tag "Complete Sale", :class => "btn btn-success btn-lg" %>
-	<% end %>
+  <%= form_for :payments, url: make_payment_payments_path(sale_id: @sale.id), method: "post", remote: true , class: 'form-horizontal' do |f| %>
+      <div class="sap_tabs form-group">
+        <label class="col-sm-12 control-label"><h4>Select Payment Option</h4></label>
+        <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+          <div class="pay-tabs row">
+            <!--<h2>Select Payment Option</h2>-->
+            <ul class="resp-tabs-list col-sm-12 col-xs-12 col-md-12">
+              <li class="resp-tab-item cash col-md-4" id="#cash" aria-controls="tab_item-0" role="tab"><span>Cash<label class="pic1"></label></span></li>
+              <li class="resp-tab-item card col-md-4" id="#card" aria-controls="tab_item-1" role="tab">
+                <span>Card
+                <label class="pic3"></label>
+                </span>
+              </li>
+              <li class="resp-tab-item cash_card col-md-4" id="#cash_card" aria-controls="tab_item-2" role="tab">
+                <span>
+                  Cash & Card
+                  <div id="pic5">
+                    <%= image_tag('pic2.png')%>/<%= image_tag('pic1.png')%>
+                  </div>
+                </span>
+              </li>
+            </ul>
+            <ul class="resp-tabs-list col-sm-12 col-xs-12 col-md-12">
+              <li class="resp-tab-item payment_term">
+                <span>Terms
+              <div class="input-group m-b" style="margin-left: 15px;">
+                <%= f.number_field :payment_term , class: 'form-control' %>
+                <span class="input-group-addon">Days</span>
+              </div>
+              </span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </br>
+      <div class="form-group">
+        <label class="col-sm-offset-2 col-md-offset-1 control-label"><b>Sent Receipt/Invoice to customer email</b></label>
+        <div class="col-sm-offset-2 col-sm-12">
+              <div class="radio-inline">
+
+                <label class="col-sm-3 col-md-2" style= 'padding-right: 50px'>
+                  <%= f.radio_button :sent_customer_email , true , checked: true%> Yes
+                </label>
+                <label class="col-sm-2">
+                  <%= f.radio_button :sent_customer_email , false %>
+                  No
+                </label>
+              </div>
+            </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-offset-2 col-md-offset-1 control-label"><b>Print Receipt</b></label>
+            <div class="col-sm-offset-2 col-sm-12">
+              <div class="radio-inline">
+
+                <label class="col-sm-3 col-md-2" style= 'padding-right: 50px'>
+                  <%= f.radio_button :print_invoice , true , checked: true%> Yes
+                </label>
+                <label class="col-sm-2">
+                  <%= f.radio_button :print_invoice , false %>
+                  No
+                </label>
+              </div>
+            </div>
+      </div>
+      <%= f.hidden_field :payment_type , value: 'cash' %>
+      </br>
+      <div class="modal-footer center-block">
+        <%= submit_tag "Complete Sale", class: "btn btn-success btn-lg center-block" , style: 'padding: 12px 59px;' %>
+      </div>
+
+  <% end %>
 </div>

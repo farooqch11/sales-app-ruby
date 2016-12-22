@@ -5,7 +5,7 @@ class SalesController < ApplicationController
 
   before_action :set_sale , except: [:index , :new]
   before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :update_customer_options , :create_line_item]
-  before_action :populate_customers , only: [:populate_customers , :edit]
+  before_action :populate_customers , only: [ :edit]
 
   def index
     @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
@@ -53,25 +53,26 @@ class SalesController < ApplicationController
     # populate_items
 
     if params[:search][:item_category].blank?
-      @available_items = current_company.items.all.where('name ILIKE ? AND published = true OR description ILIKE ? AND published = true OR sku ILIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").limit(5) || []
+      @available_items = current_company.items.where('name ILIKE ? AND published = true OR description ILIKE ? AND published = true OR sku ILIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").limit(5) || []
     elsif params[:search][:item_name].blank?
       @available_items = current_company.items.where(item_category_id: params[:search][:item_category]).limit(5) || []
     else
-      @available_items = current_company.items.all.where('name ILIKE ? AND published = true AND item_category_id = ? OR description ILIKE ? AND published = true AND item_category_id = ? OR sku ILIKE ? AND published = true AND item_category_id = ?', "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}").limit(5) || []
+      @available_items = current_company.items.where('name LIKE ? AND published = true AND item_category_id = ? OR description LIKE ? AND published = true AND item_category_id = ? OR sku LIKE ? AND published = true AND item_category_id = ?', "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}").limit(5) || []
     end
 
     respond_to do |format|
-      format.js { ajax_refresh }
+      format.js { }
     end
   end
 
   def update_customer_options
     # set_sale
     # populate_items
-    @available_customers = current_company.customers.all.where('last_name ILIKE ? AND published = true OR first_name ILIKE ? AND published = true OR email_address ILIKE ? AND published = true OR phone_number ILIKE ? AND published = true', "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%").limit(5)
-
+    @available_customers = nil
+    @available_customers = current_company.customers.where('last_name LIKE ? OR first_name LIKE ? OR email_address LIKE ? OR phone_number LIKE ?', "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%").rewhere(published: true).limit(5)
+    puts @available_customers.last.first_name
     respond_to do |format|
-      format.js { ajax_refresh }
+      format.js { }
     end
   end
 
@@ -158,13 +159,14 @@ class SalesController < ApplicationController
   # Remove Item from line item
   def remove_lineitem
     line_item = @sale.line_items.find_by_id(params[:line_item])
-    if line_item.present?
-      line_item.item.stock_amount = line_item.item.stock_amount + line_item.quantity
-      line_item.item.save
-      line_item.destroy
-    end
-    update_totals
     respond_to do |format|
+      if line_item.present?
+        line_item.item.stock_amount = line_item.item.stock_amount + line_item.quantity
+        line_item.item.save
+        line_item.destroy
+      end
+      update_totals
+
       format.js { ajax_refresh }
     end
   end
@@ -248,9 +250,9 @@ class SalesController < ApplicationController
 
   def override_price
     # @sale = current_company.sales.find(params[:override_price][:sale_id])
-    item = current_company.items.where(sku: params[:override_price][:line_item_sku]).first
+    item = current_company.items.where(id: params[:override_price][:item_id]).first
     # line_item = LineItem.where(sale_id: params[:override_price][:sale_id], item_id: item.id).first
-    line_item = LineItem.where(sale_id: params[:id], item_id: item.id).first
+    line_item = @sale.line_items.where(item_id: item.id).first
     line_item.price = params[:override_price][:price].gsub('$', '')
     line_item.save
 
@@ -351,7 +353,7 @@ class SalesController < ApplicationController
   end
 
   def populate_customers
-    @available_customers = current_company.customers.all.where(published: true).limit(5) || []
+    @available_customers = current_company.customers.where(published: true).limit(5) || []
   end
 
   def remove_item_from_stock(item_id, quantity)

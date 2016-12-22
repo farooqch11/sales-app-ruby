@@ -64,6 +64,10 @@ class Sale < ActiveRecord::Base
     return paid_total
   end
 
+  def paid?
+    self.change_due == 0.0
+  end
+
   def change_due
     if self.total_amount.blank?
       return 0.00

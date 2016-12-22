@@ -6,7 +6,7 @@
     <!--<div class="tasks-grid-col-title">Review <strong>15</strong></div>-->
       <% items.each do |item|%>
         <%= link_to url_for(:controller => 'sales', :action => 'create_line_item', :item_id => item.id, :sale_id => @sale.id, :quantity => 1), :remote => true do %>
-        <div class="col-sm-6 col-md-3 col-xl-3 item-eq">
+        <div class="col-sm-6 col-xs-6 col-md-3 col-xl-3 item-eq">
       <section class="panel panel-default box-typical task-card task">
         <div class="task-card-photo">
 

@@ -17,6 +17,7 @@
         <%= f.fields_for :items do |e| %>
           <% @line_item = @sale.line_items.where( item_id: e.object.id).first %>
           <tr>
+            <%= e.hidden_field :id , class: 'item_id' %>
             <%= e.text_field :sku, :class => "form-control line_item_sku hidden", :placeholder => "SKU", :readonly => true %>
             <td><%= e.object.name %></td>
             <%= e.text_field :name, :class => "form-control hidden", :placeholder => "Item", :readonly => true %>
@@ -40,7 +41,6 @@
             <td><%= link_to url_for(:controller => 'sales', :action => 'remove_lineitem', :line_item => @line_item, :sale_id => @sale.id), :remote => true do %>
                   <i class="fa fa-times text-danger text"></i>
               <% end %></td>
-            <!--<td><input class="form-control" type="text" value="<%#= number_to_currency(@line_item.total_price, unit: current_company.currency) %>" placeholder="Total Price" readonly="readonly"></td>-->
           </tr>
         <% end %>
       <% end %>

@@ -14,20 +14,20 @@
                     <%= f.collection_select :item_category, current_company.item_categories, :id, :name, {prompt: "Select a category"}, {class: "form-control item_category_search_input"}  %>
                   </div>
                   <div class="col-xs-3 col-md-3">
-                    <div class="input-group">
-                      <%= f.text_field :item_name, class: "form-control item_search_input awesomplete", list: 'items-list', placeholder: "Search Items" %>
-                      <span class="input-group-btn">
-                           <%= submit_tag "search", :class => "btn btn-info item_search" %>
-                          </span>
-                    </div>
-                    <datalist id="items-list">
-                      <% @available_items.each do |itm| %>
-                          <%= link_to "link1", "#",{remote: true, 'data-toggle':  "modal", 'data-target': '#modal-window'} %>
-                          <!-- Don't remove the '.|' -->
-                          <option value=""><%= itm.id %>.| <%= itm.name %> | stk amount: <%= itm.stock_amount %></option>
-                      <% end %>
+                    <!--<div class="input-group">-->
+                      <!--<%#= f.text_field :item_name, class: "form-control item_search_input awesomplete", list: 'items-list', placeholder: "Search Items" %>-->
+                      <!--<span class="input-group-btn">-->
+                           <!--<%#= submit_tag "search", :class => "btn btn-info item_search" %>-->
+                          <!--</span>-->
+                    <!--</div>-->
+                    <!--<datalist id="items-list">-->
+                      <!--<%# #@available_items.each do |itm| %>-->
+                          <!--<%#= link_to "link1", "#",{remote: true, 'data-toggle':  "modal", 'data-target': '#modal-window'} %>-->
+                          <!--&lt;!&ndash; Don't remove the '.|' &ndash;&gt;-->
+                          <!--<option value=""><%#= itm.id %>.| <#%= itm.name %> | stk amount: <%#= itm.stock_amount %></option>-->
+                      <!--<%# end %>-->
 
-                    </datalist>
+                    <!--</datalist>-->
 
 
 
@@ -39,12 +39,9 @@
           <!--</div>-->
         </header>
         <section class="scrollable wrapper w-f">
-          <!--<section class="panel panel-default">-->
-          <%#= render 'items/partials/item_grid_view' , items: Item.all %>
             <div class="sale_form_details">
               <%= render 'sales/shared/form' %>
             </div>
-          <!--</section>-->
         </section>
         <footer class="footer bg-white b-t">
           <div class="row text-center-xs">
@@ -70,14 +67,10 @@
     <section class="vbox">
       <header class="header bg-white b-b clearfix">
         <%= link_to raw("<i class='fa fa-trash-o'></i>") , '#',id:'empty-cart' ,class: "btn btn-icon btn-default btn-sm pull-right" %>
+        <a href="#" data-toggle="modal" data-target="#addCustomer" class="btn btn-default btn-sm pull-right" style="min-width: 65%; margin-right: 10%;"><i class="fa fa-user pull-left text-muted"></i>Add Customer</a>
         <button class="btn btn-icon btn-default btn-sm pull-right visible-xs m-r-xs" data-toggle="class:show" data-target="#mail-nav"><i class="fa fa-reorder"></i></button>
         <!--<p class="h4">Cart (25)</p>-->
       </header>
-      <!--<header class="header bg-white b-b clearfix">-->
-        <!--<div class="row m-t-sm">-->
-        <!--<p>Cart (25)</p>-->
-        <!--</div>-->
-      <!--</header>-->
       <section class="scrollable wrapper w-f">
       <%= form_for(@sale) do |f| %>
 
@@ -103,10 +96,9 @@
               <%= f.submit 'Update Sale', :class => "hidden btn btn-info btn-lg sale_submit" %>
             </ul>
           </section>
-          <footer class="footer b-t">
-            <%= render :partial => 'sales/shared/sale_payments', :locals => {:f => f} %>
+          <footer class="footer b-t sale_payments">
+              <%= render  'sales/shared/sale_payments'%>
 
-            <!--<button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> New contact</button>-->
           </footer>
       <% end %>
     </section>

@@ -46,6 +46,3 @@
   <span class="input-group-addon price_output hidden"><%=current_company.currency %></span>
   <input type="text" class="form-control price_output hidden" readonly value=<%= number_to_currency(@sale.total_amount, unit: '') %>>
 </div>
-<script>
-  $('.btn-charge').text('<%= value_in_currency(@sale.total_amount) %>');
-</script>

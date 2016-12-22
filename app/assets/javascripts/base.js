@@ -27,6 +27,7 @@
 //= require appear/jquery.appear
 //= require scroll/smoothscroll
 //= require landing
+//= require flash
 
  function showWebUrl() {
      $("#web-url").show();

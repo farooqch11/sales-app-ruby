@@ -1,37 +1,6 @@
-<!--&lt;!&ndash;<h4 class="text-info"><span class="glyphicon glyphicon-credit-card"></span> Payments</h4>&ndash;&gt;-->
-  <!--<hr class="hidden-print" />-->
-
-  <!--<table class="table table-striped table-bordered table-hover">-->
-    <!--<thead>-->
-      <!--<tr>-->
-        <!--<th>Payment Type</th>-->
-        <!--<th>Amount</th>-->
-        <!--<th>Created At</th>-->
-      <!--</tr>-->
-    <!--</thead>-->
-
-    <!--<tbody>-->
-      <!--<%# if @sale.payments.blank? %>-->
-        <!--<tr>-->
-          <!--<td colspan="3">There are no payments on this balance yet.</td>-->
-        <!--</tr>-->
-      <!--<%# else %>-->
-        <!--<%#= fields_for @sale do |f|%>-->
-          <!--<%#= f.fields_for :payments do |e| %>-->
-    	      <!--<tr>-->
-    	        <!--<td><%#= e.text_field :payment_type, :class => "form-control", :placeholder => "Payment Type", :readonly => true %></td>-->
-    	        <!--<td><%#= e.text_field :amount, :class => "form-control", :placeholder => "Amount", :readonly => true %></td>-->
-    	        <!--<td><%#= e.text_field :created_at, :class => "form-control", :placeholder => "Created At", :readonly => true %></td>-->
-    	      <!--</tr>-->
-    	    <!--<#% end %>-->
-        <!--<%# end %>-->
-      <!--<%# end %>-->
-    <!--</tbody>-->
-  <!--</table>-->
-
 <% if @sale.remaining_balance <= 0.00 && @sale.payments.count > 0 %>
-  <div class="alert alert-info hidden-print">Payment Complete</div>
-  Change Due: <%= number_to_currency(@sale.change_due, unit: current_company.currency) %>
+  <div class="alert alert-success hidden-print">Payment Complete Change Due: <%= number_to_currency(@sale.change_due, unit: current_company.currency) %>
+  </div>
 <% else %>
     <% unless @sale.total_amount.blank? %>
         <button class="btn btn-success btn-md hidden-print total_price_output" style="margin-left:  5% ;margin-right:  5%; width: 90%;" data-toggle="modal" data-target="#makePayment">
