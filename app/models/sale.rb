@@ -14,6 +14,8 @@
 #  updated_at       :datetime
 #  company_id       :integer
 #  user_id          :integer
+#  refund_by        :integer
+#  status           :integer          default(0)
 #
 
 class Sale < ActiveRecord::Base
@@ -25,8 +27,10 @@ class Sale < ActiveRecord::Base
   # validates :total_amount, numericality: { message: "%{value} seems wrong" }, on: :update
   # validates :amount, numericality: { message: "%{value} seems wrong" }, on: :update
 
+  enum status: [:paid , :refund]
 
-  #Associations
+  validates :status , inclusion: {in: statuses.keys}
+
   belongs_to :customer
   has_many :line_items, dependent: :destroy
   has_many :items, through: :line_items
@@ -41,6 +45,8 @@ class Sale < ActiveRecord::Base
 
   before_create :set_company_id
   # after_create  :send_sales_report_to_customer
+
+  default_scope -> {where(status: 'paid')}
 
 
 

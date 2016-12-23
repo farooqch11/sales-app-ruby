@@ -3,7 +3,7 @@ class SalesController < ApplicationController
 
   # protect_from_forgery with: :null_session
 
-  before_action :set_sale , except: [:index , :new]
+  before_action :set_sale , except: [:index , :new , :issue_refund]
   before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :update_customer_options , :create_line_item]
   before_action :populate_customers , only: [ :edit]
 
@@ -47,6 +47,23 @@ class SalesController < ApplicationController
     end
   end
 
+  def issue_refund
+    @sale = current_company.sales.unscoped.where(company_id: current_company.id , status: 'paid' , id: params[:id]).first || []
+    if @sale.refund!
+      line_items = @sale.line_items.includes(:item) || []
+      line_items.each do |line_item|
+        line_item.item.stock_amount = line_item.item.stock_amount + line_item.quantity
+        line_item.item.save
+      end
+      @sale.update(refund_by: current_user.id)
+      flash[:sucess] = "Successfull Refunded"
+      @sale = current_company.sales.last
+    else
+      flash[:errors] = @sale.errors.full_messages
+    end
+    redirect_to @sale
+
+  end
   # Generate Invoice
   def invoice
 

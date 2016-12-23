@@ -183,6 +183,9 @@ PushvendorPos::Application.routes.draw do
   end
 
   resources :sales do
+    member do
+      get 'issue_refund'
+    end
     collection do
       post 'update_line_item_options'
       get 'update_customer_options'

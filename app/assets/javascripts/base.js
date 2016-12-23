@@ -28,6 +28,7 @@
 //= require scroll/smoothscroll
 //= require landing
 //= require flash
+//= require data-confirm-modal
 
  function showWebUrl() {
      $("#web-url").show();

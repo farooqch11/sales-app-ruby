@@ -35,6 +35,8 @@ gem 'bootstrap-sass', '3.3.6'
 gem 'will_paginate-bootstrap', '1.0.1'
 gem 'breadcrumbs_on_rails', '~> 2.3.0'
 gem 'bootstrap_form'
+gem 'data-confirm-modal'
+gem "twitter-bootstrap-rails"
 
 
 

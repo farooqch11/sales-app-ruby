@@ -50,6 +50,7 @@
 //= require main
 //= require easyResponsiveTabs
 //= require flash
+//= require data-confirm-modal
 
 (function($) {
     $.fn.equalHeights = function() {
