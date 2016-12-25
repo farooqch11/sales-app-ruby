@@ -18,7 +18,7 @@ class SalesController < ApplicationController
 
   def show
     @sale =  current_company.sales.find(params[:id])
-    @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
+    @sales = current_company.sales.joins(:payments).paginate(page: params[:page], per_page: 20).order(id: :desc)
   end
 
   def edit
