@@ -17,7 +17,7 @@ class SalesController < ApplicationController
   end
 
   def show
-    @sale =  current_company.sales.find(params[:id])
+    @sale =  current_company.sales.joins(:payments).where('sales.id = ?' , params[:id]).first
     @sales = current_company.sales.joins(:payments).paginate(page: params[:page], per_page: 20).order(id: :desc)
   end
 
@@ -57,7 +57,7 @@ class SalesController < ApplicationController
       end
       @sale.update(refund_by: current_user.id)
       flash[:sucess] = "Successfull Refunded"
-      @sale = current_company.sales.last
+      @sale = current_company.sales.joins(:payments).last
     else
       flash[:errors] = @sale.errors.full_messages
     end
