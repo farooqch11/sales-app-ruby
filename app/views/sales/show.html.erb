@@ -20,7 +20,7 @@
                     <a href="<%= sale_path(sale) %>" >
                 <li class="list-group-item hover <%= @sale.id == sale.id ? 'active bg-info' : ''%>">
                   <div class="media">
-                    <span class="pull-left thumb-sm"><img src="<%= asset_path('pic1.png') %>"></span>
+                    <span class="pull-left thumb-sm"><img src="<%= image_path("#{sale.payments.last.payment_type}.png" , style: 'width:48px')  %>"></span>
                     <div class="pull-right text-muted m-t-sm">
                       <%= sale.created_at.strftime('%I:%M %p')%>
                     </div>
@@ -74,12 +74,13 @@
 
                     <li class="list-group-item" style="border: none">
                       <div class="media">
-                        <b>CARD PAYMENT <%= @sale.created_at.strftime('%m/%d/%Y %I:%M %p')%></b>
+                        <b><%= @sale.payments.last.payment_type.humanize.upcase %> <%= @sale.created_at.strftime('%m/%d/%Y %I:%M %p')%></b>
                       </div>
                     </li>
+                    <% if @sale.payments.last.credit_card? %>
                         <li class="list-group-item" style="border: none">
                           <div class="media">
-                            <span class="pull-left thumb-sm"><img src="<%= asset_path('pic3.png') %>"></span>
+                            <span class="pull-left thumb-sm"><img src="<%= image_path("#{@sale.payments.last.payment_type}.png") %>"></span>
                             <div class="pull-right text-mutted m-t-sm">
                               <b><%= value_in_currency @sale.total_amount %></b>
                             </div>
@@ -88,9 +89,10 @@
                             </div>
                           </div>
                         </li>
+                    <% end %>
                     <li class="list-group-item" style="border: none">
                       <div class="media">
-                        <span class="pull-left thumb-sm"><img src="<%= asset_path('pic2.png') %>"></span>
+                        <span class="pull-left thumb-sm"><img src="<%= image_path('invoice.png') %>"></span>
                         <div class="media-body m-t-sm">
                           <div><b>RECEIPT NUMBER <%= @sale.id%></b></div>
                         </div>
