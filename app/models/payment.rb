@@ -18,6 +18,7 @@ class Payment < ActiveRecord::Base
   attr_accessor :sent_customer_email
   attr_accessor :print_invoice
   before_validation :parse_payment_term
+  before_save   :set_amount_value
 
   belongs_to :sale
   belongs_to :company
@@ -36,4 +37,9 @@ class Payment < ActiveRecord::Base
   def parse_payment_term
     self.payment_term = self.payment_term.to_i
   end
+
+  def set_amount_value
+    self.amount = 0.0 if self.amount.blank?
+  end
+
 end

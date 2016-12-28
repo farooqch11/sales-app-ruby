@@ -5,7 +5,10 @@ class DashboardController < ApplicationController
   end
 
   def finance
-
+    @sales = current_company.sales.joins(:line_items , :payments).includes(:line_items , :payments).distinct || []
+    @expenses = current_company.expenses || []
+    # @payments = current_company.payments || []
+    @monthly_sales = @sales.group_by { |t| t.created_at.beginning_of_month }
   end
 
   def create_sale_with_product

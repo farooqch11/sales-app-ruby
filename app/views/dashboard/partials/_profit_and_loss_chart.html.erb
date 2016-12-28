@@ -1,0 +1,112 @@
+<section class="panel panel-default">
+  <!--<div class="section-heading margin-b10">-->
+    <!--<h2 class="pull-left">Profit &amp; Loss</h2>-->
+    <!--<form class="form-inline pull-right">-->
+      <!--<select class="" id="financial-graph-currency">-->
+
+
+
+        <!--<option value="1" sign="$" selected="">USD</option>-->
+
+
+
+      <!--</select>-->
+    <!--</form>-->
+    <!--<ul class="nav nav-pills pull-right" id="financial-graph-period">-->
+      <!--<li>-->
+        <!--<a href="#" onclick="return false" period="1m">Month</a>-->
+      <!--</li>-->
+      <!--<li class="active">-->
+        <!--<a href="#" onclick="return false" period="3m">Quarter</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#" onclick="return false" period="6m">Half Year</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#" onclick="return false" period="1y">Year</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#" onclick="return false" period="2y">Two Years</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+    <!--<div class="clear"></div>-->
+  <!--</div>-->
+  <header class="panel-heading font-bold">Sale Information</header>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-6">
+          <table class="highchart hidden table table-hover table-bordered" data-graph-container=".. .. .highchart-container3" data-graph-type="column">
+            <!--<caption>Column + area example</caption>-->
+            <thead>
+            <tr>
+              <th>Month</th>
+              <th>Sales</th>
+              <th data-graph-type="area">Profit</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <% @monthly_sales.sort.each do |month, sale| %>
+                <% total_sale  = 0.0%>
+                <% profit  = 0.00%>
+                <% for s in sale %>
+                    <% total_sale += s.total_payment %>
+                    <% profit  += s.total_profit %>
+                <% end %>
+
+                <tr>
+                  <td><%= month.strftime('%B %y') %></td>
+                  <td><%= total_sale %></td>
+                  <td><%= profit %></td>
+                </tr>
+
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-12 ">
+          <div class="highchart-container3">
+            <!--<div class="highcharts-container" id="highcharts-4" style="position: relative; overflow: hidden; width: 588px; height: 400px; text-align: left; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif; font-size: 12px;">-->
+              <!--<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="588" height="400">-->
+                <!--<defs>-->
+                  <!--<clipPath id="highcharts-5">-->
+                    <!--<rect rx="0" ry="0" fill="none" x="0" y="0" width="540" height="299" stroke-width="0.000001"></rect>-->
+                  <!--</clipPath>-->
+                <!--</defs>-->
+                <!--<rect rx="5" ry="5" fill="#FFFFFF" x="0" y="0" width="588" height="400" stroke-width="0.000001" stroke="#4572A7"></rect><text x="294" y="25" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:16px;color:#3E576F;fill:#3E576F;" text-anchor="middle" class="highcharts-title" zIndex="1"><tspan x="294">Column + area example</tspan></text><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path d="M 38 339.5 L 578 339.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 279.5 L 578 279.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 219.5 L 578 219.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 160.5 L 578 160.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 100.5 L 578 100.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 40.5 L 578 40.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" clip-path="url(file:///home/faizan/Desktop/pro/office/Web%20Temp/products%252FWB0573SK0/DEVELOPER/HTML_Full_Version/hchartable.html#highcharts-5)" visibility="visible" transform="translate(38,40)"><rect rx="0" ry="0" fill="none" x="10.5" y="143.5" width="85" height="96" stroke-width="5" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="10.5" y="143.5" width="85" height="96" stroke-width="3" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="10.5" y="143.5" width="85" height="96" stroke-width="1" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="#4572A7" x="10.5" y="143.5" width="85" height="96" stroke-width="1" stroke="#FFFFFF" r="0"></rect><rect rx="0" ry="0" fill="none" x="118.5" y="95.5" width="85" height="144" stroke-width="5" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="118.5" y="95.5" width="85" height="144" stroke-width="3" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="118.5" y="95.5" width="85" height="144" stroke-width="1" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="#4572A7" x="118.5" y="95.5" width="85" height="144" stroke-width="1" stroke="#FFFFFF" r="0"></rect><rect rx="0" ry="0" fill="none" x="226.5" y="23.5" width="85" height="216" stroke-width="5" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="226.5" y="23.5" width="85" height="216" stroke-width="3" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="226.5" y="23.5" width="85" height="216" stroke-width="1" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="#4572A7" x="226.5" y="23.5" width="85" height="216" stroke-width="1" stroke="#FFFFFF" r="0"></rect><rect rx="0" ry="0" fill="none" x="334.5" y="215.5" width="85" height="24" stroke-width="5" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="334.5" y="215.5" width="85" height="24" stroke-width="3" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="334.5" y="215.5" width="85" height="24" stroke-width="1" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="#4572A7" x="334.5" y="215.5" width="85" height="24" stroke-width="1" stroke="#FFFFFF" r="0"></rect><rect rx="0" ry="0" fill="none" x="442.5" y="233.5" width="85" height="6" stroke-width="5" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="442.5" y="233.5" width="85" height="6" stroke-width="3" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="none" x="442.5" y="233.5" width="85" height="6" stroke-width="1" stroke="rgb(0, 0, 0)" r="0" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="0" ry="0" fill="#4572A7" x="442.5" y="233.5" width="85" height="6" stroke-width="1" stroke="#FFFFFF" r="0"></rect></g><g class="highcharts-series" clip-path="url(file:///home/faizan/Desktop/pro/office/Web%20Temp/products%252FWB0573SK0/DEVELOPER/HTML_Full_Version/hchartable.html#highcharts-5)" visibility="visible" transform="translate(38,40)"><path d="M 54 215.28 L 162 203.32 L 270 191.36 L 378 251.16 L 486 269.1 L 486 239.2 L 54 239.2" fill="rgb(170,70,67)" fill-opacity="0.75"></path><path d="M 54 215.28 L 162 203.32 L 270 191.36 L 378 251.16 L 486 269.1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-dasharray="none" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></path><path d="M 54 215.28 L 162 203.32 L 270 191.36 L 378 251.16 L 486 269.1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3" stroke-dasharray="none" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></path><path d="M 54 215.28 L 162 203.32 L 270 191.36 L 378 251.16 L 486 269.1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="1" stroke-dasharray="none" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)">-->
+
+              <!--</path>-->
+                <!--<path d="M 54 215.28 L 162 203.32 L 270 191.36 L 378 251.16 L 486 269.1" fill="none" stroke="#AA4643" stroke-width="2" stroke-dasharray="none">-->
+
+                <!--</path>-->
+              <!--</g>-->
+              <!--</g>-->
+                <!--<g class="highcharts-legend" zIndex="7" transform="translate(225,361)"><rect rx="5" ry="5" fill="none" x="0.5" y="0.5" width="166" height="23" stroke-width="1" stroke="#909090" visibility="visible"></rect><text x="44" y="18" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;cursor:pointer;color:#3E576F;fill:#3E576F;" zIndex="2"><tspan x="44">Sales</tspan></text><text x="116.015625" y="18" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;cursor:pointer;color:#3E576F;fill:#3E576F;" zIndex="2"><tspan x="116.015625">Benefits</tspan></text><rect rx="2" ry="2" fill="#4572A7" x="9.5" y="7.5" width="30" height="12" stroke-width="1" zIndex="3" stroke="#FFFFFF" r="0"></rect><rect rx="2" ry="2" fill="#AA4643" x="81.015625" y="7" width="30" height="12" stroke-width="0.000001" zIndex="3" stroke="#FFFFFF" r="4"></rect></g><g class="highcharts-axis" zIndex="7"><text x="92" y="353" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:88px;color:#666;line-height:14px;fill:#666;" text-anchor="middle"><tspan x="92">January</tspan></text><text x="200" y="353" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:88px;color:#666;line-height:14px;fill:#666;" text-anchor="middle"><tspan x="200">February</tspan></text><text x="308" y="353" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:88px;color:#666;line-height:14px;fill:#666;" text-anchor="middle"><tspan x="308">March</tspan></text><text x="416" y="353" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:88px;color:#666;line-height:14px;fill:#666;" text-anchor="middle"><tspan x="416">April</tspan></text><text x="524" y="353" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:88px;color:#666;line-height:14px;fill:#666;" text-anchor="middle"><tspan x="524">May</tspan></text><path d="M 146.5 339 L 146.5 344" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 254.5 339 L 254.5 344" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 362.5 339 L 362.5 344" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 470.5 339 L 470.5 344" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 578.5 339 L 578.5 344" fill="none" stroke="#C0D0E0" stroke-width="1"></path></g><g class="highcharts-axis" zIndex="7"><text x="30" y="345.6" style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:250px;color:#666;line-height:14px;fill:#666;" text-anchor="end"><tspan x="30">-5k</tspan></text><text x="30" y="285.8" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:250px;color:#666;line-height:14px;fill:#666;" text-anchor="end"><tspan x="30">0k</tspan></text><text x="30" y="225.99999999999997" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:250px;color:#666;line-height:14px;fill:#666;" text-anchor="end"><tspan x="30">5k</tspan></text><text x="30" y="166.2" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:250px;color:#666;line-height:14px;fill:#666;" text-anchor="end"><tspan x="30">10k</tspan></text><text x="30" y="106.39999999999998" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:250px;color:#666;line-height:14px;fill:#666;" text-anchor="end"><tspan x="30">15k</tspan></text><text x="30" y="46.6" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:250px;color:#666;line-height:14px;fill:#666;" text-anchor="end"><tspan x="30">20k</tspan></text></g><g class="highcharts-tooltip" zIndex="8" visibility="hidden" transform="translate(307,253)"><rect rx="5" ry="5" fill="none" x="7" y="7" width="77" height="41" stroke-width="5" fill-opacity="0.85" isShadow="true" stroke="rgb(0, 0, 0)" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="none" x="7" y="7" width="77" height="41" stroke-width="3" fill-opacity="0.85" isShadow="true" stroke="rgb(0, 0, 0)" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="none" x="7" y="7" width="77" height="41" stroke-width="1" fill-opacity="0.85" isShadow="true" stroke="rgb(0, 0, 0)" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="rgb(255,255,255)" x="7" y="7" width="77" height="41" stroke-width="2" fill-opacity="0.85" stroke="#AA4643"></rect><text x="12" y="24" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:#333333;padding:0;white-space:nowrap;fill:#333333;" zIndex="1"><tspan style="font-weight:bold" x="12">Benefits</tspan><tspan dy="17" x="12">April : -1000</tspan></text></g><g class="highcharts-tracker" zIndex="9" transform="translate(38,40)"><rect rx="0" ry="0" fill="rgb(192,192,192)" x="10.5" y="143.5" width="85" height="96" stroke-width="0.000001" isTracker="1482530081999" fill-opacity="0.000001" visibility="visible" zIndex="1" style="" r="0"></rect><rect rx="0" ry="0" fill="rgb(192,192,192)" x="118.5" y="95.5" width="85" height="144" stroke-width="0.000001" isTracker="1482530081999" fill-opacity="0.000001" visibility="visible" zIndex="1" style="" r="0"></rect><rect rx="0" ry="0" fill="rgb(192,192,192)" x="226.5" y="23.5" width="85" height="216" stroke-width="0.000001" isTracker="1482530081999" fill-opacity="0.000001" visibility="visible" zIndex="1" style="" r="0"></rect><rect rx="0" ry="0" fill="rgb(192,192,192)" x="334.5" y="215.5" width="85" height="24" stroke-width="0.000001" isTracker="1482530081999" fill-opacity="0.000001" visibility="visible" zIndex="1" style="" r="0"></rect><rect rx="0" ry="0" fill="rgb(192,192,192)" x="442.5" y="233.5" width="85" height="6" stroke-width="0.000001" isTracker="1482530081999" fill-opacity="0.000001" visibility="visible" zIndex="1" style="" r="0"></rect><path d="M 44 215.28 L 54 215.28 L 162 203.32 L 270 191.36 L 378 251.16 L 486 269.1 L 496 269.1" fill="none" isTracker="true" stroke-opacity="0.000001" stroke="rgb(192,192,192)" stroke-width="22" visibility="visible" zIndex="1" style=""></path></g></svg></div></div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="panel-footer bg-white no-padder">
+    <div class="row text-center no-gutter">
+      <div class="col-xs-3 b-r b-light">
+        <span class="h4 font-bold m-t block"><%= @sales.count %></span>
+        <small class="text-muted m-b block">Orders</small>
+      </div>
+      <div class="col-xs-3 b-r b-light">
+        <span class="h4 font-bold m-t block"><%= current_company.line_items.sum(:quantity)%></span>
+        <small class="text-muted m-b block">Sellings</small>
+      </div>
+      <div class="col-xs-3 b-r b-light">
+        <span class="h4 font-bold m-t block"><%= current_company.line_items.map(&:item_id).uniq.count %></span>
+        <small class="text-muted m-b block">Items</small>
+      </div>
+      <div class="col-xs-3">
+        <span class="h4 font-bold m-t block"><%= (@sales.map(&:customer_id).uniq - [nil]).count%></span>
+        <small class="text-muted m-b block">Customers</small>
+      </div>
+    </div>
+  </footer>
+</section>
+

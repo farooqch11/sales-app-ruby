@@ -34,6 +34,8 @@ class Item < ActiveRecord::Base
 	validates_uniqueness_of :name, scope: [:company_id , :name]
 	validate :image_size_validation
 
+	scope :published , -> {where(published: true)}
+
 	private
 	def image_size_validation
 		errors[:photo] << "should be less than 500KB" if photo.size > 0.5.megabytes

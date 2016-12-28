@@ -1,0 +1,431 @@
+<div class="row">
+  <div class="col-md-6" id="profit-and-loss" style="position:relative;">
+    <div class="section-sub-heading">
+      <h5 class="pull-left">Income Statement</h5>
+      <!--<div class="pull-right"><strong>Export:</strong> <a class="export-finance-summary" format="CSV" report="pal" href="#" onclick="return false">CSV</a> <a class="export-finance-summary" format="PDF" report="pal" href="#" onclick="return false">PDF</a></div>-->
+    </div><div class="financial-summary">
+
+    <table class="table margin-b20">
+      <thead>
+          <tr>
+            <th colspan="2">Income
+              <div class="pull-right">
+                <span currency="1" style="display: none;">
+                    $ USD
+                </span>
+              </div>
+            </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr section="0_0" class="expand-section">
+            <td><a class="btn btn-mini expand-button" href="#">+</a> Earnings</td>
+            <td class="align-r">
+                <span class="all_currencies">
+                  <%= value_in_currency(total_earnings(@sales)) %>
+                </span>
+            </td>
+          </tr>
+          <tr parent-section="0_0" style="display: none;">
+            <td class="padding-l50">Project Earnings</td>
+            <td class="align-r">
+              <span class="all_currencies">
+                 0.00
+              </span>
+            </td>
+          </tr>
+          <tr parent-section="0_0" style="display: none;">
+            <td class="padding-l50">Contest Prizes</td>
+            <td class="align-r">
+                <span class="all_currencies">
+                    0.00
+                </span>
+            </td>
+          </tr>
+          <tr parent-section="0_0" style="display: none;">
+            <td class="padding-l50">Other Earnings</td>
+            <td class="align-r">
+                <span class="all_currencies">
+                   0.00
+                </span>
+            </td>
+          </tr>
+          <tr section="0_1" class="expand-section">
+            <td>
+              <a class="btn btn-mini expand-button" href="#" onclick="return false;">+</a>
+              Other Income
+            </td>
+            <td class="align-r">
+                <span class="all_currencies">
+                   <%= value_in_currency(other_income(sales)) %>
+                </span>
+            </td>
+          </tr>
+          <tr parent-section="0_1" style="display:none">
+            <td class="padding-l50">Affiliate Sales</td>
+            <td class="align-r">
+                <span class="all_currencies">
+                    0.00
+                </span>
+            </td>
+          </tr>
+          <tr parent-section="0_1" style="display:none">
+            <td class="padding-l50">Marketplace Sales</td>
+            <td class="align-r">
+                <span class="all_currencies">
+                    0.00
+                </span>
+            </td>
+          </tr>
+
+      <tr parent-section="0_1" style="display:none">
+        <td class="padding-l50">Design Studio Commission</td>
+        <td class="align-r">
+          <span class="all_currencies">
+            0.00
+          </span>
+        </td>
+      </tr>
+
+      <tr parent-section="0_1" style="display:none">
+        <td class="padding-l50">Hosting Commission</td>
+        <td class="align-r">
+          <span class="all_currencies">
+            0.00
+          </span>
+        </td>
+      </tr>
+
+
+      <tr section="0_2" class="expand-section">
+        <td><a class="btn btn-mini expand-button" href="#" onclick="return false;">+</a> Cost of Sales</td>
+        <td class="align-r">
+            <span class="all_currencies">
+              <%= value_in_currency(total_cost_of_sale(sales))%>
+            </span>
+        </td>
+      </tr>
+
+      <tr parent-section="0_2" style="display:none">
+        <td class="padding-l50">Project Commission (Freelancer)</td>
+        <td class="align-r">
+            <span class="all_currencies">
+                0.00
+            </span>
+        </td>
+      </tr>
+
+      <tr parent-section="0_2" style="display:none">
+        <td class="padding-l50">Bid Promotion (Bid Sponsor, Bid Highlight)</td>
+        <td class="align-r">
+          <span class="all_currencies">
+            0.00
+          </span>
+        </td>
+      </tr>
+      <tr parent-section="0_2" style="display:none">
+        <td class="padding-l50">Freelancer Directory Promotion</td>
+        <td class="align-r">
+            <span class="all_currencies">
+                0.00
+            </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="bold">Gross Profit</td>
+        <td class="align-r bold">
+            <span class="all_currencies">
+                <%= value_in_currency(gross_profit(sales))%>
+            </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table margin-b20">
+      <thead>
+      <tr>
+        <th colspan="2">Expenses
+          <div class="pull-right">
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr section="1_0" class="expand-section">
+        <td><a class="btn btn-mini expand-button" href="#" onclick="return false;">+</a> Payments</td>
+        <td class="align-r">
+          <span class="all_currencies">
+            <%= value_in_currency(expense_payment)%>
+          </span>
+
+        </td>
+      </tr>
+
+      <tr parent-section="1_0" style="display: none;">
+        <td class="padding-l50">Project Payments</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+      <tr parent-section="1_0" style="display: none;">
+        <td class="padding-l50">Contest Payments</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+      <tr parent-section="1_0" style="display: none;">
+        <td class="padding-l50">Other Payments</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+
+      <tr section="1_1" class="expand-section">
+        <td><a class="btn btn-mini expand-button" href="#" onclick="return false;">+</a> Expenses</td>
+        <td class="align-r">
+            <span class="all_currencies">
+                <%= value_in_currency(expenses(expenses))%>
+            </span>
+        </td>
+      </tr>
+
+      <tr parent-section="1_1" style="display: none;">
+        <td class="padding-l50">Project Commission (Employer)</td>
+        <td class="align-r">
+          <span class="all_currencies">
+            0.00
+          </span>
+        </td>
+      </tr>
+
+      <tr parent-section="1_1" style="display: none;">
+        <td class="padding-l50">Membership</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+      <tr parent-section="1_1" style="display: none;">
+        <td class="padding-l50">Hosting</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+      <tr parent-section="1_1" style="display: none;">
+        <td class="padding-l50">Design Studio</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+      <tr parent-section="1_1" style="display: none;">
+        <td class="padding-l50">Project Upgrades</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+      <tr parent-section="1_1" style="display: none;">
+        <td class="padding-l50">Contest Upgrades</td>
+        <td class="align-r">
+                                    <span class="all_currencies">
+
+                                            0.00
+
+                                    </span>
+
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td class="bold">Total Expenses</td>
+        <td class="align-r bold">
+          <span class="all_currencies">
+            <%= value_in_currency(total_expenses(expenses))%>
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!--<table class="table margin-b20">-->
+      <!--<thead>-->
+      <!--<tr>-->
+        <!--<th class="bold">Operating Profit (or Expenses)-->
+        <!--</th><th class="align-r bold">-->
+                        <!--<span class="all_currencies">-->
+
+                                <!--0.00-->
+
+                        <!--</span>-->
+
+
+      <!--</th></tr>-->
+      <!--</thead>-->
+    <!--</table>-->
+    <table class="table margin-b20">
+      <thead>
+          <tr>
+            <th colspan="2">Tax Expense</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="bold">Total Tax Expense</td>
+            <td class="align-r bold">
+                <span class="all_currencies">
+                    <%= value_in_currency(total_tax(@sales))%>
+                </span>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <table class="table margin-b20">
+      <thead>
+          <tr>
+            <td class="bold">Net Profit (or Expense)</td>
+            <td class="align-r bold">
+                <span class="all_currencies">
+                    <%= value_in_currency(net_profit(sales,expenses)) %>
+                </span>
+            </td>
+          </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+
+  <div class="col-md-6" id="balance-sheet" style="position:relative;">
+    <div class="section-sub-heading">
+      <h5 class="pull-left">Balance Sheet</h5>
+      <!--<div class="pull-right"><strong>Export:</strong> <a class="export-finance-summary" format="CSV" report="balance" href="#" onclick="return false">CSV</a> <a class="export-finance-summary" format="PDF" report="balance" href="#" onclick="return false">PDF</a></div>-->
+      <div class="clear"></div>
+    </div><div class="balance-per-currency">
+    <table class="table table-striped" id="balance-per-currency">
+      <tbody><tr>
+        <th>Currency</th>
+        <th>Amount</th>
+      </tr>
+
+      <tr>
+        <td> <%= current_company.currency_code %> </td>
+        <td><%= value_in_currency(balance_sheet) %></td>
+      </tr>
+
+      </tbody></table>
+  </div><div class="pending-balance-per-currency">
+    <table class="table table-striped" id="pending-balance-per-currency">
+      <thead>
+      <tr>
+        <th colspan="2">Pending Balance</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th>Currency</th>
+        <th>Amount</th>
+      </tr>
+
+      <tr>
+        <td><%= current_company.currency_code %></td>
+        <td>
+          <%= value_in_currency(pending_balance) %>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div><div class="financial-summary">
+
+    <table class="table margin-b20">
+      <thead>
+      <tr>
+        <th colspan="2">Net Position
+          <div class="pull-right">
+            <span currency="1" style="display: none;">
+              $ USD
+            </span>
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+
+
+      <tr>
+        <td>Balance</td>
+        <td class="align-r">
+          <span class="all_currencies">
+            <%= value_in_currency(net_profit(sales,expenses)) %>
+          </span>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td>Accounts Receivable (Milestones)</td>
+        <td class="align-r">
+          <span class="all_currencies">
+            <%= value_in_currency(account_receiveable) %>
+          </span>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td class="bold">Total</td>
+        <td class="align-r bold">
+          <span class="all_currencies">
+            <%= value_in_currency(net_position(sales,expenses)) %>
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  </div>
+</div>

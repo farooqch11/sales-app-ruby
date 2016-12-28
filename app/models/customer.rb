@@ -35,6 +35,7 @@ class Customer < ActiveRecord::Base
 
   #scopes
   default_scope {order(first_name: :asc)}
+  scope :published ,-> {where(published: true)}
 
 
   def full_name

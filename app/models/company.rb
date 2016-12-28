@@ -71,6 +71,7 @@ class Company < ActiveRecord::Base
     self.company_name.humanize
   end
 
+
   # def tax_rate
   #   self.tax_rate.blank? ? 'not configured' : self.tax_rate
   # end
@@ -78,6 +79,10 @@ class Company < ActiveRecord::Base
   # def tax_rate
   #   self.tax_rate.blank? ? 0.00 : self.tax_rate.to_f * 0.01
   # end
+
+  def currency_code
+    super.present? ? super.upcase : 'USD'
+  end
 
   private
 

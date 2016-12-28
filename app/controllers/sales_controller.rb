@@ -18,7 +18,7 @@ class SalesController < ApplicationController
 
   def show
     @sale =  current_company.sales.joins(:payments).where('sales.id = ?' , params[:id]).first
-    @sales = current_company.sales.joins(:payments).paginate(page: params[:page], per_page: 20).order(id: :desc)
+    @sales = current_company.sales.joins(:payments).distinct.paginate(page: params[:page], per_page: 20).order(id: :desc)
   end
 
   def edit
@@ -371,11 +371,11 @@ class SalesController < ApplicationController
   end
 
   def populate_items
-    @available_items = current_company.items.all.where(published: true).limit(5) || []
+    @available_items = current_company.items.published.limit(5) || []
   end
 
   def populate_customers
-    @available_customers = current_company.customers.where(published: true).limit(5) || []
+    @available_customers = current_company.customers.published.limit(5) || []
   end
 
   def remove_item_from_stock(item_id, quantity)

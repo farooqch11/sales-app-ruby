@@ -36,6 +36,8 @@
 //= require charts/flot/jquery.flot.pie.min
 //= require charts/flot/jquery.flot.grow
 //= require charts/flot/demo
+//= require charts/high_chart_table/highcharts-custom.min
+// = require charts/high_chart_table/jquery.highchartTable.min
 //= require calendar/bootstrap_calendar
 //= require calendar/demo
 //= require sortable/jquery.sortable
@@ -81,4 +83,7 @@ $(document).ready(function () {
         width: 'auto', //auto or any width like 600px
         fit: true   // 100% fit in a container
     });
+});
+$(document).ready(function() {
+    $('table.highchart').highchartTable();
 });

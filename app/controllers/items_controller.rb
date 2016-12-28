@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = current_company.items.paginate(page: params[:page], per_page: 20).where(published: true)
+    @items = current_company.items.paginate(page: params[:page], per_page: 20).published
   end
 
   def new
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = current_company.items.all.where('name ILIKE ?', "%#{params[:search][:item_name]}%")
+    @items = current_company.items.all.where('name LIKE ?', "%#{params[:search][:item_name]}%")
   end
 
   private

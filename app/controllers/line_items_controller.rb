@@ -1,12 +1,13 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :find_sale , only: [:set_line_item ,:create , :new]
 
   def index
-    @line_items = LineItem.all
+    @line_items = current_company.line_items || []
   end
 
   def new
-    @line_item = LineItem.new
+    @line_item = @sale.line_items.new
   end
 
   def show
@@ -16,7 +17,7 @@ class LineItemsController < ApplicationController
   end
 
   def create
-    @line_item = LineItem.new(line_item_params)
+    @line_item = @sale.line_items.new(line_item_params)
 
     if @line_item.save
       flash[:notice] = 'Line item was successfully created.'
@@ -44,11 +45,14 @@ class LineItemsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_line_item
-    @line_item = LineItem.find(params[:id])
+    @line_item = @sale.line_items.find(params[:id]) || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def line_item_params
-    params.require(:line_item).permit(:item_id, :quantity, :price, :sale_id)
+    params.require(:line_item).permit(:item_id, :quantity, :price)
   end
+   def find_sale
+     @sale = current_company.sales.find_by_id(params[:sale_id]) || []
+   end
 end

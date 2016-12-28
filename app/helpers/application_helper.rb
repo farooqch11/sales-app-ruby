@@ -81,4 +81,57 @@ module ApplicationHelper
   def config
     current_company
   end
+
+  def total_earnings sales
+    sales.sum('payments.amount')
+  end
+
+  def total_cost_of_sale sales
+    sales.sum('line_items.total_cost_price')
+  end
+
+  def other_income sales
+    return 0.00
+  end
+
+  def gross_profit sales
+    total_earnings(sales) + other_income(sales) - total_cost_of_sale(sales)
+  end
+
+  def total_tax sales
+    sales.sum(:tax)
+  end
+
+  def expenses(expenses)
+    expenses.sum(:amount)
+  end
+
+  def total_expenses expenses
+    expenses(expenses)
+  end
+
+  def expense_payment
+    0.0
+  end
+
+
+  def pending_balance
+    0.00
+  end
+
+  def account_receiveable
+    0.00
+  end
+
+  def balance_sheet
+    0.00
+  end
+
+  def net_profit sales , expenses
+    gross_profit(sales) - total_tax(sales) - total_expenses(expenses)
+  end
+
+  def net_position(sales,expenses)
+    net_profit(sales , expenses)
+  end
 end

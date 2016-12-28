@@ -61,13 +61,22 @@ class Sale < ActiveRecord::Base
   end
 
   def paid_total
-    paid_total = 0.00
-    unless self.payments.blank?
-      for payment in self.payments
-        paid_total += payment.amount.blank? ? 0.00 : payment.amount
-      end
-    end
+    paid_total = self.payments.sum(:amount)
+    # paid_total = 0.00
+    # unless self.payments.blank?
+    #   for payment in self.payments
+    #     paid_total += payment.amount.blank? ? 0.00 : payment.amount
+    #   end
+    # end
     return paid_total
+  end
+
+  def total_payment
+    total_payment = 0.0
+    self.payments.each do |payment|
+      total_payment += payment.amount.blank? ? 0.00 : payment.amount_after_change
+    end
+    return total_payment
   end
 
   def paid?
@@ -89,6 +98,17 @@ class Sale < ActiveRecord::Base
   def add_customer(customer_id)
     self.customer_id = customer_id
     self.save
+  end
+
+  def total_profit
+    # profit = 0.0
+    # line_items = self.line_items || []
+    # line_items.each do |line_item|
+    #   profit += line_item.profit
+    # end
+    # return profit
+    paid_total - self.line_items.sum(:total_cost_price)
+
   end
 
   def final_amount
