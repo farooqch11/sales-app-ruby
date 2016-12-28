@@ -81,7 +81,7 @@ class Company < ActiveRecord::Base
   # end
 
   def currency_code
-    super.present? ? super.upcase : 'USD'
+    super.present? ? super.upcase : ISO3166::Country.find_country_by_alpha2(self.country.upcase).currency.code.upcase
   end
 
   private
