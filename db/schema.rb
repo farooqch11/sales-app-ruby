@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120081915) do
+ActiveRecord::Schema.define(version: 20161225113144) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_1"
@@ -137,12 +137,14 @@ ActiveRecord::Schema.define(version: 20161120081915) do
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "item_id"
-    t.integer  "quantity",                            default: 1
-    t.decimal  "price",       precision: 8, scale: 2
-    t.decimal  "total_price", precision: 8, scale: 2
+    t.integer  "quantity",                                 default: 1
+    t.decimal  "price",            precision: 8, scale: 2
+    t.decimal  "total_price",      precision: 8, scale: 2
     t.integer  "sale_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "cost_price",                               default: 0.0
+    t.decimal  "total_cost_price",                         default: 0.0
   end
 
   create_table "locations", force: :cascade do |t|
@@ -165,9 +167,10 @@ ActiveRecord::Schema.define(version: 20161120081915) do
   create_table "payments", force: :cascade do |t|
     t.integer  "sale_id"
     t.decimal  "amount",       precision: 8, scale: 2
-    t.string   "payment_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "payment_term"
+    t.integer  "payment_type"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -188,6 +191,8 @@ ActiveRecord::Schema.define(version: 20161120081915) do
     t.datetime "updated_at"
     t.integer  "company_id"
     t.integer  "user_id"
+    t.integer  "refund_by"
+    t.integer  "status",                                   default: 0
   end
 
   create_table "sites", force: :cascade do |t|

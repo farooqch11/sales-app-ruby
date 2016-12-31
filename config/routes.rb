@@ -142,10 +142,13 @@ PushvendorPos::Application.routes.draw do
   resources :static , only: [:index]
   resources :line_items
   resources :locations
-  resources :dashboard do
+  resources :finance do
     collection do
-      get :finance
+      post :financial_position
     end
+  end
+
+  resources :dashboard do
   end
 
 

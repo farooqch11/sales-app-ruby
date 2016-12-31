@@ -32,6 +32,10 @@ class Expense < ActiveRecord::Base
   validates :amount, numericality: { message: "%{value} seems wrong" }
   validates :expense_type , presence: true
 
+  scope :by_year, lambda { |year| where("cast(strftime('%Y', expenses.created_at) as int) = ?", year) }
+  scope :by_month, lambda { |month| where("expenses.created_at > ? AND expenses.created_at < ?",month.beginning_of_month, month.end_of_month) }
+
+
 
   private
   def image_size_validation

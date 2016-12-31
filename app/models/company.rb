@@ -71,6 +71,17 @@ class Company < ActiveRecord::Base
     self.company_name.humanize
   end
 
+  def get_report_month_list
+    (self.created_at.to_date..Time.zone.now.to_date).map{ |m| [m.strftime('01/%m/%Y') , m.strftime('%b %Y')] }.uniq
+  end
+
+  def get_report_year_list
+    (self.created_at.to_date..Time.zone.now.to_date).map{ |m| m.strftime('%Y') }.uniq.map{ |m| m }.reverse
+  end
+
+  def get_report_quater_list
+    (self.created_at.to_date..Time.zone.now.to_date).map{ |m| m.strftime('%Y') }.uniq.map{ |m| m }.reverse
+  end
 
   # def tax_rate
   #   self.tax_rate.blank? ? 'not configured' : self.tax_rate

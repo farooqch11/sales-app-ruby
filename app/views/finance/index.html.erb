@@ -1,0 +1,55 @@
+<section class="vbox">
+  <section class="scrollable padder">
+    <%= render 'template/statistics'%>
+    <%= render 'finance/partials/profit_and_loss_chart' %>
+    <section class="panel panel-default">
+      <header class="panel-heading bg-light">
+        <div class="">
+          <form class="form-inline pull-right">
+            <div class="pull-left m-r-lg" style="margin-top: -8px">
+              <label>Period Type</label>
+              <select class="form-control report-period-type" style="padding-top: 0px">
+                <option class='#report-period-years' value="year" selected>Yearly</option>
+                <!--<option class="#report-period-quarters" value="quater">Quarterly</option>-->
+                <option class="#report-period-months" value="month">Monthly</option>
+              </select>
+            </div>
+            <div class="pull-left m-r-lg" style="margin-top: -8px">
+              <label>Period</label>
+              <%= select_tag "report-period-years", options_for_select(current_company.get_report_year_list.collect { |p| p }) , class: "form-control" %>
+              <!--<select class="form-control hidden" id="report-period-quarters">-->
+                <!--<option value="2016 Q4">2016 Q4</option>-->
+              <!--</select>-->
+              <%= select_tag "report-period-months", options_for_select(current_company.get_report_month_list.collect { |p| [p[1] , p[0]] }) , class: "form-control hidden" %>
+            </div>
+            <div class="pull-left" style="margin-top: -8px">
+              <label>Currency</label>
+              <select class="form-control" id="report-currency">
+                <option value="1">
+                  USD
+                </option>
+              </select>
+
+            </div>
+          </form>
+          <div class="clear"></div>
+        </div>
+        <!--<ul class="nav nav-tabs pull-right">-->
+        <!--<li class=""><a href="#messages-1" data-toggle="tab"><i class="fa fa-comments text-default"></i></a></li>-->
+        <!--<li class="active"><a href="#profile-1" data-toggle="tab"><i class="fa fa-user text-default"></i> Profile</a></li>-->
+        <!--<li class=""><a href="#settings-1" data-toggle="tab"><i class="fa fa-cog text-default"></i> Settings</a></li>-->
+        <!--</ul>-->
+        <span class="hidden-sm font-bold">Financial Position</span>
+      </header>
+      <div class="panel-body financial-position">
+        <%= render 'finance/partials/financial_position' , sales: @sales , expenses: @expenses%>
+      </div>
+    </section>
+  </section>
+</section>
+
+<script>
+$(document).load(function() {
+    financial_position($("#report-period-years"));
+});
+</script>

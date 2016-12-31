@@ -47,6 +47,9 @@ class Sale < ActiveRecord::Base
   # after_create  :send_sales_report_to_customer
 
   default_scope -> {where(status: 'paid')}
+  scope :by_year, lambda { |year| where("cast(strftime('%Y', sales.created_at) as int) = ?", year) }
+  scope :by_month, lambda { |month| where("sales.created_at > ? AND sales.created_at < ?",month.beginning_of_month, month.end_of_month) }
+
 
 
 

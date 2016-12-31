@@ -82,38 +82,52 @@ module ApplicationHelper
     current_company
   end
 
+
+  # INCOME STATEMENT
+
   def total_earnings sales
     sales.sum('payments.amount')
-  end
-
-  def total_cost_of_sale sales
-    sales.sum('line_items.total_cost_price')
   end
 
   def other_income sales
     return 0.00
   end
 
+  def total_cost_of_sale sales
+    sales.sum('line_items.total_cost_price')
+  end
+
   def gross_profit sales
     total_earnings(sales) + other_income(sales) - total_cost_of_sale(sales)
   end
 
-  def total_tax sales
-    sales.sum(:tax)
-  end
+  #EXPENSES
 
   def expenses(expenses)
     expenses.sum(:amount)
-  end
-
-  def total_expenses expenses
-    expenses(expenses)
   end
 
   def expense_payment
     0.0
   end
 
+  def total_expenses expenses
+    expenses(expenses) + expense_payment
+  end
+
+
+  #TAX EXPENSES
+
+  def total_tax sales
+    sales.sum(:tax)
+  end
+
+  # NET PROFIT
+  def net_profit sales , expenses
+    gross_profit(sales) - total_tax(sales) - total_expenses(expenses)
+  end
+
+  #BALANCE SHEET
 
   def pending_balance
     0.00
@@ -127,9 +141,9 @@ module ApplicationHelper
     0.00
   end
 
-  def net_profit sales , expenses
-    gross_profit(sales) - total_tax(sales) - total_expenses(expenses)
-  end
+  #PENDING BALANCE
+
+  #NET POSITION
 
   def net_position(sales,expenses)
     net_profit(sales , expenses)

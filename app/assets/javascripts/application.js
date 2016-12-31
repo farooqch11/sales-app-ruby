@@ -53,6 +53,7 @@
 //= require easyResponsiveTabs
 //= require flash
 //= require data-confirm-modal
+//= require finance
 
 (function($) {
     $.fn.equalHeights = function() {
@@ -84,6 +85,4 @@ $(document).ready(function () {
         fit: true   // 100% fit in a container
     });
 });
-$(document).ready(function() {
-    $('table.highchart').highchartTable();
-});
+

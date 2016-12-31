@@ -11,6 +11,11 @@ class DashboardController < ApplicationController
     @monthly_sales = @sales.group_by { |t| t.created_at.beginning_of_month }
   end
 
+  def financial_position
+    @sales = current_company.sales.joins(:line_items , :payments).includes(:line_items , :payments).distinct || []
+    @expenses = current_company.expenses || []
+  end
+
   def create_sale_with_product
     @sale = current_company.sales.create
     item  = current_company.items.find(params[:item_id])
