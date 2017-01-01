@@ -42,7 +42,7 @@
         <span class="hidden-sm font-bold">Financial Position</span>
       </header>
       <div class="panel-body financial-position">
-        <%= render 'finance/partials/financial_position' , sales: @sales , expenses: @expenses%>
+        <%= render 'finance/partials/financial_position' , sales: @sales , prev_sales: @prev_sales , expenses: @expenses , prev_expenses: @prev_expenses %>
       </div>
     </section>
   </section>

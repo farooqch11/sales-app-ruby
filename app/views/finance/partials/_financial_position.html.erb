@@ -352,7 +352,7 @@
 
       <tr>
         <td> <%= current_company.currency_code %> </td>
-        <td><%= value_in_currency(balance_sheet) %></td>
+        <td><%= value_in_currency(balance_sheet(prev_sales ,prev_expenses)) %></td>
       </tr>
 
       </tbody></table>
@@ -399,7 +399,7 @@
         <td>Balance</td>
         <td class="align-r">
           <span class="all_currencies">
-            <%= value_in_currency(net_profit(sales,expenses)) %>
+           <%= value_in_currency(balance_sheet(prev_sales ,prev_expenses)) %>
           </span>
 
         </td>
