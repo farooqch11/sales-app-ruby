@@ -42,14 +42,15 @@
         <span class="hidden-sm font-bold">Financial Position</span>
       </header>
       <div class="panel-body financial-position">
-        <%= render 'finance/partials/financial_position' , sales: @sales , prev_sales: @prev_sales , expenses: @expenses , prev_expenses: @prev_expenses %>
+        <%#= render 'finance/partials/financial_position' , sales: @sales.by_year(Date.today.year) , prev_sales: @prev_sales , expenses: @expenses.by_year(Date.today.year) , prev_expenses: @prev_expenses %>
       </div>
     </section>
   </section>
 </section>
-
-<script>
-$(document).load(function() {
-    financial_position($("#report-period-years"));
-});
-</script>
+<% content_for :javascript do%>
+    <script>
+    $(document).ready(function() {
+        financial_position($("#report-period-years"));
+    });
+    </script>
+<% end %>

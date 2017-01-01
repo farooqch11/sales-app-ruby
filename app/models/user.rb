@@ -73,6 +73,9 @@ class User < ActiveRecord::Base
     self.company.owner_id == self.id ? true : false
   end
 
+  def has_access?(role)
+    true
+  end
   def set_user_role
     # modules
     # A. User/account & setting
