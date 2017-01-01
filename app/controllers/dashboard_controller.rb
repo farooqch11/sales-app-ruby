@@ -1,4 +1,7 @@
 class DashboardController < ApplicationController
+
+  before_filter :is_authorize!
+
   def index
     @recent_sales  = current_company.sales.all.order('id DESC').limit(10)
     @popular_items = current_company.items.all.order('amount_sold DESC').limit(10)

@@ -1,4 +1,7 @@
 class ExpensesController < ApplicationController
+
+  before_filter :is_authorize!
+
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'EXPENSES', '#' , options: { title: 'EXPENSES' }
 
@@ -66,6 +69,11 @@ class ExpensesController < ApplicationController
   end
 
   private
+
+  def is_authorize!
+    redirect_to :back , notice: "Access Denied" if not current_user.has_access?('expenses')
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = current_company.expenses.find_by_id(params[:id])

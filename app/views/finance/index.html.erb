@@ -22,15 +22,15 @@
               <!--</select>-->
               <%= select_tag "report-period-months", options_for_select(current_company.get_report_month_list.collect { |p| [p[1] , p[0]] }) , class: "form-control hidden" %>
             </div>
-            <div class="pull-left" style="margin-top: -8px">
-              <label>Currency</label>
-              <select class="form-control" id="report-currency">
-                <option value="1">
-                  USD
-                </option>
-              </select>
+            <!--<div class="pull-left" style="margin-top: -8px">-->
+              <!--<label>Currency</label>-->
+              <!--<select class="form-control" id="report-currency">-->
+                <!--<option value="1">-->
+                  <!--USD-->
+                <!--</option>-->
+              <!--</select>-->
 
-            </div>
+            <!--</div>-->
           </form>
           <div class="clear"></div>
         </div>

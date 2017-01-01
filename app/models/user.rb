@@ -74,28 +74,10 @@ class User < ActiveRecord::Base
   end
 
   def has_access?(role)
-    true
+    return true if self.is_owner?
+    self.role.permissions.map(&:name).include?(role)
   end
   def set_user_role
-    # modules
-    # A. User/account & setting
-    # B. Home/Dashboard per location
-    # C. Home/Dashboard for all locations
-    # D. INVENTORY MANAGEMENT                            =     can_update_items
-    # E. Employee/payroll management                     =     can_update_users
-    # F. Expenses
-    # G. customers/Vendors
-    # H. social media management
-    # I. SAles/pos                                       =     can_remove_sales
-    # J. Bank reconciliations per location
-    # K. Bank reconciliations for all locations
-
-    # Role Number 1: General Manager (A, B, C, D, E, F, G,H, I, J,K)
-    # Role Number 2: Store Manager/ Supervisor    (B,E,F,J,D,I)
-    # Role Number 3: Cashier (managing the POS for location assigned) (I,J)
-    # Role Number 4: Customer Service Manager (G,H)
-    # Role Number 5: Inventory Manager (D,F)
-    # Role Number 6: Warehouse manager: (D&F for All the materials across all locations)
 
     self.can_update_sale_discount = false
     self.can_update_users         = false
