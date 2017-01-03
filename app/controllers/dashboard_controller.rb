@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
 
-  before_filter :is_authorize!
+  # before_filter :is_authorize!
 
   def index
     @recent_sales  = current_company.sales.all.order('id DESC').limit(10)
