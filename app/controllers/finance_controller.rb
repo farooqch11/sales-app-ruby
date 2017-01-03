@@ -1,6 +1,6 @@
 class FinanceController < ApplicationController
 
-  before_filter :is_authorize!
+  before_filter :authorize!
 
   def index
     @sales         = current_company.sales.joins(:line_items , :payments).includes(:line_items , :payments).distinct || []
@@ -28,7 +28,7 @@ class FinanceController < ApplicationController
 
   private
 
-  def is_authorize!
+  def authorize!
     redirect_to :back , notice: "Access Denied" if not current_user.has_access?('finance_dashbored')
   end
   def ajax_refresh

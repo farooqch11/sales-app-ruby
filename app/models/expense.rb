@@ -32,8 +32,10 @@ class Expense < ActiveRecord::Base
   validates :amount, numericality: { message: "%{value} seems wrong" }
   validates :expense_type , presence: true
 
-  scope :by_year, lambda { |year| where("cast(strftime('%Y', expenses.created_at) as int) = ?", year) }
-  scope :less_than_year, lambda { |year| where("cast(strftime('%Y', expenses.created_at) as int) < ?", year) }
+  # scope :by_year, lambda { |year| where("cast(strftime('%Y', expenses.created_at) as int) = ?", year) }
+  scope :by_year, lambda { |year| where("extract(year from expenses.created_at) = ?", year) }
+  # scope :less_than_year, lambda { |year| where("cast(strftime('%Y', expenses.created_at) as int) < ?", year) }
+  scope :less_than_year, lambda { |year| where("extract(year from expenses.created_at) < ?", year) }
   scope :by_month, lambda { |month| where("expenses.created_at > ? AND expenses.created_at < ?",month.beginning_of_month, month.end_of_month) }
   scope :less_than_month, lambda { |month| where("expenses.created_at < ?",month.beginning_of_month) }
 

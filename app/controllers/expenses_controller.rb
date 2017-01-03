@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
 
-  before_filter :is_authorize!
+  before_filter :authorize!
 
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'EXPENSES', '#' , options: { title: 'EXPENSES' }
@@ -70,7 +70,7 @@ class ExpensesController < ApplicationController
 
   private
 
-  def is_authorize!
+  def authorize!
     redirect_to :back , notice: "Access Denied" if not current_user.has_access?('expenses')
   end
 
