@@ -14,7 +14,7 @@ $('.print_totals').html("<%= escape_javascript render('sales/shared/invoice_tota
 
 $('.btn-charge').text("<%= value_in_currency(@sale.total_amount) %>");
 $('.edit_sale').show();
- $('.item-eq').equalHeights();
+$('.item-eq').equalHeights();
 $('.task-card-photo').equalHeights();
 $('.item-img').equalHeights();
 $('.task-card-title').equalHeights();

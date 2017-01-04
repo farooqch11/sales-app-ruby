@@ -75,7 +75,7 @@ class SalesController < ApplicationController
     # populate_items
 
     if params[:search][:item_category].blank?
-      @available_items = current_company.items.where('name ILIKE ? AND published = true OR description ILIKE ? AND published = true OR sku ILIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").limit(5) || []
+      @available_items = current_company.items.where('name LIKE ? AND published = true OR description LIKE ? AND published = true OR sku LIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").limit(5) || []
     elsif params[:search][:item_name].blank?
       @available_items = current_company.items.where(item_category_id: params[:search][:item_category]).limit(5) || []
     else
