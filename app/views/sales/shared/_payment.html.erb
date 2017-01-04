@@ -1,12 +1,19 @@
 <div class="make_payment">
   <%= form_for :payments, url: make_payment_payments_path(sale_id: @sale.id), method: "post", remote: true , class: 'form-horizontal' do |f| %>
       <div class="sap_tabs form-group">
-        <label class="col-sm-12 control-label"><h4>Select Payment Option</h4></label>
+        <label class="col-sm-12 control-label">
+          <h4>Select Payment Option</h4>
+        </label>
         <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
           <div class="pay-tabs row">
             <!--<h2>Select Payment Option</h2>-->
             <ul class="resp-tabs-list col-sm-12 col-xs-12 col-md-12">
-              <li class="resp-tab-item cash col-md-4" id="#cash" aria-controls="tab_item-0" role="tab"><span>Cash<label class="pic1"></label></span></li>
+              <li class="resp-tab-item cash col-md-4" id="#cash" aria-controls="tab_item-0" role="tab">
+                <span>
+                  Cash
+                  <label class="pic1"></label>
+                </span>
+              </li>
               <li class="resp-tab-item card col-md-4" id="#card" aria-controls="tab_item-1" role="tab">
                 <span>Card
                 <label class="pic3"></label>

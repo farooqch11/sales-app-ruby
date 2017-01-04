@@ -77,7 +77,6 @@
     });
 
 })(jQuery);
-
 $(document).ready(function () {
     $('#horizontalTab').easyResponsiveTabs({
         type: 'default', //Types: default, vertical, accordion
@@ -85,4 +84,3 @@ $(document).ready(function () {
         fit: true   // 100% fit in a container
     });
 });
-
