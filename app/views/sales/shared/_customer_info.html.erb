@@ -21,7 +21,7 @@
   </div>
   <div class="col-sm-12">
     <div class="searched_customers">
-      <%= render :partial => 'sales/shared/searched_customers' , customers: @available_customers %>
+      <%= render 'sales/shared/searched_customers' , sale: @sale , customers: @available_customers %>
     </div>
   </div>
 </div>

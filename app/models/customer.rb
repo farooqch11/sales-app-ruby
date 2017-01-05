@@ -36,11 +36,13 @@ class Customer < ActiveRecord::Base
   #scopes
   default_scope {order(first_name: :asc)}
   scope :published ,-> {where(published: true)}
+  scope :search_all , -> value {where('customers.last_name LIKE ? OR customers.first_name LIKE ? OR customers.email_address LIKE ? OR customers.phone_number LIKE ?', "%#{value}%","%#{value}%", "%#{value}%", "%#{value}%")}
 
 
   def full_name
     (first_name + " " + last_name).titleize
   end
+
 
   def email
     email_address

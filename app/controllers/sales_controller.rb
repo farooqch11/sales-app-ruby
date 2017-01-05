@@ -90,8 +90,7 @@ class SalesController < ApplicationController
   def update_customer_options
     # set_sale
     # populate_items
-    @available_customers = nil
-    @available_customers = current_company.customers.where('last_name LIKE ? OR first_name LIKE ? OR email_address LIKE ? OR phone_number LIKE ?', "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%", "%#{params[:search][:customer_name]}%").rewhere(published: true).limit(5)
+    @available_customers = params[:search][:customer_name] == "" ? current_company.customers.published.limit(5) : current_company.customers.search_all(params[:search][:customer_name]).published.limit(5) || []
     puts @available_customers.last.first_name
     respond_to do |format|
       format.js { }
@@ -349,7 +348,7 @@ class SalesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_sale
-    @sale = current_company.sales.find_by_id(params[:id] || params[:sale_id] || params[:search][:id]) || []
+    @sale = current_company.sales.find_by_id(params[:id] || params[:sale_id] || params[:search][:sale_id]) || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
