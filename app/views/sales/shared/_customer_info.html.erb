@@ -9,11 +9,11 @@
     <%= form_for :search, :url => url_for(:controller => "sales", :action => "update_customer_options", :format => :js), :method => "get", :remote => true do |f| %>
         <%= f.hidden_field :sale_id, :value => @sale.id %>
         <div class="row">
-          <div class="col-md-9">
-            <%= f.text_field :customer_name, :class => "form-control customer_search_input", :placeholder => "Search Customers" %>
+          <div class="col-md-12">
+            <%= f.text_field :customer_name, :class => "form-control rounded customer_search_input", :placeholder => "Search Customers" %>
           </div>
           <div class="col-md-2">
-            <%= submit_tag "search", :class => "btn btn-info btn-sm customer_search" %>
+            <%= submit_tag "search", :class => "btn hidden btn-info btn-sm customer_search" %>
             </div>
         </div>
     <% end %>
