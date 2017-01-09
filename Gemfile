@@ -47,6 +47,10 @@ gem 'country_select'
 gem 'mailgun_rails'
 gem 'countries'
 gem 'currencies'
+gem 'has_scope'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 
 gem 'best_in_place', '~> 3.0.1'
@@ -57,6 +61,7 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'fog'
+gem 'roo'
 
 group :doc do
   gem 'sdoc', require: false

@@ -47,11 +47,31 @@
             <% if current_user.can_view_reports %>
                 <li class="<%= reports_active%>" >
                   <a href="<%= reports_path %>" class="<% reports_active%>" >
-                    <i class="fa fa-pencil-square-o icon">
+                    <i class="fa fa-bar-chart-o icon">
                       <b class="bg-dark"></b>
                     </i>
                     <span>REPORTS</span>
                   </a>
+                  <ul class="nav lt">
+                    <li >
+                      <a href="<%= sales_reports_path %>">
+                        <i class="fa fa-angle-right"></i>
+                        <span>Sales Report</span>
+                      </a>
+                    </li>
+                    <li >
+                      <a href="<%= inventory_reports_path %>">
+                        <i class="fa fa-angle-right"></i>
+                        <span>Inventory Report</span>
+                      </a>
+                    </li>
+                    <li >
+                      <a href="<%= dead_inventory_reports_path %>">
+                        <i class="fa fa-angle-right"></i>
+                        <span>Dead Inventory Report</span>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
             <% end %>
 
@@ -113,7 +133,7 @@
                           </a>
                         </li>
                         <li >
-                          <a href="<%= current_company.sales.present? ? sale_path(current_company.sales.joins(:payments).last) : '#' %>" >
+                          <a href="<%= current_company.sales.paid.count > 0 ? sale_path(current_company.sales.joins(:payments).last) : '#' %>" >
                             <i class="fa fa-angle-right"></i>
                             <span>Sales Record</span>
                           </a>
