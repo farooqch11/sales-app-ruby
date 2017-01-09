@@ -127,7 +127,7 @@
                           </a>
                         </li>
                         <li >
-                          <a href="<%= current_company.sales.paid.count > 0 ? sale_path(current_company.sales.joins(:payments).last) : '#' %>" >
+                          <a href="<%#= current_company.sales.where(status: 0).count > 0 ? sale_path(current_company.sales.joins(:payments).last) : '#' %>" >
                             <i class="fa fa-angle-right"></i>
                             <span>Sales Record</span>
                           </a>
