@@ -15,7 +15,7 @@
     <tbody>
       <%= fields_for @sale do |f|%>
         <%= f.fields_for :items do |e| %>
-          <% @line_item = @sale.line_items.where( item_id: e.object.id).first %>
+          <% @line_item = @sale.line_items.recent.where( item_id: e.object.id).first %>
           <tr>
             <%= e.hidden_field :id , class: 'item_id' %>
             <%= e.text_field :sku, :class => "form-control line_item_sku hidden", :placeholder => "SKU", :readonly => true %>

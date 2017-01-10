@@ -23,6 +23,7 @@ class LineItem < ActiveRecord::Base
 
   validates :cost_price , :total_price , presence: true
   validates :quantity, numericality: { only_integer: true , greater_than: 0 }
+  scope :recent , -> {order("created_at desc")}
 
   private
 
