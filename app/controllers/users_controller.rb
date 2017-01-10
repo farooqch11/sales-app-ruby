@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = current_company.users.paginate(page: params[:page], per_page: 20)
+    @users = current_company.users.includes(:role , :locations).paginate(page: params[:page], per_page: 20)
   end
 
   def show
@@ -36,10 +36,6 @@ class UsersController < ApplicationController
   end
 
   def new_user
-    # @user = current_company.users.new(email: params[:user][:email],
-    #                  username: params[:user][:username],
-    #                  password: params[:user][:password],
-    #                  password_confirmation: params[:user][:password_confirmation])
     @user = current_company.users.new(user_params)
     if @user.save
       flash[:success] = 'User was successfully created.'
@@ -105,4 +101,5 @@ class UsersController < ApplicationController
                                  :can_remove_sales,
                                  location_ids: [] )
   end
+
 end

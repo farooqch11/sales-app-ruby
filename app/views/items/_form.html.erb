@@ -42,6 +42,14 @@
                 </div>
 
                 <div class="form-group">
+                  <label class="col-sm-2 control-label">Location<span class="text-danger"> *</span></label>
+                  <div class="col-sm-10">
+                    <%= f.select(:location_id, current_company.locations.published.collect {|role| [ role.name, role.id ] }, {prompt: 'Select Location'} ,required: true , class: "form-control" ) %>
+                    <!--<span class="help-block m-b-none">Image size should be less than 500KB.</span>-->
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <label class="col-lg-2 control-label">Description</label>
                   <div class="col-lg-10">
                     <%= f.text_area :description, rows: "3",placeholder: "Description About Item", class: "form-control" %>

@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 	$(document).on("keypress", '.item_search_input', function(){
 	  $('.item_search').click();
-
 	});
 
 	$(document).on("change", '.item_category_search_input', function(){
@@ -141,6 +140,6 @@ $(document).ready(function(){
 		      }
 		    });
 		  }
-		});
+        });
 
 });

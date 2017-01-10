@@ -7,6 +7,17 @@ class DashboardController < ApplicationController
     @popular_items = current_company.items.all.order('amount_sold DESC').limit(10)
   end
 
+  def change_location
+    location = current_user.locations.find_by_id(params[:change_location][:location_id]) || []
+    if location.present?
+    current_user.update_attributes(location_id: location.id)
+      flash[:success] = "Location Successfully Changed."
+    else
+      flash[:error] = "Error!"
+    end
+    redirect_to :back
+  end
+
   def finance
     @sales = current_company.sales.joins(:line_items , :payments).includes(:line_items , :payments).distinct || []
     @expenses = current_company.expenses || []
@@ -21,7 +32,7 @@ class DashboardController < ApplicationController
 
   def create_sale_with_product
     @sale = current_company.sales.create
-    item  = current_company.items.find(params[:item_id])
+    item  = current_company.items.find_by_id(params[:item_id])
 
     LineItem.create(item_id: params[:item_id].to_i,
                     quantity: params[:quantity].to_i,
@@ -40,10 +51,6 @@ class DashboardController < ApplicationController
   end
 
   def get_tax_rate
-    if current_company.tax_rate.blank?
-      return 0.00
-    else
-      return current_company.tax_rate.to_f * 0.01
-    end
+    current_company.tax_rate.blank? ? 0.00 : current_company.tax_rate.to_f * 0.01
   end
 end

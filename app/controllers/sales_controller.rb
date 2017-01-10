@@ -6,19 +6,26 @@ class SalesController < ApplicationController
   before_action :set_sale , except: [:index , :new , :issue_refund]
   before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :update_customer_options , :create_line_item]
   before_action :populate_customers , only: [ :edit]
-
   def index
     @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
   end
 
   def new
-    @sale = current_user.sales.create
+    @sale = current_user.sales.create(location_id: current_location.id)
     redirect_to edit_sale_path(@sale)
   end
 
   def show
     @sale =  current_company.sales.joins(:payments).where('sales.id = ?' , params[:id]).first
     @sales = current_company.sales.joins(:payments).distinct.paginate(page: params[:page], per_page: 20).order(id: :desc)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "report",
+               disposition: 'attachment',
+               layout: 'pdf.html.erb'
+      end
+    end
   end
 
   def edit
@@ -66,20 +73,30 @@ class SalesController < ApplicationController
   end
   # Generate Invoice
   def invoice
-
+    size = 2
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "invoice-" + @sale.id.to_s,
+               disposition: 'inline',
+               layout: 'pdf.html.erb',
+               margin:  {   top:        size,                     # default 10 (mm)
+                     bottom:            size,
+                     left:              size,
+                     right:             size },
+               print_media_type: true
+      end
+    end
   end
 
   # searched Items
   def update_line_item_options
-    # set_sale
-    # populate_items
-
     if params[:search][:item_category].blank?
-      @available_items = current_company.items.where('name LIKE ? AND published = true OR description LIKE ? AND published = true OR sku LIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").limit(5) || []
+      @available_items = current_company.items.search_by_name(params[:search][:item_name]).published.recent || []
     elsif params[:search][:item_name].blank?
-      @available_items = current_company.items.where(item_category_id: params[:search][:item_category]).limit(5) || []
+      @available_items = current_company.items.search_by_category(params[:search][:item_category]).recent || []
     else
-      @available_items = current_company.items.where('name LIKE ? AND published = true AND item_category_id = ? OR description LIKE ? AND published = true AND item_category_id = ? OR sku LIKE ? AND published = true AND item_category_id = ?', "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}").limit(5) || []
+      @available_items = current_company.items.recent.published.search_by_category(params[:search][:item_category]).search_by_name(params[:search][:item_name]) || []
     end
 
     respond_to do |format|
@@ -348,7 +365,7 @@ class SalesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_sale
-    @sale = current_company.sales.find_by_id(params[:id] || params[:sale_id] || params[:search][:sale_id]) || []
+    @sale = current_company.sales.find_by_id(params[:id] || params[:sale_id] || params[:search][:sale_id] || params[:search][:id]) || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

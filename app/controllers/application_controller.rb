@@ -13,10 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   def current_company
-    @company  ||= current_user.company if !current_user.nil?
+    @company  ||= current_user.company if !current_user.nil? && user_signed_in?
   end
-
   helper_method :current_company
+
+  def current_location
+    @current_location  ||= current_user.active_location if !current_user.nil? && user_signed_in?
+  end
+  helper_method :current_location
 
   def after_sign_in_path_for(resource)
    if resource.class.name == 'User'
@@ -28,11 +32,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller?
-      "base"
-    else
-      "application"
-    end
+     devise_controller? ? "base" : "application"
   end
 
   private

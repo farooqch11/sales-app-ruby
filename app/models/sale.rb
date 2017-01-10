@@ -16,6 +16,8 @@
 #  user_id          :integer
 #  refund_by        :integer
 #  status           :integer          default(0)
+#  discount_type    :integer          default(0)
+#  location_id      :integer
 #
 
 class Sale < ActiveRecord::Base
@@ -28,16 +30,20 @@ class Sale < ActiveRecord::Base
   # validates :amount, numericality: { message: "%{value} seems wrong" }, on: :update
 
   enum status: [:paid , :refund]
+  enum discount_type: [:percentage , :fixed]
 
   validates :status , inclusion: {in: statuses.keys}
+  validates :discount_type , inclusion: {in: discount_types.keys}
 
-  belongs_to :customer
   has_many :line_items, dependent: :destroy
   has_many :items, through: :line_items
   has_many :connections, through: :customer
   has_many :payments, dependent: :destroy
   belongs_to :company
   belongs_to :user
+  belongs_to :location
+  belongs_to :customer
+
 
   accepts_nested_attributes_for :line_items, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
@@ -53,7 +59,9 @@ class Sale < ActiveRecord::Base
   scope :less_than_year, lambda { |year| where('extract(year from sales.created_at) < ?', year).joins(:line_items , :payments).includes(:line_items , :payments).distinct  }
   scope :by_month, lambda { |month| where("sales.created_at > ? AND sales.created_at < ?",month.beginning_of_month, month.end_of_month).joins(:line_items , :payments).includes(:line_items , :payments).distinct }
   scope :less_than_month, lambda { |month| where("sales.created_at < ? ",month.beginning_of_month).joins(:line_items , :payments).includes(:line_items , :payments).distinct }
-
+  scope :today_payments , -> {joins(:payments).where("payments.created_at >= ?", Time.zone.now.beginning_of_day).uniq}
+  scope :by_location , lambda {|location_id| where(location_id: location_id)}
+  # scope :by_period  ,
 
 
 
@@ -66,6 +74,8 @@ class Sale < ActiveRecord::Base
     # self.total_amount * self.discount
     (self.amount + self.tax)  * self.discount
   end
+
+
 
   def paid_total
     paid_total = self.payments.sum(:amount)
@@ -120,7 +130,17 @@ class Sale < ActiveRecord::Base
 
   def final_amount
     self.amount + self.tax - self.get_discounted_amount
+  end
 
+  def self.to_csv(options = {})
+    attributes = %w{amount tax discount total_amount}
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << attributes.map{ |attr| user.send(attr) }
+      end
+    end
   end
 
   private

@@ -14,7 +14,7 @@
                     <%= f.collection_select :item_category, current_company.item_categories, :id, :name, {prompt: "Select a category"}, {class: "form-control item_category_search_input"}  %>
                   </div>
                   <div class="col-xs-6 col-md-6">
-              <%= f.text_field :item_name, class: "item_search_input awesomplete form-control rounded", list: 'items-list', placeholder: "Search Items" %>
+              <%= f.text_field :item_name, class: "search-expend item_search_input awesomplete form-control rounded", list: 'items-list', placeholder: "Search Items" %>
                        <%= submit_tag "search", :class => "btn btn-info hidden item_search" %>
                     <datalist id="items-list">
                       <%@available_items.each do |itm| %>

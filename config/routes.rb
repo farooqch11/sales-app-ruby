@@ -135,7 +135,7 @@ PushvendorPos::Application.routes.draw do
 
   resources :expenses
   resources :item_categories
-  resources 'companies'
+  resources :companies
   resources :configuration , only: [:edit , :update]
   resources :passwords , only: [:edit , :update]
   resources :customers
@@ -149,6 +149,9 @@ PushvendorPos::Application.routes.draw do
   end
 
   resources :dashboard do
+    collection do
+      post :change_location
+    end
   end
 
 
@@ -158,6 +161,9 @@ PushvendorPos::Application.routes.draw do
       get 'date_range_report'
       get 'customer_report'
       get 'item_report'
+      get :sales
+      get :inventory
+      get :dead_inventory
     end
   end
 
@@ -165,7 +171,7 @@ PushvendorPos::Application.routes.draw do
 
   resources :payments do
     collection do
-      post 'make_payment'
+      post :make_payment
     end
   end
 
@@ -188,6 +194,7 @@ PushvendorPos::Application.routes.draw do
   resources :sales do
     member do
       get 'issue_refund'
+      get 'invoice'
     end
     collection do
       post 'update_line_item_options'
@@ -204,9 +211,6 @@ PushvendorPos::Application.routes.draw do
       get 'add_comment'
       post 'override_price'
       post 'sale_discount'
-    end
-    member do
-      get 'invoice'
     end
   end
 

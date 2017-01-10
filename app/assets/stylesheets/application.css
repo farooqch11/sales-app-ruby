@@ -23,7 +23,9 @@
  *= require awesomplete
  *= require sweetalert
  *= require datepicker/datepicker
+ *= require daterangepicker/daterangepicker
  *= require style
+ *= require global
 
 
  */

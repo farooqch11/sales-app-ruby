@@ -22,32 +22,30 @@
     <body class="bg-light lter b-r" >
         <section class="vbox">
           <% if user_signed_in? %>
-              <%= render partial: 'template/menu' %>
+              <%= render 'template/menu' %>
           <% end %>
           <section>
             <section class="hbox stretch">
-                  <%= render partial: 'template/left_aside'%>
+                  <%= render 'template/left_aside'%>
               <section id="content">
                 <%#=render partial: "template/bread_crums" if params[:action] != 'index' %>
                 <%= yield %>
+                <%=render 'locations/partials/user_change_location' if current_user.locations.count > 1 %>
               </section>
+
               <%= javascript_include_tag :application, "data-turbolinks-track" => true %>
               <%= yield(:scripts) %>
               <script>
                   $(window).load(function() {
                       $('.footer').equalHeights();
-
-
                   });
-
-
                   $(window).resize(function(){
                       $('.footer').equalHeights();
                   });
-                </script>
+              </script>
             </section>
           </section>
         </section>
     </body>
-    <%=render 'template/flash_messages'%>
+    <%=render 'template/flash_messages' %>
 </html>

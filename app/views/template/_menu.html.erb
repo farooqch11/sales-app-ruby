@@ -8,7 +8,7 @@
       <i class="fa fa-cog"></i>
     </a>
   </div>
-  <a href="#" class="navbar-brand" data-toggle="fullscreen"><p class="m-r-sm company-name-center hidden-xs hidden-sm"><%=  current_company.company_name %></p></a>
+  <a href="#" class="navbar-brand" data-toggle="fullscreen"><p class="m-r-sm company-name-center hidden-xs hidden-sm"><%=  current_location.try(:name) %></p></a>
   <!--<ul class="nav navbar-nav hidden-xs">-->
     <!--<li class="dropdown">-->
       <!--<a href="<%#= new_sale_path %>">-->
@@ -87,6 +87,11 @@
         <li>
           <a href="<%= change_password_path %>" ><i class="fa fa-pencil icon" style="margin-right:7px;"></i> Change Password</a>
         </li>
+        <% if current_user.locations.count > 0 %>
+            <li>
+              <%= link_to raw("<i class='fa fa-location-arrow icon m-r-7'></i> Change Location") , '#change_user_location' , "data-toggle": "modal"  %>
+            </li>
+        <% end %>
         <!--<li>-->
           <!--<a href="#">-->
             <!--<span class="badge bg-danger pull-right">3</span>-->

@@ -34,6 +34,7 @@
 #  salary                   :float
 #  skills                   :string
 #  role_id                  :integer
+#  location_id              :integer
 #
 # Indexes
 #
@@ -57,6 +58,7 @@ class User < ActiveRecord::Base
   #Associations
   belongs_to :company
   belongs_to :role
+  belongs_to :active_location , class_name: 'Location' , foreign_key: 'location_id'
   has_and_belongs_to_many :locations
   has_many :sales
 

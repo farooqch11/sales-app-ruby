@@ -25,11 +25,50 @@
                   {id: 5 , name: "Inventory Manager"},
                   {id: 6 , name: "Warehouse manager"}])
 
-company = User.find_by_email("faizan@faizan.com").company
+    Permission.create!([{id: 1 ,name: 'user_account_and_setting'} ,
+                        {id: 2 ,name: 'dashboard_per_location'} ,
+                        {id: 3 ,name: 'dashboard_for_all_locations'} ,
+                        {id: 4 ,name: 'inventory_management'} ,
+                        {id: 5 ,name: 'employee_payroll_management'} ,
+                        {id: 6 ,name: 'expenses'},
+                        {id: 7 ,name: 'customers_vendors'},
+                        {id: 8 ,name: 'social_media_management'},
+                        {id: 9 ,name: 'sales_pos'},
+                        {id: 10 ,name: 'bank_reconciliations_per_location'},
+                        {id: 11 ,name: 'bank_reconciliations_for_all_location'}])
+    # modules
+    # A. User/account & setting
+    # B. Home/Dashboard per location
+    # C. Home/Dashboard for all locations
+    # D. INVENTORY MANAGEMENT                            =     can_update_items
+    # E. Employee/payroll management                     =     can_update_users
+    # F. Expenses
+    # G. customers/Vendors
+    # H. social media management
+    # I. SAles/pos                                       =     can_remove_sales
+    # J. Bank reconciliations per location
+    # K. Bank reconciliations for all locations
 
-for i in (1..2000)
-  company.users.create(:email => "#{i}Name@Name#{i}.com", role_id: 1 , password: '1234zxcv' , password_confirmation: '1234zxcv' , username: "#{i}Name" )
-end
+    # Role Number 1: General Manager (A, B, C, D, E, F, G,H, I, J,K)
+    # Role Number 2: Store Manager/ Supervisor    (B,E,F,J,D,I)
+    # Role Number 3: Cashier (managing the POS for location assigned) (I,J)
+    # Role Number 4: Customer Service Manager (G,H)
+    # Role Number 5: Inventory Manager (D,F)
+    # Role Number 6: Warehouse manager: (D&F for All the materials across all locations)
+
+    [1,2,3,4,5,6,7,8,9,10,11].each{ |key| Permission.find(key).roles << Role.general_manager}
+    [2,5,6,7,10,11].each{ |key| Permission.find(key).roles << Role.store_manager}
+    [9,10].each{ |key| Permission.find(key).roles << Role.cashier}
+    [7,8].each{ |key| Permission.find(key).roles << Role.customer_service_manager}
+    [4,6].each{ |key| Permission.find(key).roles << Role.inventory_manager}
+    [4,6].each{ |key| Permission.find(key).roles << Role.warehouse_manager}
+
+
+# company = User.find_by_email("faizan@faizan.com").company
+#
+# for i in (1..2000)
+#   company.users.create(:email => "#{i}Name@Name#{i}.com", role_id: 1 , password: '1234zxcv' , password_confirmation: '1234zxcv' , username: "#{i}Name" )
+# end
 
 # store = Company.last
 # for i in (1..2000)

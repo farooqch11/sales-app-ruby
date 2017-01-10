@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = current_company.items.paginate(page: params[:page], per_page: 20).published
+    @items = current_company.items.includes(:item_category , :location).order(created_at: :desc).paginate(page: params[:page], per_page: 20).published
   end
 
   def new
@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
                                  :sku,
                                  :name,
                                  :photo,
+                                 :location_id,
                                  :description,
                                  :price,
                                  :stock_amount,
