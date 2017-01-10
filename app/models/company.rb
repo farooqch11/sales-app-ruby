@@ -56,12 +56,12 @@ class Company < ActiveRecord::Base
   validates :sub_domain , uniqueness: true
 
   accepts_nested_attributes_for :owner
+  accepts_nested_attributes_for :locations
 
   after_create :set_owner_company_id
-
   before_create :set_company_domian
-
   before_create :set_currency
+  after_create  :set_head_office_location
 
   def logo
     super.present? ? super : 'logo.png'
@@ -111,4 +111,13 @@ class Company < ActiveRecord::Base
     self.currency_name = c.currency.name
     self.currency_code = c.currency.code
   end
+  def set_head_office_location
+    address              = Address.create!({country: self.country })
+    location             = self.locations.new
+    location.name        = self.company_name.titleize + " Head Office"
+    location.address_id  = address.id
+    location.save
+    self.owner.update_attributes({location_id: location.id})
+  end
+
 end

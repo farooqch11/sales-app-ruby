@@ -64,12 +64,12 @@ class User < ActiveRecord::Base
 
 
   before_create :set_confirm_password
-
   before_validation :set_username
 
   # after_create  :set_user_role
 
   before_save :set_user_role
+  after_create :set_active_location , if: Proc.new{ |user| user.company.present?}
 
   def is_owner?
     self.company.owner_id == self.id ? true : false
@@ -157,5 +157,9 @@ class User < ActiveRecord::Base
 
   private
     def set_confirm_password
+    end
+
+    def set_active_location
+      self.update_attributes(location_id: self.locations.published.first.id)
     end
 end

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
 
   before_filter :authenticate_user!
-  before_filter :set_company
+  # before_filter :set_company
   layout :layout_by_resource
 
   rescue_from CanCan::AccessDenied do |exception|
