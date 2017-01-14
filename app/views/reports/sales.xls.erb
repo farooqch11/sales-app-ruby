@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Date</Data></Cell>
+        <Cell><Data ss:Type="String">Customer</Data></Cell>
+        <Cell><Data ss:Type="String">Total</Data></Cell>
+        <Cell><Data ss:Type="String">Tax</Data></Cell>
+        <Cell><Data ss:Type="String">Discount</Data></Cell>
+        <Cell><Data ss:Type="String">Grand Total</Data></Cell>
+        <Cell><Data ss:Type="String">Paid By</Data></Cell>
+      </Row>
+      <% @sales.each do |sale| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= sale.id %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= sale.created_at.strftime("%m/%d/%Y %I:%M%p") %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= sale.customer.present? ? sale.customer.full_name : "--" %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= number_to_currency(sale.amount.nil? ? 0 : sale.amount  ) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= number_to_currency(sale.tax) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= number_to_currency(sale.discount.nil? ? 0 : sale.get_discounted_amount  )%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= number_to_currency(sale.total_amount) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= sale.payments.last.payment_type.humanize %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

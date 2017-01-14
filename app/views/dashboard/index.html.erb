@@ -2,43 +2,65 @@
 
   <section class="vbox">
     <section class="scrollable padder">
-      <%= render 'template/statistics'%>
+      <!--<div class="m-b-md">-->
+        <!--<div class="row">-->
+          <!--<div class="col-sm-6">-->
+            <!--<h1 class="m-b-none m-t-sm"><strong><%#= current_location.name.titleize %> Dashboard</strong></h1>-->
+            <!--&lt;!&ndash;<small>Statistics &amp; graph information</small>&ndash;&gt;-->
+          <!--</div>-->
+          <!--&lt;!&ndash;<div class="col-sm-6">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="text-right text-left-xs">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="sparkline m-l m-r-lg pull-right" data-type="bar" data-height="35" data-bar-width="6" data-bar-spacing="2" data-bar-color="#fb6b5b"><canvas width="86" height="35" style="display: inline-block; width: 86px; height: 35px; vertical-align: top;"></canvas></div>&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="m-t-sm">&ndash;&gt;-->
+          <!--&lt;!&ndash;<span class="text-uc">New users</span>&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="h4">&ndash;&gt;-->
+          <!--&lt;!&ndash;<strong>1,120,100</strong>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
       <div class="m-b-md">
         <h3 class="m-b-none"><% current_user.company_name.titleize %></h3>
-        <small>Welcome back, <%= current_user.username.present? ? current_user.username.titleize : current_user.email %></small>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <i class="fa fa-ok-sign"></i><strong>Welcome back! </strong><a href="#" class="alert-link"><%= current_user.username.present? ? current_user.username.titleize : current_user.email %></a> choose a common task below to get started!.
+        </div>
       </div>
       <section class="panel panel-default">
         <div class="row m-l-none m-r-none bg-light lter">
           <div class="col-sm-6 col-md-3 padder-v b-r b-light">
-                    <span class="fa-stack fa-2x pull-left m-r-sm">
-                      <i class="fa fa-circle fa-stack-2x text-info"></i>
-                      <i class="fa fa-male fa-stack-1x text-white"></i>
-                    </span>
-            <a class="clear" href="#">
-              <span class="h3 block m-t-xs"><strong><%= current_company.customers.count %></strong></span>
-              <small class="text-muted text-uc">Customers</small>
+            <span class="fa-stack fa-2x pull-left m-r-sm">
+              <i class="fa fa-circle fa-stack-2x text-info"></i>
+              <i class="fa fa-male fa-stack-1x text-white"></i>
+            </span>
+            <a class="clear" href="<%= customers_path %>">
+              <span class="h3 block m-t-xs"><strong><%= current_location.customers.count %></strong></span>
+              <small class="text-muted text-uc">Total Customers</small>
             </a>
           </div>
+
           <div class="col-sm-6 col-md-3 padder-v b-r b-light lt">
-                    <span class="fa-stack fa-2x pull-left m-r-sm">
-                      <i class="fa fa-circle fa-stack-2x text-warning"></i>
-                      <i class="fa fa-bug fa-stack-1x text-white"></i>
-                      <span class="easypiechart pos-abt" data-percent="100" data-line-width="4" data-track-Color="#fff" data-scale-Color="false" data-size="50" data-line-cap='butt' data-animate="2000" data-target="#bugs" data-update="3000"></span>
-                    </span>
-            <a class="clear" href="#">
-              <span class="h3 block m-t-xs"><strong id="bugs">468</strong></span>
-              <small class="text-muted text-uc"></small>
+            <span class="fa-stack fa-2x pull-left m-r-sm">
+              <i class="fa fa-circle fa-stack-2x text-warning"></i>
+              <i class="fa fa-shopping-cart fa-stack-1x text-white"></i>
+            </span>
+            <a class="clear" href="<%= '#' %>">
+              <span class="h3 block m-t-xs"><strong id="bugs"><%= current_location.sales.count %></strong></span>
+              <small class="text-muted text-uc">Total Sellings</small>
             </a>
           </div>
+
           <div class="col-sm-6 col-md-3 padder-v b-r b-light">
-                    <span class="fa-stack fa-2x pull-left m-r-sm">
-                      <i class="fa fa-circle fa-stack-2x text-danger"></i>
-                      <i class="fa fa-fire-extinguisher fa-stack-1x text-white"></i>
-                      <span class="easypiechart pos-abt" data-percent="100" data-line-width="4" data-track-Color="#f5f5f5" data-scale-Color="false" data-size="50" data-line-cap='butt' data-animate="3000" data-target="#firers" data-update="5000"></span>
-                    </span>
-            <a class="clear" href="#">
-              <span class="h3 block m-t-xs"><strong id="firers">359</strong></span>
-              <small class="text-muted text-uc"></small>
+            <span class="fa-stack fa-2x pull-left m-r-sm">
+              <i class="fa fa-circle fa-stack-2x text-danger"></i>
+              <i class="fa fa-inbox fa-stack-1x text-white"></i>
+            </span>
+            <a class="clear" href="<%= items_path %>">
+              <span class="h3 block m-t-xs"><strong id="firers"><%= current_location.items.count %></strong></span>
+              <small class="text-muted text-uc">Total Items</small>
             </a>
           </div>
           <div class="col-sm-6 col-md-3 padder-v b-r b-light lt">
@@ -53,8 +75,31 @@
           </div>
         </div>
       </section>
+      <div class="row quick-actions">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="list-group">
+            <%= link_to raw("<i class='fa fa-clock-o fa-2x'></i>Today's closeout report") , '#' , class: 'list-group-item' %>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="list-group">
+            <%= link_to raw("<i class='fa fa-ticket fa-2x'></i>Today's detailed sales report") , '#' , class: 'list-group-item' %>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="list-group">
+            <%= link_to raw("<i class='fa fa-pencil-square-o fa-2x'></i>Today's summary items report") , '#' , class: 'list-group-item' %>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="list-group">
+            <%= link_to raw("<i class='fa fa-shopping-cart fa-2x'></i>Start a New Sale") , new_sale_path , class: 'list-group-item' %>
+          </div>
+        </div>
+      </div>
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <section class="panel panel-default">
             <header class="panel-heading font-bold">Statistics</header>
             <div class="panel-body">
@@ -67,57 +112,57 @@
                   <small class="text-muted m-b block">Orders</small>
                 </div>
                 <div class="col-xs-3 b-r b-light">
-                  <span class="h4 font-bold m-t block">10,450</span>
+                  <span class="h4 font-bold m-t block"><%= current_location.sales.count %></span>
                   <small class="text-muted m-b block">Sellings</small>
                 </div>
                 <div class="col-xs-3 b-r b-light">
-                  <span class="h4 font-bold m-t block">21,230</span>
+                  <span class="h4 font-bold m-t block"><%= current_location.items.count %></span>
                   <small class="text-muted m-b block">Items</small>
                 </div>
                 <div class="col-xs-3">
-                  <span class="h4 font-bold m-t block">7,230</span>
+                  <span class="h4 font-bold m-t block"><%= current_location.customers.count %></span>
                   <small class="text-muted m-b block">Customers</small>
                 </div>
               </div>
             </footer>
           </section>
         </div>
-        <div class="col-md-4">
-          <section class="panel panel-default">
-            <header class="panel-heading font-bold">Data graph</header>
-            <div class="bg-light dk wrapper">
-              <span class="pull-right">Friday</span>
-                      <span class="h4">$540<br>
-                        <small class="text-muted">+1.05(2.15%)</small>
-                      </span>
-              <div class="text-center m-b-n m-t-sm">
-                <div class="sparkline" data-type="line" data-height="65" data-width="100%" data-line-width="2" data-line-color="#dddddd" data-spot-color="#bbbbbb" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="3" data-resize="true" values="280,320,220,385,450,320,345,250,250,250,400,380"></div>
-                <div class="sparkline inline" data-type="bar" data-height="45" data-bar-width="6" data-bar-spacing="6" data-bar-color="#65bd77">10,9,11,10,11,10,12,10,9,10,11,9,8</div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div>
-                <span class="text-muted">Total:</span>
-                <span class="h3 block">$2500.00</span>
-              </div>
-              <div class="line pull-in"></div>
-              <div class="row m-t-sm">
-                <div class="col-xs-4">
-                  <small class="text-muted block">Monthly</small>
-                  <span>$1500.00</span>
-                </div>
-                <div class="col-xs-4">
-                  <small class="text-muted block">Today</small>
-                  <span>$540.00</span>
-                </div>
-                <div class="col-xs-4">
-                  <small class="text-muted block">Profit</small>
-                  <span>$400.00</span>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+        <!--<div class="col-md-4">-->
+          <!--<section class="panel panel-default">-->
+            <!--<header class="panel-heading font-bold">Data graph</header>-->
+            <!--<div class="bg-light dk wrapper">-->
+              <!--<span class="pull-right">Friday</span>-->
+                      <!--<span class="h4">$540<br>-->
+                        <!--<small class="text-muted">+1.05(2.15%)</small>-->
+                      <!--</span>-->
+              <!--<div class="text-center m-b-n m-t-sm">-->
+                <!--<div class="sparkline" data-type="line" data-height="65" data-width="100%" data-line-width="2" data-line-color="#dddddd" data-spot-color="#bbbbbb" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="3" data-resize="true" values="280,320,220,385,450,320,345,250,250,250,400,380"></div>-->
+                <!--<div class="sparkline inline" data-type="bar" data-height="45" data-bar-width="6" data-bar-spacing="6" data-bar-color="#65bd77">10,9,11,10,11,10,12,10,9,10,11,9,8</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="panel-body">-->
+              <!--<div>-->
+                <!--<span class="text-muted">Total:</span>-->
+                <!--<span class="h3 block">$2500.00</span>-->
+              <!--</div>-->
+              <!--<div class="line pull-in"></div>-->
+              <!--<div class="row m-t-sm">-->
+                <!--<div class="col-xs-4">-->
+                  <!--<small class="text-muted block">Monthly</small>-->
+                  <!--<span>$1500.00</span>-->
+                <!--</div>-->
+                <!--<div class="col-xs-4">-->
+                  <!--<small class="text-muted block">Today</small>-->
+                  <!--<span>$540.00</span>-->
+                <!--</div>-->
+                <!--<div class="col-xs-4">-->
+                  <!--<small class="text-muted block">Profit</small>-->
+                  <!--<span>$400.00</span>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</section>-->
+        <!--</div>-->
       </div>
     </section>
   <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>

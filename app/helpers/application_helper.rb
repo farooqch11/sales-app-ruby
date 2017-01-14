@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def disable_spinning text
+    return "<i class='fa fa-spinner fa-spin pull-left'></i> #{text}"
+  end
+
   def raw_sales
     sales = current_company.sales || []
     total = 0.00

@@ -61,7 +61,7 @@
                       <div class="media">
                         <div class="media-body m-t-sm">
                           <span class="col-sm-6">
-                            <a href="#" class="btn btn-default btn-lg btn-block col-sm-6">Issue Receipt</a>
+                            <a href="<%= invoice_sale_path(@sale , format: :pdf)%>" target="_blank" class="btn btn-default btn-lg btn-block col-sm-6">Issue Receipt</a>
                             </span>
                            <span class="col-sm-6">
                             <%= link_to 'Issue Refund' , issue_refund_sale_path(@sale), class: 'btn btn-default btn-lg btn-block col-sm-6', data: {confirm: 'Are you sure?', verify: 'Foo', verify_text: 'Type "Foo" to confirm'} %>
@@ -135,3 +135,25 @@
     </section>
   </aside>
 </section>
+
+<!-- Modal -->
+<div id="invoice-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Invoice</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'sales/shared/invoice'%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+        <button href="#" class="btn btn-sm btn-info pull-right invoice-<%= @sale.id%>" onClick="window.print('#modal-body');">Print</button>
+      </div>
+    </div>
+
+  </div>
+</div>

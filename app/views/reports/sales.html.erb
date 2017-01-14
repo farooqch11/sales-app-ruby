@@ -1,0 +1,23 @@
+<%= render 'reports/partials/sales_filters' %>
+<section class="vbox">
+  <section class="scrollable padder m-t-lg">
+    <div class="col-sm-12">
+      <section class="panel panel-default" >
+        <header class="panel-heading col-sm-12" style="background:#FFF;">
+          <div class="col-md-6">
+            <h3 style="color:#717171;">Sales Report</h3>
+          </div>
+          <div class="col-md-6">
+              <%= link_to 'pdf' , sales_reports_path(format: :pdf)  , class: 'btn btn-sm btn-info pull-right m-r-7' %>
+              <%= link_to 'csv' , sales_reports_path(format: :csv)  , class: 'btn btn-sm btn-info pull-right m-r-7' %>
+              <%= link_to 'xlxs', sales_reports_path(format: :xls) , class: 'btn btn-sm btn-info pull-right m-r-7' %>
+          </div>
+        </header>
+        <div class="panel-body">
+          <%= render 'template/sales_today' , sales: @sales %>
+        </div>
+      </section>
+    </div>
+  </section>
+</section>
+<a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>

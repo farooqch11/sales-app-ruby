@@ -16,7 +16,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.button "save" , class: "btn btn-info" , html: {"data-loading-text": "Saving..."}%>
+        <%= f.button "Save".html_safe , class: "btn btn-info" , data: {disable_with: disable_spinning("Saving...") }%>
       </div>
       <% end %>
     </div><!-- /.modal-content -->

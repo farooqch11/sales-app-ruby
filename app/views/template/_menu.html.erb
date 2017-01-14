@@ -82,10 +82,11 @@
       <ul class="dropdown-menu animated fadeInRight">
         <span class="arrow top"></span>
         <li>
+
           <a href="<%= change_password_path %>" ><i class="fa fa-pencil icon" style="margin-right:7px;"></i> My Profile</a>
         </li>
         <li>
-          <a href="<%= change_password_path %>" ><i class="fa fa-pencil icon" style="margin-right:7px;"></i> Change Password</a>
+          <%= link_to raw("<i class='fa fa-lock icon m-r-7'></i> Change Password") , '#' , data: {"toggle": "modal" , 'target': '#change_password_modal'}  %>
         </li>
         <% if current_user.locations.count > 0 %>
             <li>

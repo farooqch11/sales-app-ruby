@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170101210512) do
+ActiveRecord::Schema.define(version: 20170113231937) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_1"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170101210512) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "address_id"
+    t.integer  "location_id"
   end
 
   add_index "customers", ["company_id"], name: "index_customers_on_company_id"
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(version: 20170101210512) do
     t.integer  "item_category_id"
     t.integer  "company_id"
     t.string   "photo"
+    t.integer  "location_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -204,6 +206,8 @@ ActiveRecord::Schema.define(version: 20170101210512) do
     t.integer  "user_id"
     t.integer  "refund_by"
     t.integer  "status",                                   default: 0
+    t.integer  "discount_type",                            default: 0
+    t.integer  "location_id"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -259,6 +263,7 @@ ActiveRecord::Schema.define(version: 20170101210512) do
     t.float    "salary"
     t.string   "skills"
     t.integer  "role_id"
+    t.integer  "location_id"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id"

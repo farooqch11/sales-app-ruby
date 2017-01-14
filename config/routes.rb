@@ -126,7 +126,7 @@ PushvendorPos::Application.routes.draw do
 
 
   get "password/change", to: "passwords#edit" , as: :change_password
-  get 'configuration' , to: "configuration#edit" , as: :configuration
+  # get 'configuration' , to: "configuration#edit" , as: :configuration
 
   # Active Admin Routes
   devise_for :sites, ActiveAdmin::Devise.config
@@ -157,6 +157,7 @@ PushvendorPos::Application.routes.draw do
 
   resources :reports do
     collection do
+      post :get_location_employees
       get 'total_report'
       get 'date_range_report'
       get 'customer_report'

@@ -45,27 +45,33 @@
             <% end %>
 
             <% if current_user.can_view_reports %>
-                <li class="<%#= reports_active%>" >
-                  <a href="<%#= reports_path %>" class="<% reports_active%>" >
+                <li class="<%= reports_active%>" >
+                  <a href="<%= reports_path %>" class="<% reports_active%>" >
                     <i class="fa fa-bar-chart-o icon">
                       <b class="bg-dark"></b>
                     </i>
                     <span>REPORTS</span>
                   </a>
-                  <!--<ul class="nav lt">-->
-                    <!--<li >-->
-                      <!--<a href="<%#= sales_reports_path %>">-->
-                        <!--<i class="fa fa-angle-right"></i>-->
-                        <!--<span>Sales Report</span>-->
-                      <!--</a>-->
-                    <!--</li>-->
-                    <!--<li >-->
-                      <!--<a href="<%#= dead_inventory_reports_path %>">-->
-                        <!--<i class="fa fa-angle-right"></i>-->
-                        <!--<span>Dead Inventory Report</span>-->
-                      <!--</a>-->
-                    <!--</li>-->
-                  <!--</ul>-->
+                  <ul class="nav lt">
+                    <li >
+                      <a href="<%= sales_reports_path %>">
+                        <i class="fa fa-angle-right"></i>
+                        <span>Sales Report</span>
+                      </a>
+                    </li>
+                    <li >
+                      <a href="<%= inventory_reports_path %>">
+                        <i class="fa fa-angle-right"></i>
+                        <span>Inventory Report</span>
+                      </a>
+                    </li>
+                    <li >
+                      <a href="<%= dead_inventory_reports_path %>">
+                        <i class="fa fa-angle-right"></i>
+                        <span>Dead Inventory Report</span>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
             <% end %>
 
@@ -182,7 +188,7 @@
               </a>
               <ul class="nav lt">
                 <li >
-                  <a href="<%= configuration_path %>">
+                  <a href="<%= edit_configuration_path(current_company) %>">
                     <i class="fa fa-angle-right"></i>
                     <span>Configuration</span>
                   </a>

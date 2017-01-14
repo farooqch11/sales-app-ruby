@@ -8,7 +8,7 @@ class ConfigurationController < ApplicationController
   def update
     if current_company.update(company_params)
       flash[:success] = 'Configurations have been successfully updated.'
-      redirect_to configuration_path
+      redirect_to edit_configuration_path(current_company)
     else
       flash[:errors] = current_company.errors.full_messages
       render 'edit'
@@ -17,7 +17,7 @@ class ConfigurationController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def company_params
-    params.require(:company).permit(:company_name ,:email,:currency ,:currency_code , :currency_name , :phone ,:low_stock_alert , :company_description ,:logo ,:city , :address , :tax_rate , :state , :zip)
+    params.require(:company).permit(:company_name ,:email ,:currency_code , :currency_name , :phone ,:low_stock_alert , :company_description ,:logo ,:city , :address , :tax_rate , :state , :zip)
     # :store_description,
     # :sub_domain,
     # :address,

@@ -37,14 +37,14 @@ class Company < ActiveRecord::Base
 
   # Assiciations
   has_many :users , dependent: :destroy
-  has_many :customers , dependent: :destroy
+  has_many :customers , -> { order(created_at: :desc) }  , dependent: :destroy
   has_many :item_categories , dependent: :destroy
   has_many :items , dependent: :destroy
   has_many :sales
   has_many :expenses, dependent: :destroy
   has_many :payments, :through => :sales
   has_many :line_items, :through => :sales
-  has_many :locations , dependent: :destroy
+  has_many :locations , -> { order(created_at: :desc) } ,dependent: :destroy
 
   belongs_to :owner, class_name: "User", foreign_key: "owner_id"
   belongs_to :business_type
@@ -63,9 +63,9 @@ class Company < ActiveRecord::Base
   before_create :set_currency
   after_create  :set_head_office_location
 
-  def logo
-    super.present? ? super : 'logo.png'
-  end
+  # def logo
+  #   super.present? ? super : 'logo.png'
+  # end
 
   def name
     self.company_name.humanize
@@ -81,6 +81,10 @@ class Company < ActiveRecord::Base
 
   def get_report_quater_list
     (self.created_at.to_date..Time.zone.now.to_date).map{ |m| m.strftime('%Y') }.uniq.map{ |m| m }.reverse
+  end
+
+  def get_country
+    ISO3166::Country.find_country_by_alpha2(self.country.upcase)
   end
 
   # def tax_rate
@@ -111,6 +115,8 @@ class Company < ActiveRecord::Base
     self.currency_name = c.currency.name
     self.currency_code = c.currency.code
   end
+
+
   def set_head_office_location
     address              = Address.create!({country: self.country })
     location             = self.locations.new

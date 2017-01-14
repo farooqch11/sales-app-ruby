@@ -23,12 +23,12 @@
 class Expense < ActiveRecord::Base
 
   #Image Uploading
-  mount_uploader :attachment, AttachmentUploader
+  # mount_uploader :attachment, AttachmentUploader
   belongs_to :company
 
   # User Avatar Validation
-  validates_integrity_of  :attachment
-  validate :image_size_validation
+  # validates_integrity_of  :attachment
+  # validate :image_size_validation
   validates :amount, numericality: { message: "%{value} seems wrong" }
   validates :expense_type , presence: true
 

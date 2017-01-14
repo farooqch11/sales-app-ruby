@@ -1,0 +1,73 @@
+<div class="modal fade" id="new_customer_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><b>Add New Customer</b></h4>
+      </div>
+        <%= form_for @customer , html: {class: "bs-example form-horizontal"} do |f|  %>
+          <div class="panel-body">
+
+          <!--<legend>Customer Detail</legend>-->
+            <div class="form-group">
+              <%= f.label :first_name , class: 'col-lg-2 control-label' , required: true %>
+              <div class="col-lg-4">
+                <%= f.text_field :first_name, :class=>"form-control" , required: true %>                    <!--<span class="help-block m-b-none">Website URL.</span>-->
+              </div>
+              <label class="col-lg-2 control-label">Last Name</label>
+              <div class="col-lg-4">
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Email</label>
+              <div class="col-lg-10">
+                <%= f.email_field :email_address, class: "form-control" %>
+              </div>
+            </div>
+            <!--<legend>Address</legend>-->
+            <%= f.fields_for :address do |a|%>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Address</label>
+                  <div class="col-lg-10">
+                    <%= a.text_area :address_1, row: '2' , class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Country</label>
+                  <div class="col-lg-10">
+                    <%= a.country_select(:country ,  {prompt: 'Select Country'} ,{ class: "form-control select2-container select2-container-active" , required: true } ) %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">Phone</label>
+                  <div class="col-lg-4">
+                    <%= f.text_field :phone_number, :class=>"form-control" %>
+                  </div>
+                  <label class="col-lg-2 control-label">City</label>
+                  <div class="col-lg-4">
+                    <%= a.text_field :city, class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-2 control-label">State</label>
+                  <div class="col-lg-4">
+                    <%= a.text_field :state, :class=>"form-control" %>
+                  </div>
+                  <label class="col-lg-2 control-label">Zip Code</label>
+                  <div class="col-lg-4">
+                    <%= a.text_field :zip, :class=>"form-control" %>
+                  </div>
+                </div>
+
+            <% end%>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= f.button "Save".html_safe , class: "btn btn-info" , data: {disable_with: disable_spinning("Saving...")}%>
+            </div>
+        <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

@@ -10,7 +10,7 @@
       <meta name="robots" content="noindex">
       <meta name="googlebot" content="noindex">
       <%= favicon_link_tag 'favicon.ico'%>
-      <title><%= current_user.company_name %></title>
+      <title><%= current_location.name %></title>
       <meta name="description" content="<%= current_user.company_description %>">
       <meta name="viewport" content ="width=device-width; initial-scale=1.0;">
       <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
@@ -19,7 +19,7 @@
 
     </head>
     
-    <body class="bg-light lter b-r" >
+    <body class=" lter b-r" >
         <section class="vbox">
           <% if user_signed_in? %>
               <%= render 'template/menu' %>
@@ -28,12 +28,14 @@
             <section class="hbox stretch">
                   <%= render 'template/left_aside'%>
               <section id="content">
-                <%#=render partial: "template/bread_crums" if params[:action] != 'index' %>
+                <%=render partial: "template/bread_crums" if params[:action] != 'index' %>
                 <%= yield %>
                 <%=render 'locations/partials/user_change_location' if current_user.locations.count > 1 %>
+                <%=render 'users/partials/change_password'%>
               </section>
 
               <%= javascript_include_tag :application, "data-turbolinks-track" => true %>
+              <%= filepicker_js_include_tag %>
               <%= yield(:scripts) %>
               <script>
                   $(window).load(function() {

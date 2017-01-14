@@ -1,3 +1,33 @@
-<div class="panel-body">
-	Total Payments: <%= number_to_currency sales_total_today %>
-</div>
+<section class="scrollable wrapper w-f">
+  <section class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table table-striped m-b-none">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Total</th>
+                <th>Tax</th>
+                <th>Discount</th>
+                <th>Grand Total</th>
+                <th>Paid By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% sales.each do |sale| %>
+                <tr>
+                  <td><%= sale.created_at.strftime("%m/%d/%Y %I:%M%p") %></td>
+                  <td><%= sale.customer.present? ? sale.customer.full_name : "--" %></td>
+                  <td><%= number_to_currency(sale.amount.nil? ? 0 : sale.amount  ) %></td>
+                  <td><%= number_to_currency(sale.tax) %></td>
+                  <td><%= number_to_currency(sale.discount.nil? ? 0 : sale.get_discounted_amount  )%></td>
+                  <td><%= number_to_currency(sale.total_amount) %></td>
+                  <td><%= sale.payments.last.payment_type.humanize %></td>
+                </tr>
+            <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </section>
+</section>

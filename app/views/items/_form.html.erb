@@ -35,7 +35,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Item Photo</label>
                   <div class="col-sm-10">
-                    <%= f.file_field :photo, class: "btn btn-default",data: { fp_crop_ratio: "*/4", fp_button_class: 'btn btn-default',fp_button_text: 'Upload'}%>
+                    <%= f.filepicker_field :photo, class: "btn btn-default",data: { fp_crop_ratio: "*/4", fp_button_class: 'btn btn-default',fp_button_text: 'Upload'}%>
                     <%#= f.file_field :logo, :class=>"filestyle",:style=>"display:none" ,"data-icon" => "false",  "data-classButton" => "btn btn-default",  "data-classInput" => "form-control inline input-s" %>
                     <span class="help-block m-b-none">Image size should be less than 500KB.</span>
                   </div>

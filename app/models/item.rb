@@ -20,7 +20,7 @@
 #
 
 class Item < ActiveRecord::Base
-	mount_uploader :photo, AttachmentUploader
+	# mount_uploader :photo, AttachmentUploader
 
 	has_many :line_items
 	belongs_to :item_category

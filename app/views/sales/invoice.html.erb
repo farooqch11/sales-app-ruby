@@ -1,4 +1,5 @@
 <style>
+
     .b-b-b{
         border-bottom: 2px solid #cfcfcf;
         padding: 0px !important;
@@ -80,8 +81,8 @@
           <span class="col-xs-6 col-sm-6 col-md-6 text-left"><%= @sale.paid? ? 'Receipt' : 'Invoice #'%></span>
           <span class="col-xs-6 col-sm-6 col-md-6 text-center"> <%= @sale.id%></span>
           <% if @sale.payments.last.cash_and_card? %>
-          <span class="col-xs-6 col-sm-6 col-md-6 text-left">Payment Status #:</span>
-          <span class="col-xs-6 col-sm-6 col-md-6 text-center"> PAID</span>
+              <span class="col-xs-6 col-sm-6 col-md-6 text-left">Payment Status #:</span>
+              <span class="col-xs-6 col-sm-6 col-md-6 text-center"> PAID</span>
           <% elsif @sale.payments.last.payment_term? %>
               <span class="col-xs-6 col-sm-6 col-md-6 text-left">Payment Status #:</span>
               <span class="col-xs-6 col-sm-6 col-md-6 text-center">DUE IN <%= @sale.payments.last.payment_term%> DAYS</span>

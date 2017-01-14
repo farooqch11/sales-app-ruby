@@ -50,6 +50,7 @@ gem 'currencies'
 gem 'has_scope'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'ransack'
 
 
 
@@ -62,7 +63,7 @@ gem 'carrierwave'
 gem "mini_magick"
 gem 'fog'
 gem 'roo'
-
+gem 'filepicker-rails', '~> 2.1'
 group :doc do
   gem 'sdoc', require: false
 end

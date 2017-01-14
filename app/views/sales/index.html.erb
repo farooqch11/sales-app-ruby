@@ -1,5 +1,8 @@
 
-  <section class="hbox stretch">
+
+
+
+<section class="hbox stretch">
     <aside class="aside-md bg-white b-l" id="subNav">
       <section class="vbox">
         <header class="header bg-white b-b clearfix">
@@ -70,8 +73,7 @@
                 </thead>
                 <tbody>
                 <% @sales.each do |sale| %>
-                    <tr>
-                      <!--<td><input type="checkbox" name="user[]" value="<%#= user.id %>"></td>-->
+
                     <tr class="<%= sale.remaining_balance == 0.00 && !sale.total_amount.blank? ? 'success' : '' %>">
                       <td><%= sale.id %></td>
                       <td><%= sale.created_at.strftime("%m/%d/%y %I:%M:%S %p")  %></td>
@@ -81,7 +83,7 @@
                       <td><%= value_in_currency(sale.paid_total) %></td>
                       <td><%= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Paid" : "#{ value_in_currency(sale.remaining_balance)}" %></td>
                       <td class="text-right">
-                        <%#=link_to raw("<i class= 'fa fa-print'></i>"),invoice_sale_path(sale), class: "btn btn-dark"%>
+                        <%=link_to raw("<i class= 'fa fa-print'></i>"),invoice_sale_path(sale), class: "btn btn-dark"%>
                         <%=link_to raw("<i class= 'fa fa-pencil'></i>"),edit_sale_path(sale), class: "btn btn-dark"%>
                         <%=link_to raw("<i class= 'fa fa-times'></i>"),sale, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}%>
                       </td>

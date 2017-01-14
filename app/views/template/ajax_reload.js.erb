@@ -1,0 +1,29 @@
+<%if flash[:alert].present? || flash[:toastr].present? || flash[:error].present? || flash[:errors].present? || flash[:success].present? || flash[:notice].present? || flash[:info].present?%>
+
+<%if flash[:alert].present?%>
+flash_alert("<%= flash[:alert] %>");
+<%end%>
+
+<%if flash[:error].present?%>
+flash_error("<%= flash[:error] %>");
+<%end%>
+
+<%if flash[:errors].present?%>
+<%flash[:errors].each do |e|%>
+flash_error("<%= e %>");
+<%end%>
+<%end%>
+
+<%if flash[:success].present?%>
+flash_success("<%= flash[:success] %>");
+window.location.reload();
+<%end%>
+
+<%if flash[:notice].present?%>
+flash_notice("<%= flash[:notice] %>");
+<%end%>
+
+<%if flash[:info].present?%>
+flash_info("<%= flash[:info] %>");
+<%end%>
+<%end%>

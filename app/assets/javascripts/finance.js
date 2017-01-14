@@ -34,3 +34,7 @@ $(document).ready(function() {
     financial_position($("#report-period-years"));
 
 });
+//$('#sales_filter_location_id').change(function(){
+//    console.log($('#sales_filter_location_id option:selected').val());
+//    $.post( , {location_id: $('#sales_filter_location_id option:selected').val()});
+//});

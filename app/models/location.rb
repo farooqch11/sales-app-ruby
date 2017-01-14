@@ -20,6 +20,7 @@ class Location < ActiveRecord::Base
   has_many   :sales , dependent: :destroy
   has_many   :active_users , class_name: 'User' , foreign_key: 'location_id'
   has_and_belongs_to_many :users
+  has_many   :customers
 
   #Validations
   validates_presence_of :name

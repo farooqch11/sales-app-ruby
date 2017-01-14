@@ -18,5 +18,14 @@ class PasswordsController < ApplicationController
       flash[:error] = "Current password does not match"
       return redirect_to :back
     end
+    # respond_to do |format|
+    #   format.js { ajax_refresh }
+    # end
   end
+  private
+
+  def ajax_refresh
+    render 'template/ajax_reload'
+  end
+
 end

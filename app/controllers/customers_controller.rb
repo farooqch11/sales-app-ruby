@@ -8,6 +8,8 @@ class CustomersController < ApplicationController
 
   def index
     @customers = current_company.customers.paginate(page: params[:page], per_page: 20).where(published: true)
+    @customer = current_company.customers.new
+    @customer.build_address
   end
 
   def new
@@ -28,7 +30,7 @@ class CustomersController < ApplicationController
     @customer = current_company.customers.new(customer_params)
     if @customer.save
       flash[:success] = 'Customer was successfully created.'
-      redirect_to new_customer_path
+      redirect_to :back
     else
       flash[:errors] = @customer.errors.full_messages
       render action: 'new'
@@ -72,6 +74,6 @@ class CustomersController < ApplicationController
                                      :country,
                                      :city,
                                      :state,
-                                     :zip , :_destroy]])
+                                     :zip , :_destroy]]).merge!(location_id: current_location.id)
   end
 end
