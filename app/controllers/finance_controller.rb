@@ -4,10 +4,10 @@ class FinanceController < ApplicationController
   include ConfigurationHelper
 
   def index
-    @sales         = Sale.all || []
+    @sales         = current_company.sales.joins(:payments).distinct.all || []
     @expenses      = current_company.expenses || []
     @monthly_sales = @sales.group_by { |t| t.created_at.beginning_of_month }
-    @charts = finance_chart_by_year(@sales , @expenses , 12.months.ago)
+    @charts = finance_chart_by_year(@sales , @expenses , 13.months.ago)
   end
 
   def financial_position
