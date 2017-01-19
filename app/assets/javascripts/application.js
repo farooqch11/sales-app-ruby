@@ -13,8 +13,10 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require jquery.min
 //= require bootstrap.min
+//= require fusioncharts/fusioncharts
+//= require fusioncharts/fusioncharts.charts
+//= require fusioncharts/themes/fusioncharts.theme.fint
 //= require parsley/parsley.extend
 //= require jquery.validate.min
 //= require jquery.validate.extended
@@ -27,17 +29,6 @@
 //= require appear/jquery.appear
 //= require scroll/smoothscroll
 //= require landing
-//= require charts/easypiechart/jquery.easy-pie-chart
-//= require charts/sparkline/jquery.sparkline.min
-//= require charts/flot/jquery.flot.min
-//= require charts/flot/jquery.flot.tooltip.min
-//= require charts/flot/jquery.flot.resize
-//= require charts/flot/jquery.flot.orderBars
-//= require charts/flot/jquery.flot.pie.min
-//= require charts/flot/jquery.flot.grow
-//= require charts/flot/demo
-//= require charts/high_chart_table/highcharts-custom.min
-// = require charts/high_chart_table/jquery.highchartTable.min
 //= require calendar/bootstrap_calendar
 //= require calendar/demo
 //= require sortable/jquery.sortable
@@ -51,6 +42,7 @@
 //= require daterangepicker/moment
 //= require daterangepicker/daterangepicker
 //= require combodate/combodate
+
 //= require main
 //= require easyResponsiveTabs
 //= require flash

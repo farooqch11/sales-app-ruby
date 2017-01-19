@@ -37,6 +37,10 @@ gem 'breadcrumbs_on_rails', '~> 2.3.0'
 gem 'bootstrap_form'
 gem 'data-confirm-modal'
 gem "twitter-bootstrap-rails"
+# gem 'highcharts-rails', '~> 4.2', '>= 4.2.5'
+gem 'fusioncharts-rails'
+gem 'momentjs-rails'
+gem 'bootstrap-daterangepicker-rails'
 
 
 

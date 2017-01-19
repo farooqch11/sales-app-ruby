@@ -26,12 +26,21 @@ class ApplicationController < ActionController::Base
   helper_method :current_location
 
   def after_sign_in_path_for(resource)
-   if resource.class.name == 'User'
+    if resource.class.name == 'User'
       return dashboard_index_path
     else
       super
     end
   end
+
+  def has_access? permission
+    if current_user.is_owner?
+      true
+    else
+      false
+    end
+  end
+
   protected
 
   def layout_by_resource

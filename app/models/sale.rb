@@ -35,7 +35,7 @@ class Sale < ActiveRecord::Base
   validates :status , inclusion: {in: statuses.keys}
   validates :discount_type , inclusion: {in: discount_types.keys}
 
-  has_many :line_items, dependent: :destroy
+  has_many :line_items, ->{order(created_at: :desc)} , dependent: :destroy
   has_many :items, through: :line_items
   has_many :connections, through: :customer
   has_many :payments, dependent: :destroy
@@ -73,6 +73,14 @@ class Sale < ActiveRecord::Base
   def get_discounted_amount
     # self.total_amount * self.discount
     (self.amount + self.tax)  * self.discount
+  end
+
+  def self.total_on(strat_date , end_date)
+    joins(:payments).where("date(sales.created_at) >= ? and date(sales.created_at) <= ?" , strat_date , end_date).distinct.sum("sales.amount")
+  end
+
+  def self.total_profit(strat_date , end_date)
+    joins(:payments).where("date(sales.created_at) >= ? and date(sales.created_at) <= ?" , strat_date , end_date).sum("sales.amount")
   end
 
 

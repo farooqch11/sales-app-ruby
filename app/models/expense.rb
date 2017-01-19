@@ -39,6 +39,10 @@ class Expense < ActiveRecord::Base
   scope :by_month, lambda { |month| where("expenses.created_at > ? AND expenses.created_at < ?",month.beginning_of_month, month.end_of_month) }
   scope :less_than_month, lambda { |month| where("expenses.created_at < ?",month.beginning_of_month) }
 
+  def self.total_on(strat_date , end_date)
+    where("date(expenses.created_at) >= ? and date(expenses.created_at) <= ?" , strat_date , end_date).sum("expenses.amount")
+  end
+
 
 
   private

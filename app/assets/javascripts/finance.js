@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('table.highchart').highchartTable();
+    //$('table.highchart').highchartTable();
     function financial_position(el)
     {
         type  = $(".report-period-type option:selected").val();
@@ -38,3 +38,4 @@ $(document).ready(function() {
 //    console.log($('#sales_filter_location_id option:selected').val());
 //    $.post( , {location_id: $('#sales_filter_location_id option:selected').val()});
 //});
+

@@ -1,4 +1,5 @@
-$('.financial-position').html("<%= escape_javascript render 'finance/partials/financial_position' , sales: @sales , prev_sales: @prev_sales , expenses: @expenses , prev_expenses: @prev_expenses %>");
+//$('.financial-position').html("<%#= escape_javascript render 'finance/partials/financial_position' , sales: @sales , prev_sales: @prev_sales , expenses: @expenses , prev_expenses: @prev_expenses %>");
+$("#chartContainer").html("<%= escape_javascript @charts.render() %>");
 <%if flash[:alert].present? || flash[:toastr].present? || flash[:error].present? || flash[:errors].present? || flash[:success].present? || flash[:notice].present? || flash[:info].present?%>
 
 <%if flash[:alert].present?%>
