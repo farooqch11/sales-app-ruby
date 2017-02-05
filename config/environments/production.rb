@@ -22,7 +22,7 @@ PushvendorPos::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  # config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -110,20 +110,20 @@ PushvendorPos::Application.configure do
   # }
   # for Devise
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = { :host => 'https://tend360.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => '159.203.77.246' }
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'tend360.herokuapp.com',
+      :domain               => 'managehub360.com',
       :user_name            => "faizuali4@gmail.com",
-      :password             => "faizanahmad04",
+      :password             => "F8a1i8z4u",
       :authentication       => "plain",
       :enable_starttls_auto => true
   }
-
-
-
-
+  Rails.application.config.middleware.use ExceptionNotification::Rack, email: {
+      sender_address: %{"notifier" <noreply@managehub360.com>},
+      exception_recipients: %w{faizuali4@gmail.com}
+  }
+  config.action_mailer.delivery_method = :smtp
 end

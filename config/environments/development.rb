@@ -86,10 +86,11 @@ PushvendorPos::Application.configure do
 
   config.eager_load = true
   config.action_mailer.default_url_options = { :host => 'https://tend360.herokuapp.com' }
-  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = {host: 'lvh.me'}
   # Do not compress assets
   config.assets.compress = false
+
+  config.action_mailer.delivery_method = :letter_opener
 
 
 end
