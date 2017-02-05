@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
 
-  before_filter :authorize!
+  # before_filter :has_access?('expenses')
 
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'EXPENSES', '#' , options: { title: 'EXPENSES' }
@@ -9,7 +9,8 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = current_company.expenses.paginate(page: params[:page], per_page: 20) || []
+    @search = current_company.expenses.search(params[:q])
+    @expenses = @search.result.paginate(page: params[:page], per_page: 20) || []
   end
 
   # GET /expenses/1
@@ -17,13 +18,15 @@ class ExpensesController < ApplicationController
   def show
   end
 
-  # GET /expenses/new
   def new
     add_breadcrumb 'NEW EXPENSE', new_expense_path , options: { title: 'NEW EXPENSE' }
     @expense = current_company.expenses.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
-  # GET /expenses/1/edit
   def edit
   end
 
@@ -33,7 +36,7 @@ class ExpensesController < ApplicationController
     @expense = current_company.expenses.new(expense_params)
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to new_expense_path , notice: 'Expense was successfully created.' }
+        format.html { redirect_to :back , notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }
@@ -70,17 +73,13 @@ class ExpensesController < ApplicationController
 
   private
 
-  def authorize!
-    redirect_to :back , notice: "Access Denied" if not current_user.has_access?('expenses')
-  end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
-      @expense = current_company.expenses.find_by_id(params[:id])
+      @expense = current_company.expenses.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:attachment,:start_date, :end_date, :purpose,:amount , :paid_time, :expense_type)
+      params.require(:expense).permit(:attachment,:payment_method , :ref_no ,:start_date, :end_date, :purpose,:amount , :paid_time, :expense_type)
     end
 end

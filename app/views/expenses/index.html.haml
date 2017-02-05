@@ -1,0 +1,55 @@
+%section.hbox.stretch
+  %aside
+    %section.vbox
+      %header.header.bg-white.b-b.clearfix
+        .row.m-t-sm
+          .col-sm-8.m-b-xs
+            = link_to raw("<i class='fa fa-plus icon '></i> Create") , new_expense_path , remote: true , class: "btn btn btn-sm btn-primary"
+          .col-sm-4.m-b-xs
+            = search_form_for @search do |f|
+              .input-group
+                = f.text_field :expense_type_cont , class: "input-sm form-control"  , placeholder: "Search"
+                %span.input-group-btn
+                  = f.submit "Go!" , class: "btn btn-sm btn-default"
+      %section.scrollable.wrapper.w-f
+        %section.panel.panel-default
+          .table-responsive
+            %table.table.table-striped.m-b-none
+              %thead
+                %tr
+                  / <th width="20"><input type="checkbox"></th>
+                  %th Pic
+                  %th Title
+                  %th Purpose
+                  %th Paid time
+                  %th Duration
+                  %th Amount
+                  %th
+                    %span.pull-right Actions
+              %tbody
+                - @expenses.each do |expense|
+                  %tr
+                    / <td><input type="checkbox" name="user[]" value="<haml_silent></haml_silent>"></td>
+                    %td= image_tag expense.attachment, style: 'widh: 50px ; width: 50px '
+                    %td= expense.expense_type
+                    %td= expense.purpose
+                    %td= expense.paid_time
+                    %td= expense.start_date.to_s + " - " + expense.end_date.to_s
+                    %td= number_to_currency(expense.amount)
+                    %td.text-right
+                      = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_expense_path(expense), remote: true  ,class: "btn btn-dark"
+                      = link_to raw("<i class= 'fa fa-times'></i>"),expense, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}
+      / <tr>
+      / <td><input type="checkbox" name="post[]" value="2"></td>
+      / &lt;!&ndash;<td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>&ndash;&gt;
+      / <td>Idrawfast</td>
+      / <td>4c</td>
+      / <td>Jul 25, 2013</td>
+      / <td>
+      / &lt;!&ndash;<a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>&ndash;&gt;
+      / </td>
+      / </tr>
+      %footer.footer.bg-white.b-t
+        .row.text-center-xs.pull-right{:style => "margin: 0px 2%;"}
+          = will_paginate @expenses, renderer: BootstrapPagination::Rails
+%a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", :href => "#"}

@@ -1,0 +1,30 @@
+= simple_form_for expense , multipart: true , validate: true , html: {class: "form-horizontal"} , wrapper: :horizontal_form , remote: true do |f|
+  = f.input :expense_type , label: 'Title' , required: true
+  = f.input :amount , required: true , label: "Amount" , placeholder: "Amount(#{current_company.currency})" , data: {autonumeric: true}
+  -#= f.input :start_date,:wrapper_html => { :class => 'col-sm-10' },as: :string, input_html: {class: 'datepicker form-control', placeholder: "MM/DD/YYYY",:real => "datepicker", :type => "text"}
+  = f.input :start_date
+  = f.input :end_date , boolean_style: :inline
+  = f.input :ref_no , label: 'Ref#' , hint: 'e.g. Transaction ID, Check No.'
+  = f.input :purpose , label: 'Discription' , placeholder: 'Enter Discription'
+  = f.filepicker_field :attachment
+
+
+  -#.form-group
+    %label.col-sm-2.control-label Receipts
+    .col-sm-10
+      = f.filepicker_field :attachment, class: "btn btn-default",data: { fp_crop_ratio: "*/4", fp_button_class: 'btn btn-default',fp_button_text: 'Upload'}
+      %span.help-block.m-b-none Upload file not more than 500KB.
+  -#.form-group
+    %label.col-lg-2.control-label
+      Amount
+      %em.text-danger *
+    .col-lg-10
+      .input-group
+        %span.input-group-addon= current_company.currency
+        = f.text_field :amount,data: {autonumeric: true} , :class => "form-control", :placeholder => "Expense"
+  %hr/
+  %div{class: "#{yield :footer}"}
+    = f.button :button , class: 'btn btn-primary' ,data: {disable_with: disable_spinning("Saving...")}
+    = button_tag "Cancel", type: 'reset',class: "btn btn-default" , data: {'dismiss': 'modal'}
+:javascript
+  $('#new_user').validate();

@@ -1,0 +1,12 @@
+%section.vbox
+  %section.scrollable.padder
+    .col-sm-12
+      %section.panel.panel-default
+        %header.panel-heading{:style => "background:#FFF;"}
+          %h3{:style => "color:#717171;"}
+            = @expense.new_record? ? 'New ' : 'Edit '
+            Expense
+        .panel-body
+          = render 'expenses/partials/form', expense: @expense
+:javascript
+  $('#new_user').validate();

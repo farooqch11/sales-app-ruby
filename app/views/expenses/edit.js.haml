@@ -1,0 +1,2 @@
+$('.remote_container').html("#{j render 'expenses/partials/new_modal' , expense: @expense }");
+$("#edit_expense_#{@expense.slug}").modal('toggle');
