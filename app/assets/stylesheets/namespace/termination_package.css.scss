@@ -1,0 +1,253 @@
+.termination_package{
+  .vertical-tab {
+    border-top: 1px solid #e1e1e1;
+  }
+  .radio_list{
+    label{
+      font-weight: 600;
+      color: #52667e !Important;
+      font-size: 14px;
+      font-family: "montserratregular";
+    }
+  }
+  .hlthcontent p{
+    margin-bottom: 10px;
+  }
+  .check_list_area{
+    .checkbox {
+    float:left;
+    margin: 0;
+    }
+  }
+  .simple_form.edit_employee{
+    .btn{
+      margin: 15px 0;
+    }
+    
+  }
+  .block_display{
+    display: block;
+  }
+  #mark_as_terminate{
+    .jquery-validate-error{
+      min-width: 500px;
+      margin-top: 15px;
+    }
+  }
+  .btn_holder{
+    span{
+      display: block;
+      margin: 15px 0;
+    }
+    .btn{
+      min-width: 100px;
+    }
+  }
+  .check_list_area{
+    margin: 13px 0 0;
+    .icheckbox{
+      display: inline-block;
+    }
+    label{
+      vertical-align: top;
+
+    }
+  }
+  .terminate{
+    .media{
+      h4{
+        padding:0 20px;
+      }
+    }
+  }
+  .check_list_area{
+    .table{
+      border: 1px solid #eee;
+      font-size: 14px;
+      thead{
+        tr{
+          th{
+            border:0;
+            font-weight: 400 !important;
+          }
+        }
+      }
+      tbody{
+        tr{
+          td{
+          border:0;   
+          }
+        }
+      }
+    }
+  }
+  .modal-footer,
+  .modal-header{
+    overflow: hidden;
+    width: 100%;
+  }
+  .file_picker {
+    input {
+      position: absolute;
+      left: 15px;
+      width: 76%;
+      top: 0;
+      height: 35px;
+    }
+    .btn{
+      margin: 0;
+      width: 150px;
+      float: right;
+    }
+    .jquery-validate-error{
+      position: absolute;
+      bottom: -23px;
+      left: 15px;
+    }
+  }
+}
+
+.termination_package.show .termination_info_table{
+  margin-bottom: 60px;
+}
+
+
+.termination_package.package_detail #no-file-selected-error {
+    font-family: dinregular;
+    font-weight: normal;
+  }
+
+  .termination_package.initiate_package {
+    .dashboard_top{
+      min-height: 540px;
+      .btn{
+        margin-top: 200px;
+        min-width: 250px;
+        max-width: 325px;
+      }
+    }
+    .btn-box { 
+      .ladda-button[data-style=expand-right] .ladda-spinner {
+        right: 12px;
+      }
+    }
+  }
+  .termination_package .btn-box{
+    .btn{
+      width: 100%;
+      min-height: 100px;
+      line-height: 26px;
+    }
+    .btn_add{
+      text-align: center;
+      display: inline-block;
+      background: #969696;
+      width: 100%;
+      padding: 28px;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+  .terminate_check{
+    text-align: center;
+  }
+  .termination_box{
+    text-align:center;
+    .bootstrap-switch-container{
+    height: 31px;
+   }
+  }
+  .bootstrap-switch-container{
+    height: 31px;
+  }
+
+  .termination_package.index .termination_box .icheckbox{
+    position: inherit;
+    margin-left: 24px;
+    margin-bottom: 10px;
+  }
+
+  .termination_package.index #mark_termination_error{
+    padding: 10px;
+  }
+
+  .termination_package.index
+  {
+    .accordion_block{
+      .panel.panel-default{
+        margin: 0 0 15px; 
+      }
+    .panel-title{
+      margin: 0;
+      font-size: 16px;
+      background-image:none !important;
+      color: #000;
+    }
+    .panel-heading{
+      padding: 10px 0 !important;
+      position: relative;
+      color: #333;
+      background: #A3B6C7 !important;
+      border-radius: 0 !important;
+      // margin: 0 0 5px !important;
+      border-bottom:1px dotted #DBD5D5 !important;
+      a{
+        color:#52667e !important;
+        font-family: 'din';
+        padding: 0 5px;
+        span{
+          color: #fff;
+        }
+      }
+    &:hover{
+    background: #f5fafe;
+    border-color: #e1eaf1;
+    }
+    }
+    .panel-body{
+      padding: 0px;
+      background: #fff !important;
+      position:relative;
+      border: 1px solid #eee !important;
+      margin: 0;
+      .table{
+        tr{
+          th{
+            border:0 !important;
+            font-size: 14px;
+            font-weight: 500;
+          }
+          td{
+            text-align:left !important;
+            border-right: 0 !important;
+          }
+          td.icon_action{
+            text-align:right !important;
+            .fa{
+              color: #63cbd8;
+              font-size: 24px;
+              margin: 0 5px 0 5px;
+            }
+            img{
+              margin-top: -12px;
+            }
+          }
+          .icon_action{
+            text-align:right !important;
+          }
+        }
+      }
+    }
+  .plus_icon{
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    }
+  .panel{
+    margin: 0px !important;
+  }
+  }  
+  }

@@ -1,0 +1,208 @@
+.pdf-table {
+  table {
+    border: 0px !important;
+  }
+}
+
+.color-light-blue {
+  background-color: #E7FFFD;
+}
+
+.color-dark-blue {
+  background-color: #99CCFF;
+}
+
+.center {
+  text-align: center;
+}
+.health_plan_pdf{
+  color: #52667E;
+  width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  .header_block{
+    border-top: 10px solid #64C1D0;
+    display: inline-block;
+    margin: 0px;
+    width: 100%;
+    h3{
+      color: #65C1D0;
+      font-size: 30px;
+      font-weight: normal;
+      margin: 25px 25px 50px;
+    }
+  }
+  .proposalplan{
+    h1 {
+      margin: 0px;
+      font-weight: bold;
+      span{
+        color: #8B9EB5;
+      }
+    }
+  }
+  .clearfix::before, .clearfix::after {
+    content: " ";
+    display: table;
+  }
+  .clearfix::after {
+    clear: both;
+  }
+  .pull-left {
+    float: left !important;
+  }
+  .pull-right{
+    float: right !important;
+  }
+  .effective_from{
+    list-style: outside none none;
+    margin: 10px 0px 30px;
+    padding: 0px;
+    display: inline-block;
+    li:nth-child(1) {
+      border: medium none;
+      padding-left: 0px !important;
+      margin-left: 0px !important;
+    }
+    li{
+      border-left: 1px solid #BDC7D4;
+      float: left;
+      margin-left: 20px;
+      margin-right: 0px;
+      padding: 15px 0px 15px 20px;
+      .icon{
+        float: left;
+        margin-top: 25px;
+        display: inline-block;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        vertical-align: middle;
+      }
+      h3{
+        font-size: 18px;
+        display: block;
+        font-size: 20px;
+        color: #52667E;
+        margin: 0px 0px 0px 30px;
+        p{
+          color: #A3B6C7;
+          font-size: 14px;
+          margin-bottom: 9px;
+          display: block;
+          font-weight: normal;
+        }
+      }
+      .icon-margin {
+        margin-right: 10px;
+      }
+    }
+  }
+  h4.pull-left{
+    border-bottom: 5px solid #64C1D0;
+    color: #64C1D0;
+    display: inline-block;
+    font-size: 30px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    width: 100%;
+  }
+  .info-block {
+    display: block;
+    margin-bottom: 50px;
+  }
+  .table {
+    width: 100%;
+    border:1px solid #B6C3D1 !important;
+  }
+  table{
+    border-collapse: collapse;
+    border-spacing: 0px;
+    background-color: transparent;
+    border: 0px none !important;
+  }
+  .new-table {
+    background: #FFF none repeat scroll 0% 0% !important;
+    thead {
+      color: #FFF;
+      font-size: 16px;
+      background: #435368 none repeat scroll 0% 0%;
+    }
+
+    th{
+      border-style: none solid solid;
+      margin: 0px !important;
+      padding: 10px 15px !important;
+      vertical-align: middle !important;
+    }
+    tr{
+      border-bottom: 1px solid #B6C3D1;
+      th{
+        background: #737F93 none repeat scroll 0% 0%;
+        border-bottom-color: #435368;
+      }
+    }
+    td {
+      border: 0px none !important;
+      font-size: 14px;
+      vertical-align: middle;
+      background-clip: padding-box;
+      position: relative;
+      padding: 10px 15px !important;
+      vertical-align: middle !important;
+    }
+  }
+  .table-responsive {
+    overflow-x: auto;
+    min-height: 0.01%;
+  }
+  #health_plan_tbl{
+    tr td{
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      max-width: 130px !important;
+    }
+  }
+  .comparisontable{
+    .table.new-table tr {
+      border-bottom: 0px none;
+    }
+    .color_dark {
+      background: #737F93 none repeat scroll 0% 0%;
+      font-weight: bold;
+      color: #FFF;
+    }
+    tr td {
+      border-right: solid 1px #DADADA !important;
+    }
+    .color_lblue {
+      background: #E3F4FA none repeat scroll 0% 0%;
+      color: #52667E;
+      font-weight: bold;
+    }
+    tr td.color_lblue.drak {
+      border: 0px none !important;
+    }
+    .color_lgreen{
+      background: #BCE0C7 none repeat scroll 0% 0%;
+      color: #52667E;
+      font-weight: bold;
+    }
+    .color_lgreen.drak {
+      background: #BCE0C7 none repeat scroll 0% 0%;
+      color: #52667E;
+      font-weight: bold;
+    }
+    .color_lgreen.drak {
+      border: 0px none !important;
+    }
+    tr td[colspan="4"] {
+      text-align: center;
+    }
+  }
+
+}

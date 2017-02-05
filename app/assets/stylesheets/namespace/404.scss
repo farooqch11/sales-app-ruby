@@ -1,0 +1,73 @@
+body.error404{
+  /************************** 404 Renu************************************/
+  @media (min-width: 320px) and (max-width: 767px) {
+    .centered {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+    .right-hero {
+      text-align: left;
+    }
+  }
+
+  .bg-body {
+    background: #f2f2f2;
+  }
+  .nothing-right {
+    margin-top: 115px;
+  }
+  .nothing-right li h2 {
+    color: #52667e;
+    font-size:34px;
+  }
+  .nothing-right li p {
+    font-family: 'dinregular';
+    font-size: 23px;
+    color:#777777;
+  }
+  .margin-bottom {
+    margin-bottom:0;
+  }
+  .return-btn {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #52667E;
+    margin-bottom: 30px;
+
+    &:hover{
+      background-color: #435E83;
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+    }
+  }
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /************************** End 404 Renu************************************/
+
+  .centered-content{
+    margin: 100px auto;
+  }
+}
+#error-wrap{
+  text-align: center;
+  .image-holder{
+    img{
+      margin: 50px auto 50px;
+    }
+  }
+  h2 span {
+    color: #C91F34;
+  }
+  .btn{
+    background: #2c3c51;
+    color: #fff;
+    margin: 20px auto;
+    display: inline-block;
+  }
+}

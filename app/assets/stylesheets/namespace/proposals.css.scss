@@ -1,0 +1,487 @@
+body.proposals{
+  .popop-filter-results .close span{
+    font-size: 22px;
+  }
+  .business-contact-div{
+    span.selection{
+      span.select2-selection.select2-selection--multiple{
+        min-height: 44px;
+        padding: 0 0 5px;
+      }
+    }
+  }
+  .btn-broker{
+    color: #52667e;
+    &:hover{
+      color: #52667e;
+    }
+  }
+  &.show {
+    #cutomize-proposal > a {
+      margin-bottom: 20px;
+    }
+    #sortable_tbl {
+    height: 15em;
+    }
+    table {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+    }
+    table thead {
+        flex: 0 0 auto;
+        width: calc(100% - 0.9em);
+    }
+    table tbody {
+        flex: 1 1 auto;
+        display: block;
+        min-height: 350px;
+    }
+    table tbody tr {
+        width: 100%;
+    }
+    table thead,
+    table tbody tr {
+        display: table;
+        table-layout: fixed;
+        word-wrap:break-word;
+    }
+  }
+}
+.proposals.index{
+  .checkbox.custom-checkbox{
+    label{
+      padding-left: 1px;
+    }
+  } 
+  .proposal_tab_table{
+    thead{
+      tr{
+        th{
+          padding: 8px 20px;
+        }
+        th:first-child{
+          display:none;
+        }
+      }
+    }
+     td{
+        padding: 8px 20px !important;
+      }
+    td:first-child{
+      display:none;
+    }
+  }
+  .dataTables_filter{
+    display: none;
+  }
+  .select-box{
+    width: 150px;
+    float: left;
+    line-height: 12px;
+    height: 29px;
+    padding: 2px;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  .tabin_tab_sec {
+    .vertical-tab{
+      .tab-content.tab-content-inner{
+        padding-bottom: 0px !important;
+      }
+    }
+  }
+  .general-info-block.user-email-details{
+    h5{
+      margin-bottom: 5px
+    }
+    ul{
+      margin: 0 0 20px;
+      padding: 0 0px 0 15px;
+    }
+    .manual_type_radio_buttons{
+      margin-bottom: 20px;
+    }
+  }
+  .add-employee-popup {
+    .form-group {
+      position: relative;
+      label.jquery-validate-error{
+        position: absolute;
+        bottom: -28px;
+        left: 0;
+        z-index: 99;
+
+      }
+    }
+    .manual_type_radio_buttons{
+       label.jquery-validate-error{
+        position: absolute;
+        bottom: -28px;
+        left: 15px;
+        z-index: 99;
+      }
+    }
+  }
+} 
+.proposals .vertical-tab .nav.nav-tabs span{
+    //line-height: 99px;
+    padding: 44px 0;
+}
+body.proposals.show{
+  table .increased-fix-width{
+      width: 20%;
+  }
+  .manual_quote_employer_table tbody {
+    min-height: auto;
+  }
+  #proposal_response_by_employer {
+    min-height: 110px
+  }
+  .message_from_broker {
+    padding-bottom: 15px;
+  }
+  .proposal_download_btn {
+    padding: 11px 30px;
+  }
+  .section-Proposal{
+    overflow: hidden;
+    .list-datalist{
+      li{
+        span.fa.fa-envelope{
+          margin-right: 15px;
+        }
+      }
+      .text-td{
+        display: inline-block;
+        .turncate_sent_to{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 216px;
+          line-height: 12px;
+          line-height: 18px;
+          float: left;
+        }
+        a {
+            line-height: 18px;
+            margin:0 5px;
+          }
+      }
+    }
+  }
+}
+.proposals.broker_index .tooltip_span{
+    display: inline-block;
+}
+.proposals.broker_index {
+  #proposal_date_range, 
+  #proposal_effective_date_range {
+      line-height: 1;
+      background: #fff;
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      width: 240px;
+  }
+}
+.proposals.broker_index,
+.proposals.index{
+  .form-group.business-contact-div{
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+      font-family: dinregular;
+      background-color: #ffffff !important;
+      font-weight: normal;
+    }
+  }
+  .proposals_showing_tabs .dataTables_filter{
+    display: none;
+  }
+}
+
+.businesses.show,
+.proposals.index{
+  .turncate-holder{
+    max-width: 200px;
+  }
+} 
+.businesses.show,
+.proposals.index{
+  .add_proposal_attachment{
+    padding: 15px 0px;
+  }
+  .nested_note_file_filename.long-file-name{
+    padding: 15px 0px;
+  }
+  .action_icon.fa.fa-archive {
+    font-size: 24px;
+  }
+  .pagination{
+    margin-bottom: 30px !important;
+  }
+  .headingtop.p20.borderbottom,
+  .buttonblock{
+    .dropdown .dropdown-menu{
+      margin-top: 13px !important;
+      h5{
+        margin-bottom: 10px !important;
+      }
+      .pop_quote_list{
+        li{
+          background: transparent !important;
+        }
+      }
+      ul{
+        margin: 0 -10px;
+        font-family: "din";
+        li{
+          padding:5px 10px;
+          a{
+            font-size: 16px;
+            font-family: "din";
+          }
+        }
+        li:nth-of-type(2n+1) {
+        background: #F2F2F2;
+        }
+      }
+    }
+    .popover.bottom > .arrow{
+      left: 12% !important;
+    }
+  }
+  .vertical-tab{
+    border-top: 1px solid #e1e1e1;
+    .tab_inner_tab{
+      margin:0;
+      .icon-box-messaging{
+          display:block;
+          margin: 0 10px 0 15px;
+        span{
+          padding:0 !important;
+        }
+      }
+      a{
+        text-align: center;
+        padding: 20px 18px 20px 18px !important;
+        label{
+          vertical-align: top;
+          display: inline-block;
+          font-size: 14px;
+        }
+      }
+    }
+    .dataTables_wrapper{
+      display: -webkit-box;
+    }
+  }
+  #manual_quote_table_new thead{
+    tr{  
+      th:first-child{
+        padding-left: 25px !important;
+      }
+      th:last-child{
+        padding-right: 30px !important;
+      }
+    }
+    th{
+          font-family: "din";
+    font-weight: 500 ;
+    }
+  }
+
+  #manual_quotes #manual_quote_table_new{
+    .new_design_manual_quotes,
+      tr{
+        td:last-child{
+          min-width: 200px !important;
+        }
+      }
+    .new_proposals{ 
+      .td-50 {
+        max-width: 300px !important;
+        .veiw_icon{
+          width:30px !important;
+        }
+      }
+      tr{
+        td{
+          min-width: 65px !important ;
+          padding: 30px 8px 30px 8px !important;
+          &:last-child{
+            text-align: left  !important;
+          }
+        }
+        td.status-block{
+          width: 150px;
+          position: relative;
+          .best_in_place{
+            position: absolute;
+            left: 8px;
+          }
+          .label_text{
+            display: block;
+            width: 100%;
+            padding-top: 22px;
+          }
+        }
+      }
+      .text-td{
+        width: 100% !important;
+      }
+      .turncate_sent_to a{
+        font-size: 14px !important;
+      }
+    }
+  }
+  #manual_quotes #manual_quote_table_new tr td:last-child{
+    padding: 20px 30px 20px 8px !important;
+  }
+  #manual_quotes #manual_quote_table_new tr td:nth-of-type(1){
+      padding: 30px 8px 30px 20px !important;
+  }
+  
+}
+.enrollment_kits.kits, 
+.businesses.show,
+.proposals.index {
+  .turncate_sent_to p{
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+    text-overflow: ellipsis;
+  }
+  .dataTables_wrapper{
+    .dataTables_info{
+      padding: 0 12px;
+      margin: 10px 0 !important;
+      font-family: "din";
+    }
+    .dataTables_paginate{
+      .pagination{
+        margin: 10px 0 !important;
+          font-family: "din";
+      }
+    }
+  } 
+}
+.proposals.broker_index .dataTables_paginate.paging_bs_normal{
+  margin-bottom: 25px;
+}
+body.businesses.show{
+  #qoutes-main-div{
+    #active,
+    #drafts,
+    #archived_manual_quotes{
+      .table-responsive{
+        overflow: auto !important;
+      }
+    }
+  }
+}
+body.proposals.index {
+  .modal-body{
+    .general-info-block{
+        position: relative;
+      .add_note_file{
+        position: absolute;
+        right: 15px;
+      }
+    }
+  }
+  
+  #data-table-sent-proposals_wrapper{
+    table {
+    tr{
+      td:last-child,
+      th:last-child{
+        width:160px !important;
+      }
+    }
+    }
+  }
+}
+
+.accounts.dashboard,
+.broker_reports.index{
+  .checkbox-list#followup-inputs-prospect{
+    .prospect-filter{
+      .form-group{
+        margin-bottom: 0;
+      }
+    }
+  }
+  #prospect-filter-form{
+    #morefilterscollapse{
+      #prospect-broker,
+      #prospect-benefit-carrier,
+      #prospect-state,
+      #effective_date_range,
+      #renewal_prospect_date_range,
+      #prospect_date_range,
+      .prospect-filter,
+      .select2.select2-container.select2-container--default,
+      .select2.select2-container.select2-container--bootstrap,
+      .select2-selection select2-selection--multiple{
+          width: 100% !important;
+      }
+      .select2-selection.select2-selection--multiple,
+      .select2-container--bootstrap .select2-selection{
+        border-radius: 0;
+      }
+    }
+    }
+  #morefilterscollapse-clients {
+    .filter-block {
+      #client-benefit-carrier,
+      #client-broker,
+      #client-state,
+      #enrollment-kit-broker,
+      .select2.select2-container.select2-container--default,
+      .select2.select2-container.select2-container--bootstrap,
+      .select2-selection select2-selection--multiple,
+      .date_time_picker,
+      .dropdown_area{
+        width: 100% !important;
+        
+      }
+      .select2-selection.select2-selection--multiple,
+      .select2-container--bootstrap .select2-selection{
+        border-radius: 0;
+      }
+      .dropdown_area .employee-filter-dropdown, .dropdown_area .effective-filter-dropdown{
+        width: 90px;
+        font-size: 12px;
+        height: 35px;
+      }
+    }
+  }
+  .prospect-filter .effective-filter-dropdown{
+    width: 90px !important;
+  }
+}
+
+.businesses.show #manual_quotes #manual_quote_table_new,
+.proposals.index #manual_quotes #manual_quote_table_new{
+  #manual_quote_table_drafts td:last-child,
+  #manual_quote_table_active tr td:last-child,
+  #data-table-drafts-proposals tr td:last-child,
+  #data-table-sent-proposals tr td:last-child{
+    min-width: 50px!important;
+    text-align: center !important;
+    padding: 40px 15px !important;
+  }
+   #manual_quote_table_drafts th:last-child,
+  #manual_quote_table_active tr th:last-child,
+  #data-table-drafts-proposals tr th:last-child,
+  #data-table-sent-proposals tr th:last-child{
+    min-width: 50px!important;
+    text-align: center !important;
+    padding:  15px !important;
+  }
+  #manual_quote_table_drafts td:nth-child(8),
+  #manual_quote_table_active tr td:nth-child(8){
+    min-width: 180px!important;
+  }
+}

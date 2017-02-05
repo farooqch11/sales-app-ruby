@@ -1,0 +1,58 @@
+.body {
+  padding-left: 90px;
+}
+
+@media only screen and (max-width : 1260px){
+  .fuelux {
+      padding-left: 94px;
+  }
+  .broker-footer {
+    position: absolute;
+  }
+}
+@media only screen and (max-width : 1200px){
+
+  .broker-footer {
+    position: inherit;
+  }
+}
+@media only screen and (max-width : 1200px){
+
+  .broker-footer {
+    position: inherit;
+  }
+}
+@media only screen and (max-width : 1195px){
+  .broker-footer {
+      position: inherit;
+  }
+}
+
+@media only screen and (max-width : 1071px){
+  .broker-footer {
+      position: absolute;
+  }
+}
+
+@media only screen and (max-width : 992px){
+  .broker-footer {
+      position: inherit;
+  }
+}
+
+@media only screen and (max-width : 848px){
+  .broker-footer {
+      position: absolute;
+  }
+}
+@media only screen and (max-width : 768px){
+  .accounts.dashboard{
+    padding: 0px !important;
+  }
+  .broker-footer {
+      position: inherit;
+  }
+  .fuelux {
+    padding-left: 0;
+  }
+}

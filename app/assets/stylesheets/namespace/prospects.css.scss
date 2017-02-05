@@ -1,0 +1,227 @@
+body.prospects{
+  .datepicker_field{
+    display: inline;
+    //width: auto;
+  }
+  .recent_list{
+    li{
+      h6{
+        font-family: 'Montserrat', sans-serif;
+        color: #595959;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  #manual_quote_table_new_wrapper{
+    display: inline-block;
+    width: 100%;
+    .table{
+      tr{
+        td:nth-child(2){
+          min-width: 167px;
+        }
+      }
+    }
+  }
+}
+
+.table-heads{
+  thead{
+    tr{
+      th{
+        font-family: "din" !important;
+      }
+    }
+  }
+}
+
+.ul-custom-font-family{
+  li{
+    .col50{
+      span{
+        font-family: "din" !important;
+      }
+    }
+  }
+}
+
+.modal-footer{
+  #import_census_delete{
+    margin-top: 1px !important;
+  }
+}
+.prospect-status-filters {
+	padding-bottom: 10px;
+}
+
+.prospect-filter {
+	padding-left: 0;
+}
+.profile-content {
+  min-height: 110px;
+}
+
+.prospect-detail {
+  display: block;
+  vertical-align: middle;
+  margin: 0 0 5px;
+  h1 {
+    float: none;
+    margin-bottom: 0;
+  }
+}
+
+.prospect-status {
+  display: inline-block;
+  vertical-align: middle;
+  form {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    .save-prospect-status {
+      background: none;
+      color: #64c1d0;
+      text-decoration: none;
+      font-weight: normal;
+      height: 22px;
+      line-height: 17px;
+      border: none;
+    }
+    .save-prospect-status:hover,
+    .save-prospect-status:focus {
+      color: #36a0b2;
+      text-decoration: underline;
+    }
+  }
+  a {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  #prospect-status-input {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.crm_v2_responsive{
+  .selection {
+    font-family: 'Montserrat', sans-serif;
+    padding: 6px 15px 7px 10px;
+  }
+  .btn-fixed{
+    width:140px
+  }
+}
+
+.crm_v2_responsive.table-responsive {
+  overflow-x: visible;
+}
+.input-domain-availability{
+  height: 19px;
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  width: 18px;
+}
+.input-domain-availability.green-check{
+  background: rgba(0, 0, 0, 0) url(asset-path('check-yes.png')) no-repeat scroll 0 0 / 18px 19px;
+}
+.input-domain-availability.red-check{
+  background: rgba(0, 0, 0, 0) url(asset-path('check-no.png')) no-repeat scroll 0 0 / 18px 19px;
+  height: 19px;
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  width: 18px;
+}
+.dropdown-class .selection{
+  width: 185px;
+  padding: 5px 15px 5px 15px !important;
+}
+.prospects .prospect-detail h1{
+  margin-bottom: 10px;
+}
+// .accounts.dashboard .prospect-filter .effective-filter-dropdown{
+//   width: 133px;
+// }
+.broker_reports.index .prospect-filter .effective-filter-dropdown,
+.broker_reports.index .prospect-filter .employee-filter-dropdown,
+.accounts.dashboard .prospect-filter .effective-filter-dropdown,
+.accounts.dashboard .prospect-filter .employee-filter-dropdown{
+  width: 110px;
+  font-size: 12px;
+  // margin-left: -100px;
+}
+.accounts.dashboard .checkbox-list .checkbox label {
+  font-size: 12px;
+}
+.accounts.dashboard #by_broker_{
+  width: 110px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+body.prospects.show{
+  .set-width input{
+    width: 100px;
+  }
+  .dropdown-class{
+   .selection{
+      padding: 5px 15px 5px 0px !important;
+    }
+    a{
+      text-decoration: none
+    }
+  }
+  .profile-content h1{
+    margin-top: 0px;
+  }
+  #hr_benefits {
+    .calchoice_blog{
+      .left_aprt{
+        padding-right: 75px !important;
+        ul{
+          li{
+            margin: 0 20px 10px 0 !important;
+          }
+        }
+      } 
+    }
+  }
+}
+#empployee_count_range_{
+  overflow: hidden;
+}
+.accounts.dashboard #renewal_date_range, .accounts.dashboard #created_date_range {
+  margin: -4px 0 0 0;
+}
+.accounts.dashboard .business_empployee_count_range_{
+  margin: 10px 0 0 0;
+}
+.agency-benefits-status{
+  margin-top: 7px;
+}
+.broker_reports.index,
+.accounts.dashboard {
+  #effective_date_range,
+ #prospect_date_range,
+ #renewal_date_range,
+#renewal_prospect_date_range,
+ #effective_client_date_range,
+ #followup_custom_range_div,
+ #followup_custom_range_client_div,
+ #created_date_range {
+    line-height: 1; 
+    background: #fff; 
+    cursor: pointer; 
+    padding: 5px 10px; 
+    border: 1px solid #ccc; 
+    width: 240px;
+  }
+}

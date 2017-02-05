@@ -22,6 +22,8 @@
 
 class Sale < ActiveRecord::Base
 
+  include Filterable
+
   #Callbacks
   # validates :discount, numericality: { message: "%{value} seems wrong" } , on: :update
   # validates :tax, numericality: { message: "%{value} seems wrong" } , on: :update
@@ -141,18 +143,27 @@ class Sale < ActiveRecord::Base
   end
 
   def self.to_csv(options = {})
-    attributes = %w{amount tax discount total_amount}
+    # attributes = %w{amount tax discount total_amount}
+    attributes = {'sales.id' => 'ID', 'sales.created_at' => 'Date' , 'locations.name' => 'Location' , 'customers.name' => 'Customer Name' , 'users.username' => 'Employee Name' , 'sales.amount' => 'Amount' , 'sales.tax' => 'Tax' , 'sales.discount' => 'Discount' , 'sales.total_amount' => 'Total' , 'payments.payment_type' => 'Payment Method'}
+    # attributes =  ['ID','Date','Location' ,'Customer Name' 'Employee ID','Employee Name']
     CSV.generate(headers: true) do |csv|
-      csv << attributes
+      csv << attributes.values
 
-      all.each do |user|
-        csv << attributes.map{ |attr| user.send(attr) }
+      all.each do |sale|
+        # csv << attributes.keys.map{ |attr| sale.send(attr) }
+        csv << sale.get_row
       end
     end
+  end
+
+  def get_row
+    [self.id , self.created_at , self.location.name , self.customer.present? ? self.customer.full_name : '--' , self.user.username.titleize , self.amount , self.tax , self.get_discounted_amount , self.total_amount , self.payments.last.payment_type.humanize ]
   end
 
   private
     def set_company_id
       self.company = self.user.company
     end
+
+
 end

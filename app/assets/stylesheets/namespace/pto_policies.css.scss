@@ -1,0 +1,217 @@
+.pto_policies.index #policy_button{
+  margin-top: 19px !important;
+}
+.pto_edit{
+  .radio-list.account-info{
+      margin-bottom: 15px;
+    li{
+       color: #52667e;
+       font-family: "din";
+        padding-left: 20px;
+    &:before{
+      content: "\f061";
+      font-family: FontAwesome;
+      display: inline-block;
+      margin-left: -1.3em;
+      width: 0.9em;
+    }
+      strong{
+        color: #52667e;
+        font-family: "din";
+        font-size: 14px;
+      }
+    }
+  }
+  .links.mb-20{
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+}
+.pto_policies.index{
+  .max-w{
+      max-width: 340px;
+  }
+  .headingtop h2 {
+    padding: 20px 30px;
+  }
+  .dashboard_top {
+    padding: 0;
+  }
+  .standard_dropdown{
+    overflow: hidden;
+  }
+  #policy_button {
+    margin-top: 14px !important;
+  }
+  .btn_holder{
+    .btn{
+      color: #fff !important;
+    }
+    .btn-danger.btn-save{
+          color: #fff !important;
+      background-color: #d9534f !important;
+      border-color: #d43f3a !important;
+    &:after{
+      background-color: #d9534f !important;
+      border-color: #d43f3a !important;
+      }
+    }
+  }
+  .tab_inner_tab{
+    .notification_icon{
+      background: #f75454;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 12px;
+      height: 19px;
+      line-height: 19px;
+      position: absolute;
+      left: 2px;
+      text-align: center;
+      top: 2px;
+      width: 19px;
+      padding: 0;
+      border: 1px solid #f75454;
+    }
+  }
+  .tab-content.tab-content-inner .tab-pane{
+    margin-bottom: 15px;
+  }
+  #reports td.btn_holder a{
+    margin-top: 45px;
+  }
+  #policies .newest_employees_contant th.actions{
+    width: 15% !important;
+  }
+  .table-striped img {
+    padding-left: 0px !important;
+  }
+}
+.pto_policies.edit{
+  .vertical-tab-side{
+    label {
+      .icheckbox {
+        display:inline-block;
+      }
+      span {
+        vertical-align: top;
+      }
+    }
+  }
+  // .tabin_tab_sec,
+  // .menubar_top{
+  //    span{
+  //     color: #969696;
+  //     font-family: "Montserrat", sans-serif !important;
+  //   }
+  // }
+  .nested-fields_new_holidays .nested-fields .btn-block-area{
+    margin: 30px 0;
+  }
+  .tabin_tab_sec .vertical-tab .tab-content.tab-content-inner{
+    padding-bottom: 0 !important;
+    margin-bottom: 0;
+  } 
+}
+.pto_policies{
+  .mb-0{
+    margin-bottom: 0;
+  }
+  .pto-info-table,
+  .delete_policy_all_employees{
+    .table{
+      thead{
+        tr{
+          border:0 !important;
+
+          th{
+            color: #526692 !important;
+            font-family: "din";
+            font-weight: normal;
+            border:0 !important;
+            font-weight: 500 !important;
+          }
+        }
+      }
+      tr{
+        td{
+          border:0 !important;
+        }
+        td.pto-type-heading{
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+.emp_pto_info_table{
+  .table{
+    thead{
+      tr{
+        th{
+          padding: 8px 15px !important;
+        }
+      }
+    }
+    tr{
+      td{
+        padding: 8px 15px !important;
+      }
+    }
+  }
+}
+// .horizontal-tab-heading .nav-tabs > li.active{
+//   background-color: #EEF3F4 !important;
+// }
+// .horizontal-tab-heading .nav-tabs > li.active a .pto_icon,
+// .horizontal-tab-heading .nav-tabs > li:hover a .pto_icon{
+//   color: #000000 !important;
+// }
+// .tabin_tab_sec .vertical-tab .nav-tabs .active .inner_tab_name,
+// .tabin_tab_sec .vertical-tab .nav-tabs li:hover .inner_tab_name {
+//   color: #000000 !important;
+// }
+// .tabin_tab_sec .vertical-tab .nav-tabs .active .cricle_number,
+// .tabin_tab_sec .vertical-tab .nav-tabs li:hover .cricle_number {
+//     border: 1px solid #000000;
+//   color: #000000 !important;
+// }
+.pto-policy-show-table{
+  .headingtop.borderbottom{
+    padding: 20px 40px;
+    overflow: hidden;
+    .edit_with_search.with_grid{
+      a{
+        padding: 0px;
+      }
+    }
+  }
+  .table-responsive{
+    padding: 15px 40px;
+    .table{
+      color: #526692;
+      font-size: 14px;
+      border: 1px solid #a3b6c7;
+    }
+  }
+}
+#request_pto_employee{
+  .general-info-block{
+    sub{
+      color: #DA6071;
+      font-size: 18px;
+    }
+  }
+}
+.create-new-policy-field{
+  .policy_name.form-control{
+    width: 100% !important;
+  }
+}
+.pto-policy-agreements-table{
+  td{
+    font-family: dinregular;
+    font-weight: normal;
+    font-size: 14px;
+  }
+}

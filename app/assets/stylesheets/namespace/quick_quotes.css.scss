@@ -1,0 +1,119 @@
+body.quick_quotes{
+  thead{
+    border: 1px solid #a3b6c7;
+  }
+  tr{
+    border: 1px solid #a3b6c7;
+  }
+  th{
+    padding: 5px !important;
+  }
+  td input{
+    width: 100%;
+    height: 26px;
+  }
+
+  .edit-popup {
+    max-width: 720px;
+  }
+
+  .form-control{
+    font-size: 12px;
+  }
+  .form-group {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .dropdown-menu{
+    left: 0px !important;
+  }
+  .add-child-button,.add-spouse-button{
+    margin-bottom: 10px;
+  }
+  .spouse-removal{
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .remove_fields:hover{
+    color: #EC8685;
+    text-decoration: none;
+  }
+  .custom-employee-box {
+    padding: 1px 20px;
+    background: #f9f9f9;
+    border-top: none;
+
+    .spouse-details{
+      .h4{
+        color: #1493a4;
+      }
+    }
+    .child-details{
+      .h4{
+        color: #63cbd8;
+      }
+    }
+  }
+  .custom-employee-box ~ .custom-employee-box:nth-child(even){
+    background: rgba(34, 95, 169, 0.11);
+  }
+  .emp-census-header{
+    position: relative;
+    left: -100px;
+    border-bottom: none;
+  }
+  .employee-removal{
+    font-size: 14px;
+  }
+  .child-removal{
+    font-size: 14px;
+  }
+  .margin-top-none {
+    border-top: none;
+  }
+}
+.quick_quotes.new{
+  .add-employee-dependent{
+    .table{
+      tr{
+        th:last-child{
+          min-width:85px;
+        }
+        td{
+          .form-control{
+            height: 25px;
+          }
+          padding: 1px;
+          .form-group{
+            margin-top: 0;
+          }
+          .employee-gender,.spouse-gender,.child-gender{
+            width:90px;
+          }
+        }
+        td:last-child{
+          text-align: center;
+        }
+      }
+    }
+  }
+  .spouse-details,.child-details{
+    padding-left: 40px;
+  }
+}
+.quick_quotes.new #validate_census_data,
+.quick_quotes.new .business_census_file_uploaded_file label,
+.quick_quotes.new .business_census_file_uploaded_file label:hover {
+  color: #FFF !important;
+  background-color: #80CBD7;
+  border-color: #80CBD7;
+  color: #FFFFFF;
+  font-size: 16px;
+  padding: 8px 20px;
+  position: relative;
+  z-index: 1;
+}
+.quick_quotes.new #validate_census_data
+{
+  margin-top: 0px !important;
+}

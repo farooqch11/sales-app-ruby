@@ -1,0 +1,493 @@
+.vendors .file_picker,
+  .vendors .file_picker .form-group{
+  position: relative;
+}
+.vendors .file_picker .btn{
+  margin: 0;
+width: 150px;
+float:right;
+}
+.vendors .file_picker input{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 35px;
+  padding-right: 153px;
+}
+.vendors .file_picker .remove_nested_fields_link{
+  float: left;
+  margin: 8px 0 0;
+}
+.vendors .visible_to_checkoxes .offer-checkb{
+  overflow: hidden;
+  display: inline-block;
+}
+.vendors .file_picker .jquery-validate-error{
+  position: absolute;
+  bottom: -6px;
+}
+.vendors.new,
+.vendors.edit {
+  .dashboard_top {
+    padding-left: 15px;
+  }
+  .submit-button {
+    font-size: 16px;
+    padding: 3px 90px;
+  }
+  .ladda-submit-button.ladda-button[data-style=expand-right][data-loading].vendor_form_submit_btn {
+    padding-left: 90px !important;
+    padding-right: 90px !important;
+  }
+}
+.vendors .emp_vendors .instructions_btn{
+  padding-top: 10px;
+}
+.vendors.show{
+  .table-responsive {
+    overflow-y: hidden;
+  }
+  .heading-font,
+  .heading-font th {
+    font-family: din;
+    font-size: 14px;
+  }
+  .modal-dialog.export_info_modal{
+    .error_emails_div {
+      color: red;
+    }
+    .select2-container .select2-selection--multiple {
+      min-height: 38px;
+    }
+    .dl-horizontal dt {
+      width: 285px;
+      .labal {
+        font-weight: normal !important;
+        line-height: 2.5;
+      }
+    }
+    .modal-body {
+      overflow: hidden;
+    }
+    .heading_employee_report_data_checkbox h4 {
+      margin-top: 6px;
+      margin-bottom: 0;
+    }
+    .heading_employee_report_data_checkbox_area {
+      margin-top: 15px;
+      dt {
+        width: 100%
+      }
+    }
+    .modal-header {
+      padding: 15px;
+      border-bottom: 1px solid #e5e5e5;
+      min-height: 16.42857143px;
+      .btn {
+        position: relative;
+        margin-top: 0;
+      }
+      .saved-as-template {
+        margin-left: 0;
+      }
+      .modal-title {
+        margin: 0;
+        line-height: 1.42857143;
+      }
+    }   
+  }
+  .employees-tab-panel{
+    font-family: din;
+  }
+  .modal-dialog.export_info_modal{
+    width: 70%;
+    #export_fields_section {
+      .modal-content {
+        overflow: hidden;
+      }
+    }
+  }
+  #vendor-reports{
+    #employees_reports,
+    #reports{
+      .reports-page-heading{
+        color: #909090;
+        font-size: 20px;
+        font-weight: 100;
+        margin: 0;
+      }
+    } 
+    .newest_employees_contant td{
+      text-align: left;
+      .btn{
+        margin: 0 !important;
+      }
+      .btn-edit {
+        padding: 6px 15px !important;
+        &:hover{
+          background-color: #777575 !important;
+          border-color: #777575 !important;
+        }
+      }
+    }
+    .export_info_modal {
+      .heading-for-modal {
+        float: left;
+        right: 0;
+        margin-right: 23px;
+      }
+    }
+  }
+  .vendor-report-date-range-field {
+    background-color: transparent;
+    border: 0;
+  }
+}
+.vendors-page-header{
+  h3{
+    float: left;
+    padding: 6px 0 27px !important;
+  }
+}
+.vendors.list_all,
+.vendors.index {
+  .headingtop h2 {
+    padding: 0;
+    float: left;
+  }
+  .dashboard_top {
+    padding: 5px 30px 20px;
+  }
+  .table-responsive table tr th{
+    cursor: pointer;
+  }
+}
+
+.vendors.send_email{
+  .sent_to_employees_section{
+    .dl-horizontal.choose-panel{
+      overflow: hidden;
+      float: left;
+      padding-right: 15px;
+      span{
+        display: inline-block;
+        margin-top: 0;
+      }
+    }
+  }
+  .sent_to_employees_width{
+    width:auto !important;
+  }
+  .employees .checkbox label{
+    padding-top: 0;
+  }
+  .select_field_names{
+    overflow: hidden;
+    margin: 21px 0;
+  }
+}
+
+.broker_reports.get_fields_to_export_business_portal {
+  .btn {
+    line-height: 16px;
+  }
+  .attached_files_list.nested-field-div li a.files-link {
+    width: 45%;
+  }
+  .best_in_place {
+    cursor: pointer;
+    background: url(asset-path('icon-pencil-5.png'))  no-repeat right;
+    background-size: 15px 15px;
+    width: auto;
+    padding: 2px 0px 2px 2px;
+    padding-right: 1.5em;
+    border-radius: 5px;
+  }
+  #send_in_email_to_vendor {
+    .modal-dialog {
+      width: 55%;
+    }
+    #message_ifr {
+      height: 300px !important;
+    } 
+    label {
+      display: block;
+    }
+  }
+  .search__innner_icon.broker-report-search-bar {
+    left: 570px;
+  }
+  #morefilterscollapse {
+    position: relative;
+    width: 310px;
+    float: left;
+    margin-top: 7px;
+    .filter-block {
+      padding:0;
+    }
+    .checkbox-list {
+      position: absolute;
+      top: -5px;
+      right: 0px;
+      width: 235px;
+      height: 28px;
+      cursor: pointer;
+      padding: 5px 10px;
+      background-color: #D3D3D3;
+    }
+  }
+  .vendor_btn_block{
+    text-align:center;
+    .btn{
+      margin: 0 5px;
+    }
+  }
+  .user_management_table{
+    .dl-horizontal{
+      dt{
+        font-family: dinregular;
+        font-weight: normal;
+        width: 100%;
+        .labal{
+          h4{
+            margin: 0 0 10px;
+          }
+        }
+      }
+    }
+    #employees_checkbox_list_for_report{
+      overflow: inherit;
+      width: 100%;
+    }
+    .select_attributes{
+      h3{
+        margin-bottom: 0;
+      }
+    }
+    .select_field_names{
+      h3{
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .save_updated_report_for_later,
+  #updatereport_confirmation {
+    text-align: left;
+    .edit-report-btn {
+      position: relative;
+      top: 0 !important;
+    }
+  }
+  #updatereport {
+    text-align: left;
+    .confimation_report_btn {
+      position: relative;
+      top: 0 !important;
+      right: 0 !important;
+    }
+  }
+  .export_business_portal ul.checkbox-list{
+      width: 100%;
+      cursor: pointer;
+      background-color: #D3D3D3;
+      background: #fff;
+      cursor: pointer;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      
+      li{
+        width: 100%;
+      }
+  }
+  #export_business_collapse{
+    .select2.select2-container{
+      width: 100% !important;
+    }
+    select{
+      width: 100%;
+      padding: 7px 10px;
+      background: white;
+      option{
+        padding: 7px 10px;
+      }
+    }
+  }
+  .btn.btn-default.btn-back {
+    line-height: 16px;
+    font-size: 12px !important;
+    padding: 6px 15px;
+    height: 30;
+    text-transform: none;
+  }
+  .tooltip.fade .tooltip-inner {
+    max-width: 260px;
+  }
+  #vendor_report_column_sortable{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+      background: none;
+      margin-bottom: 5px;
+      padding: 5px;
+      font-family: dinregular;
+      font-weight: normal;
+      span.ui-icon{
+        float: left;
+      }
+      &:hover{
+        cursor:-webkit-grabbing;
+        border-color: #63cbd8;
+        color: #63cbd8;
+      }
+      &.ui-sortable-helper{
+      -moz-box-shadow: 0 0 5px #888;
+      -webkit-box-shadow: 0 0 5px#888;
+      box-shadow: 0 0 5px #888;
+      }
+    }
+    .fa.fa-arrows-v{
+      font-size: 12px;
+    }
+  }
+  .employess_checkbox-holder{
+    .panel-group{
+      .panel-default{
+        .panel-heading{
+          border-radius: 0 !important;
+          border: 1px solid #eee !important;
+          background-color: #fff;
+          &.active{
+             h4{
+              font-size: 21px !important;
+             }
+          }
+          a{
+            font-family: "GothamLight", sans-serif !important;
+            font-weight: 300 !important;
+            color: #909090 !important;
+          }
+        }
+        .panel-body{
+          background: #fff !important;
+          border-width: 0 1px 1px !important;
+          border-style: solid !important;
+          border-color: #eee !important;
+          padding-left: 13px !important; 
+          padding-right: 13px !important;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width:1260px){
+
+  .vendor_btn_block .btn{
+    margin: 5px !important;
+  }
+  #morefilterscollapse .checkbox-list{
+    left: 85px !important;
+  }
+}
+  .export_business_portal,
+  #send_in_email_to_vendor{
+    .select2-container{
+      width: 100% !important;
+    }
+    .select2-selection.select2-selection--multiple{
+      border-style: solid;
+      border-width: 1px;
+      border-color: #C6C6C6;
+      background: #fff;
+      min-height: 37px;
+    }
+    .broker-select{
+      .form-control{
+        border: 1px solid #C6C6C6;
+        border-radius: 3px;
+      }
+    }
+  }
+.vendors.send_email{
+  a {
+    font-family: din;
+  }
+  .dashboard_top {
+    padding: 15px 30px 15px !important;
+  }
+  .mb0 {
+    margin-bottom: 5px !important;
+  }
+  .sent_to_employees_section{
+    .dl-horizontal.choose-panel{
+      overflow: hidden;
+      float: left;
+      padding-right: 15px;
+      span{
+        display: inline-block;
+        margin-top: 0;
+      }
+    }
+  }
+  .sent_to_employees_width{
+    width:auto !important;
+  }
+  .employees .checkbox label{
+    padding-top: 0;
+  }
+  .select_field_names{
+    overflow: inherit;
+    margin: 21px 0;
+  }
+}
+.send_vendor_files_to_employees{
+  .select2-container{
+    width: 100% !important;
+  }
+}
+.vendors.send_email,
+.broker_reports.get_fields_to_export_business_portal {
+  #file_picker_options .fp__btn {
+    background: transparent;
+    color: #63cbd8;
+    padding-left: 0;
+    font-size: 14px;
+    font-family: din;
+    border: none;
+    font-weight: normal;
+  }
+}
+.employees.show,
+.employees.index,
+.broker_reports.get_fields_to_export_business_portal {
+  .checkboxes-container{
+    overflow: hidden;
+    width: 100%;
+    padding: 0 0 15px;
+    display: block;
+    .infography{
+      margin: 25px 0 0;
+      text-align: center;
+      li {
+        vertical-align: bottom;
+        margin:0 10px 5px 0;
+        .tag{
+          width: 15px;
+          height: 15px;
+          display: inline-block;
+          margin: -1px 2px 0 0;
+          vertical-align: middle;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+  .search__innner_icon.vendor-report-employee-search-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 196px;
+  }
+}

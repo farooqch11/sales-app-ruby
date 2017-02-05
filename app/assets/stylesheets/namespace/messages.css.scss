@@ -1,0 +1,23 @@
+.user_profile_preview_box{
+  position: absolute;
+  top: 47px;
+  display:none;
+}
+.user_profile_preview_box .dropdown-filter{
+  display: block;
+}
+.user_profile_preview_box .dropdown-filter a{
+  font-weight: normal !important;
+}
+.user_profile_preview:hover .user_profile_preview_box {
+  display: block;
+}
+.table-responsive{
+  overflow: inherit;
+}
+
+body.messages{
+  .member-pic img{
+    padding-left: 0px!important;
+  }
+}

@@ -1,9 +1,4 @@
 class PasswordsController < ApplicationController
-  def edit
-    add_breadcrumb "CHANGE PASSWORD", :change_password_path, options: { title: "CHANGE PASSWORD" }
-
-  end
-
   def update
     if current_user.valid_password?(params[:current_password][:password])
       @user = current_user

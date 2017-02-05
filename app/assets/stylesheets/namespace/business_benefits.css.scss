@@ -1,0 +1,463 @@
+.benefits.index {
+  .vertical-tab{
+    .nav.nav-tabs{
+      li.tab_inner_tab{
+        position: relative;
+        a{
+          min-height: 100px;
+          height: auto !important;
+          padding: 10px !important;
+          span{
+            width: 100%;
+          }
+        }
+        border-bottom: 1px solid #dedede;
+        span.icon-gear{
+          position: absolute;
+          right: 5px;
+          top: 10px;
+          a{
+            padding: 0 !important;
+            min-height: 16px !important;
+            height: auto 16px !important;
+          }
+        }
+      }
+    }
+  }
+  .proposal_page .vertical-tab .nav-tabs > li:hover a .life_icon,
+  .proposal_page .vertical-tab .nav-tabs > li.active a .life_icon { 
+    color: #4EB7C8;
+    background: rgba(0, 0, 0, 0) url(asset-path("new/life-icon-active.png")) no-repeat scroll center 10px; 
+  }
+  font-family: dinregular !important;
+  .tooltip,
+  .select.required.form-control {
+    text-transform: none !important;
+  }
+  .proposals_sec .vertical-tab .tab-content {
+   min-height: 100% !important;
+   flex: 1;
+  }
+  .edit_business_benefit,
+  .benefit-contact-list,
+  .assign_to_employees,
+  #add-new-business-benefit {
+    .attachment_delete_icon.remove_nested_fields {
+      margin: 0;
+      background: transparent;
+      border: none;
+      padding: 0 !important;
+      img {
+        height: 18px;
+        width: 18px;
+      }
+    }
+    .file-name-new {
+      width: 82%;
+      float: left;
+      margin-top: 4px;
+    }
+    .fields {
+      overflow: hidden;
+    }
+    .help-block {
+      margin-top: 0;
+      padding: 0;
+    }
+    .modal-dialog {
+      width: 70%;
+    }
+    #business_benefit_attachment_btn,
+    .add_nested_fields {
+      margin-bottom: 15px;
+      width: auto !important;
+    }
+    .modal-header,
+    .modal-footer {
+      overflow: hidden;
+    }
+    .send_to_employees_submit_button {
+      margin-top: 0;
+    }
+    .benefit_contacts_fields {
+      margin-bottom: 25px;
+    }
+    .modal-body {
+      h3 {
+        font-weight: bold;
+      }
+    }
+    .sent_to_employees_section .dl-horizontal.choose-panel {
+      overflow: hidden;
+      float: left;
+      padding-right: 17px;
+      dt{
+        font-weight: normal;
+        color: #2e3a45;
+        line-height: 1.9em;
+      }
+    }
+    .checkbox.custom-checkbox label {
+      padding-left: 1px;
+      padding-top: 1px;
+    }
+    .benefit_nested_contacts_area{
+      position: relative;
+      padding-bottom: 50px;
+    }
+    .benefit_nested_contacts_btn {
+      margin: 0;
+      position: absolute;
+      bottom: 10px;
+      right: 15;
+    }
+  }
+  .business_attachment_list {
+    .modal-body {
+      overflow: hidden;
+    }
+    ul li {
+      position: relative;
+      width: 100% !important;
+      float: none;
+      padding-left: 15px;
+      margin-bottom: 5px;
+      i{
+        position: absolute;
+        top: 3px;
+        left: 0;
+      }
+    }
+    .title-filter {
+      padding: 15px;
+    }
+    button.btn-light-green,
+    .modal-title {
+      margin: 0;
+    }
+  }
+  textarea.benefit_contacts_address {
+    height: 90px;
+  }
+  .remove_nested_fields {
+    display: inline-block;
+    margin-top: 60px;
+  }
+
+  .horizontal-tab-heading .nav-tabs > li a .benefits_icon{
+      background: rgba(0, 0, 0, 0) url("../images/benefits_hover.png") no-repeat scroll center 10px;
+  }
+  .horizontal-tab-heading .nav-tabs > li.active a .benefits_icon, .horizontal-tab-heading .nav-tabs > li:hover a .benefits_icon {
+      background: rgba(0, 0, 0, 0) url("../images/benefits_img.png") no-repeat scroll center 10px;
+      color: #4eb7c8;
+  }
+
+  .horizontal-tab-heading .nav-tabs > li a .file_icon{
+        background: rgba(0, 0, 0, 0) url("../images/file-icon.png") no-repeat scroll center 10px;
+  }
+  .horizontal-tab-heading .nav-tabs > li.active a .file_icon, .horizontal-tab-heading .nav-tabs > li:hover a .file_icon {
+      background: rgba(0, 0, 0, 0) url("../images/file-icon-hover.png") no-repeat scroll center 10px;
+      color: #4eb7c8;
+  }
+  .horizontal-tab-heading .nav-tabs > li a .date_icon{
+        background: rgba(0, 0, 0, 0) url("../images/date-menu_icon.png") no-repeat scroll center 10px;
+  }
+  .horizontal-tab-heading .nav-tabs > li.active a .date_icon, .horizontal-tab-heading .nav-tabs > li:hover a .date_icon {
+      background: rgba(0, 0, 0, 0) url("../images/date-icon_hover.png") no-repeat scroll center 10px;
+      color: #4eb7c8;
+  }
+
+  .horizontal-tab-heading .nav-tabs > li a .vendors_icon{
+        background: rgba(0, 0, 0, 0) url("../images/user_icon.png") no-repeat scroll center 10px;
+  }
+  .horizontal-tab-heading .nav-tabs > li.active a .vendors_icon, .horizontal-tab-heading .nav-tabs > li:hover a .vendors_icon {
+      background: rgba(0, 0, 0, 0) url("../images/user_icon_hover.png") no-repeat scroll center 10px;
+      color: #4eb7c8;
+  }
+
+  .benefit_btn {
+      width: auto !important;
+  }
+  .benefis_blog h3 {
+       font-family: 'GothamLight';
+      font-size: 22px;
+      color: #595959;
+  }
+  .plan_box .left_aprt ul, .plan_box .right_part ul{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .plan_box .left_aprt ul li, 
+  .plan_box .right_part ul li{
+    display: inline-block;
+    font-family: 'montserratregular';
+    color: #a2a2a2;
+    font-size: 12px;
+  }
+  .plan_box .left_aprt ul li{
+    margin: 0 10px;
+  }
+  .plan_box .left_aprt ul li:first-child {
+      margin-left: 0;
+      text-transform: uppercase;
+  }
+  .plan_box .left_aprt ul li p{
+    color: #525252;
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .plan_box .left_aprt span{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+  .plan_box {
+      display: inline-block;
+      padding: 30px 50px;
+      width: 100%;
+  }
+  .plan_box .pull-left.left_aprt > p {
+      color: #595959;
+      font-family: "montserratregular";
+      font-size: 16px;
+      margin: 0 0 0 20px;
+      float: left;
+  }
+  .plan_box .pull-left.left_aprt h5{
+    font-size: 20px;
+    color: #595959;
+    margin: 0;
+    display: inline-block;
+    float: left;
+  }
+  .calchoice_blog .pull-left.left_aprt {
+      padding-right: 140px;
+      width: 100%;
+  }
+  .calchoice_blog .pull-right.right_part {
+      position: absolute;
+      right: 0;
+  }
+  .ppo_box {
+      background: #d5d5d5;
+      border-radius: 6px;
+      padding: 3px 12px;
+      color: #52667e!important;
+      text-transform: uppercase;
+  }
+  .plan_box .right_part ul li {
+      margin:32px 7px 0;
+  }
+  .plan_box .right_part ul li:last-child {
+      margin-right: 0;
+  }
+  .calchoice_blog {
+      border-bottom: 1px solid #dadada;
+      display: inline-block;
+      position:relative;
+      width: 100%;
+  }
+  .calchoice_blog{
+    .pull-left.left_aprt ul {
+      padding: 10px 0;
+    }
+    .left_aprt li p {
+      margin: 0 0 0 10px;
+    }
+  }
+
+  .firstone_blog{
+    display: inline-block;
+    width: 100%;
+  }
+  .firstone_blog .firstone_left_box ul, .right_part_firstone ul{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .firstone_blog .firstone_left_box ul li h4 {
+      color: #8b8b8b;
+      font-family: "montserrat";
+      font-size: 26px;
+      font-weight: 400;
+      border-bottom: 2px solid #8B8B8B;
+      margin:0 0 5px; 
+  }
+  .firstone_blog .firstone_left_box ul li p{
+    color: #8b8b8b;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "montserratregular";
+    margin: 0px;
+  }
+  .firstone_blog .firstone_left_box ul li {
+      display: inline-block;
+      float: left;
+      margin: 0 25px;
+      max-width: 114px;
+      width: 100%;
+  }
+  .firstone_left_box{
+    display: inline-block;
+    width: 50%;
+    float: left;
+  }
+  .firstone_blog .firstone_left_box ul li:first-child {
+      margin-left: 0;
+  }
+  .firstone_blog .firstone_left_box ul li:last-child {
+      margin-right: 0;
+  }
+  .firstone_title{
+    color: #a2a2a2;
+    font-size: 12px;
+    margin: 10px 0;
+  }
+  .firstone_blog .firstone_left_box ul .active h4{
+    color: #4d96ce;
+    border-color: #4d96ce;
+  }
+  .firstone_blog .firstone_left_box ul .active p{
+    color: #4d96ce;
+  }
+
+  .right_part_firstone {
+      display: inline-block;
+      padding: 0 0 0 60px;
+      width: 50%;
+  }
+  .right_part_firstone ul li{
+    display: inline-block;
+    width: 50%;
+    float: left;
+  }
+
+  .right_part_firstone ul li p img{
+    margin-right: 10px;
+  }
+  .right_part_firstone ul li p{
+    color: #8b8b8b;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "montserratregular";
+  }
+  .right_part_firstone ul li:first-child, .right_part_firstone ul li:nth-child(3) {
+      width: 40%;
+  }
+  .right_part_firstone ul li:nth-child(2), .right_part_firstone ul li:nth-child(4) {
+      width: 60%;
+  }
+  .plan_box:last-child {
+    //background: #F9F9F9;
+  }
+  .plan_box .left_aprt .black {
+      background: #959595 none repeat scroll 0 0;
+  }
+  .bronze {
+    background-color: #90712F !important;
+  }
+  .gold {
+    background-color: #E6B447 !important;
+  }
+  .silver{
+    background-color: #CCCCCC !important;
+  }
+  .platinum {
+    background-color: #959595 !important;
+  }
+  #benefits-button {
+    padding: 6px 12px;
+    line-height: 30px;
+  }
+  .proposal_page .vertical-tab {
+    border-top: 1px solid #DEDEDE;
+    float: left;
+    width: 100%;
+      display: flex;
+  }
+  .proposal_page .vertical-tab .nav-tabs > li > a {
+    border: 2px solid rgba(0, 0, 0, 0) !important;
+    width: 100% !important;
+  }
+  .proposal_page .tab-content {
+    border-left: 1px solid #dedede !important;
+    margin-left: 0;
+    padding-bottom: 60px;
+    width: auto;
+  }
+  .proposal_page .proposals_sec {
+    background: #fdfdfd none repeat scroll 0 0 !important;
+    border: 1px solid #e1e1e1;
+    float: left;
+    width: 100%;
+    .tab-content {
+      background: #fdfdfd none repeat scroll 0 0 !important;
+    }
+  }
+  .link_label {
+    color: #8b8b8b !important;
+  }
+  .right_part_firstone ul li p a {
+    color: #8b8b8b;
+  }
+  .attachments-list-modal{
+    .modal-content{
+      min-height: 230px
+    }
+    .list-delete-modal{
+      .modal-dialog{
+          margin: 10px 0 0;
+        .modal-content{
+          max-width: 94%;
+          margin: 0 auto;
+          min-height: 150px
+        }
+      }
+    }
+  }
+  .hide_remove_field {
+    display: none;
+  }
+  .files-list-area{
+    padding: 0 !important;
+    list-style: none;
+    position: relative;
+    padding-bottom: 40px !important;
+    #business_benefit_attachment_btn {
+      margin: 0 !important;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .fields {
+      width: 100%;
+    }
+    .btn_fix_width{
+      margin: 7px !important;
+    }
+    li{
+      position:relative;
+      padding-right:25px;
+      margin: 5px 0 !important;
+      width: 100% !important;
+      .icons-close{
+        position:absolute;
+        right: 0;
+        top: 0;
+      }
+      .files-links{
+        float: left !important;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

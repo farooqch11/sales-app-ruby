@@ -26,6 +26,12 @@
  *= require daterangepicker/daterangepicker
  *= require style
  *= require global
+ *= require reports
 
 
  */
+
+.table > thead > tr > th{
+    background-color: #182F48 !important;
+    color: #fff;
+}

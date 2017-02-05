@@ -1,0 +1,115 @@
+body.locations{
+  .row-n.clearfix{
+    margin-bottom: 2px;
+  }
+  .rmv-location{
+    form{
+      display: inline;
+    }
+  }
+}
+.new-user-button {
+  padding-top: 7px;
+}
+.setup-employee-button {
+  padding-top: 7px;
+  margin-right: 5px !important;
+}
+.setup-emp-wrapper{
+  .select2.select2-container,
+  .select2-container--default{
+    width: 70% !important;
+    text-align: left;
+    float: left;
+   .select2-selection--single {
+      width: 100% !important;
+    }
+  }
+}
+.setup-emp-wrapper{
+  .headingtop {
+    h2{
+      font-family: "Montserrat", sans-serif !important;
+    }
+  }
+  .table{
+    thead{
+      tr{
+        th{
+          position: relative;
+        }
+        th:first-child{
+          padding-left:40px;
+        }
+      }
+    }
+    tr{
+      td:first-child{
+        padding-left:40px;
+      }
+      td{
+        text-align: left;
+      }
+      th:last-child,
+      td:last-child{
+        padding-right:40px;
+      }
+      td:last-child{
+        text-align: right;
+      }
+    }
+  }
+  .dataTables_paginate.paging_bs_normal{
+    text-align: center !important;
+    .pagination {
+        margin-bottom: 15px !important;
+        margin-right: 40px !important;
+      li{
+        float: left;
+        a{
+          width: auto;
+          min-width: 34px;
+          padding: 0 5px;
+          border: 1px solid #52667e !important;
+          &:hover{
+            background-color: #ffffff !important;
+            border: 1px solid #52667e !important;
+            color: #52667e !important;
+          }
+        }
+      }
+    }
+  }          
+  .down{
+    position: absolute;
+    right: 8px;
+    top: 13px;
+  }
+  .up{
+      position: absolute;
+      right: 0;
+      top: 13px;
+    }  
+  .setup-employee-failure{
+    color: red;
+  }
+  .setup-employee-success{
+    color: green;
+  }
+}
+.department_blocks{
+  .panel-body{
+    h5{
+      float: left;
+    }
+      margin-bottom: 2px;
+    .btn.btn-danger{
+        margin-left: 5px;
+    }
+  }
+  .modal-footer.rmv-department{
+    form{
+      display: inline-block;
+    }
+  }
+}

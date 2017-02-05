@@ -1,0 +1,33 @@
+= form_for location , html: {id:'location_validate' , class: "bs-example form-horizontal"} do |f|
+  .form-group
+    %label.col-lg-2.control-label
+      Location ID
+      %em.text-danger *
+    .col-lg-10
+      = f.text_field :name, class: "form-control", placeholder: "Location ID" , required: true , value: location.name.present? ? location.name.gsub(current_company.company_name, '') : ''
+  = f.fields_for :address do |a|
+    .form-group
+      %label.col-lg-2.control-label Address
+      .col-lg-10
+        = a.text_area :address_1, rows: "2",placeholder: "Enter Address", class: "form-control"
+    .form-group
+      = a.label :country , class:"control-label col-lg-2"
+      .col-lg-10
+        = a.country_select("country" ,{selected: current_company.country} ,  { class: "form-control select2-container select2-container-active" , required: true } )
+    .form-group
+      %label.col-lg-2.control-label City
+      .col-lg-10
+        = a.text_field :city, :class=>"form-control"
+    .form-group
+      %label.col-lg-2.control-label State
+      .col-lg-10
+        = a.text_field :state, :class=>"form-control"
+    .form-group
+      %label.col-lg-2.control-label Zip Code
+      .col-lg-10
+        = a.text_field :zip, :class=>"form-control"
+  .line.line-dashed.line-lg.pull-in
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.button :class=>"btn btn-info" , data: {disable_with: disable_spinning('Saving')}
+      = button_tag "Cancel", :type => 'reset',:class=>"btn"

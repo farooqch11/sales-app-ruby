@@ -46,7 +46,7 @@ class ItemCategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item_category
-    @item_category = current_company.item_categories.find_by_id(params[:id]) || []
+    @item_category = current_company.item_categories.friendly.find(params[:id]) || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,2235 @@
+.actions-column{
+  max-width: 200px!important;
+}
+.header-actions{
+  padding-top:10px;
+}
+.header-row {
+  padding: 0;
+  h2 {
+    padding: 0;
+    margin:0;
+  }
+}
+.over-flow-auto{
+  overflow: auto;
+}
+.hyperlink-font{
+  color: #63cbd8 !important;
+}
+body.employees.show{
+  .edit_employee{
+    .dl-horizontal{
+      dt{
+        width: 100%;
+        h4{
+          margin: 5px 0 !important;
+        }
+        span.labal{
+          line-height: 33px;
+          font-family: din !important;
+          font-weight: normal;
+        }
+      }
+    }
+    .all_employees_select_checkbox{
+      margin-top: 10px;
+    }
+  }
+  .employee_basic_info{
+    .address-employees ul li {
+      max-width: 285px;
+      min-width: 285px;
+    }
+    .address-employees li span{
+      float: none !important;
+      width: auto !important;
+      font-weight: normal;
+      font-family: din;
+      font-size: 14px;
+    } 
+    .address-employees li p{
+      margin:0 !important;
+    }
+    .address-employees li p em{
+      font-style: normal !important;
+          color: #777777 !important;
+    }
+    .userbototmpart{
+      width: 305px !important;
+    }
+  }
+  .address-employees ul li {
+    max-width: 354px;
+  }
+  .genralinfo{
+    margin-top: 40px !important;
+  }
+  .benefit-logo{
+    width: 100px;
+    height: auto;
+  }
+  .forward_to_vendor_link {
+    display: inline-block;
+    padding: 19px 0;
+  }
+}
+// General employee related styles
+body.employees {
+  font-family: din !important;
+  .genralinfo{
+    margin-top: 0px !important;
+  }
+  .usertoppart,.userbototmpart{
+    ul li a {
+      font-family: din !important;
+    }
+  }
+  #employeePhotoBlock{
+    width: 200px;
+  }
+  .employee-photo-custom {
+    margin: 20px 0 0 0 ;
+    height: 220px;
+    width: 220px;
+    padding-bottom: 50px;
+    position: relative;
+    &.upload-link:visited, &.upload-link, &.upload-link:visited {
+      text-align: center;
+      line-height: 210px;
+      width: 220px;
+      height: 220px;
+    }
+    .upload-link {
+      width: 220px;
+      height: 220px;
+      display: block;
+      background: #f5f6f6;
+      border: 1px dashed #d1d2d4;
+      font-size: 1.6em;
+      line-height: 220px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+  .def-list {
+    li {
+      padding-left: 10px;
+    }
+  }
+
+  .red-color {
+    color: red;
+  }
+
+  table{
+    a.header-link {
+      color: #fff;
+    }
+  }
+  .employee_info_block{
+    .modal{
+      ul{
+        li{
+          width: auto;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// Single Employee Page
+body.employees.show {
+  .genralinfo{
+    .user_info{
+      border: 1px solid #eee;
+    }
+  }
+  .employees_vendors_area {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin: 0 0 15px;
+    h3{
+      border-bottom: 1px dotted #eee;
+      padding: 15px 0;
+      margin: 0 0 25px;
+    }
+      ul.list-area{
+          // border: 1px solid #eee;
+         margin: 0 0 10px;
+        li{
+          .icon.icon-close{
+            margin: 5px;
+          }
+        }
+      }
+      h4 {
+        color: #777777;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+  }
+  .user_info .listright {
+    font-family: din !important;
+  }
+  table {
+    td{
+      height: 35px;
+      line-height: 35px;
+    }
+    td.regular-mode {
+      p {
+        line-height: 13px;
+      }
+    }
+    td.input-mode {
+      .form-group {
+        margin-bottom: 0;
+        .checkbox {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          padding-left: 20px;
+        }
+        label {
+          padding: 0;
+          margin:0;
+          font-weight: normal;
+          line-height: 13px;
+        }
+      }
+    }
+  }
+  .icon-Message{
+    background: url(asset-path('icon-message.png')) no-repeat 0 0;
+    float: left;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 7px;
+    margin-left: 3px;
+    width: 20px;
+  }
+  .userbototmpart ul li:nth-child(1) {
+    margin-bottom: 0px;
+  }
+  .notification_btn_green{
+    .btn_send_notification{
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+}
+
+.hire-employee {
+  .checkbox label{
+    color:#52667e!important;
+    margin-top: 4px;
+  }
+}
+
+body.employees.eligibility_info,
+body.employees.employee_information,
+body.employees.employment_agreement{
+  .signature-box{
+    width:350px;
+    height:105px;
+    max-width:400px;
+    margin-left: 20%;
+  }
+  .active.eligibility_info{
+    .choose-panel.offer-checkb{
+      .checkbox{
+        input[type="checkbox"]{
+          margin-left: -18px !important;
+        }
+      }
+    }
+  }
+}
+body.employees.employee_information{
+  #employee_account_type,
+  #employee_filing_status,
+  #employee_state_filing_status {
+    text-transform: none;
+  }
+  .iradio{
+    float: left;
+    position: relative;
+    margin-right: 10px;
+    font-size: 15px;
+  }
+}
+body.employees.index{
+  .upper-side-pagination .clients-paginator{
+    margin-bottom: 0px;
+    .number-of-records{
+      float: left;
+      margin: 0 15px;
+    }
+  }
+  .clients-paginator{
+    .pagination{
+      margin-top: 0;
+    }
+    .fix-height-select{
+      height: 32px;
+    }
+  }
+  table th {
+    cursor: pointer;
+  }
+  #hiring_new_employee .modal-dialog {
+    width: 50%;
+  }
+  .headingtop h2 {
+    margin-top: 30px;
+  }
+  .reset_export_filters{
+    cursor: pointer;
+  }
+  .modal-content {
+    .modal-body {
+      .employee_onboarding_error{
+        color: #f16d79;
+        margin-right: 24px;
+        line-height: normal;
+      }
+      .employee_onboarding_error i.fa-exclamation-triangle {
+        font-size: 3em;
+        margin-right: 20px;
+      }
+      p i.fa-check a,
+      p i.fa-check {
+        color: #84c341 !important;
+      }
+      p i.fa-times a,
+      p i.fa-times {
+        color: #aaa !important;
+      }
+      p span.onboarding_status_error {
+        color: #f16d79;
+      }
+    }
+    .modal-header {
+      .employee_email_update {
+        display: none;
+      }
+      p {
+        margin-bottom: 0 !important;
+      }
+      div.form-group.employee_email {
+        margin-bottom: 0;
+      }
+      .employee_email_div {
+        padding-left: 0;
+      }
+      div.form-group.employee_email input{
+        background: #eef3f4 none repeat scroll 0 0;
+        border: 1px solid #dee4e5;
+        border-radius: 3px;
+        height: 35px;
+      }
+      .employe_onboarding_update_email_btn {
+        margin-top: 0;
+        width: auto;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-radius: 4px !important;
+        font-size: 14px;
+        min-width: 67px;
+        background-color: #4eb7c8 !important;
+        border-color: #4eb7c8 !important;
+      }
+      .ladda-button[data-style=expand-right][data-loading] {
+        padding-left: 12px;
+      }
+      overflow: hidden;
+    }
+  }
+  .up.pull-right,
+  .down.pull-right{
+    position: absolute !important;
+    top: 43% !important;
+    right: -10px !important;
+  }
+  .tablesorter-header .up,
+  .tablesorter-header .down {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+  .table-striped img {
+    padding-left: 0px;
+  }
+  .newest_employees_contant .modal-title {
+    color: #52667e !important;
+  }
+  .employee_onboarding_status {
+    color: #f16d79;
+  }
+  .onboarding_status_action_required {
+    color: #49a4a8 !important;
+  }
+  .saved-employee-filter{
+    position: absolute;
+    left: -57%;
+    top: 10px;
+  }
+  .employee-details{
+    padding-right: 5px !important;
+    h4{
+      color: #777777;
+    }
+    .email{
+      color: #777777 !important;
+    }
+    .employee-desc{
+      color: #777777;
+    }
+  }
+  .dark-blue-bg{
+    background-color: #f2f2f2;
+    color: #2b3c51;
+  }
+  .employee-table-row:nth-of-type(2n) {
+    background: none repeat scroll 0% 0% #F7F7F7;
+  }
+  .employee-table-row:hover{
+    background-color: #f9f9eb;
+  }
+  .employee-table-row{
+    td{
+      border-color: #a3b6c7;
+      border-right: 1px solid #a3b6c7;
+    }
+  }
+  .grid-block{
+    background-color: #fff;
+  }
+  .red-border{
+    border: 1px solid;
+    border-color: red;
+  }
+  .header{
+    th{
+      border-right:1px solid #ccc;
+    }
+  }
+  .grid-block .hover {
+    background-color: #fff;
+    bottom: 0;
+    display: none;
+    padding: 7px 10px;
+    position: absolute;
+    right: 0;
+  }
+  .grid-block .hover a {
+      color: #777777;
+      text-decoration: none;
+  }
+  .grid-block:hover .hover {
+      display: block;
+  }
+  .grid-block .hover a:focus, a:hover {
+     color: #777777;
+   }
+  .grid-block:hover {
+    background-color: #f9f9eb;
+  }
+  .bell.font-view a {
+    font-family: "dinbold";
+    font-size: 14px;
+    margin: 0;
+    display: block;
+  }
+  .enrollment_progress_contant ul{
+    height: 100px;
+    font-weight: 500;
+  }
+  .border1{
+    border: 1px solid #DDDDDD;
+    border-bottom: none;
+  }
+  .border2{
+    border: 1px solid #DDDDDD;
+  }
+  .enrollment_progress{
+    border-bottom: none;
+  }
+  .dashboard_left_data {
+    border: none;
+  }
+  .employeedirectorytab{
+    .box .container-1{
+    width:270px !important;
+    span.fa.fa-times.input-domain-availability{
+    z-index: 2;
+    top: 97px !important;
+    right: 47px !important;
+    }
+    @media only screen and (max-width: 886px){
+      span.fa.fa-times.input-domain-availability{
+        z-index: 2;
+        width: 26px !important;
+        top: 231px !important;
+        right: 38px !important;
+      }
+    }
+  }
+  }
+
+  /*----- Employees Card View -------*/
+  .tab-content{
+    .newest_employees_contant{
+      font-family: montserratregular;
+      .table tbody tr td{
+        text-align: left ;
+      }
+    }
+    .emplo_unassign a{
+      color: #2e3a45;
+    }
+    .with-margin-left{
+      margin-left: 5%;
+    }
+  }
+
+  #grid{
+    .style_profile_img{
+      width: 156px;
+      height: 156px;
+      }
+    }
+  #list{
+    .style_profile_img{
+        width: 67px;
+        height: 50px;
+      }
+    }
+    .dark-blue-bg{
+      background-color: #ffffff !important;
+    }
+    .employee_img{
+      img{
+        // width: 156px;
+        // height: 173px;
+      }
+    }
+    .fix_padding{
+      padding-top: 9px;
+    }
+  }
+  // ---------------- Commented by Zaeem Asif ----------------------------
+  /* .modal-dialog{
+    width: 900px;
+  } */
+  // .tab-content{
+  //   ul{
+  //     li{
+  //       span{
+  //         color: black;
+  //       }
+  //     }
+  //   }
+  // }
+/*-----------popup----------*/
+
+.dropdown-right { float: right; }
+.dropdown-right .dropdown-menu {
+  left: auto;
+  margin: 0 auto;
+  min-width: 995px;
+  right: 0;
+  padding-bottom: 50px;
+}
+.tab-popup-img > a {
+  cursor: pointer;
+  float: right;
+  padding: 16px;
+}
+.dashboard_title.title-popup { margin-left: 40px; }
+.popup-right-p .popup-img {
+  float: left;
+  max-width: 270px;
+}
+.popup-right-p .dashboard_title.title-popup {
+  display: inline-block;
+}
+.dashbord-right {
+  display: inline-block;
+  max-width: 721px;
+}
+.address-employees li {
+  display: block;
+  list-style: outside none none !important;
+  margin-bottom: 15px !important;
+  margin-right: 0px ;
+}
+.address-employees span { float: left; width: 100%; }
+.logo-popup li {
+  float: left;
+  list-style: outside none none;
+  margin-right: 55px;
+  margin-top: 20px;
+}
+.menu-tab-popup .nav.nav-tabs {
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+}
+.menu-tab-popup .nav-tabs > li { margin-bottom: -3px !important; }
+.menu-tab-popup .nav-tabs > li.active > a,
+.menu-tab-popup .nav-tabs > li.active > a:focus,
+ .menu-tab-popup .nav-tabs > li.active > a:hover {
+  -moz-border-bottom-colors: none !important;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none !important;
+  -moz-border-top-colors: none !important;
+  background-color: #fff !important;
+  border-color: #ddd #ddd transparent !important;
+  border-image: none !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  color: #555 !important;
+  cursor: default;
+}
+
+.employee_show_tabs .horizontal-tab-heading .employees-tab-panel .nav-tabs li a{
+  color: #4EB7C8 !important;
+  font-size: 14px !important;
+  padding: 10px  20px!important;
+  text-align: center;
+  width: auto !important;
+}
+.menu-tab-popup .nav-tabs > li > a {
+  padding: 10px !important;
+  width: auto !important;
+  color: #4eb7c8  !important;
+}
+.menu-tab-popup { margin-top: 6%; }
+.menu-tab-popup .documents-ditels li {
+  float: left;
+  list-style: outside none none;
+  max-width: 195px;
+  padding-top: 8%;
+  text-align: center;
+  width: 25%;
+  position: relative;
+}
+.menu-tab-popup .documents-ditels span {
+  display: table;
+  float: padding-leftt;
+  margin-top: 20px;
+  width: 100%;
+}
+.menu-tab-popup .documents-tab-1 { margin: 0; max-width: 823px; padding: 0; }
+.menu-tab-popup .documents-tab-2 { max-width: 816px; }
+.menu-tab-popup .btn.btn-border {
+  background-color: #e4e4e4;
+  color: #a3a3a3;
+  padding: 0 20px 20px;
+}
+.tab-content .tab-content-right { border: medium none; }
+.tab-content-right .documents-ditels {
+  background-repeat: no-repeat;
+  height: 100px;
+  position: relative;
+  width: auto;
+}
+.popup-none-bg .modal-backdrop {background: none;}
+.cross-btn { position: absolute; right: 15px; top: 60px; }
+.address-employees { display: inline-block; width: 100%; }
+.dropdown-right .popup-img > img { max-width: 100%; }
+
+
+/*-----Medical Details-----------*/
+
+.nrollment_progress_heading-l{ font-size: 16px;}
+.medical-priges {width: 27% !important;}
+.enrollment_progress_contant.enrollment_progress_contant-l-r li{ width:auto !important;}
+.enrollment_progress_contant.enrollment_progress_contant-l-r {
+  display: table-cell;
+  float: left;
+  margin: 20px;
+}
+.medical-ditels {display: table-cell; padding-left: 10%; }
+.title-medical > h1 {color: #4d96ce;margin: 0;font-size: 30px;}
+.title-medical > h4 { color: #a2a2a2;}
+.title-medical > p { color: #a2a2a2; margin:0; font-size: 12px;}
+.title-medical > span {color: #a2a2a2;}
+.btn.btn-primary.btn-light-green.button-align.btn_fix_width.btn-medical {
+  margin-top: 10px;
+}
+.enrollment_progress_contant .employees .enrollment_info.enrolled{
+  background-image: url(asset-path('round-5.png'));
+  height: 107px;
+  width: 100px;
+  background-repeat: no-repeat;
+  border: none;
+  background-position: center center ;
+  padding: 25px 0 0;
+  text-align: center;
+}
+.enrollment_progress_contant .employees .enrollment_info.enrolled h1{
+  color: #4d96ce;
+}
+.enrollment_text.enrolled {
+  color: #4d96ce !important;
+  margin-top: 5px;
+}
+.medical-1 {
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 35px;
+}
+.btn.btn-primary.btn-light-green.button-align.btn_fix_width.btn-medical {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.line-chart.line-chart-l {
+  margin-top: 35%;
+}
+.text-center .btn.btn-primary.btn-light-green.button-align.btn_fix_width {
+  float: left;
+  margin-right: 5%;
+}
+.nexthr-right {
+  margin-left: -24px;
+  margin-top: 31px;
+}
+.nexthr-right.nexthr > span {
+  color: #4eb7c8;
+  font-size: 14px;
+}
+.logo-upload.uploaded.uploaded-l {
+  background-color: #eef3f4;
+  max-width: 360px;
+  width:100%;
+}
+.uploaded-l p {
+  color: #52667e;
+  font-size: 14px!important;
+}
+.btn.btn-primary.btn-light-green.button-align.btn_fix_width.remove-btn {
+  background-color: #e37d75;
+  width: 150px;
+  border: none;
+  margin:23px 0 0 4px;
+}
+.btn.btn-primary.btn-light-green.button-align.btn_fix_width.remove-btn::after {
+  background-color: #c27771;
+}
+.vertical-tab-side .select-form.form-select  select{
+  background-image: url(asset-path('select-arrow-1.png'));
+  background-size: 12px 21px;
+}
+.btn.btn-border.btn-border-l {
+  background-color: #a2a2a2;
+  color: #fff;
+  margin-top: 35px;
+}
+
+
+
+/*-----footer-----------*/
+.text-footer {
+  color: #52667e;
+  list-style: outside none none;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.text-footer > span {
+  color: #797979;
+  margin-right: 10px;
+}
+.footer-text > ul {
+  padding-left: 0;
+}
+.footer-text > ul {
+  float: left;
+}
+.topbarbrokerblock {
+  border-left: 1px solid #c8c7c7;
+  float: left;
+  margin: 15px 0 8px 20px;
+  padding-left: 12px;
+  width: 260px;
+}
+.topbarbrokerblock .list_broker {
+  color: #aaaaaa;
+  display: inline-block;
+  width: 100%;
+}
+.topbarbrokerblock .list_broker > span {
+  float: left;
+}
+.topbarbrokerblock .list_broker > p {
+  color: #6f6f6f;
+  display: block;
+  margin-bottom: 0;
+  padding-left: 63px;
+}
+.topbarbrokerblock .list_broker img {
+  display: flex;
+}
+.topbarbrokerblock .list_broker a {
+  display: inline-block;
+  line-height: 0;
+  margin: 0 0 0 8px;
+}
+.modal_user_image{
+  height:208px;
+  width: 200px;
+}
+//------------------- Commented By Zaeem Asif ------------------------------
+/* .modal-body {
+  padding: 0px;
+} */
+.width_fix{
+  width:353px;
+}
+
+
+
+.newest_employees_contant .table { margin-bottom: 0; }
+.newest_employees_contant .table td { border: 0; }
+.table-messaging .table td,
+.newest_employees_contant .table th, .newest_employees_contant .table td {
+  color: #52667e !important;
+  font-size: 14px;
+  text-align: left;
+  border-right: 0;
+  border-bottom: 0;
+  font-family: "din" !important;
+}
+
+.newest_employees_contant .table th, .newest_employees_contant.text-align-left .table td {
+  color: #52667e;
+  font-size: 14px;
+  text-align: left;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.newest_employees_contant .table-striped > tbody > tr:nth-of-type(2n+2) {
+  background-color: #fff !important;
+}
+.newest_employees_contant .table-striped > tbody > tr:nth-of-type(2n+1) {
+  background-color: #f2f2f2 !important;
+}
+.edit_info {
+  background-color: #fff;
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
+  padding: 10px;
+  position: absolute;
+  right: 60px;
+  text-align: left;
+  top: -40px;
+  width: 160px;
+}
+.edit_data { position: relative; }
+.edit_info > ul { margin: 0; padding: 0; }
+.edit_info li {
+  list-style: outside none none;
+  margin: 10px 0;
+  width: 100%;
+  float: left;
+}
+.dark-blue-bg h4{
+  color: #52667e;
+}
+.employees.dashboard {
+  .safeway_page{
+    padding:0 !important;
+  }
+  .safeway_page .tab-content ul li span{
+   color:#969696;
+  }
+  .boxborder.Announcementsblock img{
+   width:100%;
+  }
+  .no_pto_policices.h3
+  {
+    text-align: center;
+    overflow: hidden;
+  }
+  .newest_employees_contant .table th,
+  .newest_employees_contant .table td {
+    text-align: left;
+  }
+}
+.employees.edit {
+  .user-logo-upload {
+   text-align: center;
+   p {
+      margin: 0;
+    }
+    .upload-icon.no_image{
+      padding: 33px 4px 0 !important;
+    }
+  }
+  .dashboard_top .skinny-font {
+    margin-left: 10px;
+  }
+  #benefits_vendors .dl-horizontal span label.bold-label {
+    cursor: pointer;
+    font-weight: normal !important;
+  }
+  .safeway_page {
+    padding: 0 !important;
+  }
+  .add_pdf img{
+    padding-top: 35%;
+  }
+  .employee_roles .select2-container .select2-selection {
+    width: 100%;
+  }
+  .instruction-content{
+    color:#343434;
+    font-weight: normal;
+    font-family: din;
+  }
+  #benefits_vendors,
+  #custom-fields { 
+    .title-tax-bank .inline-text{
+      display: inline-block;
+    }
+  }
+  #hiring {
+    .employees_salary {
+      font-size: 14px;
+    }
+  }
+  .general-info-block .btn.btn-primary.btn-light-green.button-align.btn_fix_width.ladda-submit-button.ladda-button {
+    line-height: 10px;
+  }
+  .edit-employee-page-title {
+    display: inline;
+  }
+}
+.i9_form_download{
+  margin-left: 0px !important;
+}
+.employees .inactiveLink {
+   pointer-events: none;
+   cursor: default;
+}
+.sub_nav_visibility{
+  display: block;
+}
+.horizontal-tab-heading .tab-content{
+  background-color:#fff !important;
+  overflow: hidden;
+  margin: 0;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.business_logo {
+  height: 50px;
+  width: auto;
+}
+.employees.index {
+  .btn.btn-primary.btn-light-green.button-align.btn_fix_width.btn-employees {
+    margin-top: 0 !important;
+    margin-right: 0px;
+    height: auto;
+    &:hover{
+      color: #fff;
+    }
+  }
+  .proposal_page .tab-content{
+    margin-left: 0px;
+  }
+  .broker-select{
+    .select2.select2-container{
+      width: 100%;
+    }
+  }
+  .dataTables_paginate.paging_bs_normal{
+    .pagination{
+      padding: 0 15px;
+      li{
+        a{
+            border:1px solid #ddd;
+        }
+      }
+      .next,
+      .prev{
+        a{
+          width: 100px;
+          border:1px solid #ddd !important;
+        }
+      }
+    }
+  }
+  #employees-directory {
+    padding-top: 50px !important;
+  }
+  #employees_directory_table.datatable{
+    padding-top: 10px;
+  }
+  #employees_directory_table_filter {
+    display: none !important;
+  }
+}
+.menubar_top.horizontal-heading-tab{
+  overflow: hidden;
+}
+.menubar_top.horizontal-heading-tab.employer_sub_header {
+  width: 100%;
+}
+.menubar_top .nav.nav-tabs {
+  width: 100%;
+}
+.menubar_top.horizontal-heading-tab .nav.nav-tabs{
+  width: 100% !important;
+}
+.businesses.dashboard .summary_page_img {
+  width: 100%
+}
+.employees.show .employeeinfo .userpart .usertoppart .userphoto .userinfo {
+  margin-left: 0;
+}
+.delete_link{
+  font-weight: 700;
+}
+#emergency_info label{
+  max-width: 180px !important;
+}
+.employee-onboarding .b-agreement{
+  margin-bottom: 19px;
+}
+#hiring .filter-btns a{
+  font-weight: bold;
+  display: inherit;
+}
+.general-info-block .btn{
+  line-height: 30px;
+}
+// on boarding offer letter
+.employees.employment_agreement .scrollbar {
+  .employee-onboarding .jspPane{
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .jspContainer{
+    width: 100%;
+    .jspPane{
+      height: 100% !important;
+    }
+  }
+  #page-container{
+    background:transparent !important;
+    position:relative !important;
+  }
+  .pf{
+      background: url(asset-path('new/fd_bg.png')) !important;
+  }
+  #sidebar{
+    background:transparent !important;
+  }
+  .pf .bi{
+    display: none !important;
+  }
+  .h6,
+  .h4{
+    height: 0 !important;
+  }
+
+}
+.employees.complete_hiring,
+.employees.new {
+  .offer_letter_error {
+    color: red;
+  }
+  .tab-pane{
+    margin-top: 15px;
+  }
+  .download-offer-letter-link { 
+    display: none;
+    .fa {
+      color: #63cbd8;
+    }
+  }
+}
+
+.employees.incomplete_hirings .incomplete_hiring_table td{
+  text-align: left;
+}
+
+.employees.i9_verification{
+  .btn-file-upload{
+    .fileinput-button{
+      overflow: inherit !important;
+      width: 100%;
+    }
+    .jquery-validate-error{
+      position: absolute;
+      bottom: -26px;
+      z-index: 9;
+      left: 0;
+    }
+  }
+  .i9_manual_file_btn{
+    margin: 0;
+    width: 150px;
+    float: left;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+.file_name_field{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 39px;
+    left: 0;
+    padding-left: 153px;
+    border-radius: 0;
+}
+.file_picker{
+  .form-group{
+    min-height: 55px;
+    position: relative;
+    .jquery-validate-error{
+      margin-top: 0;
+      position: absolute;
+      bottom: -12px;
+    }
+  }
+}
+  .div .margin-zero{
+    margin: 0px;
+  }
+  .vertical-tab-side .form-group{
+    textarea.min-height{
+      min-height: 40px;
+    }
+  }
+  .signature-box-container {
+    .signature-box .clearButton {
+      position: absolute;
+      top: 84px;
+      z-index: 9;
+    }
+  }
+  .i_Documentblock .btn.btn-primary.btn-light-green {
+    width: 140px;
+  }
+  .date-expiration-holder{
+    position: relative;
+    .action{
+      position: absolute;
+      top: 30px;
+      right: 10px;
+    }
+  }
+  .check-box-holder{
+    position: relative;
+    .icheckbox{
+      width: auto !important;
+      .jquery-validate-error{
+          margin-top: 20px;
+      }
+    }
+    .label-text{
+      position: absolute;
+      top: 0;
+      left: 20px;
+    }
+  }
+}
+.employees.bank_info{
+  .custum-row .padding-to-center{
+      padding-top: 6px;
+  }
+  .signature-box-container{
+    .sigPad{
+      width: 100% !important;
+    }
+  }
+}
+.businesses.dashboard{
+  .boxborder.Reminders .btn-increase-width{
+    width: 154px !important;
+  }
+}
+.ptos.index .white-background{
+  background-color: #fff !important;
+}
+.enrollment_progress .popup-img{
+      width: 240px;
+    height: 178px;
+}
+.employees-tab-panel{
+      overflow: hidden;
+}
+.enrollment_progress .popup-img img{
+  width:100%;
+  max-width: 174px;
+}
+.employees-tab-panel .menu-tab-popup{
+  margin-top:0 !important;
+}
+.employees-tab-panel .userbototmpart ul li{
+  margin-bottom: 0;
+}
+.employees-tab-panel .userbototmpart{
+  float: right;
+  width: 225px;
+}
+.employees-tab-panel .documents-tab-1 li{
+  margin-right:10px;
+}
+.box.btn-box a.btn{
+  line-height: 32px !important;
+}
+.employees.complete_hiring .checkedbox,
+.employees.new .checkedbox
+{
+  background-color: #63cbd8 !important;
+  border-color: #63cbd8;
+}
+.employees.complete_hiring .no-list-style,
+.employees.new .no-list-style
+{
+  list-style: none;
+}
+.employees.complete_hiring .vendor-documents-div.inner-check,
+.employees.edit .vendor-documents-div.inner-check,
+.employees.new .vendor-documents-div.inner-check{
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  margin-left: 25px;
+  margin-bottom: 15px;
+}
+.employees.complete_hiring .vendor-documents-div.inner-check span,
+.employees.new .vendor-documents-div.inner-check span{
+  margin-left: 0;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.employees.complete_hiring .vendor-documents-div.inner-check .bold-label,
+.employees.new .vendor-documents-div.inner-check .bold-label{
+  font-size: 12px;
+  font-weight: normal;
+}
+.employees.complete_hiring .tab-pane.vertical-tab-side h3,
+.employees.new #general-info .tab-pane.vertical-tab-side h3{
+  display: inline-block;
+    margin-right: 15px;
+}
+.employees.complete_hiring .no-list-style,
+.employees.new .no-list-style{
+  padding:0;
+}
+.menubar_top.horizontal-heading-tab.employee_sub_header,
+.menubar_top.horizontal-heading-tab.employer_sub_header{
+  background-color: white;
+  margin: 0 ;
+  width: 100%;
+}
+.pto_policies .main{
+      padding-top: 0;
+}
+.pto_policies .logo-upload.uploaded{
+  margin-top: 15px !important;
+  float: left !important;
+}
+.pto_policies .tab-content.employees .main .text-center{
+  text-align: left;
+  width: 100%;
+  overflow: hidden;
+  padding: 24px 0 0;
+}
+.pto_policies .logo-upload.uploaded{
+      width: 120px;
+}
+.employees .address-employees ul li{
+  display: block important;
+  margin-bottom: 10px !important;
+}
+.dashboard_left_data .dashboard_top .box.btn-box{
+  margin: 0;
+}
+.dashboard_left_data .dashboard_top  .btn.btn-primary.btn-light-green.button-align.btn_fix_width.btn-employees {
+    width: auto !important;
+    padding: 0 10px;
+}
+.employees .pdf_block span{
+  display: block;
+}
+.employees.edit .general-info-block .form-group .children-numeric-field{
+  width: 30%;
+}
+.employees.edit .role-multiple-select{
+  overflow-x: scroll;
+}
+.check_list_area{
+  .checkbox label{
+    padding-top: 2px;
+  }
+  .checkbox{
+        margin-bottom: 10px;
+  }
+  .icon-info-btn{
+    width: 19px;
+    height: 19px;
+  }
+}
+.change_employment{
+  h5{
+      margin-bottom: 10px
+  }
+    p{
+          margin-bottom: 15px;
+          font-family: din;
+    }
+    .list-group{
+      font-family: din;
+          margin-top: 27px;
+              margin-bottom: 0px;
+      h4{
+            margin-bottom: 0;
+      }
+    }
+}
+.personalinfo  .vendor_doc_list.genralinfo ul{
+  margin: 0px;
+}
+.personalinfo  .vendor_doc_list.genralinfo ul li:last-child{
+  border-bottom:0;
+}
+.personalinfo  .vendor_doc_list.genralinfo ul li{border-bottom: 1px solid #D5D5D5;}
+
+.employees.benefits_vendors .no-style-list{
+  list-style: none;
+}
+.employees.benefits_vendors .list-unstyled li{
+  list-style: none !important;
+}
+.employees.benefits_vendors .check_list .dl-horizontal dt{
+  width:100% !important;
+}
+iframe#page-container{
+  background: red !important;
+}
+#page-container{
+  background-image:none !important;
+  background: #fff !important;
+    border: 0;
+    border-color: #fff !important;
+    width: 100%;
+}
+.employees.employment_agreement iframe{
+    border: 0;
+    width: 100%;
+}
+iframe.pdf_block{
+  display:none;
+}
+iframe{
+  border:0;
+}
+.employer_carrier_enrollments {
+  .ladda-button{
+    background-color: #64c1d0 !important;
+    border-color: #50b9ca;
+    color: white !important;
+    padding-top: 8px;
+    padding-left: 15px;
+    padding-bottom: 9px;
+    border-radius: 4px !important;
+    font-size: 18px !important;
+  }
+}
+.employees.edit {
+  .select2-selection{
+      display: inline-block;
+  }
+  .simple_form.edit_employee{
+    .select2-selection__choice{
+      margin: 3px 2px !important ;
+      font-family: 'din' !important;
+    }
+  }
+  .notice-box{
+    font-family: 'din' !important;
+    margin-bottom: 25px;
+  }
+  .general-info-block{
+    .custum-row{
+      .nested-fields{
+        .sign-block{
+          min-height: 50px;
+          .sign-word{
+            position: absolute;
+            bottom: 0;
+          }
+        }
+        .mt30{
+          margin-top: 30px;
+        }
+        .btn-cross{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.loder_block{
+  position: absolute;
+  background-color: #e4e3e3;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  display: block;
+}
+.loading-gif{
+  position: relative;
+  top: 46%;
+  left: 0;
+  color: #000;
+  right: 0;
+  width:50px;
+  margin: 0 auto;
+  display: block;
+}
+.employee-onboarding .hire-contractors{
+  padding:0;
+}
+.pc.opened{
+  background: #e4e3e3;
+}
+.employees.employment_agreement {
+  .file_pdf_box{
+    img{
+      width: 100%;
+    }
+    .pdf_box-left{
+      position:relative;
+        a{
+          position: absolute;
+          right: 18px;
+          top: 0;
+        }
+    }
+  }
+}
+.employees.edit #update-email .modal-footer .errors{
+  color: red;
+  display: inline;
+  float: left;
+}
+.employees{
+  .checkbox{
+    margin: 5px 0;
+  }
+  .checkbox label{
+    padding-top: 6px;
+    padding-left: 2px;
+  }
+  .checkbox{
+    display: inline-block;
+  }
+  .check_scroll{
+    max-height: 213px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+#export_employee_modal{
+  .offer-checkb > dt .radio, .offer-checkb > dt .checkbox{
+    width: 35px;
+  }
+  .select_field_names{
+    overflow: hidden;
+    margin-bottom: 35px;
+  }
+  .modal-header{
+    input{
+      position: absolute;
+      top: 13px;
+      right: 56px;
+      margin-top: 0;
+    }
+  }
+  .select_attributes{
+    position: relative;
+    overflow: hidden;
+  }
+  .dl-horizontal{
+    overflow: hidden;
+    .labal{
+      display: inline-block;
+      padding: 6px 0;
+    }
+  }
+  .heading_employee_report_data_checkbox_area {
+    margin-top: 15px;
+    dt {
+      width: 100% !important;
+    }
+    .heading_employee_report_data_checkbox {
+      h4 {
+        margin: 0;
+      }
+    }
+  }
+  .dl-horizontal dt {
+    width: 285px;
+    .labal {
+      font-weight: normal !important;
+      font-family: din !important;
+    }
+  }
+}
+.employees.edit #update-email .modal-footer .errors{
+  color: red;
+  display: inline;
+  float: left;
+}
+.employee_sub_header,
+.employer_sub_header{
+  .icon-files{
+    width: auto !important;
+    background-position:center 10px !Important;
+    margin-top: 0;
+    font-family: "Montserrat", sans-serif;
+  }
+  li:hover .icon-files,
+  li.active .icon-files{
+    background:url(asset-path("new/file-icon-hover.png")) no-repeat;
+    background-position:center 10px !Important;
+    color: #4EB7C8 !important;
+  }
+}
+.employees.show .export_fields_modal .modal-body{
+  overflow: hidden;
+}
+
+
+.employees.index .btn.btn-primary.btn-light-green.button-align.btn_fix_width.btn-employees.roster_terminate{
+  margin-top: 19px;
+  text-transform: uppercase;
+  width: 90px;
+  font-size: 10px;
+  margin-left: 10px;
+}
+.dashboard_top{
+  padding: 0 30px 15px;
+  .right-btn.box{
+    position: relative;
+    .btn-light-green{
+      margin-top: 0  !important;
+    }
+    .dropdown-menu {
+      margin-top: 10px !important;
+    }
+    .popover{
+      left: -84px;
+    }
+    .pop_quote_list{
+      li{
+        width: 120px;
+        text-align: center;
+        margin: 7px 0 0;
+        i{
+        font-size: 25px;
+        margin: 0 0 5px;
+        }
+      }
+    }
+  }
+}
+.employees{
+  .contact-info .form-group{
+    .checkbox {
+      margin: 0 10px 0 0;
+    }
+  }
+  .dl-horizontal.choose-panel.offer-checkb{
+    .dl-horizontal.choose-panel{
+      margin-bottom: 0px;
+    }
+    overflow: hidden;
+
+    .bold-label{
+      display: inline-block;
+      margin: 7px 0 0;
+    }
+  }
+  .dl-horizontal.choose-panel.offer-checkb.box_holder{
+    margin: 0 0 25px;
+  }
+  .btn-employees{
+    line-height: 33px;
+    padding: 0px 10px !important;
+  }
+  .pending_form{
+    .list_area{
+        hr{
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      .list_form{
+      i{
+        padding: 11px 0;
+      }
+      }
+    }
+  }
+  .tab-pane.hlt-tbcnt{
+    .btn.btn-primary.btn-light-green.button-align.btn_fix_width.btn-employees{
+      margin: 0;
+    }
+  }
+  .table.table.even_row_bg td{
+    padding:5px 8px;
+    .btn {
+    padding: 5px 15px 5px;
+  }
+  }
+  .attendance .horizontal-tab-heading .tab-content{
+    border-left: 0;
+    overflow: hidden;
+  }
+  .general-info-block{
+    .dl-horizontal.choose-panel {
+      .bold-label{
+        margin: 6px 0 0;
+        display: inherit;
+      }
+    }
+  }
+  .btn_bottom{
+    min-height: 497px;
+  }
+  .btn_form_bottom{
+    min-height: 570px;
+  }
+}
+.businesses{
+  .tab_holder{
+    .post_area p,
+    .Reminders-img.reminder_list.popover_parent li,
+    .boxborder.Announcementsblock p,
+    .blog-list{
+      font-family: din;
+      font-size: 14px;
+    }
+  }
+  .Reminders-img.reminder_list.popover_parent li{
+    font-family: din;
+    font-size: 14px;
+  }
+}
+.tax-bank-info.contact-info{
+  h4{
+    margin-bottom: 10px;
+  }
+}
+.box_holder{
+  margin: 0 0 25px;
+}
+.btn_danger
+{
+  .remove_nested_fields{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    border-radius:4px;
+    font-weight: 400;
+    line-height: 1.42857143;
+  }
+  .btn_send_notification{
+    font-size: 10px;
+    margin-top: 5px;
+    float: right;
+  }
+}
+.modal_checklist{
+  .checkbox{
+    float: left;
+    margin-top: 0;
+  }
+}
+.general-info-block{
+  .custum-row{
+    .checkbox{
+      label{
+        padding-top: 0;
+      }
+    }
+    .vendor-documents-div.inner-check{
+          margin-bottom: 9px;
+    .dl-horizontal.choose-panel .bold-label{
+      margin: 2px 0 0;
+    }
+    }
+  }
+}
+.instruction-content ul,
+.general-info-block.nexthr-box{
+  line-height:25px !important;
+  br{
+    display: none !important;
+  }
+}
+.employees.edit .contact-info .form-group{
+  margin-bottom: 20px;
+  label.text-without-label{
+    margin-top: 22px;
+  }
+}
+.employees.edit{
+  .general-info-block {
+    .apply-date-block{
+      min-height: 100px;
+      .form-group{
+        margin-bottom: 0px !important;
+      }
+    }
+  }
+
+  .document-details-link{
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .text-center.pdf_block.fileinput-button{
+    .add-document-btn{
+      width: 116px;
+      margin: 0 auto;
+      font-size: 15px;
+    }
+  }
+  #benefits_vendors dt, #documents dt{
+    width: 100% !important;
+  }
+  #error_alert_body,
+  #change-attendance-policy{
+    color: red;
+  }
+  #benefits_vendors_employee table.table th{
+    font-family: din;
+    font-weight: normal;
+    font-size: 14px;
+  }
+  #family-info .bold-label{
+    font-family: dinregular;
+    font-weight: normal;
+  }
+}
+.employees.new{
+  .employee-hourly::-webkit-inner-spin-button, .employee-hourly::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    -moz-appearance:textfield !important; 
+  }
+  #tax-bank-info dt{
+    width: 100% !important;
+  }
+}
+.termination_package{
+  ul.key_points, .radio_list label, .termination_progress .empty_message {
+    font-family: dinregular !important;
+    font-weight: normal !important;  
+  }
+  .panel-body{
+    p{
+     font-size: 14px;
+    }
+  }
+  .mt15{
+    margin-top: 15px;
+  }
+}
+
+  
+
+#personal-info,
+#bank-info {
+  .genralinfo ul li .listright{
+    min-height: 40px !important;
+  }
+}
+.employees.index {
+  #per_page {
+    width: 67px;
+    float: right;
+    margin: 0 15px 0;
+    border-radius: 4px;
+  }
+  .employeedirectorytab .nav.nav-tabs{
+    margin: 20px 0 0 8px !important;
+    border-radius: 4px !important;
+    width: auto !important;
+    li{
+      width: auto !important;
+      a{
+        // padding: 9px 20px !important;
+        width: 54px !important;
+        padding: 9px 20px !important;
+      }
+    }
+  }
+  .employee-search-box{
+    margin: 0 0 20px;
+    .box{
+      margin:5px 0;
+      .container-1{
+        width: 271px !important;
+      }
+      input{
+        padding:9px;
+      }
+    }
+  }
+  .clients-paginator p {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: top;
+    padding: 9px;
+  }
+    #employees_directory_table{
+      thead{
+        tr{
+          th{
+            padding-right: 20px;
+            min-width: 100px;
+          }
+          th:nth-child(6){
+            min-width: 140px;
+          }
+        }
+      }
+    }
+}
+.employees.index{
+  .employee-search-box #employee_directorytab_search{
+    width: 90%;
+  }
+}
+.employees.complete_hiring,
+.employees.new {
+  dl {
+    dd {
+      font-family: din;
+    }
+  }
+  #settings .dl-horizontal.choose-panel.offer-checkb .bold-label,
+  #user-management .dl-horizontal.choose-panel.offer-checkb .bold-label {
+    font-weight: normal;
+    font-family: din;
+  }
+  #user-management #employee_business_offer_letter_id {
+    font-weight: normal;
+  }
+}
+.employees.accept_invite{
+  #password_check {
+    .custum-row {
+      .form-group {
+        .not-valid-error {
+          background: #FFADAD !important;
+          border: 1px solid #ffeeff !important;
+          background-image: url(asset-path("cross-error.png")) !important;
+          background-position: right 10px center !important;
+          background-size: 14px 14px !important;
+          background-repeat: no-repeat !important;
+          color: #727972 !important;
+        }
+        .valid-success{
+          background: #EDFFF2 !important;
+          border: 1px solid #ffeeff !important;
+          background-image: url(asset-path("checkmark1.png")) !important;
+          background-position: right 5px center !important;
+          background-size: 20px 20px !important;
+          background-repeat: no-repeat !important;
+        }
+      }
+    }
+  }
+  .prebording-checklist{
+    h6{
+      margin-bottom: 0px;
+    }
+    a{
+      padding-left: 0;
+    }
+  }
+}
+.sidemenu #sub-1{
+  padding-top: 45px;
+}
+.custum-row{
+  .emp-detail{
+    min-height: 130px;
+  }
+}
+.businesses.dashboard{
+  .horizontal-tab-heading .tab-content{
+    background-color:#fff !important;
+    overflow: inherit;
+    margin: 0;
+  }
+}
+.popover-example {
+  margin: 0 0 10px;
+  list-style: none;
+}
+.popover-example li{
+  display: inline-block;
+  margin: 4px;
+  padding: 0px;
+}
+.btn:focus{
+  outline: none;
+}
+.modExample .btn{
+    margin: 4px 8px 4px 0;
+}
+.employees.onboarding_dashboard{
+  .link-complete-onboarding{
+    padding-top: 30px;
+    padding-bottom: 15px;
+    i{
+      font-size: 34px;
+      margin-bottom: 5px;
+    }
+  }
+}
+.tabin_tab_sec .vertical-tab .nav.nav-tabs{
+  background: #fff !important;
+}
+.long-file-name{
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap;     /* Opera <7 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  word-wrap: break-word;
+  padding: 10px 0 0;
+}
+.menubar_top.horizontal-heading-tab{
+  overflow: inherit !important;
+}
+.employer_sub_header .employer_portal_header.vendor_tab {
+  .collapse.in{
+    position: absolute !important;
+    z-index: 9;
+    min-width: 350px;
+    right: -42px;
+    .dropdown-menu{
+      display: block;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      .arrow {
+        left: 81%;
+      }
+    }
+  }
+}
+.employees.employee_information {
+  h3 span {
+    display: inline-block !important;
+  }
+}
+.employees.employee_information{
+  #user-management .help-btn{
+    display: inline-block;
+    padding: 15px 0px 0px 7px;
+  }
+}
+.employees.edit {
+  #family-info {
+    .hide_nested_area {
+      display: none;
+    }
+    .add_nested_children_area {
+      .add_nested_fields {
+        line-height: 22px;
+        width: 120px;
+        margin-top: 0 !important;
+      }
+      .remove_nested_fields{
+        margin: 30px 0 0;
+        display: inline-block;
+      }
+    }
+    dl dt .bold-label {
+      font-weight: normal;
+      line-height: 1.0;
+    }
+  }
+}
+.skinny-font{
+  font-family: dinregular !important;
+  font-weight: normal !important;
+}
+.p8{
+  padding:8px;
+}
+.employees.edit{
+  #benefits_vendors_employee{
+    .list-unstyled{
+      li{
+        font-family: dinregular;
+        font-weight: normal;
+      }
+    }
+  }
+}
+.update-for-custom-fields {
+  margin-left: 15px;
+}
+
+.select2-wraper-single-select{
+  .select2-selection--singl{
+    width: 100% !important;
+    background: #eef3f4 !important;
+    border: 1px solid #dee4e5;
+    border-radius: 3px;
+  } 
+}
+.employees.new,
+.employees.edit {
+  span.adding_manager_alert {
+    font-family: din;
+  }
+  .select2-wraper .select2.select2-container .select2-selection__choice,
+  .select2-wraper .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    font-size: 16px;
+  }
+}
+.download-benefits-vendor-file{
+  label{
+    cursor: pointer;
+    color: #63cbd8 !important;
+    &:hover{
+      color: #36a0b2 !important;
+    }
+  }
+}
+.wrapper-form .select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #ffffff !important;
+}
+.post_update{
+  .post_update_title{
+    h2{
+      padding: 20px 20px;
+      color: #909090;
+      font-size: 20px;
+      font-weight: 100;
+      margin: 0;
+    }
+  }
+}
+.upload-new-employee-document{
+  .btn-light-green{
+    font-size: 14px !important;
+  }
+  
+}
+.employee-documents-custom-table{
+  .custum-row{
+    margin: 0px !important;
+  }
+}
+.employee-documents{
+  .aligned-table td {
+    text-align: left;
+  }
+}
+.delete_role_employees{
+  .table{
+    img{
+      width: 50px;
+      height: 40px;
+    }
+    thead{
+      tr{
+        border:0 !important;
+
+        th{
+          color: #526692 !important;
+          font-family: "din";
+          font-weight: normal;
+          border:0 !important;
+          font-weight: 500 !important;
+        }
+      }
+    }
+    tr{
+      td{
+        border:0 !important;
+      }
+    }
+  }
+}
+.custom-employee-save-button {
+  font-size: 14px;
+  line-height: 14px !important;
+}
+.vendor-name-field{
+  width: auto !important;
+}
+.bank_tax_tab .bankaccountinfo .custum-row .b_edit{
+  margin-top: 0px !important;
+}
+.employee-reminders-box{
+  background: #fff;
+  .newest_employees_contant .table th, 
+  .newest_employees_contant .table td{
+    text-align: left !important;
+  }
+}
+.employee-reminders-box{
+  .table-striped img {
+    padding-left: 0px;
+  }
+}  
+.employees.index {
+  .employeedirectorytab .nav.nav-tabs{
+    li:first-child{
+      margin-right: 1px !important;
+    }
+  }
+}
+.employees.new,
+.employees.complete_hiring {
+ #employee-custom-fields { 
+    .title-tax-bank .inline-text{
+      display: inline-block;
+    }
+  }
+}
+.employees.bank_info{
+  #update-w4-form{
+    .modal-body{
+      .logo-upload.uploaded{
+        width: 160px !important;
+        height: auto !important;
+      }
+    }
+  }
+  .value-box{
+    display: inline-block;
+    color: #52667e;
+    padding: 6px;
+  }
+  .general-info-block.bank_tax_tab{
+    .popover{
+      padding: 15px;
+    }
+  .form-group{
+    .rdio label::before{
+      top:0;
+    }
+    .rdio input[type="radio"]:checked + label::after{
+      top:5px;
+    }
+    .custom-checkbox{
+      margin: 0 0 5px;
+      padding: 0;
+      label{
+        padding-left: 15px;
+        vertical-align: top;
+            padding-top: 5px;
+      }
+    }
+  }
+  }
+  .tabin_tab_sec .tab-content-inner{
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+} 
+body.employees.bank_info{
+  #tax-info{
+    #update-w4-form{
+      #filedrag{
+        width: auto;
+        height: 160px;
+      }
+      .modal-body{
+        overflow: hidden;
+      }
+      .input_file_picker{
+        margin-top: 0px;
+      }
+    }
+    .popover{
+      position: absolute;
+    }
+  }
+}
+body.employees.complete_hiring{
+  #invite-employee-email-template{
+    .modal-body{
+      overflow: hidden;
+    }
+  }
+}
+.employees.sign_offer_letter{
+  .scrollbar-container.hire-contractors{
+        height: 422px !important;
+        box-shadow: none;
+        border: 1px solid #cbcbcb;
+       padding: 35px 15px;
+    .jspContainer,
+    .jspPane,
+    iframe.pdf_blocks,
+    .scrollbar{
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  .signature-box-container{
+    .sigPad,
+    .signature-box,
+    .checkbox{
+      width: 100%;
+      max-width: 100%;
+
+    }
+    .field-box{
+      width: 83% !important;
+      height: 79px !important;
+    }
+  }
+  .field-content{
+    padding-top: 0;
+    overflow: hidden;
+  }
+  .tab-content{
+    padding-bottom: 35px;
+  }
+
+}

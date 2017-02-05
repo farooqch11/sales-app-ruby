@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     if current_user.is_owner?
       true
     else
-      false
+      redirect_to :dashboard_index_path , notice: "Access Denied"
     end
   end
 

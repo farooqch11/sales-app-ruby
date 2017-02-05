@@ -18,8 +18,23 @@ module ConfigurationHelper
                                             xAxisname: xAxis,
                                             yAxisName: "Amount (#{current_company.currency})",
                                             numberPrefix: current_company.currency,
-                                            theme: "fint",
                                             exportEnabled: "1",
+                                            "bgColor": "#ffffff",
+                                            "borderAlpha": "20",
+                                            "canvasBorderAlpha": "0",
+                                            "usePlotGradientColor": "0",
+                                            "plotBorderAlpha": "10",
+                                            "placevaluesInside": "1",
+                                            "rotatevalues": "1",
+                                            "valueFontColor": "#ffffff",
+                                            "showXAxisLine": "1",
+                                            "xAxisLineColor": "#999999",
+                                            "divlineColor": "#999999",
+                                            "divLineDashed": "1",
+                                            "showAlternateHGridColor": "0",
+                                            "subcaptionFontBold": "0",
+                                            "subcaptionFontSize": "14",
+                                            "theme": "fint"
                                         },
                                         categories: [
                                             {
@@ -28,7 +43,7 @@ module ConfigurationHelper
                                         ],
                                         "dataset": [
                                             {
-                                                "seriesname": "Sale",
+                                                "seriesname": "Sales",
                                                 "data": sales_data
                                             },
                                             {
@@ -55,8 +70,9 @@ module ConfigurationHelper
         profit_data   = []
         xAxis         = month.strftime('%B %Y')
         (month.beginning_of_month..month.end_of_month).each_with_index do |day , index|
-            category.push(Hash["label" , day.strftime('%d')])
-            sales_data.push(Hash["value" , sales.total_on(day , day).to_f])
+            t_sale = sales.total_on(day , day).to_f
+            category.push(Hash["label" , day.strftime('%d') , "value" , t_sale])
+            sales_data.push(Hash["value" , t_sale])
             profit_data.push(Hash["value" , sales.total_profit(day , day).to_f])
             expenses_data.push(Hash["value" , expense.total_on(day , day).to_f ])
 
@@ -75,8 +91,9 @@ module ConfigurationHelper
 
             date_s = month.beginning_of_month
             date_e = month.end_of_month
-            category.push(Hash["label" , month.strftime('%b %y')])
-            sales_data.push(Hash["value" , sales.total_on(date_s , date_e).to_f])
+            t_sale = sales.total_on(date_s , date_e).to_f
+            category.push(Hash["label" , month.strftime('%b %y') , "value" , t_sale])
+            sales_data.push(Hash["value" , t_sale])
             profit_data.push(Hash["value" , sales.total_profit(date_s , date_e).to_f])
             expenses_data.push(Hash["value" , expense.total_on(date_s, date_e).to_f ])
             month += 1.month

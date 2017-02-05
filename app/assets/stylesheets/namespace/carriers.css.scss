@@ -1,0 +1,568 @@
+@import "variables.scss";
+
+body.carriers,
+body.enrollment_kits {
+  .content-list li {
+    margin-bottom: 14px;
+  }
+
+  .file-upload{
+    border: none!important;
+    margin: 0!important;
+    padding: 0!important;
+    background-color: white!important;
+    overflow: visible!important;
+  }
+
+ .uploaded {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90px;
+  }
+
+  .rm-btn{
+    color: #333;
+  }
+
+  .upload-info-btn{
+    margin-left: 25px;
+  }
+
+  .no_padding{
+    padding-left: 0px;
+  }
+  .upload-info-btn{
+    width: auto;
+    margin-left: 0px;
+  }
+
+  .icon-delete{
+    background-size: 10px 15px;
+    width: 10px;
+    height: 15px;
+  }
+  .logo-upload.logo-block{
+    max-width: 130px;
+    min-width: 130px;
+    float: left;
+    img{
+      width: 100%;
+    }
+  }
+  .logo-upload{
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    padding: 0px 0px;
+    padding: 7px 8px !important;
+    p{
+      margin-bottom: 0px;
+    }
+    img{
+      display: block;
+      max-width:230px;
+      max-height:95px;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .product_type_label{
+    margin-right: 8%;
+    text-align: center;
+  }
+  .action-buttons{
+    margin-top: 1%;
+    .file-upload > span{
+      top: -1px;
+    }
+  }
+
+  .carrier-files .form-control{
+    background: none;
+    height: 25px;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: rgba(0.1, 0.1, 0.1, 0.1) 1px 1px 2px 2px;
+    border-top: 3px;
+    border-right: none;
+    border-left: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    box-shadow: rgba(0.1, 0.1, 0.1, 0.1) 1px 1px 2px 2px;
+    -moz-box-shadow: rgba(0.1, 0.1, 0.1, 0.1) 1px 1px 2px 2px;
+  }
+
+  .file-uploaded-name{
+    clear: both;
+    font-size: 12px;
+    margin-left: 12px;
+  }
+  .span-rm{
+    margin-top: 4px;
+  }
+  .file-uploaded-name{
+    font-size: 12px;
+    margin-left: 12px;
+    width: 70%;
+    position: relative;
+    top: -10px;
+  }
+  .remove_employee_form,.remove_employer_form{
+    width: 33px;
+    height: 24px;
+    margin-top: 2px;
+  }
+  .remove_contact{
+    margin-top: 8px;
+  }
+  .file-uploaded-name a{
+    color: #3A526F;
+    &:hover{
+      color: #5F7A9A;
+    }
+  }
+  .product-type-check{
+    .icheckbox{
+      bottom: 2px
+    }
+  }
+   .sidemenu .icon {
+    top: none;
+  }
+  .dashboard_loader_icon {
+    background-color: #fff;
+    width: 22px;
+    position: absolute;
+    z-index: 5;
+    top: 8px;
+    left: 8px;
+  }
+  .dashboard_loader_icon {
+    background-color: #fff;
+    width: 22px;
+    position: absolute;
+    z-index: 5;
+    top: 8px;
+    left: 8px;
+  }
+  .loader-select-area{
+    position: relative;
+    display: inline-block;
+    .dashboard_loader_icon{
+      width: 50px;
+    }
+  }
+   .search-box{
+      .input-group{ 
+      .dashboard_loader_icon{
+        background: #eef3f4 !important;
+      }
+      }
+    }
+    #add_plans{
+        .icon-plus{
+          height: 23px;
+        }
+      .icon{
+        top:0;
+      }
+    }
+    .file_forms_div{
+      .upload-info-btn_link{
+        .remove_link,
+        .file-upload{
+          color: $main-color;
+          padding:0 5px !important;
+          float: left;
+        }
+
+      }
+    }
+    .upload-info-btn_link{
+      .file-upload,
+      div{
+        color: $main-color !important;
+        padding:0 5px !important;
+        font-size: 16px !important;
+        font-family: dinregular !important;
+        float: left;
+      }
+  }
+}
+.carriers.edit{
+  #edit-carrier-plan{
+    .select2-container--default .select2-selection--multiple,
+    .select2-container--default .select2-selection--single{
+      border: 1px solid #dadada !important;
+      border-radius: 0 !important;
+      min-height: 35px;
+      .select2-selection__rendered {
+        line-height: 33px;
+      }
+    }
+  }
+  .tabin_tab_sec .vertical-tab {
+    .nav-tabs > li > a {
+      label{
+        margin-top: 0;        
+      }
+    }
+  }
+  .table{
+    font-size: 14px;
+    font-family: din;
+    font-weight: normal;
+    thead {
+      th{
+      font-weight: normal;
+      }
+    }
+  }
+  .tab-content.tab-content-inner{
+    overflow: inherit;
+    .bg-holder {
+      background: rgba(212, 211, 211, 0.1);
+      border-radius: 6px;
+    }
+    .note-block{
+      .notes-content{
+        .form-group {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .remove_plan span {
+    margin: 0;
+  }
+}
+.enrollment_kits.add_custom_carriers,
+.carriers.index {
+  .customize-box .tree-box .tree-block a.custom_carrier_name {
+    font-weight: 600;
+  }
+  .carrier_filter_drop_down_area {
+    .select2.select2-container {
+      width: 250px !important;
+    }
+  }
+  .customize-box .tree-box .tree-block a {
+    color: #52667e;
+  }
+  .customize-box .tree-box .tree-block a span {
+    color: #64c1d0;
+  }
+  .customize-box .tree-box .tree-block a.delete-btn {
+    color: white;
+  }
+  .customize-box .tree-box .tree-block .fa-angle-down:hover {
+    cursor: pointer;
+  }
+  .customize-box{
+    .search-box{
+      .input-group-btn:last-child>.btn-lg{
+          padding: 8px 12px 7px 12px !important;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+      }
+    }
+    .form-control.search-input{
+          max-width: 268px !important;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+
+    }
+  }
+}
+body.enrollment_kits {
+  .icon{
+    top: 4px;
+  }
+}
+
+body.carriers.index{
+  #carrier-filter-form{
+    .filter-block{
+      .carrier_filter_drop_down_area{
+        .select2.select2-container.select2-container--default,
+        .form-control{
+          font-family: 'din';
+          font-size: 16px;
+          option {
+            color: #52667e;
+          }
+        }
+      }
+    }
+  }
+  .loader-positioning {
+    position: absolute;
+    left: 16%;
+    z-index: 5;
+    bottom: auto;
+  }
+  .icon-plan-sharing {
+    background-size: 18px 20px;
+    width: 18px;
+    height: 20px;
+  }
+  .filter-block{
+    .select2-container--default .select2-selection--single{
+      margin-bottom: 7px;
+  }
+  .carrier_filter_drop_down_area{
+    .form-control{
+      min-width: 250px;
+      background-color: #fff;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      max-width: 250px;
+      color: #444;
+      height: 29px;
+      padding: 2px 5px;
+      font-family: inherit;
+    }
+  }
+  }
+  .carrier_action_column{
+    padding: 3px;
+    .pr5{
+      padding-right: 3px !important;
+    }
+  }
+  
+}
+.new, .edit{
+  .media.media-mobile{
+    .upload-box{
+      float: left;
+    }
+    .upload-box-btn{
+      float: left;
+      padding: 27px 15px;
+      text-align: center;
+      a{
+        display: block;
+        margin: 5px 0;
+        font-size: 12px;
+      }
+    }
+    .logo-upload{
+      min-width: 130px;
+      min-height: 120px;
+    }
+  }
+  .btn-upload .icon{
+    top: 4px;
+  }
+  .pull-up{
+    top: -15px;
+  }
+  .btn-add-block{
+    background: #fff;
+    overflow: hidden;
+    padding: 0 20px 20px;
+  }
+  .no_contact_form{
+    .form-horizontal{
+      .form-group{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.carriers.new,
+.carriers.edit,
+.carriers.create,
+.carriers.duplicate,
+.carriers.update  {
+  .select2-wraper-single-select {
+    .select2.select2-container, 
+    .select2-selection--single,
+    .select2-selection--multiple,
+    .select2-selection__rendered,
+    .select2-selection__rendered,
+    .select2-selection--multiple {
+      height: auto !important;
+    }
+  }
+  .plan_forms_edit_actions.health_plan{
+    padding-top: 30px;
+  }
+  .carrier_plan .row {
+    margin-bottom: 10px;
+  }
+  .group_size_input_area {
+    label {
+      display: block;
+    }
+    .select2.select2-container {
+      width: 347px !important;
+    }
+  }
+  .group_size_custom_field {
+
+  }
+  .select2-selection__rendered {
+    font-family: dinregular;
+    font-size: 14px;  
+  }
+  .carrier_top_action_btn {
+    font-size: 14px;
+    padding: 12px 28px;
+    margin-right: 4px;
+  }
+  .employer_form_bulk_btn {
+    margin-right: 5px;
+  }
+  .validate_plans_file {
+    margin-top: 0;
+  }
+  .carrier-plans-table{
+    .carrier_plan{      
+    .select2-container{
+      .select2-selection--multiple,
+      .select2-selection--single{
+        background-color: #fff;
+        border: 1px solid #dadada;
+        border-radius: 0;
+        height: 40px;
+        padding: 4px 0;
+        color: #52667e;
+        margin-top: -2px;
+        .select2-selection__arrow {
+          b{
+            top: 60%;
+          }
+        }
+      }
+    }
+      .carrier_health_plans_custom_group_size{
+        .control-label{
+          margin-bottom: 3px;
+        }
+      }
+      label{
+        line-height: 22px;
+      }
+      .form-control{
+        height: 40px !important;
+      }
+    }
+     .carrier_plan {
+      .icons{
+        margin: 38px 14px 0 0;
+        display: inline-block;
+      }
+      .col-sm-4{
+        min-height: 70px;
+        margin-bottom: 15px;
+      }
+      .group_size_input_area{
+        .select2.select2-container.select2-container--default{
+          width: 100% !important;
+        }
+      }
+    }
+  }
+  #contacts{
+    .fields{
+      overflow: hidden;
+      width: 100%;
+      hr{
+        width: 50%;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+.btn-right-block{
+  .btn-edits{
+    margin-left:10px;
+  }
+}
+.icon-block{
+  display: inline-block;
+  a{
+    img{
+      margin-top: -10px;
+    }
+  }
+}
+.nested-fields{
+  .field_error{
+    font-family: din;
+    font-size: 14px;
+    color: red;
+  }
+}
+.carriers.show{
+  .SettingupEnrollment{
+    .no_employer_form{
+      table{
+        tr{
+          td{
+            width: 20%;
+          }
+          td:last-child{
+            width: 250px;
+            a{
+              width: 250px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .carrier-logo{
+    width: 200px;
+    max-height: 120px;
+    height: auto;
+  }
+}
+.carriers.edit{
+  .carrier_plan{
+    .icons{
+      margin: 0 5px;
+      font-size: 20px;
+      i{
+        cursor: pointer;
+      }
+    }
+  }
+  .select2-wraper-single-select{
+    label{
+      margin-bottom: 3px;
+    }
+    .select2-container--default{
+      .select2-selection--multiple {
+          background-color: white;
+          border: 1px solid #dadada !important;
+          border-radius: 0 !important;
+          cursor: text;
+          height: 35px;
+      }
+      .select2-selection--single {
+      width: 100% !important;
+      background: #fff !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      height: 33px;
+      .select2-selection__rendered{
+         height: 33px;
+      }
+    }
+     .select2-selection--multiple{
+
+     }  
+    } 
+  }
+  .select2.select2-container.select2-container--default{
+    width: 100% !important;
+  }
+}

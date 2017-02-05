@@ -1,0 +1,105 @@
+<%= wicked_pdf_stylesheet_link_tag 'application_pdf' %>
+<%= wicked_pdf_stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Raleway:400,100,600,700,900' %>
+<style>
+    .page-break { display:block; clear:both; page-break-after:always; }
+    table, body { background-color: white;margin-bottom: 0px!important; }
+    tr, td,th, table { border: 0px;   }
+    .text-justify {text-align: justify;}
+</style>
+<div class='container health_plan_pdf dental_plan_pdf'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class='center'>
+        <%= wicked_pdf_image_tag('logo.png', width: 200, height: 'auto',class: 'distributor-header-nextagency-logo') %>
+        <h4>
+          Commission Statement for
+        </h4>
+        <h4>
+        </h4>
+        <h5>
+        </h5>
+        <h4>
+        </h4>
+        <h4>
+        </h4>
+        <h4 style='float: left;'>
+        </h4>
+        <div class='proposalplan'>
+          <div class='info_block'>
+            <div class='table-responsive'>
+              <table class='new-table'>
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Tax</th>
+                  <th>Discount</th>
+                  <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% total_amount = 0.0 %>
+                <% total_tax = 0.0 %>
+                <% total_discount = 0.0 %>
+                <% total = 0.0 %>
+                <% @sales.each do |sale| %>
+                <tr>
+                  <td>
+                    <%= sale.id%>
+                  </td>
+                  <td>
+                    <%= sale.created_at%>
+                  </td>
+                  <td>
+                    <%= number_to_currency(sale.amount) %>
+                    <% total_amount += sale.amount %>
+                  </td>
+                  <td>
+                    <%= number_to_currency(sale.tax) %>
+                    <% total_tax += sale.tax %>
+                  </td>
+                  <td>
+                    <% discount = sale.discount.nil? ? 0.0 : sale.get_discounted_amount%>
+                    <%= number_to_currency(discount) %>
+                    <% total_discount += discount %>
+                  </td>
+                  <td>
+                    <%= number_to_currency(sale.total_amount) %>
+                    <% total += sale.total_amount %>
+                  </td>
+                </tr>
+                <% end %>
+                <tr>
+                  <td>
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                    <%= number_to_currency(total_amount) %>
+                  </td>
+                  <td>
+                    <%= number_to_currency(total_tax) %>
+                  </td>
+                  <td>
+                    <%= number_to_currency(total_discount) %>
+                  </td>
+                  <td>
+                    <%= number_to_currency(total) %>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!--<h4 class='text-justify'>-->
+          <!--Your total commissions for this month have been deposited in the bank account you have on record with NextAgency.  To view your evangelist account, please click-->
+          <!--<a>here</a>-->
+          <!--<a href='commissions@nextagency.com'>commissions@nextagency.com</a>-->
+          <!--<a href='feedback@nextagency.com'>feedback@nextagency.com</a>-->
+        <!--</h4>-->
+      </div>
+    </div>
+  </div>
+</div>

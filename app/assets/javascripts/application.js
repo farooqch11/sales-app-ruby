@@ -42,12 +42,12 @@
 //= require daterangepicker/moment
 //= require daterangepicker/daterangepicker
 //= require combodate/combodate
-
 //= require main
 //= require easyResponsiveTabs
 //= require flash
 //= require data-confirm-modal
 //= require finance
+//= require reports
 
 (function($) {
     $.fn.equalHeights = function() {

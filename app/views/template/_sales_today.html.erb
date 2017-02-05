@@ -4,7 +4,8 @@
       <table class="table table-striped m-b-none">
         <thead>
             <tr>
-                <th>Date</th>
+                <th><%= sort_link(@search, :created_at, "Date") %></th>
+                <th>Location</th>
                 <th>Customer</th>
                 <th>Total</th>
                 <th>Tax</th>
@@ -17,12 +18,13 @@
             <% sales.each do |sale| %>
                 <tr>
                   <td><%= sale.created_at.strftime("%m/%d/%Y %I:%M%p") %></td>
+                  <td><%= sale.location.name %></td>
                   <td><%= sale.customer.present? ? sale.customer.full_name : "--" %></td>
                   <td><%= number_to_currency(sale.amount.nil? ? 0 : sale.amount  ) %></td>
                   <td><%= number_to_currency(sale.tax) %></td>
                   <td><%= number_to_currency(sale.discount.nil? ? 0 : sale.get_discounted_amount  )%></td>
                   <td><%= number_to_currency(sale.total_amount) %></td>
-                  <td><%= sale.payments.last.payment_type.humanize %></td>
+                  <td><%#= sale.payments.last.payment_type.humanize %></td>
                 </tr>
             <% end %>
         </tbody>

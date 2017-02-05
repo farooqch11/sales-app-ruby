@@ -1,0 +1,70 @@
+.timesheets.index {
+  .headingtop h2 {
+    padding: 20px 30px;
+  }
+  .dashboard_top {
+    padding: 0;
+  }
+  .chart-title{
+    .dropdown.dropdown-chart{
+      overflow: hidden;
+      p{
+        margin-top: 10px;
+      }
+    }
+  }
+  .date-ranger-block{
+    position: relative;
+    float: left;
+    width: 200px;
+    input{
+      background-color: #dee4e5;
+      border-radius: 6px;
+      color: #777777;
+      padding: 5px;
+      -moz-box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+    .caret{
+      position: absolute;
+      right: 5px;
+      top: 18px;
+    }
+  }
+}
+.timesheets.show{
+  .timesheet_history{
+    background: #fff;
+    padding: 15px;
+    margin-top: 25px;
+  }
+  .date-label {
+    display: block;
+    font-size: 18px;
+    margin: 11px;
+    color: #36a0b2;
+    font-family: dinregular;
+    font-weight: bold;
+  }
+
+  .bg-success, .bg-danger, .bg-warning, .bg-info{
+    color: #fff !important;
+    max-width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    margin: 20px auto !important;
+    border-radius: 4px;
+  }
+  .aprove_timesheet_btn {
+    padding: 8px 15px 9px 15px;
+    font-size: 14px;
+  }
+  .add_attendance_btn {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+.dinregular-font{
+  font-family: dinregular;
+}

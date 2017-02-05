@@ -24,5 +24,6 @@ class Address < ActiveRecord::Base
     return "#{city}, #{country}" if city && country
     return "#{state}, #{country}" if state && country
     return "#{country}" if country
+    return ''
   end
 end

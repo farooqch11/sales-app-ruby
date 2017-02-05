@@ -127,7 +127,6 @@ $(document).ready(function(){
 	var sale_id = $('#search_sale_id')[0];
 	  Awesomplete.$.bind(input, {
 		  "awesomplete-selectcomplete": function(evt) {
-              alert(input);
 		   $.ajax({
 		      type: "GET",
 		      url: '/sales/create_line_item', //sumbits it to the given url of the form

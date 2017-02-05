@@ -1,0 +1,326 @@
+.file_forms.index {
+
+  .headingtop h2 {
+    padding: 20px 30px;
+  }
+  .dashboard_top {
+    padding: 0;
+  }
+
+  .business_submission_list,
+  .download-link {
+    color: #63cbd8;
+    font-size: large;
+    margin: 0 5px 0 5px;
+  }
+  .add_new_attachment {
+    margin-top: 17px;
+  }
+  .edit_file_form,
+  #new_file_form {
+
+    .select_field_names {
+      margin-top: 15px;
+    }
+
+  }
+  .add-employee-popup.modal-dialog.popup-container .title-filter {
+    overflow:hidden;
+    h3{
+      margin-bottom: 15px;
+      font-size: 21px;
+    }
+  }
+  .file_form_response_employee_list .acknowledged_color_file_form {
+    color: #84c341;
+  }
+
+  .newest_employees_contant .table th,
+  .newest_employees_contant .table td {
+    text-align: left;
+  }
+  .newest_employees_contant .table th.action_block,
+  .newest_employees_contant .table td.action_block {
+    text-align: right !important;
+  }
+  .table.table-striped td.action_block  img {
+    margin: 0 0 0 5px;
+  }
+  .file_form_deletion_modal,
+  .file_form_submission_list {
+    text-align: left;
+  }
+  .send_to_employees_checkboxes_modal .modal-body {
+    overflow: hidden;
+  }
+  .sent_to_employees_section{
+    .dl-horizontal.choose-panel{
+      overflow: hidden;
+      float: left;
+      padding-right: 15px;
+    }
+  }
+  .sent_to_employees_modal_link {
+    background: transparent;
+    border: 0px;
+  }
+  #create_folder_modal {
+    .new_folder_footer {
+      .modal-footer {
+        padding: 15px 15px 0 ;
+      }
+    }
+  }
+
+  #list_employees_to_send {
+    .modal-footer {
+      padding-bottom: 0;
+    }
+  }
+  .newest_employees_contant .table th {
+    min-width: auto;
+  }
+  .highlight_file {
+    border: 2px solid #36a0b2;
+  }
+  .send_to_employees_icon_size {
+    height: 18px;
+    width: 30px;
+    margin-bottom: 5px;
+  }
+  #followup-inputs-prospect {
+    width: 100%;
+    cursor: pointer;
+    background-color: #D3D3D3;
+    background: #fff;
+    cursor: pointer;
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    .checkbox-list li {
+      min-width: 100%;
+    }
+  }
+  .list_of_attached_files{
+    .file-name{
+      i{
+        font-size: 6px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .ui-widget-header{
+    border:0;
+    background:transparent;
+    font-weight: normal;
+        font-family: "Montserrat", sans-serif;
+            color: #52667e;
+  }
+    table.ui-datepicker-calendar{
+      tr{
+        td{
+          a.ui-state-default{
+            border: 0;
+            background: transparent;
+            font-weight: normal;
+            color: inherit;
+            font-weight: normal;
+            text-align: center;
+            padding:6px !important;
+                font-family: "Montserrat", sans-serif;
+
+          }
+          &:hover{
+            background: #eeeeee;
+            cursor: pointer;
+          }
+        }
+      }
+      .ui-state-active{
+        background-color: #337ab7 !important;
+        color: #fff !important;
+        padding:6px !important;
+
+          border-radius: 5px !important;
+      
+      }
+    }
+  #create_a_new_tab { 
+    form {
+      overflow: inherit;
+    }
+    label#file_form_type_name-error {
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      z-index: 999;
+    }
+    .ladda-submit-button.ladda-button[data-style=expand-right][data-loading] {
+      padding-right: 56px !important;
+    }
+  }
+}
+.file_forms.edit,
+.file_forms.new {
+  #all_terminated_employees_checkboxes dt{
+    width: 100%;
+  }
+  .business_file_textarea_div {
+    margin-bottom: 25px;
+    textarea {
+      height: 80px;
+    }
+  }
+  .attachment_area {
+    margin-top: 10px;
+  }
+  // span.labal {
+  //   line-height: 2.60;
+  // }
+  .checkbox {
+    margin-left: 1px;
+  }
+  #new_file_form_div {
+    padding: 15px;
+  }
+  .sent_to_employees_width {
+    width: auto;
+  }
+  #who_they_can_ask_div,
+  #all_employees_checkboxes,
+  #all_terminated_employees_checkboxes {
+    display: none;
+  }
+  .sent_to_all_employees_checkbox {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  .file_form_submit_button{
+    font-size: 16px;
+    padding: 3px 90px;
+  }
+  .file_picker input {
+    position: absolute;
+    left: 15px;
+    width: 63%;
+    top: 0;
+    height: 35px;
+  }
+  .file_picker {
+    padding: 0px;
+  }
+  .file_picker .btn {
+    margin: 0;
+    width: 150px;
+    float: right;
+  }
+  .file_picker {
+    position: relative;
+  }
+  #file_form_url-error {
+    margin: 37px 0 0 17px;
+  }
+  .sent_to_employees_section{
+    .dl-horizontal.choose-panel{
+      overflow: hidden;
+      float: left;
+      padding-right: 15px;
+    }
+  }
+}
+.employees.file_forms {
+  .file_form_response_upload {
+    text-align: left;
+  }
+  .simple_form.file_form_response_form{
+    .attachment_area{
+      padding: 15% 0 5% 35%;
+    }
+    .acknowledge_area{
+      padding: 0 0 80px 20%;
+    }
+  }
+  .newest_employees_contant .table th.action_block,
+  .newest_employees_contant .table td.action_block {
+    text-align:right !important;
+  }
+  .newest_employees_contant .table th,
+  .newest_employees_contant .table td {
+    text-align: left;
+  }
+  .table.table-striped td.action_block  img {
+    margin: 0 0 0 5px;
+  }
+
+  .dashboard_top{
+    padding: 0 8px;
+  }
+  .upload-link,
+  .download-link {
+    color: #63cbd8;
+    font-size: large;
+    margin: 0 5px 0 5px;
+  }
+  .dl-horizontal dt {
+    width: 100%;
+    margin-top: 10px;
+    span.acknowledgement_bit {
+      line-height: 2.4;
+    }
+  }
+  .is_acknowledge_bit_for_response_error {
+    color: red;
+  }
+  .add-employee-popup.modal-dialog.popup-container .title-filter {
+    overflow:hidden;
+    h3{
+      margin-bottom: 15px;
+      font-size: 21px;
+    }
+  }
+}
+.file_forms{
+  .accout-setting{
+    background: #fff;
+  }
+  .dashboard_title.title-employees span{
+    display: inline-block;
+  }
+  .accordion_block{
+    .panel-heading{
+      .panel-title{
+        .select_field_names{
+          position: absolute;
+          left: 25px;
+          .offer-checkb{
+            overflow: inherit;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.file_forms.new{
+  .file_form_type_select_box{
+    text-transform: none !important;
+  }
+}
+.file_forms.index #file_form_div .table td{
+  font-size: 14px;
+  color: #52667e;
+  font-family: din;
+  font-weight: normal;
+  i{
+    font-size: 20px;
+    margin: 0 5px 0 5px;
+  }
+}
+.file_forms.index #file_form_div{
+  .table th.icon_action,
+  .table td.icon_action{
+   text-align:right !important;
+   img{
+    margin-top: -6px;
+  }
+}
+}

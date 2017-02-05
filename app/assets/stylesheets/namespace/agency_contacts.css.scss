@@ -1,0 +1,35 @@
+.agency_contacts.index {
+  .modal-content .modal-body {
+    overflow: hidden;
+  }
+  .agency_contacts_table th {
+    position: relative;
+  }
+  .action_btns {
+    padding: 6px 15px !important;
+    line-height: 16px !important;
+  }
+  .dataTables_filter {
+    display: none;
+  }
+  .action {
+    text-align: right;
+    span.fa {
+      font-size: 19px;
+    }
+  }
+  #data_table_dummy_search_remove_icon {
+    display: none;
+    position: absolute;
+    top: 29px;
+    right: 43px;
+  }
+  .table-authorized tbody tr td:nth-child(2),
+  .table-authorized tbody tr td:first-child{
+    width: 120px;
+    word-break: break-all;
+  }
+  .table-authorized tbody tr td:nth-child(3){
+    width: 170px;
+  }
+}

@@ -1,0 +1,10 @@
+.modal.fade{id: location.new_record? ? 'new_location' : "edit_location_#{location.slug}"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title
+          %b #{location.new_record? ? 'New Location' : 'Edit Location'}
+      .modal-body
+        = render 'locations/partials/form' , location: location
+

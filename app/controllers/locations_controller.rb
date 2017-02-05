@@ -3,39 +3,30 @@ class LocationsController < ApplicationController
   #BreadCrumbs
   add_breadcrumb "LOCATIONS", "#" , options: { title: "LOCATIONS"}
 
-
-  # GET /locations
-  # GET /locations.json
   def index
-    @locations = current_company.locations.published.paginate(page: params[:page], per_page: 20)
+    @search   =  current_company.locations.published.search(params[:q])
+    @locations = @search.result.includes(:address , :company).paginate(page: params[:page], per_page: 20) || []
   end
 
-  # GET /locations/1
-  # GET /locations/1.json
   def show
-    add_breadcrumb  @location.full_address, "#" , options: { title: "NEW LOCATION"}
   end
 
-  # GET /locations/new
   def new
     add_breadcrumb "NEW", new_location_path , options: { title: "NEW LOCATION"}
     @location = current_company.locations.new
     @location.build_address
   end
 
-  # GET /locations/1/edit
   def edit
     add_breadcrumb  @location.full_address, edit_location_path(@location) , options: { title: "EDIT LOCATION"}
   end
 
-  # POST /locations
-  # POST /locations.json
   def create
     @location = current_company.locations.new(location_params)
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to new_location_path , notice: 'Location was successfully created.' }
+        format.html { redirect_to locations_path , notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -49,7 +40,7 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to locations_path, notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
@@ -72,7 +63,7 @@ class LocationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = current_company.locations.published.find_by_id(params[:id])
+      @location = current_company.locations.published.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

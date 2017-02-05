@@ -34,15 +34,15 @@ class Item < ActiveRecord::Base
 
 	validates_uniqueness_of :sku, scope: [:company_id , :sku]
 	validates_uniqueness_of :name, scope: [:company_id , :name]
-	validate :image_size_validation
+	# validate :image_size_validation
 
 	scope :published , -> {where(published: true)}
 	scope :search_by_name , lambda { |name| where('name LIKE ? OR description LIKE ? OR sku LIKE ? ', "%#{name}%", "%#{name}%", "%#{name}%")}
 	scope :search_by_category , lambda { |name| where(item_category_id: name)}
 	scope	:recent , -> {order('items.created_at desc')}
-	private
-	def image_size_validation
-		errors[:photo] << "should be less than 500KB" if photo.size > 0.5.megabytes
-	end
+	# private
+	# def image_size_validation
+	# 	errors[:photo] << "should be less than 500KB" if photo.size > 0.5.megabytes
+	# end
 
 end

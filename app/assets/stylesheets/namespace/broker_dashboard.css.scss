@@ -1,0 +1,136 @@
+.accounts.dashboard {
+  padding-left: 90px !important;
+}
+.checkbox-list{
+  overflow:hidden;
+}
+.checkbox-list .checkbox label{
+  line-height: 19px;
+  font-size: 15px;
+}
+label.replace_check{
+  line-height: 23px;
+}
+.profile-list .signature{
+  float: left;
+}
+@media only screen and (max-width : 1260px){
+  .accounts.dashboard {
+    padding-left: 90px;
+  }
+}
+.accounts .filter-head .filter-options {
+  float: right;
+}
+.accounts.dashboard .main-top {
+  padding-top: 0px;
+}
+.accounts.dashboard .main-top .search-box .input-lg {
+    height: 36px;
+}
+.accounts.dashboard .main-top .btn-lg{
+  padding: 4px 15px !important;
+}
+.accounts.dashboard .main-top .search-box .btn.btn-lg{
+      padding: 6px 15px 7px !important;
+      height: 36px !important;
+}
+.accounts.dashboard .main-top .search-box .btn.btn-lg {
+  padding: 6px 26px 5px !important;
+}
+.accounts.dashboard .main-top .nav-tabs a{
+      padding: 4px 18px 7px 18px !important;
+}
+.accounts.dashboard .main {
+  padding: 15px 0 40px;
+}
+.accounts.dashboard .container,
+.accounts.dashboard .lg-container {
+  max-width: 100% !important;
+}
+.accounts.dashboard .container {
+  width: 100% !important;
+}
+.accounts.dashboard .navbar-header .navbar-brand h4 {
+  margin-left: 0;
+}
+.accounts.dashboard .quick form{
+  margin-bottom: 0px;
+}
+#filter-notify .alert{
+  width: 150px;
+  overflow: hidden;
+  padding: 5px;
+  float: left;
+  margin: 0 5px 10px;
+  text-align: center;
+}
+#filter-notify{
+  display: inline-block;
+  width: 100%;
+}
+.note-author{
+  font-size:11px !important;
+}
+.save_filter_error{
+  color: red !important;
+}
+.ml-7{
+  margin-left: 7px !important; 
+}
+.accounts.dashboard .member_list .edit-reps{
+  position: absolute;
+  top: 40%;
+  right: 5px;
+}
+.accounts.dashboard .member_list .fa-pencil-square-o,
+.accounts.dashboard .member_list .fa-plus-square-o{
+  font-size: 20px;
+  color: #526692 !important;
+}
+.accounts.dashboard .member_list .fa-plus-square-o{
+font-size: 22px;
+}
+.navbar-nav.navbar-right .dropdown-toggle img.mw30.user-pic {
+  height: 32px;
+  width: 32px;
+  margin: 12px 10px;
+}
+.navbar-nav{
+  padding:0;
+}
+.navbar-nav > li a.kit-pad{
+  padding: 27.5px 15px !important;
+}
+.navbar-nav > li a.msg-pad {
+    padding: 29.5px 15px !important;
+}
+.username .fa.fa-angle-down {
+    right: -6px;
+    top:2px;
+}
+.dropdown.user-menu .username{
+  line-height: 13px;
+  padding: 12px 0 0;
+}
+.dropdown-menu{
+      margin-top: 0px !important;
+}
+.navbar-right .user-menu .username {
+  color: #526692;
+}
+.navbar-header .navbar-brand {
+  p {
+    margin-bottom: 0; 
+  }
+  h4.navbar-brand-text {
+    margin-bottom: 5px;
+  }
+}
+.accounts.dashboard .main-top .container,
+.accounts.dashboard .main .container{ padding: 0}
+.navbar-header{ 
+  .navbar-brand.business_logo{
+    width: 100%;
+  }
+}

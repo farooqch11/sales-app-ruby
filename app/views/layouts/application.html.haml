@@ -1,0 +1,43 @@
+!!!
+%html.app
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "noindex", :name => "robots"}/
+    %meta{:content => "noindex", :name => "googlebot"}/
+    = favicon_link_tag 'favicon.ico'
+    %title= current_location.name
+    %meta{:content => "#{current_user.company_description}", :name => "description"}/
+    %meta{:content => "width=device-width; initial-scale=1.0;", :name => "viewport"}/
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag :application
+    = csrf_meta_tags
+    = yield :head
+  %body.lter.b-r
+    %section.vbox
+      - if user_signed_in?
+        = render 'template/menu'
+      %section
+        %section.hbox.stretch
+          = render 'template/left_aside'
+          %section#content
+            %section.hbox.stretch
+              %aside
+                %section.vbox
+                  = yield
+                  %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", :href => "#"}
+                  = render 'locations/partials/user_change_location' if current_user.locations.count > 1
+                  = render 'users/partials/change_password'
+                  .remote_container
+              = yield(:right_aside)
+          = filepicker_js_include_tag
+          = yield(:scripts)
+          :javascript
+            $(window).load(function() {
+                $('.footer').equalHeights();
+            });
+            $(window).resize(function(){
+                $('.footer').equalHeights();
+            });
+  = render 'template/flash_messages'

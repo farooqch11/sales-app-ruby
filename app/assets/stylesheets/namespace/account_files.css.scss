@@ -1,0 +1,468 @@
+// Account Files Index
+body.account_files.index {
+  .accout-setting{
+    #files_list_datatable{
+      .sorting_asc:after,
+      .sorting_desc:after{
+        top:20px;
+      }
+      .sorting:after{
+        padding-top: 1.1rem !important;
+      }
+    }
+  }
+  .grid-group-item{
+    .list-group-item-heading{
+      float: left;
+      font-size: 14px;
+    }
+    .list-group-item-text{
+      font-size: 14px;
+    }
+    .caption{
+      padding: 3px;
+      padding-top: 10px;
+    }
+    .pull-right{
+      float: left !important;
+      margin-top: 5px;
+    }
+  }
+  .grid-group-item:hover{
+    .visible-on-grid-hover{
+      width: 60%;
+    }
+  }
+  ul.def-list {
+    li {
+      margin-bottom: 8px;
+    }
+  }
+  .action-btns {
+    margin-top: 12px;
+  }
+  .file_type_area{
+    .file_action{
+      position: absolute;
+      top: 0;
+      right: -13px;
+    }
+    .file_type{
+      position: absolute;
+      top: 0;
+      right: 56px;
+    }
+  }
+  .file_type_area  .file_action ul li:before,
+  .file_type_area  .file_type ul li:before{
+      display: none;
+    }
+  .list-group{
+    margin: 0;
+  }
+  .list-group ul li{
+    padding-left:0;
+  }
+}
+body.account_files{
+  .action-buttons{
+    border-color: #F2F2F2;
+  }
+  .action-buttons:hover{
+    color: #000;
+  }
+  .btn-group-list{
+    color: #000;
+    border-color: #ccc;
+  }
+  .btn-group-list.active{
+    border-color: #8A8585;
+  }
+  .search-icon{
+    left: 13px;
+    position: absolute;
+    top: 13px;
+    z-index: 2147483647;
+  }
+  .search-field{
+    padding-left: 35px;
+  }
+  .search-button{
+    height: 34px;
+  }
+  .list-group-item-heading.hightlight{
+    width: 33%;
+  }
+  .theader .checkbox label {
+    color: #002047 !important;
+    font-size: 16px;
+    font-family: "dinbold";
+  }
+  .list-group-item-text{
+    padding-left: 52%;
+  }
+  .recent-view {
+    background: url(asset_path('folder1_navyblue.png')) 0px 3px no-repeat;
+    margin-top: 30px;
+    padding: 0 0 0 24px;
+  }
+
+  .green-text{
+    color: #7ad1a0;
+    font-size: 16px;
+    font-family: 'dinregular';
+    a{
+      text-decoration: none;
+    }
+  }
+  .item.list-group-item:nth-of-type(2n) {
+    background: none repeat scroll 0% 0% #F7F7F7;
+  }
+  .action-icons li img{
+    width: 13px;
+    height: 14px;
+  }
+
+  .main-folder-path{
+    a{
+      font-size: 12px;
+      color: #A3B6C7;
+      font-family: "montserratregular";
+      margin: 0px;
+      text-decoration: none;
+      margin-right: 5px !important;
+    }
+  }
+  .repo-rightside .breadcrumb .clip {
+    font-size: 12px;
+    color: #52667E;
+    font-family: "montserratregular";
+  }
+  .btn-filter{
+    color: #BAB4B4;
+  }
+  .main-folder-path-arrow:after{
+    color: #a2b6c6;
+    content: "";
+    font-family: fontawesome;
+    padding: 0 5px 0 3px;
+    font-size: 13px;
+  }
+
+  .breadcrumb-custom > li + li::before {
+    border-bottom: 0 solid transparent!important;
+    border-left: 0 solid #dadada!important;
+    border-top: 0 solid transparent!important;
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+  }
+  .breadcrumb .clip::before{
+    display: none;
+  }
+
+  .tree {
+    border: none;
+  }
+
+  .green-text a{
+    color: #52667E;
+  }
+
+  .repo-leftside{
+    margin-top: 30px;
+  }
+  .add-new-folder{
+    color: #002047;
+    text-decoration: none;
+  }
+  .file-name{
+    color: #002047;
+  }
+  .grid-group-item:hover .thumbnail p{
+    display: block;
+  }
+  .grid-group-item .custom-checkbox {
+    opacity: 1;
+    margin: 0 0 0 -4px;
+    padding: 0px;
+    background-color: transparent !important;
+  }
+}
+.account_files #products .item.list-group-item .thumbnail{
+  float: left;
+  width: 95%;
+}
+.grid-group-item{
+    .list-group-item-text{
+    padding-left: 0 !important;
+  }
+  .list-group-item-heading.hightlight{
+    width: 100% !important;
+  }
+  .visible-on-grid-hover{
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+  .visible-on-grid-hover{
+    display: block !important;
+  }
+  .grid-group-item .shared{
+    float: right !important;
+  }
+  .hightlight .file_size,
+  .shared.action-icons .small{
+    display: none !important;
+  }
+  .caption{
+       position: relative !important;
+  }
+  .shared.action-icons{
+    position:absolute !important;
+    top:12px !important;
+    right: 0 !important;
+  }
+}
+
+
+body.account_files .grid-group-item .custom-checkbox{
+  margin: 0;
+}
+.grid-group-item .custom-checkbox{
+      background-color: #52667e;
+    display: block;
+    left: 17px;
+    margin: 0;
+    opacity: 0;
+    padding: 5px 0 0 5px;
+    position: absolute;
+    top: 3px;
+    transition: all 0.5s ease 0s;
+    vertical-align: middle;
+    z-index: 9;
+}
+.account_files .popover{
+  
+  left: -32.125px !important;
+}
+.account_files .popover .arrow{
+  left: 20% !important;
+}
+.account_files .popover-content {
+  padding: 15px;
+}
+
+.desc-pading{
+  padding-left: 75px;
+}
+.modif-margin{
+  margin-right: -71px;
+}
+
+.new-margin-modif{
+  margin-right: -58px !important;
+}
+
+.act-margin{
+  margin-left: 50px !important;
+  margin-right: -6px !important;
+}
+
+.doctype{
+  margin-left: 18px;
+}
+.navcontainer{
+  display: inline-block;
+  margin-right: 75px;
+  float: right;
+}
+.navcontainer ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.navcontainer ul li {
+  list-style:outside none none;
+  margin-right:5px;
+  display: inline;
+}
+
+.file-delete-icon.fa{
+  font-size: 16px;
+  cursor: hand
+}
+
+.add-more-files-link{
+  margin-bottom: -10px;
+  display: inline-block;
+  padding-top:25px;
+}
+.grid-group-item{
+  .desc-pading{
+    padding: 0px;
+  }
+  .doctype{
+    margin-left: 0px;
+  }
+}
+.header_color{
+  color: #002047!important;
+}
+.header_file_name{
+  font-size: 16px !important;
+  font-family: dinregular !important;
+  color: #002047 !important;
+}
+
+body.account_files.index ,
+.account_files.archived_files,
+.account_files.folder {
+  .download-multi-selected-file-spinner{
+    margin-left: 40%;
+  }
+  .headingtop {
+    padding: 20px 23px;
+    overflow: hidden;
+  }
+  .dashboard_top {
+    padding: 0;
+  }
+  #content_for_account_files {
+    background-color: #FFF;
+    padding: 15px 25px;
+  }
+  .table.table-striped .checkbox.custom-checkbox{
+    display: inline;
+    float: left;
+    margin: 0 5px 0 0;
+  }
+  .repo-rightside {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .list_folders_list .thumbnail {
+    overflow: hidden;
+  }
+  .accordion_block {
+    .table {
+        margin-top: 25px;
+      tr {
+        font-size: 14px !important;
+        td,
+        th {
+          border-right: 0;
+          padding: 20px 10px;
+          .fa.fa-trash,
+          .fa.fa-download,
+          .fa.fa-trash-o,
+          .fa.fa-folder {
+            font-size: 24px;
+            margin: 0 5px;
+            color: #52667e;
+          }
+          .archive_link{
+            .fa.fa-archive{
+              font-size: 22px;
+              margin: 0 5px;
+              color: #52667e;   
+            }
+          }
+          .unarchive_link{
+            .fa.fa-check{
+              font-size: 24px;
+              margin: 0 5px;
+              color: #52667e;   
+            }
+          }
+        }
+        th:first-child label{
+          line-height: 1.5;
+        }
+      }
+      tbody{
+        tr{
+          &:hover{
+            background-color: #f9f9f9;
+          }
+          td:first-child{
+            max-width: 160px;
+            .turncate_to{
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 98%;
+            }
+            .file_name_file_repo {
+              line-height: 2.0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  #content_for_account_files{
+    .repo-rightside{
+      .breadcrumb .clip,
+      a{
+        font-size: 16px;
+        font-family: dinregular;
+      }
+    }
+    .list-inline{
+      .btn{
+        font-size: 14px;
+      }
+    }
+    .recent-view {
+      margin-left: 10px;
+    }
+  }
+  .search-bar {
+    position: relative;
+    .fa.fa-search{
+      position: absolute;
+      top: 10px;
+      z-index: 9;
+      left: 10px;
+      font-size: 16px;
+    }
+    .btn.btn-default{
+     min-height: 37px;
+    font-size: 16px;
+    font-family: dinregular;
+    }
+    .search-field{
+      font-size: 16px;
+    }
+  }
+  .repo-rightside .breadcrumb .clip,
+  .main-folder-path a {
+    font-size: 16px;
+  }
+  form.button_to {
+    margin: 0;
+  }
+}
+.account_files.index,
+.account_files.folder {
+  #products {
+    .fa.fa-pencil,
+    .fa-share-square{
+      font-size: 24px;
+       color: #52667e;
+    }
+    .unshare-icon {
+      font-size: 24spx;
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+      color: #52667e;
+    }
+  }
+  .system_folder.fa.fa-folder{
+    color: #C8D2DF !important;
+  }
+}

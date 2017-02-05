@@ -1,0 +1,27 @@
+body.employer_carrier_enrollments,
+body.employee_carrier_enrollments {
+  &.new{
+    .vertical-tab ul {
+      float: left;
+      li {
+        width: 100%;
+      }
+    }
+  }
+  .form-group{
+    p.help-block{
+      font-size: 12px;
+    }
+  }
+  .vertical-tab {
+    border-top: 1px solid #e1e1e1;
+  }
+}
+.enrollment_kits.finalize{
+  .tabin_tab_sec{
+    overflow: inherit !important;
+  }
+  .vertical-tab{
+    overflow: inherit !important;
+  }
+} 

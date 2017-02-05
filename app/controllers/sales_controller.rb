@@ -6,6 +6,7 @@ class SalesController < ApplicationController
   before_action :set_sale , except: [:index , :new , :issue_refund]
   before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :update_customer_options , :create_line_item]
   before_action :populate_customers , only: [ :edit]
+
   def index
     @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
   end
@@ -387,7 +388,7 @@ class SalesController < ApplicationController
   end
 
   def populate_items
-    @available_items = current_company.items.published.limit(5) || []
+    @available_items = current_company.items.published || []
   end
 
   def populate_customers

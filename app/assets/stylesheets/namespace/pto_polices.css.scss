@@ -1,0 +1,41 @@
+.pto_policies.index {
+  .add_policy {
+    padding: 8px;
+  }
+  .lable-head{
+    margin-bottom: 45px;
+  }
+  table tbody {
+    td.nothing_to_show {
+      text-align: center;
+    }
+    td {
+      text-align: left;
+      a {
+        color: #526692 !important;
+      }
+    }
+  }
+  #pto-approve_deny-table td:last-child {
+    min-width: 160px;
+  }
+  #add_pto_employee{
+    .tab-popup-img{
+      a{
+          padding: 7px 15px;
+        img{
+          width: 13px;
+        }
+      }
+    }
+    .modal-heading{
+      margin: 0 0 20px 15px !important;
+    }
+  }
+  .modal-dialog.modal-lg.modal-lg-l {
+      margin-top: 5%;
+  }
+}
+.custom-select{
+  width: 180px;
+}

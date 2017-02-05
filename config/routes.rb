@@ -124,8 +124,9 @@
 
 PushvendorPos::Application.routes.draw do
 
-
-  get "password/change", to: "passwords#edit" , as: :change_password
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
   # get 'configuration' , to: "configuration#edit" , as: :configuration
 
   # Active Admin Routes
@@ -134,11 +135,11 @@ PushvendorPos::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :expenses
-  resources :item_categories
+  resources :item_categories , concern: :paginatable
   resources :companies
   resources :configuration , only: [:edit , :update]
   resources :passwords , only: [:edit , :update]
-  resources :customers
+  resources :customers , concern: :paginatable
   resources :static , only: [:index]
   resources :line_items
   resources :locations
@@ -156,6 +157,7 @@ PushvendorPos::Application.routes.draw do
 
 
   resources :reports do
+    get 'page/:page', action: :sales, on: :collection
     collection do
       post :get_location_employees
       get 'total_report'
@@ -163,6 +165,7 @@ PushvendorPos::Application.routes.draw do
       get 'customer_report'
       get 'item_report'
       get :sales
+      post :sales
       get :inventory
       get :dead_inventory
     end
@@ -185,14 +188,15 @@ PushvendorPos::Application.routes.draw do
 
 
 
-  resources :items do
+  resources :items  do
+    get '(page/:page)', action: :index, on: :collection, as: ''
     get 'search'
     collection do
       get 'search'
     end
   end
 
-  resources :sales do
+  resources :sales , concern: :paginatable do
     member do
       get 'issue_refund'
       get 'invoice'
@@ -223,7 +227,7 @@ PushvendorPos::Application.routes.draw do
 
   # devise_for :users
   devise_for :users
-  resources :users do
+  resources :users , concern: :paginatable do
     collection do
       post 'new_user'
     end

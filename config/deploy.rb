@@ -21,6 +21,14 @@ namespace :deploy do
       end
     end
   end
+
+  desc "tail rails logs"
+  task :logs do
+    on roles(:app) do
+      execute "tail -f #{shared_path}/log/production.log"
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do

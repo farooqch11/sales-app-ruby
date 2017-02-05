@@ -1,0 +1,1495 @@
+@import 'mixins';
+
+//colors
+$white: #fff;
+$color_blue_bayoux_approx: #52667e;
+$color_cadet_blue_approx: #a3b6c7;
+$color_catskill_white_approx: #f2f6f7;
+$color_viking_approx: #64c1d0;
+$color_alabaster_approx: #fafcfc;
+$color_blue_chalk_approx: lavender;
+
+//fonts
+$font_0: 'montserratregular';
+$font_1: 'dinbold' !important;
+$font_2: 'dinbold';
+$font_3: 'dinregular';
+
+%extend_1 {
+  float: left!important;
+  position: absolute;
+  margin-left: 5px;
+  width: 35px;
+  height: 25px;
+}
+
+
+body.enrollment_kits{
+  .zip-btn span.badge{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-family: 'monospace';
+  }
+  .Employee_agreement{
+    .save_carrier_forms_form{
+      .new-checkbox.finalize-checkbox .fa{
+        font-size: 10px !important;
+        line-height: 10px !important;
+        top:0 !important;
+      }
+    }
+  }
+  .Visioninsur_box{
+    .image-holder{
+      min-height: 150px;
+      img{
+        width: 100px;
+        height: 75px;
+        display: block;
+        margin: 5px auto 15px;
+      }
+    }
+  }
+  .employer_form_header{
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    overflow: inherit;
+    h5{
+      margin: 0 0 15px;
+    }
+  }
+  background-color: $white;
+  .enroll-content {
+    h4 {
+      color: #a3b6c7;
+      font-size: 20px;
+    }
+    h1 {
+      text-align: left;
+    }
+    .center-block {
+      display: block;
+      float: left;
+      margin: 0 auto;
+    }
+    .panel-body .new-table {
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+      thead {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      }
+      td {
+        padding: 5px !important;
+      }
+      th {
+        &.form-name-th {
+          width: 520px;
+        }
+        &.border-none.form-name.form-name-action {
+          width: 130px;
+        }
+      }
+    }
+    h3.head-text span {
+      color: $color_cadet_blue_approx;
+      display: inline;
+      font-family: $font_0;
+      font-size: 24px;
+      padding-top: 7px;
+    }
+  }
+  .form-box {
+    background: $white;
+    padding: 15px;
+  }
+  .head-text {
+    font-family: $font_0;
+    color: $color_blue_bayoux_approx;
+    h3 span {
+      color: $color_cadet_blue_approx!important;
+    }
+  }
+  .head-2 {
+    font-size: 16px!important;
+    margin-top: 35px;
+    color: $color_cadet_blue_approx;
+  }
+  .input-content {
+    background: $color_catskill_white_approx none repeat scroll 0 0;
+    border-radius: 5px;
+    margin: 0 0 0 40px;
+    padding: 12px 0 60px;
+  }
+  .table1 {
+    .checkbox {
+      margin-bottom: 7px;
+      margin-top: 7px;
+    }
+    .radio {
+      margin-bottom: 7px;
+      margin-top: 7px;
+    }
+  }
+  .border-none {
+    border: medium none !important;
+    font-family: $font_1;
+    font-size: 16px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+  }
+  .label-color {
+    color: $color_blue_bayoux_approx !important;
+    display: block;
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+  .btn-editing {
+    color: $color_viking_approx;
+    background: $white;
+    font-family: $font_2;
+    font-size: 13px;
+    padding: 0 10px;
+    margin: 0 0 0 22px;
+    color: $color_blue_bayoux_approx;
+    span {
+      color: $color_blue_bayoux_approx;
+      background: $white;
+      font-family: $font_3;
+      font-size: 13px;
+    }
+  }
+  .panel-box {
+    border-color: $white;
+    padding: 15px;
+  }
+  .form-name {
+    color: $color_cadet_blue_approx;
+    font-family: $font_1;
+    font-size: 16px;
+  }
+  .bell {
+    &.font-view {
+      color: $color_blue_bayoux_approx !important;
+      font-family: $font_2;
+      font-size: 14px;
+      margin: 0;
+    }
+    &.upload-btn {
+      margin-bottom: 10px;
+      margin-top: 18px;
+    }
+  }
+  .small-font {
+    bottom: 8px;
+    font-size: 11px;
+    position: relative;
+  }
+  .table-border {
+    border: none;
+  }
+  .margin-upload {
+    margin-bottom: 0!important;
+    margin-top: 0!important;
+  }
+  .backd-color2 {
+    background: $color_alabaster_approx none repeat scroll 0 0 !important;
+  }
+  .edit {
+    color: $color_blue_bayoux_approx;
+    float: right;
+    margin-bottom: 5px;
+    span {
+      font-family: $font_2;
+      color: $color_blue_bayoux_approx;
+    }
+  }
+  .submit-icon {
+    float: left;
+    margin-top: 52px;
+    width: 64%;
+    color: $color_blue_bayoux_approx;
+    font-size: 16px;
+    font-family: $font_3;
+  }
+  title-2 {
+    color: $color_blue_bayoux_approx;
+    font-size: 20px;
+    margin: 0 0 20px;
+    line-height: 40px;
+  }
+  .employee-table {
+    margin-top: 75px;
+  }
+  .nested-fields {
+    margin-top: 15px;
+  }
+  .remove_new_employer_form {
+    @extend %extend_1;
+  }
+  .remove_new_employee_form {
+    @extend %extend_1;
+  }
+  .fileinput-button {
+    display: inline-block;
+  }
+  .employee_agreement_forms_edit {
+    .form-control {
+      height: 28px;
+    }
+    .edit-form-customize{
+      .form-control {
+        height: 37px;
+      }
+      .file-uploaded-name{
+        margin-left: 0px;
+        top: 0px;
+      }
+    }
+  }
+  .Employee_agreement {
+    .form-control {
+      background: none;
+      height: 25px;
+      border: none;
+      border-radius: 5px;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+    }
+    .Visioninsur_box {
+      .box_img {
+        margin-bottom: 15px;
+        height: 160px;
+      }
+      .btn-save.btn-large {
+        margin: 0;
+        max-width: 250px;
+        text-transform: inherit;
+      }
+      .box_insurance-2 .btn-spcl {
+        padding-left: 12px;
+      }
+    }
+  }
+  .Employee_agreement.submit-to-broker-tab{
+    .form-control {
+      background: #eef3f4;
+      border: 1px solid #dee4e5;
+      border-radius: 5px;
+      height: auto;
+    }
+    .subject-line{
+     .form-control{
+        background: #fff;
+        border: 1px solid #BFBFBF;
+        border-radius: 5px;
+        height: auto;
+     } 
+    }
+    textarea{
+      min-height: 200px;
+      resize: none;
+    } 
+  }
+  .emp-text-input {
+    height: 10px;
+  }
+  .span-rm {
+    margin-top: 4px;
+  }
+  .file-uploaded-name {
+    font-size: 12px;
+    margin-left: 12px;
+    width: 70%;
+    position: relative;
+    top: -10px;
+  }
+  .uploaded-file-name {
+    font-size: 12px;
+    word-break: break-all;
+  }
+  .form-group {
+    margin-bottom: 7px;
+  }
+  .vertical-tab {
+    border-top: 1px solid #e1e1e1;
+    .nav-tabs > li a span {
+      display: inline-block;
+      padding: 0;
+    }
+    .nav.nav-tabs {
+      width: 160px;
+      float: left;
+      display: inline-block;
+      li {
+        width: 100%;
+      }
+    }
+  }
+  .sec_wrapper {
+    margin-bottom: 30px;
+  }
+  .enrollment_kit_save_for_later {
+    float: right;
+    label {
+      font-size: 17px;
+      font-weight: 500;
+      padding-top: 2px;
+      margin-left: 10px;
+    }
+  }
+  .due-date-picker {
+    width: 150px;
+    float: right;
+    margin-right: 40px;
+  }
+  .product_type_label {
+    margin-right: 8%;
+    text-align: center;
+  }
+  .action-buttons {
+    margin-top: 1%;
+  }
+  .selected_plan {
+    background-color: $color_blue_chalk_approx;
+    &:hover{
+      background-color: cyan;
+    }
+  }
+  .plan_count {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  .btn-spcl {
+    max-width: 100px!important;
+    padding: 8px 15px 9px;
+  }
+  .carrier-name {
+    font-size: 16px!important;
+  }
+  .wrapper {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .btn-emps {
+    font-size: 19px;
+    padding: 12px;
+    max-width: 500px!important;
+  }
+  .btn_fix_width {
+    width: 285px;
+  }
+  .panel-body .new-table th {
+    padding: 5px !important;
+  }
+  .title-2 > span {
+    background: $color_cadet_blue_approx none repeat scroll 0 0;
+    border-radius: 100%;
+    color: $white;
+    display: inline-block;
+    font-size: 16px;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: $font_3;
+    width: 25px;
+  }
+  .btn-upload .icon {
+    top: 4px;
+  }
+  .tabin_tab_sec .tab-content-inner {
+    min-height: 375px;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-left: 160px;
+  }
+  form.edit_enrollment_kit {
+    margin-bottom: 0;
+  }
+  .newest_employees_contant .table {
+    th {
+      text-align: left;
+        padding: 15px 8px 15px 20px;
+    }
+    td {
+      text-align: left;
+        padding: 15px 8px 15px 20px;
+    }
+  }
+  .table-striped tbody > tr:nth-of-type(2n) {
+    background-color: $white;
+  }
+  .Eenrollmentkitsblock samp.peoplecount{
+    font-size: 14px;
+  }
+  .proposal_page { background: #f7f7f7 !important; }
+  .add_custom_carriers{background-color: #f2f2f2;}
+  .completed-msg{text-align: center; line-height: 30px}
+  .forms_repo{
+    background-color: #f2f2f2;
+    .form-group{
+      margin-bottom: 20px;
+    }
+    .bell {
+      &.font-view {
+        font-family: $font_3;
+      }
+    }
+  }
+  .icheckbox.disabled{
+    &:hover{
+      cursor: not-allowed;
+    }
+  }
+  // .tab-content {
+  //   border-left: 1px solid #dedede;
+  // }
+  .form-carrier .form-group {
+    margin-bottom: 45px;
+  }
+  .finalize-table thead tr th{
+    font-weight: normal;
+  }
+  .finalize-table thead tr th,
+  .finalize-table tbody{
+    font-size: 14px;
+    font-family: "din";
+  }
+  .finalize-table thead tr th:first-child {
+    padding-left: 22px;
+  }
+
+  .finalize-table > div > table > tbody > tr > td > p > a{
+    @include dynamic-margin(0, 40px, 0, 0);
+  }
+
+  .finalize-table.table-employee-form{
+    @include dynamic-margin(0, 0, 0, 0);
+  }
+  #template-edit-area{
+    margin-left:5%;
+    mrgin-right:5%; 
+    width:90% 
+  }
+}
+
+body.enrollment_kits.review,
+body.review_carrier_kit{
+  .enrollment-review-image-holder {
+    max-width: 150px;
+  }
+  .box_insurance {
+    margin: 20px 0px;
+    .img_holder{
+      width: 120px;
+      text-align: center;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .btn-light-green{
+    font-size: 14px;
+  }
+  .tabin_tab_sec .vertical-tab .tab-content.tab-content-inner{
+    overflow: inherit;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.vertical-tab{
+  .nav.nav-tabs li.active::before {
+    border-left: 2px solid #4eb7c8;
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+}
+.enrollment_kits.broker_kits{
+  .employer_label{
+    color: #4eb7c8;
+  }
+}
+.enrollment_kits.index,
+.enrollment_kits.broker_kits,
+.enrollment_kits.kits{
+  #kit-zip-files-download-modal {
+    .general-info-block {
+      .btn {
+        float: none;
+        display: none;
+      }
+    }
+  }
+  #submitted_to_carrier_kit_download{
+    #download_zip_filled_file_enrollment_btn{
+      a.zip-btn{
+        margin-top: 10px;
+      }
+    }
+  }
+  .table-messaging{
+    .table-responsive{
+      overflow: hidden;
+      .dataTables_filter{
+        input{
+        background: #f2f2f2;
+        border: 1px solid #ddd;
+        margin: 0 40px 0;
+        border-radius: 2px;
+      }
+    }
+      .kit-table.dataTable{
+        thead{
+          tr{
+            th{
+              min-width: 100px;
+            }
+            th:nth-child(3){
+              min-width: 115px;
+            }
+          }
+        }
+      }
+    }
+    .form-inline .form-group{
+      display: block;
+      .form-control{
+        display: block;
+        width: 100%;
+      }
+      input.tagit-hidden-field{
+        display: none;
+      }
+    }
+  }
+  .back-link{
+    height: 36px;
+  }
+}
+.enrollment_kits.kits,
+.enrollment_kits.broker_kits{
+  .nav.nav-tabs {
+    margin-top: 15px !important;
+  }
+  .table-messaging{
+    .table-responsive{
+      overflow: hidden;
+      .dataTables_filter{
+          input{
+          margin: 15px 40px 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.enrollment_kits{
+  .finalize-table,
+  .finalize-table.table-employer-form{
+    margin-left: 0px;
+    margin-right: 0px;
+    td:first-child,
+    th:first-child{
+      width: auto;
+     }
+  }
+  .box-finalize .date-complete{
+    margin-left:0;
+  }
+  .box-finalize .subheader-content{
+      padding: 20px 0 10px !important;
+      overflow: hidden;
+      h4{
+        font-size: 18px;
+        font-family: "Montserrat", sans-serif;
+      }
+      .note{
+        background: #F2F2F2;
+        padding: 5px;
+        display: block;
+        margin-top: 15px;
+      }
+     }
+    .wrapper-form{
+      .btn-s{
+        padding: .3em 3em;
+      }
+      .btn_add{
+        margin: 0 0 25px;
+
+      }
+    }
+  .btn_upload_area{
+    padding: 10px 7px 0;
+    background: #F2F2F2;
+    margin: 0 0 15px;
+     .btn_fix_width {
+    width: auto;
+    margin: 0;
+    padding: .3em 2.5em;
+    }
+    .filename{
+      padding:8px 0;
+    }
+    .btn_remove{
+      .btn-light-green{
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d43f3a
+      }
+      .btn-light-green::after{
+        background-color: #d9534f;
+        color: #fff;
+      }
+    }
+  }
+  #miscellaneous_forms,
+  #employee_forms,
+  #employer_forms{
+    overflow: inherit;
+    width: 100%;
+    padding: 40px 0 0;
+    h4{
+      margin: 0 0 15px;
+    }
+    .nested-fields {
+      margin: 0 0 15px;
+      font-family: din;
+      font-size: 14px;
+      .uploaded-file-name{
+        margin: 5px 0 0;
+      }
+      .btn-upload{
+        img{
+          width: 13px;
+          padding: 6px 0;
+        }
+      }
+    }
+  }
+  .date{
+    font-family: din;
+    font-size: 14px;
+  }
+  .note_well{
+    font-family: din;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    padding:5px;
+    margin-right: 40px;
+    margin-bottom: 9px;
+  }
+}
+.employer_carrier_enrollments.new {
+  .hlthcontent p.save_and_continue_btn_note {
+    padding: 14px;
+    font-family: din;
+    font-size: 14px;
+  }
+  .sig.sigWrapper {
+    margin-bottom: 15px;
+  }
+}
+.enrollment_kits{
+.dashboard_top{
+  .dashboard_title.title-employees{
+    h3{
+      color: #595959;
+      font-family: "dinregular";
+      font-weight: 100;
+    }
+  }
+}
+  .alert_icon_text {
+    margin: 20px 0 0;
+    color: #595959;
+    font-family: "dinregular";
+    font-weight: 500;
+    font-size: 14px;
+}
+  .edit_enrollment_kit{
+    .file_picker{
+      position:relative;
+      .btn_fix_width {
+        width: 285px;
+        position: absolute;
+        right: 15px;
+        height: 36px;
+        border-radius:0;
+        top: 0;
+        padding: 0;
+        margin-top: 0 !important;
+      }
+      .form-control{
+        padding-right: 288px;
+      }
+    }
+  }
+  .upload-block-area{
+    position: relative;
+    overflow: hidden;
+    h4{
+      margin-bottom: 70px;
+    }
+  }
+
+  .Employee_agreement .Visioninsur_box{
+    .tag_or{
+      margin:0 0 15px;
+    }
+    .tag_error{
+      color: #ff5454;
+       font-size: 16px;
+    }
+    h5{
+      margin-bottom: 10px;
+    }
+
+    .btn-save.btn-large{
+      max-width: 208px !important;
+      padding: 6px 0 !important;
+      height: auto;
+      line-height: 20px
+    }
+    .box_img{
+      width: 250px;
+      height: 200px !important;
+    }
+    .btn.btn-danger.btn btn-info,
+    .btn_custom{
+      max-width: 208px;
+      display: block;
+      width:100%;
+      border: 1px solid #68c1cf !important;
+      color: #68c1cf;
+      padding: 5px 0;
+      margin: 0 auto 25px;
+      background: transparent;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .btn_custom.btn-bg{
+      background-color: #31b0d5 !important;
+      color:#fff !important;
+    }
+  } 
+}
+.m-40{
+  margin-left: -40px !important;
+  margin-right: -40px !important;
+}
+.enrollment_kits.kits,
+.enrollment_kits.show,
+.enrollment_kits.customize,
+.enrollment_kits.edit_forms,
+.enrollment_kits.preview_forms,
+.enrollment_kits.finalize,
+.enrollment_kits.submission_format,
+.enrollment_kits.add_filled_forms,
+.enrollment_kits.upload_proposal {
+  .btn-save-warning{
+        color: #fff;
+    background-color: #eaba48 !important;
+    border-color: #e7b131 !important;
+  }
+  .add_file_forms_page {
+    .dropdown-menu {
+      min-width: 120px !important;
+      width: 120px !important;
+    }
+  }
+  .table-messaging {
+     tbody tr td:first-child {
+        /*min-width: 272px !important;*/
+    }
+    .enrollment-carrier-table-image-holder {
+      width: 50px;
+      float: left;
+      margin-right: 10px;
+      img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+    }
+    .product_type_name{
+      padding-top: 9px;
+      display: inline-block;
+    }
+  }
+}
+.enrollment_kits.add_custom_carriers {
+  .customize-box{
+    .tree-box{
+      .tree-outer{
+        .tree-block{
+          .checkbox{
+            label{
+              line-height: 29px;
+            }
+            .custum-row{
+              width: auto !important;
+              margin: 0;
+              .rdio input[type="radio"]:checked + label::after {
+                background-color: #8dd0db;
+              }
+              .rdio label::before {
+                border: 1px solid #8dd0db;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .btn-warning.ladda-submit-button{
+    color: #fff;
+    background-color: #eaba48 !important;
+    border-color: #e7b131 !important;
+  }
+  .ladda-submit-button.ladda-button[data-style=expand-right][data-loading] {
+    padding-left: 15px;
+    padding-right: 56px;
+  }
+  .ladda-submit-button {
+    background-color: #5bc0de !important;
+    border-color: #46b8da !important;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 9px 15px;
+  }
+/*  .btn-warning:hover.ladda-submit-button {
+    color: #fff;
+    background-color: #e5a91a;
+    border-color: #c59117;
+  }*/
+}
+.enrollment_kits.customize
+.cursor-pointer{
+  cursor: pointer; 
+}
+.enrollment_kits.employee_start_enrollment .download-proposal-link{
+  margin: 4px 0px 0 9px;
+  display: inline-block;
+}
+.enrollment_kits_preview_table {
+  .table{
+    .thead{
+      th{
+        min-width: 250px !important;
+      }
+    }
+    tr{
+      td{
+        &:first-child{
+          min-width: 200px !important;
+        }
+      }
+    }
+  }
+  .link-truncate{
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:inline-block;
+  }
+} 
+.p-8{
+  padding:8px !important;
+}
+.enrollment_kits.employer_kit_status,
+.enrollment_kits.fill_forms, .enrollment_kits.employee_fill_forms{
+  .nested-fields .info_btn_upload .icons{
+    position: relative;
+    top: -2px;
+  }
+  .enrollment_kits_fill_forms_table {
+    .table{
+      thead{
+        th:nth-child(2),
+        th:nth-child(1){
+            min-width: 250px !important;
+            max-width: 250px !important;
+          }
+        th{
+          font-family: "montserratregular";
+          font-size: 14px;
+          font-weight: 500;
+          background: #f7f7f7;
+        }
+      }
+    }
+    .link-truncate{
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display:inline-block;
+    }
+    .nested-fields{
+      td{
+        .upload-info-btn{
+          position: relative;
+          display:block;
+          .icons{
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            z-index: 9;
+            width: 20px;
+            top: 3px;
+          }
+          .fileinput-button{
+            color:#63cbd8;
+          }
+        }
+      }
+    }
+  }
+}
+.enrollment_kits.review_carrier_kit .agency-contacts-select,
+#tab-finalize,
+.enrollment_kits.broker_kits .wrapper-form .contact-person-select-on-broker-kits,
+.proposals.index #new-manual-proposal .agency-contacts-select,
+.proposals.index .agency-contacts-select,
+.enrollment_kits.kits .wrapper-form .contact-person-select-on-broker-kits{
+  .select2-container--default .select2-selection--multiple,
+  .tagit.ui-widget.ui-widget-content.ui-corner-all{
+    min-height: 42px;
+    padding: 0 0 5px;
+    .select2-selection__choice,
+    .tagit-choice-editable{
+      font-family: dinregular;
+      background-color: #ffffff !important;
+      font-weight: normal;
+    }
+  }
+  .tab-content.tab-content-inner.hlthcontent.finalize-content.messaging-content{
+    overflow: inherit;
+  }
+}
+#review{
+  .finalize-table{
+    thead tr th:first-child,
+    tbody tr td:first-child {
+     width: 150px;
+    }
+    .forms-table{
+      thead tr th:last-child,
+      tbody tr td:first-child,
+      thead tr th:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+.enrollment_kits.carrier_forms #enrollment-kit-forms, 
+.enrollment_kits.customize #enrollment-kit-forms{
+  .table{
+    thead{
+      tr th:nth-child(2){
+      width:200px;
+    }
+    tr th:nth-child(1){
+      width:200px;
+    }
+     tr th:nth-child(3){
+      min-width: 150px;
+      max-width: 150px;
+      width:150px;
+    }
+    tr th:nth-child(4){
+        min-width: 300px;
+       width: 300px;
+      }
+    }
+    tbody{
+      tr td:nth-child(1){
+        max-width:200px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      tr td:nth-child(2){
+        max-width:200px;
+      }
+      tr td:nth-child(3){
+        max-width: 150px;
+      }
+      tr td:nth-child(4){
+        max-width: 300px;
+      }
+    }
+  }
+  .link-truncate{
+    max-width: 98%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:inline-block;
+  }
+}
+.enrollment_kits.preview_forms #enrollment_kit_peview_forms{
+  .table{
+    thead{
+      tr th:nth-child(1){
+        width:200px;
+      }
+      tr th:nth-child(2){
+      width:200px;
+      }
+      tr th:nth-child(3){
+        min-width: 150px;
+        max-width: 150px;
+        width:150px;
+      }
+      tr th:nth-child(4){
+        min-width: 300px;
+        width: 300px;
+      }
+      tr th:nth-child(5){
+        min-width: 100px;
+        width: 100px;
+      }
+      tr th:nth-child(6){
+        min-width: 100px;
+        width: 100px;
+      }
+    }
+    tbody{
+      tr td:nth-child(1){
+        max-width:200px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      tr td:nth-child(2){
+        max-width:200px;
+      }
+      tr td:nth-child(3){
+        max-width: 150px;
+      }
+      tr td:nth-child(4){
+        max-width: 300px;
+      }
+      tr td:nth-child(5){
+        max-width: 100px;
+      }
+      tr td:nth-child(6){
+        max-width: 100px;
+      }
+      .display-inline{
+        display: inline-block;
+      }
+    }
+  }
+  .link-truncate{
+    max-width: 98%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:inline-block;
+  }
+}
+.enrollment_kits.broker_kits, 
+.enrollment_kits.kits,
+.enrollment_kits.finalize{
+  .mce-tinymce iframe{
+    width: 99% !important;
+  }
+  .form-group.last_row{
+    margin-bottom: 15px;
+  }
+}
+
+.enrollment_kits.broker_kits, 
+.enrollment_kits.kits,
+.enrollment_kits.review_carrier_kit #finalize-submissionmethod,
+.enrollment_kits.finalize{
+  .auto-complete-cc{
+    .ui-corner-all{
+      padding: 0 5px !important;
+      border: 1px solid #aaa;
+    }
+  }
+}
+.proposals.index{
+  .auto-complete-cc{
+    .ui-corner-all{
+      padding:5px !important;
+    }
+  }
+}
+.enrollment_kits.broker_kits, 
+.enrollment_kits.kits,
+.enrollment_kits.review_carrier_kit #finalize-submissionmethod,
+.proposals.index,
+.enrollment_kits.finalize{
+  .auto-complete-cc{
+    .ui-corner-all{
+      li.tagit-choice-editable{
+        text-align: left;
+        padding: 0 5px 0 16px !important;
+        background-color: #ffffff !important;
+        border: 1px solid #aaa !important;
+        border-radius: 4px;
+        cursor: default;
+        margin-right: 5px;
+        margin-top: 0;
+        span.tagit-label{
+          font-size: 14px !important;
+          color: #52667e;
+          font-family: dinregular;
+        }
+        a.tagit-close{
+          left: 5px !important;
+        }
+      }
+      li.tagit-new{
+        input.ui-autocomplete-input{
+          font-family: dinregular;
+          font-weight: normal;
+          color: #52667e;
+        }
+      }
+    }
+  }
+  .wrapper-form{
+    .select2-selection.select2-selection--multiple{
+      li.select2-search.select2-search--inline{
+        input.select2-search__field{
+          font-family: dinregular;
+          font-weight: normal;
+          color: #52667e;
+        }
+      }
+    }
+  } 
+} 
+.large-width-modal{
+  min-width: 70%;
+}
+.enrollment_kits.broker_kits .wrapper-form .contact-person-select-on-broker-kits,
+.enrollment_kits.kits .wrapper-form .contact-person-select-on-broker-kits,
+.proposals.index .agency-contacts-select,
+.enrollment_kits.review_carrier_kit #finalize-submissionmethod{
+  .select2.select2-container{
+    width: 100% !important;
+  }
+}
+.enrollment_kits.review_carrier_kit #finalize-submissionmethod .height-equality{
+  min-height: 27px;
+}
+.enrollment_kits.review_carrier_kit{
+  .agency-contacts-select{
+    .select2-container--default .select2-selection--multiple{
+      border: 1px solid #C6C6C6 !important;
+      min-height: 39px !important;  
+    }
+  }
+  .mce-container{
+    iframe{
+      width: 99% !important;
+    }
+  } 
+} 
+.custom-link-to-color a{
+  color: #52667e;
+}
+.enrollment_kits.employee_kit_status{
+  .wrapper-form .message-to-employee-area .mce-tinymce iframe{
+    min-height: 400px !important;
+  }
+}
+.employer_employee_forms{
+  .tab-content{
+    margin-left: 20px;
+  }
+}
+.enrollment_kits.select_plan{
+  .Announcementsblock .enrollment-btn-decline{
+    text-transform: capitalize !important;
+  }
+}
+.enrollment_kits.select_plan{
+  #healthplan{
+    .apply-popup .apply-btn{
+      width: auto;
+    }
+  }
+}
+.enrollment_kits.send_to_employees #sent_to_employees_table #manual_quote_table_new .new_proposals tr td:last-child{
+  text-align: left;
+}
+body.enrollment_kits.review_carrier_kit{
+  .wrapper-form{
+    width: 90%;
+  }
+}
+.wrapper-form .select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #ffffff !important;
+}
+
+.proposal_page .proposal_tab_table tbody tr .recent-enrollment-kits-due_date{
+  color: #52667e !important;
+}    
+.enrollment-review-image-holder{
+  max-width: 265px;
+}
+.font-10{
+  font-size: 10px !important
+}
+.mt-10{
+  margin: 10px 0 0 20px !important;
+}
+.enrollment_kits.select_plan{
+  .choose-plan-table{
+    .table{
+      tr{
+        td:first-child,
+        th:first-child{
+          width:50px !Important;
+          min-width:50px !Important;
+        }
+      } 
+    }
+    .apply-popup{
+      .btn{
+        font-size: 10px;
+        margin: 0 0 2px;
+        width:100%;
+      }
+    }
+  }
+}
+.edit_carrier_form_fields{
+  span.tool-tip{
+    display: block;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    z-index: 12;
+    cursor: pointer;
+  }
+  .icheckbox{
+    margin: 12px 0 0;
+  }
+}
+body.enrollment_kits.edit_forms{
+  .product-type-check{
+    label{
+      line-height: 22px;
+    }
+  }
+}
+body.enrollment_kits.customize{
+  #miscellaneous_attachments .subheader-content .subtitle-subheader-content{
+    margin: 10px 0 5px;
+  }
+  .table-messaging {
+    tbody tr td:first-child {
+      min-width: 400px !important;
+    }
+  }
+}
+.progress_bar_for_downloading_filled_forms{
+  display:none;
+}
+.enrollment_kits.kits,
+.enrollment_kits.add_filled_forms,
+.enrollment_kits.finalize {
+  .file-upload-table{
+    min-height: 250px;
+    table{
+      tr{
+        th{
+          font-family: dinregular;
+          border-width: 1px 1px 2px;
+          border-style: solid;
+          border-color:#ccc;
+        }
+        td{
+          border: 1px solid #eee !important;
+        }
+      }
+    }
+  }  
+  .cc_list_kit_show{
+    padding-left: inherit;
+    margin-left: 15px;
+  }
+  .progress_bar_for_downloading_kit {
+    display: none;
+  }
+  #download_zip_filled_file_enrollment_btn,
+  #download_zip_file_enrollment_btn {
+    display: inline-block;
+  }
+  .subheader-content h4{
+    display: inline-block;
+  }
+  .kit_download_btn {
+    overflow: hidden;
+    display: inline;
+  }
+  .due-date-picker {
+    width: 100% !important;
+    margin-right: 0;
+  }
+  .select2-search__field {
+    font-family: din !important;
+  }
+  .row{
+    display: inline !important;
+  }
+  .box_holder {
+    border: 1px solid #eee;
+    padding: 25px 15px 15px;
+    border-radius: 4px;
+    position: relative;
+    h5 {
+      position: absolute;
+      top: -13px;
+      margin: 0;
+      background: #fff;
+      padding: 5px;
+    }
+  }
+  .progress-bar {
+    color: #52667e !important;
+  }
+  .btn-success {
+    background-color: #5cc28a !important;
+    border-color: #49bb7d !important;
+  }
+  .send-kit-btn.ladda-submit-button.ladda-button {
+    max-width: 240px;
+    display: block;
+  }
+  .form-notesentry{
+    .loading-icon-auto-save{
+      float: left;
+    }
+    .check-holder{
+      overflow: hidden;
+       label{
+        float: left;
+        padding: 18px 10px 0 0;
+      }
+      .auto_save_feedback {
+        float: left;
+        color: #6CBF6C;
+      }
+    }
+  }
+  .loading-icon-auto-save {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .select2-container.select2-container--default {
+    width: 100% !important;
+  }
+}
+body.enrollment_kits.show {
+  .subheader-content {
+    display: inline-block;
+  }
+  .tab-content.tab-content-inner {
+    .row{
+      display: -webkit-box;
+      display: inline-block;
+    }
+  }
+}
+.heding_tab_sec{
+  .company_info_mtab .nav.nav-tabs {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  body.enrollment_kits{
+    .tabin_tab_sec{
+      .vertical-tab{
+        .nav.nav-tabs{
+          width: 120px;
+        }
+      }
+    }
+    .tabin_tab_sec{
+      .vertical-tab .nav-tabs{
+        li > a{
+          span{
+            font-size: 11px;
+          }
+        }
+      }
+      .tab-content-inner{
+        margin-left: 120px;
+      }
+    } 
+  }
+}
+body.enrollment_kits.finalize{
+  .tagit.ui-widget.ui-widget-content{
+    padding: 0px !important;
+    .tagit-choice.ui-widget-content{
+      margin: 5px 0 0 5px !important;
+      .tagit-label {
+      font-size: 16px !important;
+      }
+    }
+  }
+  label{
+    font-family: dinregular;
+  }
+  .miscellaneous-info{
+    overflow: inherit;
+    .nav.nav-tabs{
+      width: 100%;
+      min-height: auto !important;
+      margin-bottom: 15px;
+      li{
+        float: left;
+        max-width: 150px;
+        a{
+        padding: 12px !important;
+        font-size: 12px;
+        }
+      }
+    }
+    .tab-content{
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      display: block;
+      float: left;
+    }
+  }
+}
+.proposals.index {
+  .note_attachments_filename{
+    .download_link{
+      width: 80%;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
