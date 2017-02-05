@@ -28,7 +28,7 @@ Default Credentials: admin, password
 
 * rspec tests for controllers
 
-## Database
+## Database(Production)
 * database: postgresql
 * username: deploy
 * password: managehub360123
