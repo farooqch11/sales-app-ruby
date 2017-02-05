@@ -17,3 +17,7 @@
 /tmp
 /.idea/
 
+
+# Ignore application configuration
+/config/application.yml
+config/database.yml\nconfig/secrets.yml
