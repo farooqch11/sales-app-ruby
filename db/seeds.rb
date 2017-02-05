@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  Site.create!(name: 'ManageHub360', email: 'info@managehub360.com', logo: 'logo-white.png') if direction == :up
+  Site.create!(name: 'ManageHub360', email: 'info@managehub360.com', logo: 'logo-white.png')
   if Rails.env.production?
 		BusinessType.create!([{name: 'Beauty and Personal Care'} ,
                           {name: 'Casual Use'} ,
