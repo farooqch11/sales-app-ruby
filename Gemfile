@@ -1,4 +1,4 @@
-ruby '2.3.1'
+ruby '2.3.3'
 source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 
@@ -22,9 +22,9 @@ gem 'jbuilder', '2.4.1'
 # Authentication and Permissions
 # -----------------------------------------
 gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
-gem 'cancancan', '1.13.1'
 gem 'activeadmin', github: 'activeadmin'
 gem 'figaro'
+gem 'cancancan', '~> 1.9'
 
 
 # -----------------------------------------
@@ -37,12 +37,21 @@ gem 'breadcrumbs_on_rails', '~> 2.3.0'
 gem 'bootstrap_form'
 gem 'data-confirm-modal'
 gem "twitter-bootstrap-rails"
-# gem 'highcharts-rails', '~> 4.2', '>= 4.2.5'
-gem 'fusioncharts-rails'
 gem 'momentjs-rails'
 gem 'bootstrap-daterangepicker-rails'
+gem 'best_in_place', '~> 3.0.1'
+gem 'autonumeric-rails'
+gem 'haml-rails', '~> 0.9.0'
+gem 'simple_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 
+
+#------------------------------------------
+# For Charts
+#------------------------------------------
+gem 'fusioncharts-rails'
 
 #------------------------------------------
 # For Featuring
@@ -51,14 +60,31 @@ gem 'country_select'
 gem 'mailgun_rails'
 gem 'countries'
 gem 'currencies'
-gem 'has_scope'
+gem 'friendly_id', '~> 5.2'
+gem 'acts-as-taggable-on', '~> 4.0'
+
+
+#------------------------------------------
+# For Import And Export
+#------------------------------------------
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+#------------------------------------------
+# For Searching
+#------------------------------------------
 gem 'ransack'
+gem 'has_scope'
 
+#------------------------------------------
+# For Server
+#------------------------------------------
+gem 'puma'
 
-
-gem 'best_in_place', '~> 3.0.1'
+#------------------------------------------
+# For Error Notifications
+#------------------------------------------
+gem 'exception_notification', '~> 4.2', '>= 4.2.1'
 
 #------------------------------------------
 # For Multimedia Uploading
@@ -89,12 +115,16 @@ group :development do
   gem 'binding_of_caller', '0.7.2'
   gem 'web-console', '3.1.1'
   gem 'guard-rails', '0.7.2', require: false
-  gem 'rubocop', '0.37.2', require: false
-  gem 'guard-rubocop', '1.2.0'
+  # gem 'rubocop', '0.37.2', require: false
+  # gem 'guard-rubocop', '1.2.0'
   gem 'guard-rspec', '4.6.4', require: false
   gem 'annotate'
   gem 'sqlite3'
   gem 'letter_opener', '1.4.1'
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rvm'
 end
 
 group :production do
