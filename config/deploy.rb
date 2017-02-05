@@ -9,7 +9,8 @@ set :passenger_restart_with_touch , true
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 
-namespace :rake do
+namespace :deploy do
+
   namespace :db do
     %w[create migrate reset rollback seed setup].each do |command|
       desc "Rake db:#{command}"
@@ -28,9 +29,6 @@ namespace :rake do
       end
     end
   end
-end
-
-namespace :deploy do
 
   desc 'Restart application'
   task :restart do
