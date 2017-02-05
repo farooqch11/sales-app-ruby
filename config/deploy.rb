@@ -5,7 +5,7 @@ set :application, "managehub360"
 set :repo_url, "git@bitbucket.org:faizu_ali/managehub360.git"
 
 set :deploy_to, '/home/deploy/managehub360'
-
+set :passenger_restart_with_touch , true
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 
