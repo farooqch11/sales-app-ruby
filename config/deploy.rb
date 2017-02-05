@@ -9,6 +9,17 @@ set :passenger_restart_with_touch , true
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 
+desc 'Runs rake db:seed'
+task :seed => [:set_rails_env] do
+  on primary fetch(:migration_role) do
+    within release_path do
+      with rails_env: fetch(:rails_env) do
+        execute :rake, "db:seed"
+      end
+    end
+  end
+end
+
 namespace :deploy do
 
   desc 'Restart application'
@@ -18,9 +29,17 @@ namespace :deploy do
     end
   end
 
+  desc 'Says a message when deployment is completed'
+  task :say do
+    system("\\say Capistrano Deployment Completed! Good Job!")
+  end
+
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
+  after :finished, 'deploy:say'
 end
+
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
