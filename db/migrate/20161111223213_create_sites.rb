@@ -1,10 +1,10 @@
 class CreateSites < ActiveRecord::Migration
 
-  def migrate(direction)
-    super
-    # Create a default Site Setting
-     Site.create!(name: 'ManageHub360', email: 'info@managehub360.com', logo: 'logo-white.png') if direction == :up
-  end
+  # def migrate(direction)
+  #   super
+  #   # Create a default Site Setting
+  #   #  Site.create!(name: 'ManageHub360', email: 'info@managehub360.com', logo: 'logo-white.png') if direction == :up
+  # end
 
   def change
     create_table :sites do |t|

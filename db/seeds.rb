@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+  Site.create!(name: 'ManageHub360', email: 'info@managehub360.com', logo: 'logo-white.png') if direction == :up
+  if Rails.env.production?
 		BusinessType.create!([{name: 'Beauty and Personal Care'} ,
                           {name: 'Casual Use'} ,
                           {name: 'Charities, Education and Membership'} ,
@@ -62,6 +63,15 @@
     [7,8].each{ |key| Permission.find(key).roles << Role.customer_service_manager}
     [4,6].each{ |key| Permission.find(key).roles << Role.inventory_manager}
     [4,6].each{ |key| Permission.find(key).roles << Role.warehouse_manager}
+  end
+    if Rails.env.development?
+      100.times do
+        ItemCategory.create({company_id: 2 , name: Faker::Commerce.department , description: Faker::Lorem.paragraph })
+      end
+      30.times do
+        Item.create({location_id: 2 , photo: Faker::Avatar.image("my-own-slug", "50x50") , stock_amount: Faker::Number.between(1, 200) ,description: Faker::Lorem.paragraph , sku: Faker::Code.ean,cost_price: Faker::Commerce.price , item_category_id: Company.find(2).item_categories.sample, company_id: 2 ,name: Faker::Commerce.product_name, price: Faker::Commerce.price})
+      end
+    end
 
 
 # company = User.find_by_email("faizan@faizan.com").company
