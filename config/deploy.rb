@@ -11,25 +11,10 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 
 namespace :deploy do
 
-  namespace :db do
-    %w[create migrate reset rollback seed setup].each do |command|
-      desc "Rake db:#{command}"
-      task command, roles: :app, except: {no_release: true} do
-        run "cd #{deploy_to}/current"
-        run "bundle exec rake db:#{ENV['task']} RAILS_ENV=production"
-      end
-    end
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=production"
   end
-  namespace :assets do
-    %w[precompile clean].each do |command|
-      desc "Rake assets:#{command}"
-      task command, roles: :app, except: {no_release: true} do
-        run "cd #{deploy_to}/current"
-        run "bundle exec rake assets:#{ENV['task']} RAILS_ENV=production"
-      end
-    end
-  end
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
