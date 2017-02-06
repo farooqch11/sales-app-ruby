@@ -193,6 +193,7 @@ PushvendorPos::Application.routes.draw do
     get 'search'
     collection do
       get 'search'
+      get :low_stock
     end
   end
 

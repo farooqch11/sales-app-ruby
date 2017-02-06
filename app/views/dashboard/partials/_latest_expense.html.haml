@@ -1,0 +1,23 @@
+.col-sm-6
+  %section.panel.panel-default
+    %header.panel-heading
+      %b
+        Recent Expenses
+    %table.table.table-hover.m-b-none
+      %thead
+        %tr
+          / <th width="20"><input type="checkbox"></th>
+          %th Pic
+          %th Title
+          %th Amount
+      %tbody
+        -if expenses.empty?
+          %tr
+            No Record Found
+        -else
+          - expenses.each do |expense|
+            %tr
+              / <td><input type="checkbox" name="user[]" value="<haml_silent></haml_silent>"></td>
+              %td= image_tag expense.attachment, style: 'widh: 50px ; width: 50px '
+              %td= expense.expense_type
+              %td= number_to_currency(expense.amount)

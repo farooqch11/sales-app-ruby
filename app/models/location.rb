@@ -9,6 +9,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  published  :boolean          default(TRUE)
+#  slug       :string
+#  status     :integer          default(0)
 #
 
 class Location < ActiveRecord::Base

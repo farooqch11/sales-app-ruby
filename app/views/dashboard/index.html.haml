@@ -40,7 +40,7 @@
               %span.h3.block.m-t-xs
                 %strong= current_location.customers.count
               %small.text-muted.text-uc Total Customers
-          .col-sm-6.col-md-3.padder-v.b-r.b-light.lt
+          .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
               %i.fa.fa-circle.fa-stack-2x.text-dark
               %i.fa.fa-shopping-cart.fa-stack-1x.text-white
@@ -56,11 +56,11 @@
               %span.h3.block.m-t-xs
                 %strong#firers= current_location.items.count
               %small.text-muted.text-uc Total Items
-          .col-sm-6.col-md-3.padder-v.b-r.b-light.lt
+          .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
               %i.fa.fa-circle.fa-stack-2x.text-dark
               %i.fa.fa-clock-o.fa-stack-1x.text-white
-            %a.clear{:href => "#"}
+            = link_to low_stock_items_path , class: 'clear' do
               %span.h3.block.m-t-xs
                 %strong= current_company.low_stock_items.count
               %small.text-muted.text-uc Low Stock
@@ -78,6 +78,9 @@
           .list-group
             = link_to raw("<i class='fa fa-shopping-cart fa-2x'></i>Start a New Sale") , new_sale_path , class: 'list-group-item'
       .row
+        = render 'dashboard/partials/low_stock' , items: @popular_items , heading: "Popular Items"
+        = render 'dashboard/partials/low_stock' , items: @low_stock_items , heading: "Low Stock Items"
+        = render 'dashboard/partials/latest_expense' , expenses: @recent_expenses
         .col-md-12
           %section.panel.panel-default
             %header.panel-heading.font-bold Statistics

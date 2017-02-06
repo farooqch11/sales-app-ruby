@@ -50,6 +50,10 @@ class ItemsController < ApplicationController
     redirect_to items_url
   end
 
+  def low_stock
+    @items = current_company.low_stock_items.includes(:item_category , :location).order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+  end
+
   def search
     @items = current_company.items.all.where('name LIKE ?', "%#{params[:search][:item_name]}%")
   end

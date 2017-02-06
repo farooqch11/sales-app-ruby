@@ -1,0 +1,30 @@
+.col-sm-6
+  %section.panel.panel-default
+    %header.panel-heading
+      %b
+        = heading
+    %table.table.table-hover.m-b-none
+      %thead
+        %tr
+          %th{:width => "20"}
+          %th Item
+          %th Category
+          %th Location
+          %th Available
+      %tbody
+        -if items.empty?
+          %tr
+            %td{:width => "100%"}
+              No Record Found
+        -else
+          - items.each do |item|
+            %tr
+              %td
+                = link_to edit_item_path(item) do
+                  = image_tag item.photo, style: 'widh: 50px ; width: 50px '
+              %td
+                = link_to edit_item_path(item) do
+                  = item.name
+              %td= item.item_category.blank? ? '-' : item.item_category.name
+              %td= item.location.blank? ? '-' : item.location.name
+              %td= item.stock_amount
