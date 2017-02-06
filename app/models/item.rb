@@ -17,6 +17,8 @@
 #  company_id       :integer
 #  photo            :string
 #  location_id      :integer
+#  barcode          :string
+#  shelf            :string
 #
 
 class Item < ActiveRecord::Base

@@ -68,6 +68,8 @@ class ItemsController < ApplicationController
                                  :sku,
                                  :name,
                                  :photo,
+                                 :barcode,
+                                 :shelf,
                                  :location_id,
                                  :description,
                                  :price,
