@@ -1,0 +1,138 @@
+%aside#nav.bg-dark.aside-md.hidden-print
+  / <aside class="bg-dark lter nav-xs aside-md hidden-print" id="nav">
+  %section.vbox
+    / <header class="header bg-primary lter text-center clearfix">
+    / &lt;!&ndash;<div class="btn-group">&ndash;&gt;
+    / &lt;!&ndash;<button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-plus"></i></button>&ndash;&gt;
+    / &lt;!&ndash;<div class="btn-group hidden-nav-xs">&ndash;&gt;
+    / &lt;!&ndash;<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">&ndash;&gt;
+    / &lt;!&ndash;Switch Project&ndash;&gt;
+    / &lt;!&ndash;<span class="caret"></span>&ndash;&gt;
+    / &lt;!&ndash;</button>&ndash;&gt;
+    / &lt;!&ndash;<ul class="dropdown-menu text-left">&ndash;&gt;
+    / &lt;!&ndash;<li><a href="#">Project</a></li>&ndash;&gt;
+    / &lt;!&ndash;<li><a href="#">Another Project</a></li>&ndash;&gt;
+    / &lt;!&ndash;<li><a href="#">More Projects</a></li>&ndash;&gt;
+    / &lt;!&ndash;</ul>&ndash;&gt;
+    / &lt;!&ndash;</div>&ndash;&gt;
+    / &lt;!&ndash;</div>&ndash;&gt;
+    / </header>
+    %section.w-f.scrollable
+      .slim-scroll{"data-color" => "#333333", "data-disable-fade-out" => "true", "data-distance" => "0", "data-height" => "auto", "data-size" => "5px"}
+        / nav
+        %nav.nav-primary.hidden-xs
+          %ul.nav
+            %li{:class => dashboard_active}
+              %a{:class => dashboard_active, :href => dashboard_index_path}
+                %i.fa.fa-dashboard.icon
+                  %b.bg-dark
+                %span HOME
+            - if current_user.can_update_users  == true
+              %li{:class => users_active}
+                %a{:class => users_active, :href => users_path}
+                  %i.fa.fa-user.icon
+                    %b.bg-dark
+                  %span EMPLOYEES
+            - if current_user.can_view_reports
+              %li{:class => reports_active}
+                %a{:class => "reports_active", :href => reports_path}
+                  %i.fa.fa-bar-chart-o.icon
+                    %b.bg-dark
+                  %span REPORTS
+                %ul.nav.lt
+                  %li
+                    %a{:href => sales_reports_path}
+                      %i.fa.fa-angle-right
+                      %span Sales Report
+                  %li
+                    %a{:href => inventory_reports_path}
+                      %i.fa.fa-angle-right
+                      %span Inventory Report
+                  %li
+                    %a{:href => dead_inventory_reports_path}
+                      %i.fa.fa-angle-right
+                      %span Dead Inventory Report
+            %li{:class => item_categories_active}
+              %a{:class => item_categories_active, :href => "#item_category"}
+                %i.fa.fa-clipboard.icon
+                  %b.bg-dark
+                %span.pull-right
+                  %i.fa.fa-angle-down.text
+                  %i.fa.fa-angle-up.text-active
+                %span INVENTORY
+              %ul.nav.lt
+                %li
+                  %a{:class => item_categories_active, :href => item_categories_path}
+                    %i.fa.fa-angle-right
+                    %span Items Category
+                %li
+                  %a{:class => item_categories_active, :href => items_path}
+                    %i.fa.fa-angle-right
+                    %span Items
+                %li
+                  %a{:class => item_categories_active, :href => items_path}
+                    %i.fa.fa-angle-right
+                    %span Purchase Items
+            %li{:class => customers_active}
+              %a{:class => customers_active, :href => customers_path}
+                %i.fa.fa-male.icon
+                  %b.bg-dark
+                %span CUSTOMERS
+            - if current_user.can_update_items
+              %li{:class => sales_active}
+                %a{:class => sales_active, :href => "#"}
+                  %i.fa.fa-shopping-cart.icon
+                    %b.bg-dark
+                  %span SALES
+                %ul.nav.lt
+                  %li
+                    %a{:href => new_sale_path}
+                      %i.fa.fa-angle-right
+                      %span Point of Sale
+                  %li
+                    %a{:href => "#{current_company.sales.joins(:payments).count > 0 ? sale_path(current_company.sales.joins(:payments).last) : '#'}"}
+                      %i.fa.fa-angle-right
+                      %span Sales Record
+            %li{:class => "#{(is_active 'expenses') || (is_active 'finance')}"}
+              %a{:class => item_categories_active, :href => "#item_category"}
+                %i.fa.fa-rocket.icon
+                  %b.bg-dark
+                %span.pull-right
+                  %i.fa.fa-angle-down.text
+                  %i.fa.fa-angle-up.text-active
+                %span FINANCE
+              %ul.nav.lt
+                %li
+                  %a{:href => finance_index_path}
+                    %i.fa.fa-angle-right
+                    %span Financial Dashboard
+                %li
+                  %a{:href => items_path}
+                    %i.fa.fa-angle-right
+                    %span Bank Reconciliations
+                %li
+                  %a{:href => expenses_path}
+                    %i.fa.fa-angle-right
+                    %span Expenses
+            %li{:class => is_setting_active}
+              %a{:class => is_setting_active, :href => "#"}
+                %i.fa.fa-gear.icon
+                  %b.bg-dark
+                %span.pull-right
+                  %i.fa.fa-angle-down.text
+                  %i.fa.fa-angle-up.text-active
+                %span SETTINGS
+              %ul.nav.lt
+                %li
+                  %a{:href => "#{edit_configuration_path(current_company)}"}
+                    %i.fa.fa-angle-right
+                    %span Configuration
+                %li
+                  %a{:href => locations_path}
+                    %i.fa.fa-angle-right
+                    %span Locations
+    / / nav
+    %footer.footer.lt.hidden-xs.b-t.b-light
+      %a.pull-right.btn.btn-sm.btn-default.btn-icon{"data-toggle" => "class:nav-xs", :href => "#nav"}
+        %i.fa.fa-angle-left.text
+        %i.fa.fa-angle-right.text-active
