@@ -67,6 +67,11 @@ class Company < ActiveRecord::Base
   #   super.present? ? super : 'logo.png'
   # end
 
+  def low_stock_items
+    low_stock = self.low_stock_alert.present? ? self.low_stock_alert : 10
+    self.items.published.where('items.stock_amount <= ?' , low_stock)
+  end
+
   def name
     self.company_name.humanize
   end
