@@ -147,7 +147,11 @@ class User < ActiveRecord::Base
   end
 
   def tend360_url
-    Rails.env.development? ? self.company.sub_domain + ".lvh.me:3000" : "159.203.77.246"
+    Rails.env.development? ? "localhost:3000" : "159.203.77.246"
+  end
+
+  def base_url
+    Rails.env.development? ? "localhost:3000" : "159.203.77.246"
   end
 
   def set_username

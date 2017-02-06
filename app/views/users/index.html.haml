@@ -1,6 +1,4 @@
--if @locations.empty?
-  = render 'template/empty_list' , icon: 'fa fa-male fa-3x icon' , head: 'Locations list empty' ,link_text: 'Add Location' , url: new_location_path , t1: ' Create items with names, contact information' , t2: 'and locations to speed-up dispatching.'
-- else
+%body
   %section.hbox.stretch
     %aside
       %section.vbox
@@ -8,7 +6,7 @@
           .row.m-t-sm
             .col-sm-8.m-b-xs
               / <a href="#subNav" data-toggle="class:hide" class="btn btn-sm btn-default active"><i class="fa fa-caret-right text fa-lg"></i><i class="fa fa-caret-left text-active fa-lg"></i></a>
-              -#.btn-group
+              .btn-group
                 %button.btn.btn-sm.btn-default{:title => "Refresh", :type => "button"}
                   %i.fa.fa-refresh
               / <button type="button" class="btn btn-sm btn-default" title="Remove"><i class="fa fa-trash-o"></i></button>
@@ -20,34 +18,48 @@
               / <li class="divider"></li>
               / <li><a href="#">Separated link</a></li>
               / </ul>
-              = link_to raw("<i class='fa fa-plus icon '></i> Create") , new_location_path , remote: true , class: "btn btn btn-sm btn-primary"
+              %a.btn.btn.btn-sm.btn-primary{:href => new_user_path}
+                %i.fa.fa-plus
+                Create
             / <a href="#new-item-category" data-toggle="new-item-category" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Create</a>
             .col-sm-4.m-b-xs
-              -#= search_form_for @search do |f|
+              = form_for item_categories_path do |f|
                 .input-group
                   = f.text_field :name , class: "input-sm form-control"  , placeholder: "Search"
                   %span.input-group-btn
-                    = f.submit "Go!" , class: "btn btn-sm btn-default"
+                    = f.button "Go!" , class: "btn btn-sm btn-default"
         %section.scrollable.wrapper.w-f
           %section.panel.panel-default
             .table-responsive
-              %table.table.table-hover.m-b-none
+              %table.table.m-b-none
                 %thead
                   %tr
                     / <th width="20"><input type="checkbox"></th>
+                    %th Pic
                     %th Name
-                    %th Address
+                    %th Work Location
+                    %th Email
+                    %th Role
+                    -#%th Salay
+                    %th Status
                     %th
                       %span.pull-right Actions
                 %tbody
-                  - @locations.each_with_index do |location, index |
+                  - @users.each do |user|
                     %tr
                       / <td><input type="checkbox" name="user[]" value="<haml_silent></haml_silent>"></td>
-                      %td= location.name
-                      %td= location.address.try(:full_address)
+                      %td
+                        .thumb-sm.avatar
+                          = image_tag user.photo
+                      %td= user.username
+                      %td= user.locations.map(&:name).join(', ')
+                      %td= user.email
+                      %td= user.role.name
+                      -#%td= number_to_currency(user.salary , unit: current_company.currency)
+                      %td= user.confirmed? ? 'Confirmed' : 'Pending'
                       %td.text-right
-                        = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_location_path(location), remote: true , class: "btn btn-dark"
-                        = link_to raw("<i class= 'fa fa-times'></i>"),location, class: "btn btn-dark",method: :delete, data: {:confirm => "Are you sure?"}
+                        = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_user_path(user), class: "btn btn-dark"
+                        = link_to raw("<i class= 'fa fa-times'></i>"),user, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}
         / <tr>
         / <td><input type="checkbox" name="post[]" value="2"></td>
         / &lt;!&ndash;<td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>&ndash;&gt;
@@ -60,4 +72,6 @@
         / </tr>
         %footer.footer.bg-white.b-t
           .row.text-center-xs.pull-right{:style => "margin: 0px 2%;"}
-            = will_paginate @locations, renderer: BootstrapPagination::Rails
+            = will_paginate @users, renderer: BootstrapPagination::Rails
+  %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", :href => "#"}
+    / </section>

@@ -1,0 +1,89 @@
+%body
+  %section.hbox.stretch
+    %aside
+      %section.vbox
+        %header.header.bg-white.b-b.clearfix
+          .row.m-t-sm
+            .col-sm-8.m-b-xs
+              -#%a.btn.btn-sm.btn-default.active{"data-toggle" => "class:hide", :href => "#subNav"}
+              -#  %i.fa.fa-caret-right.text.fa-lg
+              -#  %i.fa.fa-caret-left.text-active.fa-lg
+              -#.btn-group
+              -#  %button.btn.btn-sm.btn-default{:title => "Refresh", :type => "button"}
+              -#    %i.fa.fa-refresh
+              -#  %button.btn.btn-sm.btn-default{:title => "Remove", :type => "button"}
+              -#    %i.fa.fa-trash-o
+              -#  %button.btn.btn-sm.btn-default{"data-toggle" => "dropdown", :title => "Filter", :type => "button"}
+              -#    %i.fa.fa-filter
+              -#    %span.caret
+              -#  %ul.dropdown-menu
+              -#    %li
+              -#      %a{:href => "#"} Action
+              -#    %li
+              -#      %a{:href => "#"} Another action
+              -#    %li
+              -#      %a{:href => "#"} Something else here
+              -#    %li.divider
+              -#    %li
+              -#      %a{:href => "#"} Separated link
+              %a.btn.btn.btn-sm.btn-primary{:href => new_item_path}
+                %i.fa.fa-plus
+                Create
+            / <a href="#new-item-category" data-toggle="new-item-category" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Create</a>
+            .col-sm-4.m-b-xs
+              = form_for item_categories_path do |f|
+                .input-group
+                  = f.text_field :name , class: "input-sm form-control"  , placeholder: "Search"
+                  %span.input-group-btn
+                    = f.button "Go!" , class: "btn btn-sm btn-default"
+        %section.scrollable.wrapper.w-f
+          %section.panel.panel-default
+            .table-responsive
+              %table.table.table-striped.m-b-none
+                %thead
+                  %tr
+                    %th{:width => "20"}
+                    / <th class="th-sortable" data-toggle="class">Name
+                    / <span class="th-sort">
+                    / <i class="fa fa-sort-down text"></i>
+                    / <i class="fa fa-sort-up text-active"></i>
+                    / <i class="fa fa-sort"></i>
+                    / </span>
+                    / </th>
+                    %th Sku
+                    %th Item
+                    %th Category
+                    %th Location
+                    %th Available
+                    %th Sold
+                    %th Price
+                    %th
+                      %span.pull-right Actions
+                %tbody
+                  - @items.each do |item|
+                    %tr{:class => "#{item.stock_amount > 0 ? '' : 'danger'}"}
+                      %td= image_tag item.photo, style: 'widh: 50px ; width: 50px '
+                      %td= item.sku
+                      %td= item.name
+                      %td= item.item_category.blank? ? '-' : item.item_category.name
+                      %td= item.location.blank? ? '-' : item.location.name
+                      %td= item.stock_amount
+                      %td= item.amount_sold
+                      %td= number_to_currency(item.price , unit: current_company.currency)
+                      %td.text-right
+                        = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_item_path(item), class: "btn btn-dark"
+                        = link_to raw("<i class= 'fa fa-times'></i>"),item, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure you want to delete this item?"}
+        / <tr>
+        / <td><input type="checkbox" name="post[]" value="2"></td>
+        / &lt;!&ndash;<td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>&ndash;&gt;
+        / <td>Idrawfast</td>
+        / <td>4c</td>
+        / <td>Jul 25, 2013</td>
+        / <td>
+        / &lt;!&ndash;<a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>&ndash;&gt;
+        / </td>
+        / </tr>
+        %footer.footer.bg-white.b-t
+          .row.text-center-xs.pull-right{:style => "margin: 0px 2%;"}
+            = will_paginate @items, renderer: BootstrapPagination::Rails
+    %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", :href => "#"}

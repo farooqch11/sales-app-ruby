@@ -30,4 +30,6 @@
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.button :class=>"btn btn-info" , data: {disable_with: disable_spinning('Saving')}
-      = button_tag "Cancel", :type => 'reset',:class=>"btn"
+      %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+
+      -#= button_tag "Cancel", :type => 'reset',:class=>"btn"

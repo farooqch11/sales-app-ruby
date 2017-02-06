@@ -1,0 +1,12 @@
+.container-fluid.m-t-lg
+  .box-typical.box-typical-full-height{:style => "min-height: 515px;"}
+    .add-customers-screen.tbl{:style => "height: 515px;"}
+      .add-customers-screen-in
+        -#.add-customers-screen-user
+        -#  %i{class: "#{icon}"}
+        %h2 #{head}
+        %p.lead.color-blue-grey-lighter
+          #{t1}
+          %br/
+          #{t2}
+        = link_to link_text , url , remote: true , class: 'btn btn-info'
