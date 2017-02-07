@@ -1,10 +1,10 @@
-.modal.fade{id: expense.new_record? ? 'new_expense' : "edit_expense_#{expense.slug}"}
+.modal.fade{class: expense.new_record? ? 'new_expense' : "edit_expense_#{expense.slug}"}
   .modal-dialog
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
         %h4.modal-title
           %b #{expense.new_record? ? 'New Expense' : 'Edit Expense'}
-      .modal-body
-        = render 'expenses/partials/form' , expense: expense
+
+      = render 'expenses/partials/form' , expense: expense
 

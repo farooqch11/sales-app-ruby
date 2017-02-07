@@ -30,33 +30,37 @@ class ExpensesController < ApplicationController
   def edit
   end
 
-  # POST /expenses
-  # POST /expenses.json
   def create
     @expense = current_company.expenses.new(expense_params)
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to :back , notice: 'Expense was successfully created.' }
-        format.json { render :show, status: :created, location: @expense }
+        flash.now[:success] = "Expense was successfully created."
+        format.html { redirect_to :back }
+        # format.json { render :show, status: :created, location: @expense }
+         format.js
       else
+        flash.now[:errors] = @expense.errors.full_messages
         format.html { render :new }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+        # format.json { render json: @expense.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
 
-  # PATCH/PUT /expenses/1
-  # PATCH/PUT /expenses/1.json
   def update
-
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
-        format.json { render :show, status: :ok, location: @expense }
+        flash.now[:success] = "Expense was successfully updated."
+        format.html { redirect_to expenses_path }
+        format.js
+        # format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+        flash.now[:errors] = @expense.errors.full_messages
+        format.js
+        # format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
+      format.js
     end
 
   end
@@ -67,15 +71,20 @@ class ExpensesController < ApplicationController
     @expense.destroy
     respond_to do |format|
       format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
-      format.json { head :no_content }
+      # format.json { head :no_content }
+      format.js
     end
   end
 
   private
 
+    def ajax_refresh
+      render 'template/ajax_reload' , url: expense_path
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
-      @expense = current_company.expenses.find(params[:id])
+      @expense = current_company.expenses.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

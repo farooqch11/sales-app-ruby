@@ -1,2 +1,4 @@
 $('.remote_container').html("#{j render 'expenses/partials/new_modal' , expense: @expense }");
-$("#edit_expense_#{@expense.slug}").modal('toggle');
+$(".edit_expense_#{@expense.slug}").modal('toggle');
+filepicker.constructWidget($('#expense_attachment'));
+$(".file-pick-btn").on('click',function(){$('.fp__overlay').css({'z-index':'99999'});});

@@ -1,0 +1,11 @@
+%tr{id: "expense-#{expense.id}"}
+  / <td><input type="checkbox" name="user[]" value="<haml_silent></haml_silent>"></td>
+  %td= image_tag expense.attachment, style: 'widh: 50px ; width: 50px '
+  %td= expense.expense_type
+  %td= expense.purpose
+  %td= expense.paid_time
+  %td= expense.start_date.to_s + " - " + expense.end_date.to_s
+  %td= number_to_currency(expense.amount)
+  %td.text-right
+    = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_expense_path(expense), remote: true  ,class: "btn btn-dark"
+    = link_to raw("<i class= 'fa fa-times'></i>"),expense, class: "btn btn-dark",remote: true , :method => :delete  , data: {:confirm => "Are you sure?"}

@@ -1,4 +1,4 @@
--if @expenses.empty?
+-if @expenses.empty? && !params[:q].present?
   = render 'template/empty_list' , icon: 'fa fa-male fa-3x icon' , head: 'Expenses list empty' ,link_text: 'Add Expense' , url: new_expense_path , t1: ' Create items with names, contact information' , t2: 'and locations to speed-up dispatching.'
 - else
   %section.hbox.stretch
@@ -31,17 +31,7 @@
                       %span.pull-right Actions
                 %tbody
                   - @expenses.each do |expense|
-                    %tr
-                      / <td><input type="checkbox" name="user[]" value="<haml_silent></haml_silent>"></td>
-                      %td= image_tag expense.attachment, style: 'widh: 50px ; width: 50px '
-                      %td= expense.expense_type
-                      %td= expense.purpose
-                      %td= expense.paid_time
-                      %td= expense.start_date.to_s + " - " + expense.end_date.to_s
-                      %td= number_to_currency(expense.amount)
-                      %td.text-right
-                        = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_expense_path(expense), remote: true  ,class: "btn btn-dark"
-                        = link_to raw("<i class= 'fa fa-times'></i>"),expense, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}
+                    = render 'expenses/partials/tr' , expense: expense
         / <tr>
         / <td><input type="checkbox" name="post[]" value="2"></td>
         / &lt;!&ndash;<td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>&ndash;&gt;

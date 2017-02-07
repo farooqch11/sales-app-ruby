@@ -13,7 +13,8 @@
       %tbody
         -if expenses.empty?
           %tr
-            No Record Found
+            %td
+              No Record Found
         -else
           - expenses.each do |expense|
             %tr
