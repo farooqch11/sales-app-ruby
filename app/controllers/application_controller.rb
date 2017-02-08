@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
 
   helper FilepickerRails::Engine.helpers
 
+  rescue_from Exception, with: :render_generic_exception if Rails.env.production?   #make sure the generic Exception handler is at the top
+  rescue_from ActionController::RoutingError, with: :render_not_found if Rails.env.production?
+  rescue_from ActionController::UnknownController, with: :render_not_found if Rails.env.production?
+  rescue_from AbstractController::ActionNotFound, with: :render_not_found if Rails.env.production?
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found if Rails.env.production?
+
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
 
@@ -14,6 +20,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
   end
+
 
   def current_company
     @company  ||= current_user.company if !current_user.nil? && user_signed_in?
@@ -47,7 +54,24 @@ class ApplicationController < ActionController::Base
      devise_controller? ? "base" : "application"
   end
 
+  def render_not_found(exception = nil)
+    render_exception(404, 'Not Found', exception)
+  end
+
+  def render_exception(status = 500, message = 'An Error Occurred', exception)
+    # @status = status
+    # @message = message
+    # email = UserMailer.exception_notify(exception,exception.backtrace[0..25].join('\n'),params,request).deliver if Rails.env.production?
+    render template: "template/404", formats: [:html], layout: false
+  end
+
+  def error_routing
+    render template: "template/404", formats: [:html], layout: false
+  end
+
   private
+
+
 
   ##
   # set_store loads the global companies.

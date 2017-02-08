@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8" />
+  <title>Managehub360 | Something Went Wrong</title>
+  <meta name="description" content="Something went wrong" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <%= stylesheet_link_tag "application" %>
+</head>
+<body>
+<section id="content">
+  <div class="row m-n">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="text-center m-b-lg">
+        <h1 class="h text-white animated fadeInDownBig">404</h1>
+      </div>
+      <div class="list-group m-b-sm bg-white m-b-lg">
+        <a href="<%=current_user.present? ? "/dashboard" : "/"%>" class="list-group-item">
+          <i class="fa fa-chevron-right icon-muted"></i>
+          <i class="fa fa-fw fa-home icon-muted"></i> Goto homepage
+        </a>
+        <a href="#" class="list-group-item">
+          <i class="fa fa-chevron-right icon-muted"></i>
+          <span class="badge"><a href="mailto:support@activehr.io">support@managehub360.com</a></span>
+          <i class="fa fa-fw fa-phone icon-muted"></i> Email Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- footer -->
+<footer id="footer">
+  <div class="text-center padder clearfix">
+    <p>
+      <small>Managehub360.com<br>&copy; 2017</small>
+    </p>
+  </div>
+</footer>
+<%= javascript_include_tag "application" %>
+</body>
+</html>

@@ -21,7 +21,7 @@
       / &lt;!&ndash;</div>&ndash;&gt;
       / </div>
       / </div>
-      .m-b-md
+      -#.m-b-md
         %h3.m-b-none
           - current_user.company_name.titleize
         .alert.alert-success
@@ -30,7 +30,7 @@
           %strong Welcome back!
           %a.alert-link{:href => "#"}= current_user.username.present? ? current_user.username.titleize : current_user.email
           choose a common task below to get started!.
-      %section.panel.panel-default
+      %section.panel.panel-default.m-t-md
         .row.m-l-none.m-r-none.bg-light.lter
           .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
