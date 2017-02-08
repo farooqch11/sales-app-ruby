@@ -56,9 +56,9 @@ ActiveAdmin.register Site, as: "Configuration" do
 
       f.input :url,:hint => "Website URL"
       f.input :name
-      f.input :logo,as: :file,:label => "Website Logo",:hint => "Ideal size for logo is : 398 X 162"
+      f.filepicker_field :logo,:label => "Website Logo",:hint => "Ideal size for logo is : 398 X 162" , class: "btn btn-default",data: { fp_crop_ratio: "*/4", fp_button_class: 'btn btn-default file-pick-btn',fp_button_text: 'Upload'}
       # f.input :cover_page, :as => :file, :hint => image_tag(f.object.cover_page.url(:thumb))
-      f.input :logo_cache, :as => :hidden
+      # f.input :logo_cache, :as => :hidden
       f.input :email,:hint => "Website Contact us email"
 
       f.input :tag_line, :hint => "Website tag-line or slogon"
