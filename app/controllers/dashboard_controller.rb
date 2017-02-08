@@ -4,20 +4,21 @@ class DashboardController < ApplicationController
   include ConfigurationHelper
 
   def index
-    @recent_sales  = current_company.sales.joins(:payments).distinct.order('sales.id DESC').limit(10) || []
-    @popular_items = current_company.items.all.published.order('amount_sold DESC').limit(10) || []
-    @recent_expenses =  current_company.expenses.all.order(id: :desc).limit(10) || []
+    @recent_sales    = current_company.sales.joins(:payments).distinct.order('sales.id DESC').limit(10) || []
+    @popular_items   = current_company.items.all.published.order('amount_sold DESC').limit(10) || []
+    @recent_expenses = current_company.expenses.all.order(id: :desc).limit(10) || []
     @low_stock_items = current_company.low_stock_items.limit(10) || []
-    @sales         = current_company.sales.joins(:payments).distinct.all || []
-    @expenses      = current_company.expenses || []
-    @charts = finance_chart_by_year(@sales , @expenses , 13.months.ago)
+    year = Date.today.year
+    @sales         = current_company.sales.by_year(year) || []
+    @expenses      = current_company.expenses.by_year(year) || []
+    @charts        = finance_chart_by_year(@sales , @expenses , Date.new(year).beginning_of_year , Date.new(year).end_of_year)
 
   end
 
   def change_location
     location = current_user.locations.find_by_id(params[:change_location][:location_id]) || []
     if location.present?
-    current_user.update_attributes(location_id: location.id)
+      current_user.update_attributes(location_id: location.id)
       flash[:success] = "Location Successfully Changed."
     else
       flash[:error] = "Error!"

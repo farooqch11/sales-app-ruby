@@ -78,7 +78,12 @@
           .list-group
             = link_to raw("<i class='fa fa-shopping-cart fa-2x'></i>Start a New Sale") , new_sale_path , class: 'list-group-item'
       .row
-        = render 'finance/partials/profit_and_loss_chart'
+        %section.panel.panel-default
+          %header.panel-heading.font-bold Sale Information
+          .panel-body
+            .row
+              .col-sm-12
+                #chartContainer= @charts.render()
         = render 'dashboard/partials/recent_sale' , sales: @recent_sales
         = render 'dashboard/partials/low_stock' , items: @popular_items , heading: "Popular Items"
         = render 'dashboard/partials/low_stock' , items: @low_stock_items , heading: "Low Stock Items"
