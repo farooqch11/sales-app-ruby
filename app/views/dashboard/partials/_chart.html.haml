@@ -1,0 +1,19 @@
+.col-md-12
+  %section.panel.panel-default
+    %header.panel-heading.font-bold Statistics
+    .panel-body
+      #flot-1ine{:style => "height:210px"}
+    %footer.panel-footer.bg-white.no-padder
+      .row.text-center.no-gutter
+        .col-xs-3.b-r.b-light
+          %span.h4.font-bold.m-t.block 5,860
+          %small.text-muted.m-b.block Orders
+        .col-xs-3.b-r.b-light
+          %span.h4.font-bold.m-t.block= current_location.sales.count
+          %small.text-muted.m-b.block Sellings
+        .col-xs-3.b-r.b-light
+          %span.h4.font-bold.m-t.block= current_location.items.count
+          %small.text-muted.m-b.block Items
+        .col-xs-3
+          %span.h4.font-bold.m-t.block= current_location.customers.count
+          %small.text-muted.m-b.block Customers

@@ -1,0 +1,32 @@
+.col-sm-12
+  %section.panel.panel-default
+    %header.panel-heading
+      %b
+        Recent Sale
+    %table.table.table-hover.m-b-none
+      %thead
+        %tr
+          / <th width="20"><input type="checkbox"></th>
+          %th #
+          %th Created
+          %th Customer
+          %th Total
+          %th Tax
+          %th Paid
+          %th Balance
+
+      %tbody
+        -if sales.empty?
+          %tr
+            %td
+              No Record Found
+        -else
+          - sales.each do |sale|
+            %tr{:class => "#{sale.remaining_balance == 0.00 && !sale.total_amount.blank? ? 'success' : ''}"}
+              %td= link_to sale.id , sale_path(sale)
+              %td= sale.created_at.strftime("%m/%d/%y %I:%M:%S %p")
+              %td= sale.customer.blank? ? '-' : sale.customer.last_name
+              %td= value_in_currency(sale.total_amount)
+              %td= value_in_currency(sale.tax)
+              %td= value_in_currency(sale.paid_total)
+              %td= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Paid" : "#{ value_in_currency(sale.remaining_balance)}"

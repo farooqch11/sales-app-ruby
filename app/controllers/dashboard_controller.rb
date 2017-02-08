@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   # before_filter :is_authorize!
 
   def index
-    @recent_sales  = current_company.sales.all.order('id DESC').limit(10) || []
+    @recent_sales  = current_company.sales.joins(:payments).order('sales.id DESC').limit(10) || []
     @popular_items = current_company.items.all.published.order('amount_sold DESC').limit(10) || []
     @recent_expenses =  current_company.expenses.all.order(id: :desc).limit(10) || []
     @low_stock_items = current_company.low_stock_items.limit(10) || []
