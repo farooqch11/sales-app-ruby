@@ -46,7 +46,7 @@
               %i.fa.fa-shopping-cart.fa-stack-1x.text-white
             %a.clear{:href => '#'}
               %span.h3.block.m-t-xs
-                %strong#bugs= current_location.sales.count
+                %strong#bugs= current_company.sales.joins(:payments).distinct.count
               %small.text-muted.text-uc Total Sellings
           .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
@@ -78,7 +78,7 @@
           .list-group
             = link_to raw("<i class='fa fa-shopping-cart fa-2x'></i>Start a New Sale") , new_sale_path , class: 'list-group-item'
       .row
-        = render 'dashboard/partials/chart'
+        = render 'finance/partials/profit_and_loss_chart'
         = render 'dashboard/partials/recent_sale' , sales: @recent_sales
         = render 'dashboard/partials/low_stock' , items: @popular_items , heading: "Popular Items"
         = render 'dashboard/partials/low_stock' , items: @low_stock_items , heading: "Low Stock Items"
