@@ -115,7 +115,7 @@ PushvendorPos::Application.configure do
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'managehub360.com',
+      :domain               => '159.203.77.246',
       :user_name            => "faizuali4@gmail.com",
       :password             => "F8a1i8z4u",
       :authentication       => "plain",

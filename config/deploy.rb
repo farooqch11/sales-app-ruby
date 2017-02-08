@@ -39,6 +39,19 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
 end
 
+### Connect Rails Console###########
+desc 'RUN Console Locally'
+task 'rails:console' => :environment do
+  queue! "cd #{deploy_to}/#{current_path} ; RAILS_ENV=production bundle exec rails c"
+end
+
+
+### Check Logs ################
+desc 'Tail Logs'
+task 'rails:log' => :environment do
+  queue! "cd #{deploy_to}/#{current_path} ; less log/production.log"
+end
+
 
 
 # Default branch is :master
