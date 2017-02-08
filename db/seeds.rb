@@ -84,4 +84,4 @@
 # # for i in (1..2000)
 # #   store.item_categories.create(:name => "#{i}Name", :description => "#{i}Description" )
 # # end
-AdminAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
