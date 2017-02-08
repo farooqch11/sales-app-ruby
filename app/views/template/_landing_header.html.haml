@@ -1,0 +1,29 @@
+%body
+  %header#header.navbar.navbar-fixed-top.bg-white.box-shadow.b-b.b-light{"data-offset-top" => "1", "data-spy" => "affix"}
+    .container
+      .navbar-header
+        = link_to '#' , class: 'navbar-brand' do
+          = image_tag 'logo-white.png' , class: 'm-r-sm' , style: "min-height: 50px;" , alt: "#{current_site.name}"
+          %span.text-muted
+        %button.btn.btn-link.visible-xs{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+          %i.fa.fa-bars
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li.active
+            = link_to "Home" ,root_path
+          %li
+            = link_to "Features" ,"#"
+          %li
+            = link_to "Benefits" ,"#"
+          %li
+            = link_to raw("Plans &amp; Pricing") ,"#"
+          %li
+            - if user_signed_in?
+              = link_to dashboard_index_path do
+                %span.thumb-sm.avatar.pull-left
+                  = image_tag current_user.photo
+                %span.font-bold= current_user.username
+            - else
+              .m-t-sm
+                = link_to new_user_session_path , class: 'btn btn-sm btn-info m-l' do
+                  %strong Sign in
