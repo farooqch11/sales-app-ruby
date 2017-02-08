@@ -12,17 +12,23 @@ ActiveAdmin.register_page "Dashboard" do
 
     # Here is an example of a simple dashboard with columns and panels.
     #
-    columns do
-      column do
-        panel "Recent Companies" do
-          ul do
-            Company.last(5).map do |post|
-              li link_to(post.company_name, admin_companies_path(post))
-            end
-          end
+
+    panel "Recent Companies" do
+      table_for Company.last(5) do
+        column :company_name do |c|
+          link_to(c.company_name, admin_company_path(c))
+        end
+        column :owner
+        column :country
+        column :logo
+        column :created_at
+        column "Email" do |reaction|
+          reaction.owner.email
         end
       end
+    end
 
+    columns do
       column do
         panel "Info" do
           para "Welcome to Managehub360 Admin Panal."
