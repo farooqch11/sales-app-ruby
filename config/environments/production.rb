@@ -112,10 +112,11 @@ PushvendorPos::Application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.default_url_options = { :host => '159.203.77.246' }
   # SMTP settings for gmail
+  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => '159.203.77.246',
       :user_name            => "faizuali4@gmail.com",
       :password             => "F8a1i8z4u",
       :authentication       => "plain",
@@ -125,5 +126,4 @@ PushvendorPos::Application.configure do
       sender_address: %{"notifier" <noreply@managehub360.com>},
       exception_recipients: %w{faizuali4@gmail.com}
   }
-  config.action_mailer.delivery_method = :smtp
 end
