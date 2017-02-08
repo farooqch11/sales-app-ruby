@@ -25,19 +25,22 @@
             %li{:class => dashboard_active}
               %a{:class => dashboard_active, :href => dashboard_index_path}
                 %i.fa.fa-dashboard.icon
-                  %b.bg-dark
+                  %b.bg-info
                 %span HOME
             - if current_user.can_update_users  == true
               %li{:class => users_active}
                 %a{:class => users_active, :href => users_path}
                   %i.fa.fa-user.icon
-                    %b.bg-dark
+                    %b.bg-info
                   %span EMPLOYEES
             - if current_user.can_view_reports
               %li{:class => reports_active}
                 %a{:class => "reports_active", :href => reports_path}
                   %i.fa.fa-bar-chart-o.icon
-                    %b.bg-dark
+                    %b.bg-info
+                  %span.pull-right
+                    %i.fa.fa-angle-down.text
+                    %i.fa.fa-angle-up.text-active
                   %span REPORTS
                 %ul.nav.lt
                   %li
@@ -55,7 +58,7 @@
             %li{:class => item_categories_active}
               %a{:class => item_categories_active, :href => "#item_category"}
                 %i.fa.fa-clipboard.icon
-                  %b.bg-dark
+                  %b.bg-info
                 %span.pull-right
                   %i.fa.fa-angle-down.text
                   %i.fa.fa-angle-up.text-active
@@ -76,13 +79,16 @@
             %li{:class => customers_active}
               %a{:class => customers_active, :href => customers_path}
                 %i.fa.fa-male.icon
-                  %b.bg-dark
+                  %b.bg-info
                 %span CUSTOMERS
             - if current_user.can_update_items
               %li{:class => sales_active}
                 %a{:class => sales_active, :href => "#"}
                   %i.fa.fa-shopping-cart.icon
-                    %b.bg-dark
+                    %b.bg-info
+                  %span.pull-right
+                    %i.fa.fa-angle-down.text
+                    %i.fa.fa-angle-up.text-active
                   %span SALES
                 %ul.nav.lt
                   %li
@@ -96,7 +102,7 @@
             %li{:class => "#{(is_active 'expenses') || (is_active 'finance')}"}
               %a{:class => item_categories_active, :href => "#item_category"}
                 %i.fa.fa-rocket.icon
-                  %b.bg-dark
+                  %b.bg-info
                 %span.pull-right
                   %i.fa.fa-angle-down.text
                   %i.fa.fa-angle-up.text-active
@@ -117,7 +123,7 @@
             %li{:class => is_setting_active}
               %a{:class => is_setting_active, :href => "#"}
                 %i.fa.fa-gear.icon
-                  %b.bg-dark
+                  %b.bg-info
                 %span.pull-right
                   %i.fa.fa-angle-down.text
                   %i.fa.fa-angle-up.text-active
