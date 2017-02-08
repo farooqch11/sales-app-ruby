@@ -1,0 +1,28 @@
+%body
+  %section#content.m-t-lg.wrapper-md.animated.fadeInUp
+    .container.aside-xxl
+      %section.panel.panel-default.bg-white.m-t-lg
+        %header.panel-heading.text-center
+          %strong Sign in
+        = form_for("user", :url => user_session_path, html: {"data-validate": "parsley", class: "form-signin panel-body wrapper-lg", role: "form"}) do |f|
+          .form-group
+            %label.control-label Email
+            = f.email_field :email, :class => 'form-control input-lg', :placeholder => 'you@example.com', required: true, autofocus: true, email: true
+          .form-group
+            %label.control-label Password
+            = f.password_field :password, id: "inputPassword", :class => 'form-control input-lg', :placeholder => 'Password', required: true
+          .checkbox
+            %label
+              = f.check_box :remember_me, class: "parsley-validated"
+              Keep me logged in
+          - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+            = link_to new_password_path(resource_name) , class: 'pull-right m-t-xs' do
+              %small Forgot password?
+          = f.button "Sign In".html_safe , class: ' btn btn-primary'
+          .line.line-dashed
+          = render "devise/shared/links"
+          %p.text-muted.text-center
+            %small
+          %p.text-muted.text-center
+            %small Do not have an account?
+          = link_to 'Create an account' , new_company_path , class: 'btn btn-default btn-block'

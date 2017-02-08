@@ -1,0 +1,149 @@
+%body
+  %section#content
+    .bg-info.dk
+      .text-center.wrapper
+        .m-t-xl.m-b-xl{:style => "min-width: 100%;"}
+          .text-uc.h3.font-bold.inline
+            .pull-left.m-r-sm.text-white
+              Tend and Invigorate your business
+              %span.font-thin with
+            .carousel.slide.carousel-fade.inline.auto.aside.text-left.pull-left.pull-none-xs{"data-interval" => "2000", :style => "min-width: 450px;"}
+              .carousel-inner
+                .item.active.text-warning
+                  inventory management
+                .item.text-dark
+                  Expense Management
+                .item
+                  Sales Summary
+                .item.text-danger
+                  Easy Point of sale
+                .item.text-warning
+                  Profit and Loss reviews
+                .item.text-dark
+                  Employees Management
+                .item
+                  Multiple location Management
+        / <div class="h4 m-t-sm" style="color: #d1efef!important;"></div>
+        %p.text-center.m-b-xl
+          %a.btn.btn-lg.btn-warning.b-white.bg-empty.m-sm{:href => new_company_path, :target => "_blank"} Get Started
+      .padder
+        .hbox
+          %aside.col-md-3.v-bottom.text-right
+            .hidden-sm.hidden-xs
+              %section.panel.bg-dark.inline.m-b-n-lg.m-r-n-lg.aside-sm.no-border.device.phone.animated.fadeInLeftBig
+                %header.panel-heading.text-center
+                  %i.fa.fa-minus.fa-2x.m-b-n-xs.block
+                %div
+                  .m-l-xs.m-r-xs
+                    %img.img-full{:src => "#{asset_path('phone-2.png')}"}/
+          %aside.col-sm-10.col-md-6
+            %section.panel.bg-dark.m-b-n-lg.no-border.device.animated.fadeInUp
+              %header.panel-heading.text-left
+                %i.fa.fa-circle.fa-fw
+                %i.fa.fa-circle.fa-fw
+                %i.fa.fa-circle.fa-fw
+              %img.img-full{:src => "#{asset_path('main.png')}"}/
+          %aside.col-md-3.v-bottom
+            .hidden-sm.hidden-xs
+              %section.panel.bg-light.m-b-n-lg.m-l-n-lg.aside.no-border.device.phone.animated.fadeInRightBig
+                %header.panel-heading.text-center
+                  %i.fa.fa-minus.fa-2x.text-white.m-b-n-xs.block
+                %div
+                  .m-l-xs.m-r-xs
+                    %img.img-full{:src => "#{asset_path('phone-1.png')}"}/
+      .dker.pos-rlt
+        .container.wrapper
+          .m-t-lg.m-b-lg.text-center
+            = current_site.name
+            provides an easy-to-use and advanced inventory management system for small to medium sized businesses.
+    #about
+      .container
+        / <div class="m-t-xl m-b-xl text-center wrapper">
+        / <h3>Responsive web application and admin dashboard template</h3>
+        / <p class="text-muted">This web based app template give you much power to build your great application.</p>
+        / </div>
+        .row.m-t-xl.m-b-xl.text-center
+          .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "300", "data-ride" => "animated"}
+            %p.h3.m-b-lg
+              %i.fa.fa-lightbulb-o.fa-3x.text-info
+            %div
+              %h4.m-t-none
+              %p.text-muted.m-t-lg
+                = current_site.name
+                is the point of sale that takes care of digital receipts, inventory, and sales reports and provides valuable analytics and feedback so you can focus on your customers.
+          .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "600", "data-ride" => "animated"}
+            %p.h3.m-b-lg
+              %i.fa.fa-signal.fa-3x.text-info
+            %div
+              %h4.m-t-none
+              %p.text-muted.m-t-lg
+                = current_site.name
+                serves businesses big and small, from corner bakeries to retailers around the world. It works with hardware and software accessories that make it easier to run your business.
+          .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "900", "data-ride" => "animated"}
+            %p.h3.m-b-lg
+              %i.fa.fa-rocket.fa-3x.text-info
+            %div
+              %h4.m-t-none
+              %p.text-muted.m-t-lg We’re constantly improving with free updates that equip you with great new features to help you run your business more efficiently and effectively.
+        .m-t-xl.m-b-xl.text-center.wrapper
+          %p.h3
+            Download #{current_site.name}
+          %br/
+          %span.text-info.h4
+            = current_site.name
+            is available in the
+          %span.text-info.h4 App Store
+          %span.text-muted.h5 and
+          %span.text-info.h4 Google Play.
+  / <div id="responsive" class="bg-dark">
+  / <div class="text-center">
+  / <div class="container">
+  / <div class="m-t-xl m-b-xl wrapper">
+  / <h3 class="text-white">Your application will works no matter where you are</h3>
+  / &lt;!&ndash;<p>You can use your application at anywhere in the world. <br>This template works on <span class="text-primary text-ul">mobile device</span> too.</p>&ndash;&gt;
+  / </div>
+  / <div class="row m-t-xl m-b-xl">
+  / <div class="col-sm-4 wrapper-xl" data-ride="animated" data-animation="fadeInLeft" data-delay="300">
+  / <p class="text-center h2 m-b-lg m-t-lg">
+  / <span class="fa-stack fa-2x">
+  / <i class="fa fa-circle fa-stack-2x text-dark"></i>
+  / <i class="fa fa-mobile fa-stack-1x text-muted"></i>
+  / </span>
+  / </p>
+  / <p>Mobile</p>
+  / </div>
+  / <div class="col-sm-4 wrapper-xl" data-ride="animated" data-animation="fadeInLeft" data-delay="600">
+  / <p class="text-center h1 m-b-lg">
+  / <span class="fa-stack fa-2x">
+  / <i class="fa fa-circle fa-stack-2x text-dark"></i>
+  / <i class="fa fa-tablet fa-stack-1x text-muted"></i>
+  / </span>
+  / </p>
+  / <p>Tablet</p>
+  / </div>
+  / <div class="col-sm-4 wrapper-xl" data-ride="animated" data-animation="fadeInLeft" data-delay="900">
+  / <p class="text-center h2 m-b-lg m-t-lg">
+  / <span class="fa-stack fa-2x">
+  / <i class="fa fa-circle fa-stack-2x text-dark"></i>
+  / <i class="fa fa-desktop fa-stack-1x text-muted text-md"></i>
+  / </span>
+  / </p>
+  / <p>Desktop</p>
+  / </div>
+  / </div>
+  / </div>
+  / </div>
+  / </div>
+  / <div id="newsletter" class="bg-white clearfix wrapper-lg">
+  / <div class="container text-center m-t-xl m-b-xl" data-ride="animated" data-animation="fadeIn">
+  / <h2>Newsletter</h2>
+  / <p>Do not want to miss anything? Subscribe to our newsletter box</p>
+  / <form class="form-inline m-t-xl m-b-xl">
+  / <div class="form-group">
+  / <input class="form-control input-lg" placeholder="Your email" data-ride="animated" data-animation="fadeInLeftBig" data-delay="300">
+  / </div>
+  / <button type="submit" class="btn btn-default btn-lg" data-ride="animated" data-animation="fadeInRightBig" data-delay="600">Subscribe</button>
+  / </form>
+  / </div>
+  / </div>
+  = render 'template/footer'

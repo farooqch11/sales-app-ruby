@@ -1,0 +1,58 @@
+%section#content.m-t-lg.wrapper-md.animated.fadeInDown
+  .container
+    %a.navbar-brand.block.text-center.text-center-xs.m-t-lg{:href => "#"} Let’s create your account.
+    %p.text-center.text-center-xs
+      %small
+        Signing up for #{SITE_NAME} is fast and free — no commitments or long-term contracts.
+    %section.m-t-lg.row
+      .col-md-8.col-md-offset-2
+        .line.line-dashed.col-md-12.m-b-lg
+        = form_for @company do |f|
+          %h5.text-center.text-center-xs
+          %p#web-url{:style => "color:#7cbc20;"}
+          .form-group.col-md-6
+            = f.label "Business Name" ,class: "control-label"
+            = f.text_field :company_name, class: 'form-control input-lg' , placeholder: "eg. Your name or store" ,:onkeyup=>"showWebUrl();", required: true,minlength: "3" , autocomplete: "off"
+          = f.fields_for :owner do |p|
+            .form-group.col-md-6
+              = p.label :email , class: "control-label"
+              = p.email_field :email , placeholder: "test@example.com" , class: "form-control input-lg" , required: true, email: true
+              = p.hidden_field :username
+            .form-group.col-md-6
+              = f.label :business_type , class:"control-label"
+              = f.select(:business_type_id, BusinessType.all.collect {|b| [ b.name, b.id ] }, {prompt: 'Select Business Type'} , class: "form-control input-lg select2-container select2-container-active" )
+            .form-group.col-md-6
+              = f.label :country , class:"control-label"
+              = f.country_select("country" ,  {prompt: 'Select Country'} ,{ class: "form-control input-lg select2-container select2-container-active" , required: true } )
+            .form-group.col-md-6
+              = p.label :password , class:"control-label"
+              = p.password_field :password , class: "form-control input-lg" , placeholder: "Password" , required: true , minlength: "6"
+            .form-group.col-md-6
+              = p.label :confirm_password , class:"control-label"
+              = p.password_field :password_confirmation , class: "form-control input-lg" , placeholder: "Confirm Password"
+          .line.line-dashed.col-md-12.m-b-lg
+          .form-group.col-md-6
+            %label
+              By clicking submit you agree to the
+              %a.text-info{:href => "#"} Terms and Policy
+              of #{SITE_NAME}.
+          .form-group.col-md-6
+            %button.btn.btn-info.btn-lg.btn-block{:type => "submit"} Sign up
+          .line.line-dashed.col-md-12.m-b-md
+          -#.form-group.col-md-6
+            %a.btn.btn-block.btn-lg.btn-facebook{:href => "#"}
+              %i.fa.fa-fw.fa-facebook.pull-left
+              Facebook
+          / <div class="form-group col-md-6">
+          / <a href="#" class="btn btn-twitter btn-lg btn-block"><i class="fa fa-fw fa-twitter pull-left"></i> Twitter</a>
+          / </div>
+        / footer
+        %footer#footer
+  .text-center.padder.clearfix
+    %p
+      %small
+        © #{Time.now.year} #{SITE_NAME} All Rights Reserved.
+:javascript
+  $( document ).ready(function() {
+      $('#new_company').validate();
+  });
