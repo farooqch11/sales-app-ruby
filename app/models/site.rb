@@ -25,17 +25,17 @@
 
 class Site < ActiveRecord::Base
 
-  # mount_uploader :logo, AttachmentUploader
+  mount_uploader :logo, AttachmentUploader
 
   #Validations
-  # validates :there_can_only_be_one_site
+  validate :there_can_only_be_one_site
   validates :name , presence: true
 
   private
 
-  # def there_can_only_be_one_site
-  #   errors.add('There can only be one Site Configuration ') if Site.count > 0
-  # end
+  def there_can_only_be_one_site
+    errors.add(:base , 'There can only be one Site Configuration ') if Site.count > 0
+  end
 
 
 end
