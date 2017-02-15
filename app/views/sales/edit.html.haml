@@ -1,0 +1,74 @@
+%section.hbox.stretch
+  %aside.col-md-8
+    %section.vbox
+      %header.header.bg-white.b-b.clearfix
+        .row.m-t-sm
+          %a.btn.btn-sm.btn-default.pull-right{"data-toggle" => "class:hide", :href => "#subNav"}
+            %i.fa.fa-caret-left.text-active.fa-lg
+            %i.fa.fa-caret-right.text.fa-lg
+          %input#search_sale_id.hidden{:type => "number", :value => "#{@sale.id}"}/
+          / <div class="col-sm-12 col-md-12 m-b-xs">
+          / <a href="#customItem" data-toggle="modal" data-target="#customItem" class="btn btn-sm btn-info" title="Create New Custom Item"><i class="fa fa-plus pull-left"></i>Custom Item</a>
+          / <a href="#customCustomer" data-toggle="modal" data-target="#customCustomer" class="btn btn-sm btn-warning" title="Create New Customer"><i class="fa fa-plus pull-left"></i> Customer</a>
+          = form_for :search, url: update_line_item_options_sales_path , format: :js, method: "post", remote: true do |f|
+            = f.hidden_field :id, :value => @sale.id
+            .col-xs-4.col-md-4
+              = f.collection_select :item_category, current_company.item_categories, :id, :name, {prompt: "Select a category"}, {class: "form-control item_category_search_input"}
+            .col-xs-6.col-md-6
+              = f.text_field :item_name, class: "search-expend item_search_input awesomplete form-control rounded", list: 'items-list', placeholder: "Search Items"
+              = submit_tag "search", :class => "btn btn-info hidden item_search"
+              %datalist#items-list
+                - @available_items.each do |itm|
+                  = link_to "link1", "#",{remote: true, 'data-toggle':  "modal", 'data-target': '#modal-window'}
+                  / Don't remove the '.|'
+                  %option{:value => ""}
+                    = itm.id
+                    \.| #{itm.name} | stk amount: #{itm.stock_amount}
+      / </div>
+      %section.scrollable.wrapper.w-f
+        .sale_form_details
+          = render 'sales/shared/form'
+      %footer.footer.bg-white.b-t
+        .row.text-center-xs
+  / <div class="col-md-6 hidden-sm">
+  / <p class="text-muted m-t">Showing 20-30 of 50</p>
+  / </div>
+  / <div class="col-md-6 col-sm-12 text-right text-center-xs">
+  / <ul class="pagination pagination-sm m-t-sm m-b-none">
+  / <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+  / <li class="active"><a href="#">1</a></li>
+  / <li><a href="#">2</a></li>
+  / <li><a href="#">3</a></li>
+  / <li><a href="#">4</a></li>
+  / <li><a href="#">5</a></li>
+  / <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+  / </ul>
+  / </div>
+  %aside#subNav.col-md-8aside-md.bg-white.b-l
+    %section.vbox
+      %header.header.bg-white.b-b.clearfix
+        = link_to raw("<i class='fa fa-trash-o'></i>") , '#',id:'empty-cart' ,class: "btn btn-icon btn-default btn-sm pull-right"
+        = link_to add_sale_customer_sale_customers_path(@sale) ,remote: true , class: 'btn btn-default btn-sm pull-right' , style: "min-width: 65%; margin-right: 10%;" do
+          %i.fa.fa-user.pull-left.text-muted
+          Add Customer test
+
+        %button.btn.btn-icon.btn-default.btn-sm.pull-right.visible-xs.m-r-xs{"data-target" => "#mail-nav", "data-toggle" => "class:show"}
+          %i.fa.fa-reorder
+      / <p class="h4">Cart (25)</p>
+      %section.scrollable.wrapper.w-f
+        = form_for(@sale) do |f|
+          / <div class="wrapper b-b header">SALES</div>
+          %ul.nav
+            = render :partial => 'template/form_errors', :object => @sale
+            / <h4 class="text-info"><span class="glyphicon glyphicon-tags"></span> Items</h4>
+            / <hr class="hidden-print" />
+            .added_items
+              = render :partial => 'sales/shared/added_items', :locals=>{:f=>f}
+            .row
+              .sale_totals.col-sm-12.hidden-print
+                = render :partial => 'sales/shared/sale_totals', :locals=>{:f=>f}
+            / <div class="sale_payments col-sm-8">
+            / </div>
+            = f.submit 'Update Sale', :class => "hidden btn btn-info btn-lg sale_submit"
+      %footer.footer.b-t.sale_payments
+        = render  'sales/shared/sale_payments'

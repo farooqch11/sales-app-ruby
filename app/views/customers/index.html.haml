@@ -1,4 +1,4 @@
--if @customers.empty?
+-if @customers.empty? && !params[:q].present?
   = render 'template/empty_list' , icon: 'fa fa-male fa-3x icon' ,link_text: 'Add Customer' ,  head: 'Customers list empty' ,url: new_customer_path , t1: ' Create items with names, contact information' , t2: 'and locations to speed-up dispatching.'
 - else
   %section.hbox.stretch
@@ -6,49 +6,31 @@
       %section.vbox
         %header.header.bg-white.b-b.clearfix
           .row.m-t-sm
-            .col-sm-10.m-b-xs.pull-left
-              = form_for item_categories_path do |f|
+            .col-sm-4.m-b-xs.pull-right
+              = search_form_for @search do |f|
                 .input-group
-                  = f.text_field :name , class: "input-sm form-control"  , placeholder: "Search Coming Soon"
+                  = f.text_field :first_name_or_email_address_or_last_name_cont , class: "input-sm form-control"  , placeholder: "Search..."
                   %span.input-group-btn
-                    = f.button "Go!" , class: "btn btn-sm btn-default"
-            .col-sm-2.m-b-xs.pull-right
-              / <a href="#subNav" data-toggle="class:hide" class="btn btn-sm btn-default active"><i class="fa fa-caret-right text fa-lg"></i><i class="fa fa-caret-left text-active fa-lg"></i></a>
-              / <div class="btn-group">
-              / &lt;!&ndash;<button type="button" class="btn btn-sm btn-default" title="Refresh"><i class="fa fa-refresh"></i></button>&ndash;&gt;
-              / &lt;!&ndash;<button type="button" class="btn btn-sm btn-default" title="Remove"><i class="fa fa-trash-o"></i></button>&ndash;&gt;
-              / &lt;!&ndash;<button type="button" class="btn btn-sm btn-default" title="Filter" data-toggle="dropdown"><i class="fa fa-filter"></i> <span class="caret"></span></button>&ndash;&gt;
-              / &lt;!&ndash;<ul class="dropdown-menu">&ndash;&gt;
-              / &lt;!&ndash;<li><a href="#">Action</a></li>&ndash;&gt;
-              / &lt;!&ndash;<li><a href="#">Another action</a></li>&ndash;&gt;
-              / &lt;!&ndash;<li><a href="#">Something else here</a></li>&ndash;&gt;
-              / &lt;!&ndash;<li class="divider"></li>&ndash;&gt;
-              / &lt;!&ndash;<li><a href="#">Separated link</a></li>&ndash;&gt;
-              / &lt;!&ndash;</ul>&ndash;&gt;
-              / </div>
+                    = f.button "Go!".html_safe , class: "btn btn-sm btn-default" , data: {disable_with: disable_spinning('')}
+            .col-sm-2.m-b-xs.pull-left
               = link_to raw("<i class='fa fa-plus icon '></i> Create") , new_customer_path , remote: true , class: "btn btn btn-sm btn-primary"
         %section.scrollable.wrapper.w-f
           %section.panel.panel-default
             .table-responsive
-              %table.table.m-b-none
+              %table.table.m-b-none.customer-table
                 %thead
                   %tr
-                    / <th width="20"><input type="checkbox"></th>
-                    %th Last Name
-                    %th First Name
+                    %th Name
                     %th Email
+                    %th Address
                     %th
                       %span.pull-right Actions
                 %tbody
-                  - @customers.each do |customer|
-                    %tr
-                      / <td><input type="checkbox" name="user[]" value="<haml_silent></haml_silent>"></td>
-                      %td= customer.last_name
-                      %td= customer.first_name
-                      %td= customer.email
-                      %td.text-right
-                        = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_customer_path(customer), class: "btn btn-dark"
-                        = link_to raw("<i class= 'fa fa-times'></i>"),customer, class: "btn btn-dark",:method => :delete, data: {:confirm => "Are you sure?"}
+                  -if @customers.empty?
+                    %td No records found.
+                  -else
+                    - @customers.each do |customer|
+                      = render 'customers/partials/tr' ,  customer: customer , new: false
         %footer.footer.bg-white.b-t
           .row.text-center-xs.pull-right{:style => "margin: 0px 2%;"}
             = will_paginate @customers, renderer: BootstrapPagination::Rails

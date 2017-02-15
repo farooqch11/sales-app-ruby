@@ -1,0 +1,15 @@
+%h4.text-info.hidden
+  %span.glyphicon.glyphicon-tags
+    Customers
+.table-responsive
+  %table.table.table-bordered.table-hover.add-customer-table
+    %thead
+      %tr
+        %th Name
+        %th Phone Number
+        %th Email Address
+        %th Add to Order
+    %tbody
+      - customers.each do |customer|
+        = render 'customers/partials/sale_tr' , customer: customer , new: false
+

@@ -1,0 +1,30 @@
+#makePayment.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h1#h1-total-price.modal-title.text-center= number_to_currency(@sale.remaining_balance, unit: current_company.currency)
+      .modal-body
+        = render 'sales/shared/payment'
+
+#customItem.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title Custom Item Details
+      .modal-body
+        = render :partial => 'sales/shared/create_custom_item', :object => @sale
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+
+#customCustomer.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title Customer Details
+      .modal-body
+        = render :partial => 'sales/shared/create_custom_customer', :object => @sale
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

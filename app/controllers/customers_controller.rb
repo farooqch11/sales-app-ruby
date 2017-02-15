@@ -1,15 +1,14 @@
 class CustomersController < ApplicationController
 
-  #CallBacks
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy ,:create_customer_association]
+  before_action :set_sale , only: [:create_customer_association , :add_sale_customer , :create]
 
   # BreadCrumbs
   add_breadcrumb "CUSTOMERS", '#' , options: { title: 'CUSTOMERS' }
 
   def index
-    @customers = current_company.customers.paginate(page: params[:page], per_page: 20).where(published: true)
-    @customer = current_company.customers.new
-    @customer.build_address
+    @search = current_company.customers.published.search(params[:q])
+    @customers = @search.result.includes(:address).paginate(page: params[:page], per_page: 20)
   end
 
   def new
@@ -27,13 +26,17 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = current_company.customers.new(customer_params)
-    if @customer.save
-      flash[:success] = 'Customer was successfully created.'
-      redirect_to :back
-    else
-      flash[:errors] = @customer.errors.full_messages
-      render action: 'new'
+    respond_to do |format|
+      @customer = current_company.customers.new(customer_params)
+      if @customer.save
+        @reload = current_company.customers_count == 1
+
+        format.html { redirect_to :back , notice:  'Customer was successfully created.' }
+        format.js { flash.now[:success] = 'Customer was successfully created.' }
+      else
+        format.html { render 'new' , errors:  @customer.errors.full_messages }
+        format.js { flash.now[:errors] = @customer.errors.full_messages }
+      end
     end
   end
 
@@ -49,16 +52,44 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.published = false
-    @customer.save
-    flash[:success] = 'Successfully Deleted.'
-    redirect_to customers_url
+    respond_to do |format|
+     if @customer.save
+       puts @reload = current_company.customers_count == 0
+       format.html {redirect_to :back , flash[:success] = 'Successfully Deleted.' }
+       format.js {flash.now[:success] = 'Successfully Deleted.' }
+     else
+       format.html {redirect_to :back , flash[:errors] = @customer.errors.full_messages }
+       format.js {flash.now[:errors] = @customer.errors.full_messages }
+     end
+    end
   end
+
+  def create_customer_association
+    respond_to do |format|
+      @sale.update_column(:customer_id , @customer.id) if @sale.present? && @customer.present?
+      format.js
+    end
+  end
+
+  def add_sale_customer
+    respond_to do |format|
+      @available_customers = current_company.customers.published.limit(5) || []
+      @customer = current_company.customers.new
+      @customer.build_address
+
+      format.js
+    end
+  end
+
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_customer
     @customer = current_company.customers.find_by_id(params[:id])
+  end
+
+  def set_sale
+    @sale = params[:sale_id].present? ? current_company.sales.find_by_id(params[:sale_id]) || [] : []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

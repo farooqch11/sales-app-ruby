@@ -652,9 +652,14 @@
 
   window.ClientSideValidations.event = (window.Turbolinks != null) && window.Turbolinks.supported ? window.Turbolinks.EVENTS != null ? 'page:change' : 'turbolinks:load' : 'ready';
 
-  $(document).bind(window.ClientSideValidations.event, function() {
-    ClientSideValidations.disableValidators();
-    return $(ClientSideValidations.selectors.forms).validate();
-  });
+  //$(document).bind(window.ClientSideValidations.event, function() {
+  //  ClientSideValidations.disableValidators();
+  //  return $(ClientSideValidations.selectors.forms).validate();
+  //});
+
+    $(document).bind((window.Turbolinks ? 'turbolinks:load' : 'ready'), function() {
+        ClientSideValidations.disableValidators();
+        return $(ClientSideValidations.selectors.forms).validate();
+    });
 
 }).call(this);

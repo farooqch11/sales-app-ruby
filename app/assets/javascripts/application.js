@@ -48,7 +48,7 @@
 //= require data-confirm-modal
 //= require finance
 //= require reports
-
+//= require rails.validations
 (function($) {
     $.fn.equalHeights = function() {
         var maxHeight = 0,
@@ -102,4 +102,8 @@ $(document).ready(function () {
         cb(start, end);
 
     });
+});
+
+$(document).on("page:load ready", function(){
+    $("input.datepicker").datepicker();
 });

@@ -1,0 +1,24 @@
+.row.item_search_wrapper.hidden-print
+  .col-sm-12
+    %button.btn.btn-primary.pull-right.btn-add-sale-customer{"data-target" => "#filter-panel", "data-toggle" => "collapse", :type => "button"}
+      %span.glyphicon.glyphicon-user
+      Create Customer
+    %br
+    #filter-panel.collapse.filter-panel.m-t-lg
+      .panel.panel-default
+        .panel-body
+          =render 'customers/partials/form'
+
+    %br/
+    %hr/
+    = form_for :search, url: update_customer_options_sales_path, method: :post, remote: true do |f|
+      = f.hidden_field :sale_id, :value => @sale.id
+      .row
+        .col-md-12
+          = f.text_field :customer_name, :class => "form-control customer_search_input", :placeholder => "Search Customers"
+        .col-md-2
+          = f.submit "search", :class => "btn hidden btn-info btn-sm customer_search"
+    %hr/
+  .col-sm-12
+    .searched_customers
+      = render 'sales/shared/searched_customers' , customers:  @available_customers

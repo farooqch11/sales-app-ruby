@@ -202,6 +202,9 @@ Managehub360::Application.routes.draw do
 
   resources :sales  do
     resources :customers , only: [:new , :create] do
+      collection do
+        get :add_sale_customer
+      end
       member do
         get :create_customer_association
       end

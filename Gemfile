@@ -9,7 +9,8 @@ gem 'rails', '4.2.6'
 gem 'coffee-rails', '4.1.1'
 gem 'jquery-rails', '4.1.0'
 gem 'turbolinks'  , '2.5.3'
-
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 # -----------------------------------------
 # Formating Utilities
@@ -43,10 +44,9 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'autonumeric-rails'
 gem 'haml-rails', '~> 0.9.0'
 gem 'simple_form'
-gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
 
 
+gem 'paranoia', '~> 2.2'
 
 #------------------------------------------
 # For Charts

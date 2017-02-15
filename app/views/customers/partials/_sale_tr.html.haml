@@ -1,0 +1,8 @@
+%tr
+  %td=  new ? raw(" #{customer.full_name} <span class='label bg-primary'>New</span>") : customer.full_name
+  %td= customer.phone_number
+  %td= customer.email_address
+  %td.add_to_current_sale
+    = link_to create_customer_association_sale_customer_path(@sale,customer) , remote: true do
+      %p
+        %span.glyphicon.glyphicon-plus

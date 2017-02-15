@@ -1,0 +1,8 @@
+%tr{id: "customer-#{customer.id}"}
+  / <td><input type="checkbox" name="user[]" value="<haml_silent></haml_silent>"></td>
+  %td=  new ? raw(" #{customer.full_name} <span class='label bg-primary'>New</span>") : customer.full_name
+  %td= customer.email
+  %td= customer.address.present? ? customer.address.full_address : ''
+  %td.text-right
+    = link_to raw("<i class= 'fa fa-pencil'></i>"),edit_customer_path(customer), class: "btn btn-dark"
+    = link_to raw("<i class= 'fa fa-times'></i>"),customer, class: "btn btn-dark",:method => :delete, remote: true , data: {:confirm => "Are you sure?"}

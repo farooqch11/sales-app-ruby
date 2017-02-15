@@ -1,0 +1,2 @@
+$('.remote_container').html("#{j render 'customers/partials/add_sale_customer'}");
+$('#addCustomer').on('shown.bs.modal', function(){$('form[data-validate]').enableClientSideValidations();}).modal('show');

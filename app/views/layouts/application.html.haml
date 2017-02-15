@@ -16,12 +16,12 @@
     = yield :head
   %body.lter.b-r
     %section.vbox
-      - if user_signed_in?
-        = render 'template/menu'
+      = render 'template/menu'
       %section
         %section.hbox.stretch
           = render 'template/left_aside'
           %section#content
+            = render 'template/bread_crums' if params[:action] != 'index' && params[:controller] != 'sales'
             %section.hbox.stretch
               %aside
                 %section.vbox
@@ -32,6 +32,7 @@
                   .remote_container
               = yield(:right_aside)
           = filepicker_js_include_tag
+          = javascript_include_tag :fileupload
           = yield(:scripts)
           :javascript
             $(window).load(function() {

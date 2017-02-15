@@ -4,8 +4,7 @@ class SalesController < ApplicationController
   # protect_from_forgery with: :null_session
 
   before_action :set_sale , except: [:index , :new , :issue_refund]
-  before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :update_customer_options , :create_line_item]
-  before_action :populate_customers , only: [ :edit]
+  before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :create_line_item]
 
   def index
     @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
@@ -39,6 +38,7 @@ class SalesController < ApplicationController
 
     @custom_item = current_company.items.new
     @custom_customer = current_company.customers.new
+
   end
 
   def destroy
@@ -106,27 +106,24 @@ class SalesController < ApplicationController
   end
 
   def update_customer_options
-    # set_sale
-    # populate_items
     @available_customers = params[:search][:customer_name] == "" ? current_company.customers.published.limit(5) : current_company.customers.search_all(params[:search][:customer_name]).published.limit(5) || []
-    puts @available_customers.last.first_name
     respond_to do |format|
       format.js { }
     end
   end
 
-  def create_customer_association
-    # set_sale
-
-    unless @sale.blank? || params[:customer_id].blank?
-      @sale.customer_id = params[:customer_id]
-      @sale.save
-    end
-
-    respond_to do |format|
-      format.js { ajax_refresh }
-    end
-  end
+  # def create_customer_association
+  #   # set_sale
+  #
+  #   unless @sale.blank? || params[:customer_id].blank?
+  #     @sale.customer_id = params[:customer_id]
+  #     @sale.save
+  #   end
+  #
+  #   respond_to do |format|
+  #     format.js { ajax_refresh }
+  #   end
+  # end
 
   # Add a searched Item
   def create_line_item
@@ -256,31 +253,6 @@ class SalesController < ApplicationController
     end
   end
 
-  def create_custom_customer
-    # set_sale
-    # populate_items
-
-    custom_customer = current_company.customers.new
-    custom_customer.first_name = params[:custom_customer][:first_name]
-    custom_customer.last_name = params[:custom_customer][:last_name]
-    custom_customer.email_address = params[:custom_customer][:email_address]
-    custom_customer.phone_number = params[:custom_customer][:phone_number]
-    custom_customer.address = params[:custom_customer][:address]
-    custom_customer.city = params[:custom_customer][:city]
-    custom_customer.state = params[:custom_customer][:state]
-    custom_customer.zip = params[:custom_customer][:zip]
-
-    custom_customer.save
-
-    @sale.add_customer(custom_customer.id)
-
-    update_totals
-
-    respond_to do |format|
-      format.js { ajax_refresh }
-    end
-  end
-
   # update Total For Line Items
   def update_line_item_totals(line_item)
     line_item.total_price = line_item.price * line_item.quantity
@@ -391,9 +363,6 @@ class SalesController < ApplicationController
     @available_items = current_company.items.published || []
   end
 
-  def populate_customers
-    @available_customers = current_company.customers.published.limit(5) || []
-  end
 
   def remove_item_from_stock(item_id, quantity)
     item = current_company.items.find(item_id)

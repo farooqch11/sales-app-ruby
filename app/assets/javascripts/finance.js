@@ -3,7 +3,9 @@ $(document).ready(function() {
     function financial_position(el)
     {
         type  = $(".report-period-type option:selected").val();
+        console.log(type);
         period= $(el).val();
+        console.log(period);
         if(type && period) {
             $.post('/finance/financial_position', {type: type , period: period});
         }
@@ -32,6 +34,13 @@ $(document).ready(function() {
         financial_position(this);
     });
     financial_position($("#report-period-years"));
+    function financial_position_chart(period)
+    {
+        type  = 'year'
+        if(type && period) {
+            $.post('/finance/financial_position', {type: type , period: period});
+        }
+    }
 
 });
 //$('#sales_filter_location_id').change(function(){

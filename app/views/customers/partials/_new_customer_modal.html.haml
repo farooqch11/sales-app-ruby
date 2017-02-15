@@ -5,45 +5,4 @@
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
         %h4.modal-title
           %b Add New Customer
-      = form_for @customer , html: {class: "bs-example form-horizontal"} do |f|
-        .panel-body
-          / <legend>Customer Detail</legend>
-          .form-group
-            = f.label :first_name , class: 'col-lg-2 control-label' , required: true
-            .col-lg-4
-              = f.text_field :first_name, :class=>"form-control" , required: true
-            / <span class="help-block m-b-none">Website URL.</span>
-            %label.col-lg-2.control-label Last Name
-            .col-lg-4
-              = f.text_field :last_name, class: "form-control"
-          .form-group
-            %label.col-lg-2.control-label Email
-            .col-lg-10
-              = f.email_field :email_address, class: "form-control"
-          / <legend>Address</legend>
-          = f.fields_for :address do |a|
-            .form-group
-              %label.col-lg-2.control-label Address
-              .col-lg-10
-                = a.text_area :address_1, row: '2' , class: "form-control"
-            .form-group
-              %label.col-lg-2.control-label Country
-              .col-lg-10
-                = a.country_select(:country ,  {prompt: 'Select Country'} ,{ class: "form-control select2-container select2-container-active" , required: true } )
-            .form-group
-              %label.col-lg-2.control-label Phone
-              .col-lg-4
-                = f.text_field :phone_number, :class=>"form-control"
-              %label.col-lg-2.control-label City
-              .col-lg-4
-                = a.text_field :city, class: "form-control"
-            .form-group
-              %label.col-lg-2.control-label State
-              .col-lg-4
-                = a.text_field :state, :class=>"form-control"
-              %label.col-lg-2.control-label Zip Code
-              .col-lg-4
-                = a.text_field :zip, :class=>"form-control"
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-          = f.button "Save".html_safe , class: "btn btn-info" , data: {disable_with: disable_spinning("Saving...")}
+      =render 'customers/partials/form'
