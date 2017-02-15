@@ -34,15 +34,15 @@
         .row.m-l-none.m-r-none.bg-light.lter
           .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
-              %i.fa.fa-circle.fa-stack-2x.text-dark
+              %i.fa.fa-circle.fa-stack-2x.text-info
               %i.fa.fa-male.fa-stack-1x.text-white
-            %a.clear{:href => customers_path}
+            = link_to customers_path  do
               %span.h3.block.m-t-xs
-                %strong= current_location.customers.count
+                %strong= current_company.customers_count
               %small.text-muted.text-uc Total Customers
           .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
-              %i.fa.fa-circle.fa-stack-2x.text-dark
+              %i.fa.fa-circle.fa-stack-2x.text-info
               %i.fa.fa-shopping-cart.fa-stack-1x.text-white
             %a.clear{:href => '#'}
               %span.h3.block.m-t-xs
@@ -50,7 +50,7 @@
               %small.text-muted.text-uc Total Sellings
           .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
-              %i.fa.fa-circle.fa-stack-2x.text-dark
+              %i.fa.fa-circle.fa-stack-2x.text-info
               %i.fa.fa-inbox.fa-stack-1x.text-white
             %a.clear{:href => items_path}
               %span.h3.block.m-t-xs
@@ -58,7 +58,7 @@
               %small.text-muted.text-uc Total Items
           .col-sm-6.col-md-3.padder-v.b-r.b-light
             %span.fa-stack.fa-2x.pull-left.m-r-sm
-              %i.fa.fa-circle.fa-stack-2x.text-dark
+              %i.fa.fa-circle.fa-stack-2x.text-info
               %i.fa.fa-clock-o.fa-stack-1x.text-white
             = link_to low_stock_items_path , class: 'clear' do
               %span.h3.block.m-t-xs
@@ -67,13 +67,14 @@
       .row.quick-actions
         .col-lg-6.col-md-6.col-sm-6.col-xs-12
           .list-group
-            = link_to raw("<i class='fa fa-clock-o fa-2x'></i>Today's closeout report") , '#' , class: 'list-group-item'
+            = link_to raw("<i class='fa fa-clock-o fa-2x text-info'></i>Today's closeout report") , '#' , class: 'list-group-item'
         .col-lg-6.col-md-6.col-sm-6.col-xs-12
           .list-group
             = link_to raw("<i class='fa fa-ticket fa-2x'></i>Today's detailed sales report") , '#' , class: 'list-group-item'
         .col-lg-6.col-md-6.col-sm-6.col-xs-12
           .list-group
-            = link_to raw("<i class='fa fa-pencil-square-o fa-2x'></i>Today's summary items report") , '#' , class: 'list-group-item'
+            -#= link_to raw("<i class='fa fa-pencil-square-o fa-2x'></i>Today's summary items report") , '#' , class: 'list-group-item'
+            = link_to raw("<i class='fa fa-pencil-square-o fa-2x'></i>Create new Item") , new_item_path , class: 'list-group-item'
         .col-lg-6.col-md-6.col-sm-6.col-xs-12
           .list-group
             = link_to raw("<i class='fa fa-shopping-cart fa-2x'></i>Start a New Sale") , new_sale_path , class: 'list-group-item'
