@@ -23,9 +23,9 @@
                 Create
             / <a href="#new-item-category" data-toggle="new-item-category" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Create</a>
             .col-sm-4.m-b-xs
-              = form_for item_categories_path do |f|
+              = search_form_for @search do |f|
                 .input-group
-                  = f.text_field :name , class: "input-sm form-control"  , placeholder: "Search"
+                  = f.text_field :username_or_email_cont , class: "input-sm form-control"  , placeholder: "Search"
                   %span.input-group-btn
                     = f.button "Go!" , class: "btn btn-sm btn-default"
         %section.scrollable.wrapper.w-f

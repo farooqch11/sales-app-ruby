@@ -35,15 +35,15 @@
 #  skills                   :string
 #  role_id                  :integer
 #  location_id              :integer
+#  deleted_at               :datetime
 #
 # Indexes
 #
 #  index_users_on_company_id            (company_id)
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_email_and_company_id  (email,company_id) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
-#  index_users_on_username              (username) UNIQUE
 #
 
 class User < ActiveRecord::Base
@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable , :confirmable, :lockable
 
 
-  validates :username, presence: true
+  # validates :username, presence: true
 
   #Associations
   belongs_to :company
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
 
 
   before_create :set_confirm_password
-  before_validation :set_username
+  # before_validation :set_username
 
   # after_create  :set_user_role
 
