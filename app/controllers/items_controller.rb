@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = current_company.items.includes(:item_category , :location).order(created_at: :desc).paginate(page: params[:page], per_page: 20).published
+    @search = current_company.items.search(params[:q])
+    @items = @search.result.includes(:item_category , :location).order(created_at: :desc).paginate(page: params[:page], per_page: 20).published
   end
 
   def new
@@ -24,13 +25,15 @@ class ItemsController < ApplicationController
   def create
     @item = current_company.items.new(item_params)
     @item.published = true
-
-    if @item.save
-      flash[:notice] = 'Item was successfully created.'
-      redirect_to new_item_path
-    else
-      flash.now[:errors] = @item.errors.full_messages
-      render action: 'new'
+    respond_to do |format|
+      if @item.save
+        format.html{ redirect_to items_path , notice: 'Item was successfully created.'}
+      else
+        format.html{
+        flash.now[:errors] = @item.errors.full_messages
+        render action: 'new'
+        }
+      end
     end
   end
 

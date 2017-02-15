@@ -4,10 +4,12 @@
       .col-sm-12
         %section.panel.panel-default
           %header.panel-heading{:style => "background:#FFF;"}
-            %h3{:style => "color:#717171;"} Item Category
+            %h3{:style => "color:#717171;"}
+              = @item.new_record? ? "New Item" : "Edit Item"
           .panel-body
             = form_for @item , html: {class: "bs-example form-horizontal"} do |f|
               / <p class="text-info">All <em class="text-danger">*</em> are required.</p>
+
               .form-group
                 %label.col-lg-2.control-label
                   Name of Item
@@ -27,6 +29,35 @@
                 .col-lg-10
                   = f.text_field :sku, class: "form-control", placeholder: "Item Sku" , required: true
               .form-group
+                %label.col-sm-2.control-label Item Photo
+                .col-sm-10
+                  .input-group.image-preview
+                    %span.input-group-btn
+                      / image-preview-clear button
+                      %button.btn.btn-default.image-preview-clear{:style => "display:none;", :type => "button"}
+                        %span.glyphicon.glyphicon-remove
+                        Clear
+                      / image-preview-input
+                      .btn.btn-default.image-preview-input
+                        %span.glyphicon.glyphicon-folder-open
+                        %span.image-preview-input-title Upload
+                    %input.form-control.image-preview-filename{:disabled => "disabled", :type => "text"}/
+                  = f.filepicker_field :photo, class: "btn btn-default btn-file hidden",services: 'COMPUTER, GOOGLE_DRIVE, WEBCAM',  mimetype: 'image/*' , maxSize: 5*1  , data: { fp_crop_ratio: "*/4"} , onchange: 'filepickerOnChange(event, $(this))'
+                  %span.help-block.m-b-none Image size should be less than 500KB.
+              .form-group
+                %label.col-sm-2.control-label
+                  Location
+                  %span.text-danger *
+                .col-sm-10
+                  = f.select(:location_id, current_company.locations.published.collect {|role| [ role.name, role.id ] }, {prompt: 'Select Location'} ,required: true , class: "form-control" )
+              / <span class="help-block m-b-none">Image size should be less than 500KB.</span>
+              .form-group
+                %label.col-lg-2.control-label
+                  Stock Quantity
+                  %em.text-danger *
+                .col-lg-10
+                  = f.number_field :stock_amount, class: "form-control", placeholder: "Amount in Stock"
+              .form-group
                 %label.col-lg-2.control-label
                   Barcode (Optional)
                 .col-lg-10
@@ -36,18 +67,6 @@
                   Shelf (Optional)
                 .col-lg-10
                   = f.text_field :shelf, class: "form-control", placeholder: "Shelf"
-              .form-group
-                %label.col-sm-2.control-label Item Photo
-                .col-sm-10
-                  = f.filepicker_field :photo, class: "btn btn-default",data: { fp_crop_ratio: "*/4", fp_button_class: 'btn btn-default',fp_button_text: 'Upload'}
-                  %span.help-block.m-b-none Image size should be less than 500KB.
-              .form-group
-                %label.col-sm-2.control-label
-                  Location
-                  %span.text-danger *
-                .col-sm-10
-                  = f.select(:location_id, current_company.locations.published.collect {|role| [ role.name, role.id ] }, {prompt: 'Select Location'} ,required: true , class: "form-control" )
-              / <span class="help-block m-b-none">Image size should be less than 500KB.</span>
               .form-group
                 %label.col-lg-2.control-label Description
                 .col-lg-10
@@ -60,13 +79,6 @@
                 .col-lg-10.input-group
                   %span.input-group-addon= current_company.currency
                   = f.number_field :price, :class => "form-control", :placeholder => "Item Price"
-              .form-group
-                %label.col-lg-2.control-label
-                  Stock Amount
-                  %em.text-danger *
-                .col-lg-10.input-group
-                  %span.input-group-addon= current_company.currency
-                  = f.number_field :stock_amount, :class => "form-control", :placeholder => "Amount in Stock"
               .form-group
                 %label.col-lg-2.control-label
                   Cost Price
@@ -84,7 +96,7 @@
               .line.line-dashed.line-lg.pull-in
               .form-group
                 .col-lg-offset-2.col-lg-10
-                  = f.submit :class=>"btn btn-primary"
+                  = f.button :class=>"btn btn-primary" , data: {disable_with: disable_spinning('Saving...')}
                   = button_tag "Cancel", :type => 'reset',:class=>"btn"
     %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", :href => "#"}
   :javascript

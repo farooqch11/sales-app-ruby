@@ -1,0 +1,32 @@
+.container-fluid
+  .row.tasks-grid
+    - items.each do |item|
+      .col-sm-6.col-xs-6.col-md-3.col-xl-3.item-eq.m-b-lg
+        %section.panel.panel-info.box-typical.task-card.task
+          .task-card-photo
+            = image_tag(item.photo.present?  ? item.photo : 'product-no-image.jpg' , class: 'item-img' , style: 'max-height: 133px')
+          .task-card-in
+            .task-card-title
+              %a{:href => "#"}= item.name
+              %span.task-card-title-label
+                (SKU: #{item.sku})
+          .task-card-footer
+            .task-card-meta-item.pull-right
+              %strong{:style => "font-size: 14px"}= value_in_currency(item.price)
+          .task-card-footer.text-center
+            = link_to url_for(:controller => 'sales', :action => 'create_line_item', :item_id => item.id, :sale_id => @sale.id, :quantity => 1), :remote => true do
+              %button.btn.btn-rounded.btn-sm.btn-info{:type => "button"} Add to cart
+- content_for :scripts do
+  :javascript
+    $(window).load(function() {
+        $('.item-eq').equalHeights();
+        $('.item-img').equalHeights();
+        $('.task-card-photo').equalHeights();
+        $('.task-card-title').equalHeights();
+    });
+    $(window).resize(function(){
+        $('.item-eq').equalHeights();
+        $('.item-img').equalHeights();
+        $('.task-card-photo').equalHeights();
+        $('.task-card-title').equalHeights();
+    });
