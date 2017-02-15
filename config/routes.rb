@@ -122,10 +122,10 @@
 #                                     root GET    /                                             companies#index
 #
 
-PushvendorPos::Application.routes.draw do
+Managehub360::Application.routes.draw do
 
   concern :paginatable do
-    get '(page/:page)', action: :index, on: :collection, as: ''
+    get '(page/:page)', action: :index, on: :collection
   end
   # get 'configuration' , to: "configuration#edit" , as: :configuration
 
@@ -139,7 +139,10 @@ PushvendorPos::Application.routes.draw do
   resources :companies
   resources :configuration , only: [:edit , :update]
   resources :passwords , only: [:edit , :update]
-  resources :customers , concern: :paginatable
+  resources :customers do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+
+  end
   resources :static , only: [:index]
   resources :line_items
   resources :locations
@@ -197,21 +200,29 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
-  resources :sales , concern: :paginatable do
+  resources :sales  do
+    resources :customers , only: [:new , :create] do
+      member do
+        get :create_customer_association
+      end
+    end
     member do
+
+
       get 'issue_refund'
       get 'invoice'
     end
+
     collection do
       post 'update_line_item_options'
-      get 'update_customer_options'
+      post :update_customer_options
       get 'create_line_item'
       get 'update_totals'
       get 'add_item'
       get 'remove_item'
       get 'remove_lineitem'
       post 'empty_cart'
-      get 'create_customer_association'
+      # get 'create_customer_association'
       get 'create_custom_item'
       get 'create_custom_customer'
       get 'add_comment'
