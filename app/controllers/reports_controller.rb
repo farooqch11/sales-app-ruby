@@ -13,6 +13,15 @@ class ReportsController < ApplicationController
     end
   end
 
+  def inventory
+
+  end
+
+  def dead_inventory
+    add_breadcrumb "DEAD INVENTORY", "#" , options: { title: "DEAD INVENTORY"}
+
+  end
+
   def sales
     add_breadcrumb "SALES", "#" , options: { title: "SALES"}
     # current_company.sales.joins(:payments).distinct.includes(:location , :payments , :customer).paginate(page: params[:page], per_page: 20).order(id: :desc) || []
