@@ -18,6 +18,7 @@
 #  status           :integer          default(0)
 #  discount_type    :integer          default(0)
 #  location_id      :integer
+#  invoice_key      :string
 #
 
 class Sale < ActiveRecord::Base
@@ -52,6 +53,7 @@ class Sale < ActiveRecord::Base
   accepts_nested_attributes_for :payments, allow_destroy: true
 
   before_create :set_company_id
+  before_create :generate_invoice_key
   # after_create  :send_sales_report_to_customer
 
   default_scope -> {where(status: 'paid')}
@@ -161,6 +163,13 @@ class Sale < ActiveRecord::Base
   end
 
   private
+
+    def generate_invoice_key
+      begin
+        self.invoice_key = Digest::MD5.hexdigest(self.id.to_s + Time.now.to_i.to_s + rand(0..9999).to_s)
+      end while Sale.exists?(invoice_key: self.invoice_key)
+    end
+
     def set_company_id
       self.company = self.user.company
     end

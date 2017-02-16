@@ -21,7 +21,7 @@
         %section.hbox.stretch
           = render 'template/left_aside'
           %section#content
-            = render 'template/bread_crums' if params[:action] != 'index' && params[:controller] != 'sales'
+            = render 'template/bread_crums' if params[:action] != 'index' && params[:controller] != 'sales' && params[:controller] != 'reports'
             %section.hbox.stretch
               %aside
                 %section.vbox
