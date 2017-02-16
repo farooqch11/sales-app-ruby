@@ -19,6 +19,7 @@ class Payment < ActiveRecord::Base
   attr_accessor :print_invoice
   before_validation :parse_payment_term
   before_save   :set_amount_value
+  after_save    :update_items_quantity
 
   belongs_to :sale
   belongs_to :company
@@ -40,6 +41,15 @@ class Payment < ActiveRecord::Base
 
   def set_amount_value
     self.amount = 0.0 if self.amount.blank?
+  end
+
+  def update_items_quantity
+    self.sale.line_items.each do |line_item|
+      temp_item = line_item.item
+      sold_quantity = temp_item.line_items.joins(sale: [:payments]).sum(:quantity)
+      available_quantity = temp_item.stock_amount + temp_item.line_items.joins(:sale).sum(:quantity) - sold_quantity
+      temp_item.update_attributes(amount_sold: sold_quantity , stock_amount: available_quantity)
+    end
   end
 
 end
