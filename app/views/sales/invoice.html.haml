@@ -1,0 +1,101 @@
+:css
+  .b-b-b{
+      border-bottom: 2px solid #cfcfcf;
+      padding: 0px !important;
+      width: 88%;
+      margin: 10px 6%;
+  }
+  .b-b{
+      border-bottom: 2px solid #cfcfcf;
+  }
+  .font-size-10{
+      font-size: 10px;
+  }
+  .font-size-12{
+      font-size: 12px;
+  }
+  .receipt > .table>tbody>tr:first-child >td
+  {
+      margin-top: 5px;
+      border-top: 1px solid #cfcfcf;
+      border-bottom: 1px solid #cfcfcf;
+
+  }
+  .receipt > .table>tbody>tr:last-child >td
+  {
+      /* margin-bottom: 5px;*/
+      border-bottom: 1px solid #cfcfcf;
+
+  }
+  .receipt > .table>tbody > tr >td
+  {
+      border: none;
+      padding: 8px 0px;
+
+  }
+  .m-b-10{
+      margin-bottom: 10px;
+  }
+  .m-zero
+  {
+      margin: 0px !important;
+  }
+  .m-y-10{
+      margin-bottom: 10px;
+      margin-top: 10px;
+  }
+.receipt.well
+  .row
+    .col-xs-12
+      .row
+        .pull-left.col-xs-12.col-sm-12.col-md-12
+          %h3= @sale.company.name
+        .col-xs-6.col-sm-6.col-md-6.font-size-10
+          %address{:style => "margin-bottom: 5px;"}
+            2135 Sunset Blvd
+            %br/
+            Los Angeles, CA 90026
+            %br/
+            (213) 484-6829
+        .col-xs-6.col-sm-6.col-md-6.text-right.font-size-10
+          %p
+            %span= @sale.created_at.strftime('%B %d, %Y')
+        .col-xs-6.col-sm-6.col-md-6.text-right.font-size-10
+          %p
+            %span= @sale.created_at.strftime('%I:%S %P')
+        .col-xs-12.col-sm-12.col-md-12.b-b-b
+      .row.font-size-10
+        %p
+          %span.col-xs-6.col-sm-6.col-md-6.text-left= @sale.paid? ? 'Receipt' : 'Invoice #'
+          %span.col-xs-6.col-sm-6.col-md-6.text-center
+            = @sale.id
+          - if @sale.payments.last.cash_and_card?
+            %span.col-xs-6.col-sm-6.col-md-6.text-left Payment Status #:
+            %span.col-xs-6.col-sm-6.col-md-6.text-center PAID
+          - elsif @sale.payments.last.payment_term?
+            %span.col-xs-6.col-sm-6.col-md-6.text-left Payment Status #:
+            %span.col-xs-6.col-sm-6.col-md-6.text-center
+              DUE IN #{@sale.payments.last.payment_term} DAYS
+      .row.receipt{:style => "margin: 10px 0px 5px 0px;"}
+        %table.table.table-hover.font-size-12.m-b-10
+          %tbody
+            - @sale.line_items.each do |line_item|
+              %tr
+                %td.col-sm-9.col-xs-9.col-md-9
+                  %span= line_item.item.name.to_s + (line_item.quantity > 1 ? " x #{line_item.quantity}" : '')
+                %td.col-sm-2.col-xs-2.col-md-2.text-right= number_to_currency(line_item.total_price , unit: @sale.company.currency)
+        .row.b-b.m-zero.font-size-12
+          %p
+            %span.col-xs-6.col-sm-6.col-md-6.text-left.m-y-10{:style => "margin-left: -15px;  margin-top: 0px !important; font-weight: 400 !important"} Subtotal
+            %span.col-xs-6.col-sm-6.col-md-6.text-right.m-y-10{:style => "margin-right: -15px;  margin-top: 0px !important; float: right;"}= number_to_currency(@sale.total_amount , unit: @sale.company.currency)
+        .row.font-size-12{:style => "margin: 15px 0px;"}
+          %p
+            %span.col-xs-6.col-sm-6.col-md-6.text-left{:style => "margin-left: -15px; line-height: 30px;"}
+              %b Total
+            %span.col-xs-6.col-sm-6.col-md-6.text-right{:style => "margin-right: 0px; font-size: 19px; float: right;"}
+              %strong= number_to_currency(@sale.total_amount , unit: @sale.company.currency)
+        .row.m-zero
+          %p
+          %h4.col-xs-4.col-sm-4.col-md-4.text-left.sign-receipt
+            %strong{:style => "float: left; margin-left: -15px;"} Sign
+          %span.col-xs-8.col-sm-8.col-md-8{:style => "border-bottom: 1px dotted black; height: 26px;"}

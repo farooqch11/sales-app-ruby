@@ -1,159 +1,112 @@
-<section class="hbox stretch">
-  <!-- .aside -->
-  <aside class="aside-xl b-l b-r" id="note-list">
-    <section class="vbox flex">
-      <header class="header clearfix">
-        <span class="pull-right m-t"><button class="btn btn-dark btn-sm btn-icon" id="new-note" data-toggle="tooltip" data-placement="right" title="" data-original-title="New"><i class="fa fa-bars"></i></button></span>
-        <p class="h3">Activity</p>
-        <div class="input-group m-t-sm m-b-sm">
-          <span class="input-group-addon input-sm"><i class="fa fa-search"></i></span>
-          <input type="text" class="form-control input-sm" id="search-note" placeholder="search">
-        </div>
-      </header>
-      <section>
-        <section>
-          <section>
-            <div class="padder">
-              <!-- note list -->
-              <ul id="note-items" class="list-group list-group-sp">
-                <% @sales.each do |sale|%>
-                    <a href="<%= sale_path(sale) %>" >
-                <li class="list-group-item hover <%= @sale.id == sale.id ? 'active bg-info' : ''%>">
-                  <div class="media">
-                    <span class="pull-left thumb-sm"><img src="<%= image_path("#{sale.payments.last.payment_type}.png" , style: 'width:48px')  %>"></span>
-                    <div class="pull-right text-muted m-t-sm">
-                      <%= sale.created_at.strftime('%I:%M %p')%>
-                    </div>
-                    <div class="media-body m-t-sm">
-                      <div><strong class="block"> <%=value_in_currency(sale.total_amount) %> </strong></div>
-                      <!--<small class="text-muted">about 2 minutes ago</small>-->
-                    </div>
-                  </div>
-
-                </li></a>
-                    <% end %>
-              </ul>
-              <!-- templates -->
-              <!-- note list -->
-              <p class="text-center">&nbsp;</p>
-            </div>
-          </section>
-        </section>
-      </section>
-    </section>
-  </aside>
-  <!-- /.aside -->
-  <aside id="note-detail">
-    <section class="vbox">
-      <header class="header bg-light lter bg-gradient b-note-b">
-        <p id="note-date"><b> <%=value_in_currency(@sale.total_amount) %> </b></p>
-      </header>
-      <section class="scrollable bg-light lter">
-        <section class="hbox stretch">
-          <aside>
-
-            <section class="vbox b-b">
-              <div class="col-sm-12">
-
-                <section class="panel panel-default" style="border: none">
-                  <ul class="list-group alt" style="border: none">
-                    <li class="list-group-item" style="border: none">
-                      <div class="media">
-                        <div class="media-body m-t-sm">
-                          <span class="col-sm-6">
-                            <a href="<%= invoice_sale_path(@sale , format: :pdf)%>" target="_blank" class="btn btn-default btn-lg btn-block col-sm-6">Issue Receipt</a>
-                            </span>
-                           <span class="col-sm-6">
-                            <%= link_to 'Issue Refund' , issue_refund_sale_path(@sale), class: 'btn btn-default btn-lg btn-block col-sm-6', data: {confirm: 'Are you sure?', verify: 'Foo', verify_text: 'Type "Foo" to confirm'} %>
-                           </span>
-                        </div>
-                          <div>
-                        </div>
-                      </div>
-                    </li>
-
-                    <li class="list-group-item" style="border: none">
-                      <div class="media">
-                        <b><%= @sale.payments.last.payment_type.humanize.upcase %> <%= @sale.created_at.strftime('%m/%d/%Y %I:%M %p')%></b>
-                      </div>
-                    </li>
-                    <% if @sale.payments.last.credit_card? %>
-                        <li class="list-group-item" style="border: none">
-                          <div class="media">
-                            <span class="pull-left thumb-sm"><img src="<%= image_path("#{@sale.payments.last.payment_type}.png") %>"></span>
-                            <div class="pull-right text-mutted m-t-sm">
-                              <b><%= value_in_currency @sale.total_amount %></b>
-                            </div>
-                            <div class="media-body m-t-sm">
-                              <div><b>Card Number 9101</b></div>
-                            </div>
-                          </div>
-                        </li>
-                    <% end %>
-                    <li class="list-group-item" style="border: none">
-                      <div class="media">
-                        <span class="pull-left thumb-sm"><img src="<%= image_path('invoice.png') %>"></span>
-                        <div class="media-body m-t-sm">
-                          <div><b>RECEIPT NUMBER <%= @sale.id%></b></div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-
-                <section class="panel panel-default">
-                  <!--<header class="panel-heading">-->
-                  <!--Items-->
-                  <!--</header>-->
-                  <ul class="list-group alt">
-                    <li class="list-group-item">
-                      <div class="media">
-                        <b>Items</b>
-                      </div>
-                    </li>
-                    <% @sale.line_items.each do |line| %>
-                        <li class="list-group-item">
-                          <div class="media">
-                            <span class="pull-left thumb-sm"><img src="<%= line.item.photo.present? ? line.item.photo : asset_path('product-no-image.jpg') %>"></span>
-                            <div class="pull-right text-mutted m-t-sm">
-                              <b><%= value_in_currency line.total_price %></b>
-                            </div>
-                            <div class="media-body m-t-sm">
-                              <div><b><%= line.item.name %></b></div>
-                            </div>
-                          </div>
-                        </li>
-                    <% end %>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-            </section>
-          </aside>
-        </section>
-      </section>
-    </section>
-  </aside>
-</section>
-
-<!-- Modal -->
-<div id="invoice-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Invoice</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'sales/shared/invoice'%>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-        <button href="#" class="btn btn-sm btn-info pull-right invoice-<%= @sale.id%>" onClick="window.print('#modal-body');">Print</button>
-      </div>
-    </div>
-
-  </div>
-</div>
+%body
+  %section.hbox.stretch
+    / .aside
+    %aside#note-list.aside-xl.b-l.b-r
+      %section.vbox.flex
+        %header.header.clearfix
+          %span.pull-right.m-t
+            %button#new-note.btn.btn-dark.btn-sm.btn-icon{"data-original-title" => "New", "data-placement" => "right", "data-toggle" => "tooltip", :title => ""}
+              %i.fa.fa-bars
+          %p.h3 Activity
+          .input-group.m-t-sm.m-b-sm
+            %span.input-group-addon.input-sm
+              %i.fa.fa-search
+            %input#search-note.form-control.input-sm{:placeholder => "search", :type => "text"}/
+        %section
+          %section
+            %section
+              .padder
+                / note list
+                %ul#note-items.list-group.list-group-sp
+                  - @sales.each do |sale|
+                    %a{:href => "#{sale_path(sale)}"}
+                      %li{:class => "list-group-item hover #{@sale.id == sale.id ? 'active bg-info' : ''}"}
+                        .media
+                          %span.pull-left.thumb-sm
+                            %img{:src => "#{image_path("#{sale.payments.last.payment_type}.png" , style: 'width:48px')}"}/
+                          .pull-right.text-muted.m-t-sm
+                            = sale.created_at.strftime('%I:%M %p')
+                          .media-body.m-t-sm
+                            %div
+                              %strong.block
+                                = value_in_currency(sale.total_amount)
+                / <small class="text-muted">about 2 minutes ago</small>
+                / templates
+                / note list
+                %p.text-center  
+    / /.aside
+    %aside#note-detail
+      %section.vbox
+        %header.header.bg-light.lter.bg-gradient.b-note-b
+          %p#note-date
+            %b
+              = value_in_currency(@sale.total_amount)
+        %section.scrollable.bg-light.lter
+          %section.hbox.stretch
+            %aside
+              %section.vbox.b-b
+                .col-sm-12
+                  %section.panel.panel-default{:style => "border: none"}
+                    %ul.list-group.alt{:style => "border: none"}
+                      %li.list-group-item{:style => "border: none"}
+                        .media
+                          .media-body.m-t-sm
+                            %span.col-sm-6
+                              %a.btn.btn-default.btn-lg.btn-block.col-sm-6{:href => "#{invoice_sale_path(@sale , format: :pdf)}", :target => "_blank"} Issue Receipt
+                            %span.col-sm-6
+                              = link_to 'Issue Refund' , issue_refund_sale_path(@sale), class: 'btn btn-default btn-lg btn-block col-sm-6', data: {confirm: 'Are you sure?', verify: 'Refund', verify_text: 'Type "Refund" to confirm'}
+                          %div
+                      %li.list-group-item{:style => "border: none"}
+                        .media
+                          %b
+                            = @sale.payments.last.payment_type.humanize.upcase
+                            = @sale.created_at.strftime('%m/%d/%Y %I:%M %p')
+                      - if @sale.payments.last.credit_card?
+                        %li.list-group-item{:style => "border: none"}
+                          .media
+                            %span.pull-left.thumb-sm
+                              %img{:src => "#{image_path("#{@sale.payments.last.payment_type}.png")}"}/
+                            .pull-right.text-mutted.m-t-sm
+                              %b= value_in_currency @sale.total_amount
+                            .media-body.m-t-sm
+                              %div
+                                %b Card Number 9101
+                      %li.list-group-item{:style => "border: none"}
+                        .media
+                          %span.pull-left.thumb-sm
+                            %img{:src => "#{image_path('invoice.png')}"}/
+                          .media-body.m-t-sm
+                            %div
+                              %b
+                                RECEIPT NUMBER #{@sale.id}
+                  %section.panel.panel-default
+                    / <header class="panel-heading">
+                    / Items
+                    / </header>
+                    %ul.list-group.alt
+                      %li.list-group-item
+                        .media
+                          %b Items
+                      - @sale.line_items.each do |line|
+                        %li.list-group-item
+                          .media
+                            %span.pull-left.thumb-sm
+                              %img{:src => "#{line.item.photo.present? ? line.item.photo : asset_path('product-no-image.jpg')}"}/
+                            .pull-right.text-mutted.m-t-sm
+                              %b= value_in_currency line.total_price
+                            .media-body.m-t-sm
+                              %div
+                                %b= line.item.name
+  / Modal
+  #invoice-modal.modal.fade{:role => "dialog"}
+    .modal-dialog.modal-sm
+      / Modal content
+      .modal-content
+        .modal-header
+          %button.close{"data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Invoice
+        .modal-body
+          = render 'sales/shared/invoice'
+        .modal-footer
+          %button.btn.btn-sm.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          %button{:class => "btn btn-sm btn-info pull-right invoice-#{@sale.id}", :href => "#", :onclick => "window.print('#modal-body');"} Print
