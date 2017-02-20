@@ -135,7 +135,7 @@ Managehub360::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :expenses
-  resources :item_categories , concern: :paginatable
+  resources :item_categories
   resources :companies
   resources :configuration , only: [:edit , :update]
   resources :passwords , only: [:edit , :update]

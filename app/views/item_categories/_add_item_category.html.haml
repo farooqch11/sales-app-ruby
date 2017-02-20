@@ -1,0 +1,21 @@
+.modal.fade{id: @item_category.new_record? ? 'new-item-category' : "edit-item-category-#{@item_category.id}"}
+  .modal-dialog
+    .modal-content
+      = form_for(@item_category , remote: true ) do |f|
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Create New Item Category
+        .modal-body
+          .form-group
+            %label
+              Name
+              %span.text-danger *
+            = f.text_field :name, :class => "form-control", :placeholder => "Category Name" , required: true
+          .form-group
+            %label Description
+            = f.text_area :description, :class => "form-control", :placeholder => "Category Description"
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          = f.button "Save".html_safe , class: "btn btn-info" , html: {"data-loading-text": "Saving..."}
+:javascript
+  $('#new_item_category').validate();

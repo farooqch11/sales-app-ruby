@@ -1,0 +1,16 @@
+= form_for(@item_category) do |f|
+  = render :partial => 'template/form_errors', :object => @item_category
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-sm-6
+          .form-group
+            %label Name
+            = f.text_field :name, :class => "form-control", :placeholder => "Category Name"
+        .col-sm-6
+          .form-group
+            %label Description
+            = f.text_area :description, :class => "form-control", :placeholder => "Category Description"
+  .row
+    .col-sm-12
+      = f.submit 'Update Item Category', :class => "btn btn-success btn-lg"

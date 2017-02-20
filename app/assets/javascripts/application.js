@@ -43,7 +43,6 @@
 //= require daterangepicker/daterangepicker
 //= require combodate/combodate
 //= require main
-//= require easyResponsiveTabs
 //= require flash
 //= require data-confirm-modal
 //= require finance
@@ -72,10 +71,13 @@
 
 })(jQuery);
 $(document).ready(function () {
-    $('#horizontalTab').easyResponsiveTabs({
-        type: 'default', //Types: default, vertical, accordion
-        width: 'auto', //auto or any width like 600px
-        fit: true   // 100% fit in a container
+    $(function(){
+        $('div.product-chooser').not('.disabled').find('div.product-chooser-item').on('click', function(){
+            $(this).parent().parent().find('div.product-chooser-item').removeClass('selected');
+            $(this).addClass('selected');
+            $(this).find('input[type="radio"]').prop("checked", true);
+
+        });
     });
     $(function() {
 

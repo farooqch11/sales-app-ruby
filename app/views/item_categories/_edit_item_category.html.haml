@@ -1,0 +1,28 @@
+%body
+  %section.vbox
+    %section.scrollable.padder.m-t-lg
+      .col-sm-12
+        %section.panel.panel-default
+          %header.panel-heading{:style => "background:#FFF;"}
+            %h3{:style => "color:#717171;"} Update Item Category
+          .panel-body
+            = form_for @item_category, html: {class: "bs-example form-horizontal"} do |f|
+              .form-group
+                %label.col-lg-2.control-label
+                  Name
+                  %span.text-danger *
+                .col-lg-10
+                  = f.text_field :name, class: "form-control" , required: true
+              .form-group
+                %label.col-lg-2.control-label Description
+                .col-lg-10
+                  = f.text_area :description, :class=>"form-control",:rows => 12
+                  %span.help-block.m-b-none Give some information about the item category
+              .line.line-dashed.line-lg.pull-in
+              .form-group
+                .col-lg-offset-2.col-lg-10
+                  = f.submit :class=>"btn btn-primary"
+                  = button_tag "Cancel", :type => 'reset',:class=>"btn"
+  %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", :href => "#"}
+  :javascript
+    $('#edit_item_category_#{@item_category.id}').validate();

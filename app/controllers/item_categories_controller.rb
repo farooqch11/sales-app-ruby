@@ -1,5 +1,5 @@
 class ItemCategoriesController < ApplicationController
-  before_action :set_item_category, only: [:show,:new, :update, :destroy]
+  before_action :set_item_category, only: [:show, :update, :destroy]
 
   def index
     @item_categories = current_company.item_categories.paginate(page: params[:page], per_page: 20)
@@ -10,17 +10,28 @@ class ItemCategoriesController < ApplicationController
   end
 
   def new
+    @item_category = current_company.item_categories.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def create
     @item_category = current_company.item_categories.new(item_category_params)
 
-    if @item_category.save
-      flash[:success] = 'Item category was successfully created.'
-      redirect_to item_categories_url
-    else
-      flash.now[:errors] = @item_category.errors.full_messages
-      render action: 'new'
+    respond_to do |format|
+      if @item_category.save
+        format.html{ flash[:success] = 'Item category was successfully created.'
+        redirect_to item_categories_url }
+        format.js{  flash.now[:success] = "Item category was successfully created."}
+
+      else
+        format.html{
+        flash.now[:errors] = @item_category.errors.full_messages
+        render action: 'new' }
+        format.js{  flash.now[:errors] = @item_category.errors.full_messages }
+      end
     end
   end
 

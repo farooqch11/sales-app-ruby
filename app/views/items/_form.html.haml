@@ -2,6 +2,8 @@
   %section.vbox
     %section.scrollable.padder
       .col-sm-12
+        = link_to 'Create Item Category' , new_item_category_path , remote: true , class: 'btn btn-primary btn-sm pull-right m-b-sm'
+      .col-sm-12
         %section.panel.panel-default
           %header.panel-heading{:style => "background:#FFF;"}
             %h3{:style => "color:#717171;"}

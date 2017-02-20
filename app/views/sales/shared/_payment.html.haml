@@ -1,0 +1,113 @@
+.make_payment
+  = form_for :payments, url: make_payment_payments_path(sale_id: @sale.id), method: "post", remote: true , class: 'form-horizontal' do |f|
+    .sap_tabs.form-group
+      %label.col-sm-12.control-label
+        %h4 Select Payment Option
+    .row.form-group.product-chooser
+      .col-xs-12.col-sm-12.col-md-3.col-lg-3
+        .product-chooser-item.selected
+          .col-xs-8.col-sm-8.col-md-12.col-lg-12
+            %span.title Cash
+            = f.radio_button :payment_type , checked:true , value: 'cash'
+          = image_tag('pic2.png' , class: 'img-rounded col-xs-4 col-sm-4 col-md-12 col-lg-12' , alt: 'Cash')
+          .clear
+      .col-xs-12.col-sm-12.col-md-3.col-lg-3
+        .product-chooser-item
+          .col-xs-8.col-sm-8.col-md-12.col-lg-12
+            %span.title Card
+            = f.radio_button :payment_type , 'credit_card'
+          %img.img-rounded.col-xs-4.col-sm-4.col-md-12.col-lg-12{:alt => "Desktop", :src => "http://renswijnmalen.nl/bootstrap/desktop.png"}
+          .clear
+      .col-xs-12.col-sm-12.col-md-3.col-lg-3
+        .product-chooser-item
+          .col-xs-8.col-sm-8.col-md-12.col-lg-12
+            %span.title Cash & Card
+            = f.radio_button :payment_type , 'cash_and_card'
+          %img.img-rounded.col-xs-4.col-sm-4.col-md-12.col-lg-12{:alt => "Mobile", :src => "http://renswijnmalen.nl/bootstrap/mobile.png"}
+          .clear
+      .col-xs-12.col-sm-12.col-md-3.col-lg-3
+        .product-chooser-item
+          .col-xs-8.col-sm-8.col-md-12.col-lg-12
+            %span.title Payment Term
+            = f.radio_button :payment_type , 'payment_term'
+          .input-group.m-b{:style => "margin-left: 15px;"}
+            = f.number_field :payment_term , class: 'form-control'
+            %span.input-group-addon Days
+          -#%img.img-rounded.col-xs-4.col-sm-4.col-md-12.col-lg-12{:alt => "Mobile", :src => "http://renswijnmalen.nl/bootstrap/mobile.png"}
+          .clear
+    .form-group
+      %label.col-sm-offset-2.col-md-offset-1.control-label
+        %b Send Receipt/Invoice to customer email
+      .col-sm-offset-2.col-sm-12
+        .radio-inline
+          %label.col-sm-3.col-md-2{:style => "padding-right: 50px"}
+            = f.radio_button :sent_customer_email , true , checked: true
+            Yes
+          %label.col-sm-2
+            = f.radio_button :sent_customer_email , false
+            No
+    .form-group
+      %label.col-sm-offset-2.col-md-offset-1.control-label
+        %b Print Receipt
+      .col-sm-offset-2.col-sm-12
+        .radio-inline
+          %label.col-sm-3.col-md-2{:style => "padding-right: 50px"}
+            = f.radio_button :print_invoice , true , checked: true
+            Yes
+          %label.col-sm-2
+            = f.radio_button :print_invoice , false
+            No
+    .modal-footer.center-block
+      = f.submit 'Complete Sale', class: 'btn btn-success btn-lg center-block' , style: 'padding: 12px 59px;'
+:css
+  div.clear
+  {
+      clear: both;
+  }
+
+  div.product-chooser{
+
+  }
+
+  div.product-chooser.disabled div.product-chooser-item
+  {
+      zoom: 1;
+      filter: alpha(opacity=60);
+      opacity: 0.6;
+      cursor: default;
+  }
+
+  div.product-chooser div.product-chooser-item{
+      padding: 11px;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid #efefef;
+
+  }
+
+  div.product-chooser div.product-chooser-item.selected{
+      border: 2px solid #8ec165;
+      background: #efefef;
+      padding: 2px;
+      filter: alpha(opacity=100);
+      opacity: 1;
+  }
+
+  div.product-chooser div.product-chooser-item img{
+      padding: 0;
+  }
+
+  div.product-chooser div.product-chooser-item span.title{
+      display: block;
+      margin: 5px 0 5px 0;
+      font-weight: bold;
+      font-size: 12px;
+  }
+
+  div.product-chooser div.product-chooser-item input{
+      position: absolute;
+      left: 0;
+      top: 0;
+      visibility:hidden;
+  }
