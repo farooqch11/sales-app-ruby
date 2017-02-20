@@ -11,7 +11,8 @@ class SalesController < ApplicationController
   end
 
   def new
-    @sale = current_user.sales.create(location_id: current_location.id)
+    sale = current_user.sales.where(location_id: current_location.id).present? && current_user.sales.where(location_id: current_location.id).last.payments.present?
+    @sale =  sale ? current_user.sales.create(location_id: current_location.id) : current_user.sales.where(location_id: current_location.id).last
     redirect_to edit_sale_path(@sale)
   end
 
