@@ -1,3 +1,50 @@
+div.product-chooser{
+
+}
+
+div.product-chooser.disabled div.product-chooser-item
+{
+    zoom: 1;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    cursor: default;
+}
+
+div.product-chooser div.product-chooser-item{
+    padding: 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #efefef;
+
+}
+
+div.product-chooser div.product-chooser-item.selected{
+    border: 2px solid #8ec165;
+    background: #efefef;
+    padding: 2px;
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+div.product-chooser div.product-chooser-item img{
+    padding: 0;
+}
+
+div.product-chooser div.product-chooser-item span.title{
+    display: block;
+    margin: 5px 0 5px 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+div.product-chooser div.product-chooser-item input[type="radio"]{
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility:hidden;
+}
+
 .tasks-grid-col.purple .task-card.task {
     border-top-color: #ac6bec;
 }

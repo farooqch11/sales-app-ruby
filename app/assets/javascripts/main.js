@@ -105,23 +105,6 @@ $(document).ready(function(){
             }
         });
     });
-
-    $('.cash').click(function(){
-        $('#payments_payment_type').val('cash');
-    });
-
-
-    $('.card').click(function(){
-        $('#payments_payment_type').val('credit_card');
-    });
-
-    $('.cash_card').click(function(){
-        $('#payments_payment_type').val('cash_and_card');
-    });
-    $('.payment_term').click(function(){
-        $('#payments_payment_type').val('payment_term');
-    });
-
 	// creates a line item for a sale
 	var input = $('#search_item_name')[0];
 	var sale_id = $('#search_sale_id')[0];

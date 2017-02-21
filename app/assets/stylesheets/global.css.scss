@@ -6,10 +6,17 @@
 {
   margin-right: 7px !important;
 }
+.m-l-15{
+  margin-left: 15px !important;
+}
 .search-expend {
   width: 170px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+}
+.m-auto
+{
+  margin: auto !important;
 }
 
 /* When the input field gets focus, change its width to 100% */
