@@ -88,6 +88,9 @@ class SalesController < ApplicationController
                      right:             size },
                print_media_type: true
       end
+      format.js do
+
+      end
     end
   end
 
