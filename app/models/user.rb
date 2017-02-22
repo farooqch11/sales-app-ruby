@@ -147,11 +147,11 @@ class User < ActiveRecord::Base
   end
 
   def tend360_url
-    Rails.env.development? ? "localhost:3000" : "159.203.77.246"
+    Rails.env.development? ? "localhost:3000" : "managehub360.com"
   end
 
   def base_url
-    Rails.env.development? ? "localhost:3000" : "159.203.77.246"
+    Rails.env.development? ? "localhost:3000" : "managehub360.com"
   end
 
   def set_username

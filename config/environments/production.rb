@@ -110,7 +110,7 @@ Managehub360::Application.configure do
   # }
   # for Devise
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = { :host => '159.203.77.246' }
+  config.action_mailer.default_url_options = { :host => 'managehub360.com' }
   # SMTP settings for gmail
   config.action_mailer.delivery_method = :smtp
 
