@@ -3,22 +3,18 @@ class Ability
 
   def initialize(user)
 
-    if user.can_update_configuration == true
+    if user.is_owner? || user.is_general_manager?
+      can :manage, :all
+    elsif user.can_update_configuration == true
         can :manage, Company
-    end
-
-    if user.can_update_users == true
+    elsif user.can_update_users == true
         can :manage, User
-    end
-
-    if user.can_view_reports == true
+    elsif user.can_view_reports == true
         # can :manage, Report
-    end
 
-    if user.can_update_sale_discount == true
-    end
+    elsif user.can_update_sale_discount == true
 
-    if user.can_remove_sales == true
+    elsif user.can_remove_sales == true
         can :manage, Sale
     end
 

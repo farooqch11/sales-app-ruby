@@ -8,5 +8,5 @@
       .modal-body
         = render 'sales/shared/invoice'
       .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Print
+        %button.btn.btn-default.btn-sm{:href => "#", :onclick => "window.location.reload();"} Close
+        %button.btn.btn-sm.btn-info.pull-right{:href => "#", :onclick => "printDiv('print-me');"} Print

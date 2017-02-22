@@ -35,3 +35,18 @@
     background-color: #182F48 !important;
     color: #fff;
 }
+.b-b-b{
+    border-bottom: 2px solid #cfcfcf;
+    padding: 0px !important;
+    width: 88%;
+    margin: 10px 6%;
+}
+.b-b{
+    border-bottom: 2px solid #cfcfcf;
+}
+.invoice-table > tr > td{
+    border: 0px !important;
+}
+.no-border{
+    border: 0px !important;
+}

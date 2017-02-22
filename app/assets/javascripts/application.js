@@ -47,6 +47,7 @@
 //= require data-confirm-modal
 //= require finance
 //= require reports
+//= require invoice
 //= require rails.validations
 (function($) {
     $.fn.equalHeights = function() {
