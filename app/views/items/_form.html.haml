@@ -76,6 +76,13 @@
               %legend Prices
               .form-group
                 %label.col-lg-2.control-label
+                  Tax
+                  %em.text-danger *
+                .col-lg-10.input-group
+                  %span.input-group-addon %
+                  = f.number_field :tax, :class => "form-control", :placeholder => "Tax" , required: true
+              .form-group
+                %label.col-lg-2.control-label
                   Price
                   %em.text-danger *
                 .col-lg-10.input-group

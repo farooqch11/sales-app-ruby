@@ -19,6 +19,7 @@
 #  location_id      :integer
 #  barcode          :string
 #  shelf            :string
+#  tax              :float            default(0.0)
 #
 
 class Item < ActiveRecord::Base
@@ -36,6 +37,8 @@ class Item < ActiveRecord::Base
 
 	validates_uniqueness_of :sku, scope: [:company_id , :sku]
 	validates_uniqueness_of :name, scope: [:company_id , :name]
+	validates_inclusion_of :tax, in: 0..100
+
 	# validate :image_size_validation
 
 	scope :published , -> {where(published: true)}

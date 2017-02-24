@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
         format.html{ redirect_to items_path , notice: 'Item was successfully created.'}
       else
         format.html{
-        flash.now[:errors] = @item.errors.full_messages
+        flash[:errors] = @item.errors.full_messages
         render action: 'new'
         }
       end
@@ -77,6 +77,7 @@ class ItemsController < ApplicationController
                                  :photo,
                                  :barcode,
                                  :shelf,
+                                 :tax,
                                  :location_id,
                                  :description,
                                  :price,
