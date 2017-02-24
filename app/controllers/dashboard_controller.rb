@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
 
   # before_filter :is_authorize!
+  skip_load_and_authorize_resource
   include ConfigurationHelper
 
   def index

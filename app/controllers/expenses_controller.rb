@@ -1,20 +1,15 @@
 class ExpensesController < ApplicationController
 
-  # before_filter :has_access?('expenses')
+  load_and_authorize_resource
 
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'EXPENSES', '#' , options: { title: 'EXPENSES' }
 
-
-  # GET /expenses
-  # GET /expenses.json
   def index
     @search = current_company.expenses.search(params[:q])
     @expenses = @search.result.paginate(page: params[:page], per_page: 20) || []
   end
 
-  # GET /expenses/1
-  # GET /expenses/1.json
   def show
   end
 
@@ -65,8 +60,6 @@ class ExpensesController < ApplicationController
 
   end
 
-  # DELETE /expenses/1
-  # DELETE /expenses/1.json
   def destroy
     @expense.destroy
     respond_to do |format|
@@ -82,12 +75,10 @@ class ExpensesController < ApplicationController
       render 'template/ajax_reload' , url: expense_path
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = current_company.expenses.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
       params.require(:expense).permit(:attachment,:payment_method , :ref_no ,:start_date, :end_date, :purpose,:amount , :paid_time, :expense_type)
     end

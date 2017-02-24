@@ -27,7 +27,7 @@
                 %i.fa.fa-dashboard.icon
                   %b.bg-info
                 %span HOME
-            - if current_user.can_update_users  == true
+            - if can? :manage, User
               %li{:class => users_active}
                 %a{:class => users_active, :href => users_path}
                   %i.fa.fa-user.icon
@@ -55,33 +55,35 @@
                     %a{:href => dead_inventory_reports_path}
                       %i.fa.fa-angle-right
                       %span Dead Inventory Report
-            %li{:class => item_categories_active}
-              %a{:class => item_categories_active, :href => "#item_category"}
-                %i.fa.fa-clipboard.icon
-                  %b.bg-info
-                %span.pull-right
-                  %i.fa.fa-angle-down.text
-                  %i.fa.fa-angle-up.text-active
-                %span INVENTORY
-              %ul.nav.lt
-                %li
-                  %a{:class => item_categories_active, :href => item_categories_path}
-                    %i.fa.fa-angle-right
-                    %span Items Category
-                %li
-                  %a{:class => item_categories_active, :href => items_path}
-                    %i.fa.fa-angle-right
-                    %span Items
-                %li
-                  %a{:class => item_categories_active, :href => items_path}
-                    %i.fa.fa-angle-right
-                    %span Purchase Items
-            %li{:class => customers_active}
-              %a{:class => customers_active, :href => customers_path}
-                %i.fa.fa-male.icon
-                  %b.bg-info
-                %span CUSTOMERS
-            - if current_user.can_update_items
+            - if can? :manage, Item
+              %li{:class => item_categories_active}
+                %a{:class => item_categories_active, :href => "#item_category"}
+                  %i.fa.fa-clipboard.icon
+                    %b.bg-info
+                  %span.pull-right
+                    %i.fa.fa-angle-down.text
+                    %i.fa.fa-angle-up.text-active
+                  %span INVENTORY
+                %ul.nav.lt
+                  %li
+                    %a{:class => item_categories_active, :href => item_categories_path}
+                      %i.fa.fa-angle-right
+                      %span Items Category
+                  %li
+                    %a{:class => item_categories_active, :href => items_path}
+                      %i.fa.fa-angle-right
+                      %span Items
+                  %li
+                    %a{:class => item_categories_active, :href => items_path}
+                      %i.fa.fa-angle-right
+                      %span Purchase Items
+            - if can? :manage , Customer
+              %li{:class => customers_active}
+                %a{:class => customers_active, :href => customers_path}
+                  %i.fa.fa-male.icon
+                    %b.bg-info
+                  %span CUSTOMERS
+            - if can? :manage, Sale
               %li{:class => sales_active}
                 %a{:class => sales_active, :href => "#"}
                   %i.fa.fa-shopping-cart.icon
@@ -116,10 +118,11 @@
                   %a{:href => items_path}
                     %i.fa.fa-angle-right
                     %span Bank Reconciliations
-                %li
-                  %a{:href => expenses_path}
-                    %i.fa.fa-angle-right
-                    %span Expenses
+                - if can? :manage , Expense
+                  %li
+                    %a{:href => expenses_path}
+                      %i.fa.fa-angle-right
+                      %span Expenses
             %li{:class => is_setting_active}
               %a{:class => is_setting_active, :href => "#"}
                 %i.fa.fa-gear.icon
@@ -133,10 +136,11 @@
                   %a{:href => "#{edit_configuration_path(current_company)}"}
                     %i.fa.fa-angle-right
                     %span Configuration
-                %li
-                  %a{:href => locations_path}
-                    %i.fa.fa-angle-right
-                    %span Locations
+                - if can? :manage , Location
+                  %li
+                    %a{:href => locations_path}
+                      %i.fa.fa-angle-right
+                      %span Locations
     / / nav
     %footer.footer.lt.hidden-xs.b-t.b-light
       %a.pull-right.btn.btn-sm.btn-default.btn-icon{"data-toggle" => "class:nav-xs", :href => "#nav"}

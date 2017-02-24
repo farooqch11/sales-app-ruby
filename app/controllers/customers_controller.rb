@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  load_and_authorize_resource
 
   before_action :set_customer, only: [:show, :edit, :update, :destroy ,:create_customer_association]
   before_action :set_sale , only: [:create_customer_association , :add_sale_customer , :create]

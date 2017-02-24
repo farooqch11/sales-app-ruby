@@ -1,13 +1,13 @@
 class SalesController < ApplicationController
-  # before_action :set_store
 
+  load_and_authorize_resource
   # protect_from_forgery with: :null_session
 
   before_action :set_sale , except: [:index , :new , :issue_refund]
   before_action :populate_items , only: [:create_custom_customer , :create_custom_item , :empty_cart ,:add_item , :remove_item , :update_line_item_options , :edit , :create_line_item]
 
   def index
-    @sales = current_company.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
+    @sales = current_location.sales.paginate(page: params[:page], per_page: 20).order(id: :desc)
   end
 
   def new
@@ -17,8 +17,8 @@ class SalesController < ApplicationController
   end
 
   def show
-    @sale =  current_company.sales.joins(:payments).where('sales.id = ?' , params[:id]).first
-    @sales = current_company.sales.joins(:payments).distinct.paginate(page: params[:page], per_page: 20).order(id: :desc)
+    @sale =  current_location.sales.joins(:payments).where('sales.id = ?' , params[:id]).first
+    @sales = current_location.sales.joins(:payments).distinct.paginate(page: params[:page], per_page: 20).order(id: :desc)
     respond_to do |format|
       format.html
       format.pdf do
@@ -30,14 +30,11 @@ class SalesController < ApplicationController
   end
 
   def edit
-    # set_sale
-    # populate_items
-    # populate_customers
 
     @sale.line_items.build
     @sale.payments.build
 
-    @custom_item = current_company.items.new
+    @custom_item = current_location.items.new(company_id: current_company.id)
     @custom_customer = current_company.customers.new
 
   end
@@ -57,7 +54,7 @@ class SalesController < ApplicationController
   end
 
   def issue_refund
-    @sale = current_company.sales.unscoped.where(company_id: current_company.id , status: 'paid' , id: params[:id]).first || []
+    @sale = current_location.sales.unscoped.where(company_id: current_company.id , status: 'paid' , id: params[:id]).first || []
     if @sale.refund!
       line_items = @sale.line_items.includes(:item) || []
       line_items.each do |line_item|
@@ -66,7 +63,7 @@ class SalesController < ApplicationController
       end
       @sale.update(refund_by: current_user.id)
       flash[:sucess] = "Successfull Refunded"
-      @sale = current_company.sales.joins(:payments).last
+      @sale = current_location.sales.joins(:payments).last
     else
       flash[:errors] = @sale.errors.full_messages
     end
@@ -97,11 +94,11 @@ class SalesController < ApplicationController
   # searched Items
   def update_line_item_options
     if params[:search][:item_category].blank?
-      @available_items = current_company.items.search_by_name(params[:search][:item_name]).published.recent || []
+      @available_items = current_location.items.search_by_name(params[:search][:item_name]).published.recent || []
     elsif params[:search][:item_name].blank?
-      @available_items = current_company.items.search_by_category(params[:search][:item_category]).recent || []
+      @available_items = current_location.items.search_by_category(params[:search][:item_category]).recent || []
     else
-      @available_items = current_company.items.recent.published.search_by_category(params[:search][:item_category]).search_by_name(params[:search][:item_name]) || []
+      @available_items = current_location.items.recent.published.search_by_category(params[:search][:item_category]).search_by_name(params[:search][:item_name]) || []
     end
 
     respond_to do |format|
@@ -234,7 +231,7 @@ class SalesController < ApplicationController
     # set_sale
     # populate_items
 
-    custom_item = current_company.items.new
+    custom_item = current_location.items.new(company_id: current_company.id)
     custom_item.sku = "CI#{(rand(5..30) + rand(5..30)) * 11}_#{(rand(5..30) + rand(5..30)) * 11}"
     custom_item.name = params[:custom_item][:name]
     custom_item.description = params[:custom_item][:description]
@@ -265,7 +262,7 @@ class SalesController < ApplicationController
 
   def override_price
     # @sale = current_company.sales.find(params[:override_price][:sale_id])
-    item = current_company.items.where(id: params[:override_price][:item_id]).first
+    item = current_location.items.where(id: params[:override_price][:item_id]).first
     # line_item = LineItem.where(sale_id: params[:override_price][:sale_id], item_id: item.id).first
     line_item = @sale.line_items.where(item_id: item.id).first
     line_item.price = params[:override_price][:price].gsub('$', '')
@@ -342,7 +339,7 @@ class SalesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_sale
-    @sale = current_company.sales.find_by_id(params[:id] || params[:sale_id] || params[:search][:sale_id] || params[:search][:id]) || []
+    @sale = current_location.sales.find_by_id(params[:id] || params[:sale_id] || params[:search][:sale_id] || params[:search][:id]) || []
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
@@ -364,19 +361,19 @@ class SalesController < ApplicationController
   end
 
   def populate_items
-    @available_items = current_company.items.published || []
+    @available_items = current_location.items.published || []
   end
 
 
   def remove_item_from_stock(item_id, quantity)
-    item = current_company.items.find(item_id)
+    item = current_location.items.find(item_id)
     item.stock_amount = item.stock_amount - quantity
     item.amount_sold += quantity
     item.save
   end
 
   def return_item_to_stock(item_id, quantity)
-    item = current_company.items.find(item_id)
+    item = current_location.items.find(item_id)
     item.stock_amount = item.stock_amount + quantity
     item.save
   end

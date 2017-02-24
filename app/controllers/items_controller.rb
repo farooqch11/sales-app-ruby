@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
+  load_and_authorize_resource
+
   add_breadcrumb "ITEMS", "" , options: { title: "ITEMS"}
-
-
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -54,7 +54,8 @@ class ItemsController < ApplicationController
   end
 
   def low_stock
-    @items = current_company.low_stock_items.includes(:item_category , :location).order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+    @search = current_company.low_stock_items.search(params[:q])
+    @items = @search.result.includes(:item_category , :location).order(created_at: :desc).paginate(page: params[:page], per_page: 20)
   end
 
   def search

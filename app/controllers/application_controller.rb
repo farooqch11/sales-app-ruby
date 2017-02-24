@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   helper FilepickerRails::Engine.helpers
 
+
   rescue_from Exception, with: :render_generic_exception if Rails.env.production?   #make sure the generic Exception handler is at the top
   rescue_from ActionController::RoutingError, with: :render_not_found if Rails.env.production?
   rescue_from ActionController::UnknownController, with: :render_not_found if Rails.env.production?
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, alert: exception.message
+    redirect_to dashboard_index_path, alert: exception.message
   end
 
 

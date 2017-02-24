@@ -11,6 +11,7 @@
 #  published  :boolean          default(TRUE)
 #  slug       :string
 #  status     :integer          default(0)
+#  deleted_at :datetime
 #
 
 class Location < ActiveRecord::Base
@@ -39,7 +40,7 @@ class Location < ActiveRecord::Base
   end
 
   def name
-    self.new_record? ? super : self.company.company_name + " " + super
+    self.new_record? ? super : self.company.company_name
   end
 
   #

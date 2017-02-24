@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
 
-  #BreadCrumbs
+  load_and_authorize_resource
+
   add_breadcrumb "EMPLOYEES", "#" , options: { title: "EMPLOYEES"}
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   before_action :set_roles
-
-  load_and_authorize_resource
 
   def index
     @search =  current_company.users.search(params[:q])

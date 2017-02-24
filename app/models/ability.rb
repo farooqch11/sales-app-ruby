@@ -5,18 +5,30 @@ class Ability
 
     if user.is_owner? || user.is_general_manager?
       can :manage, :all
-    elsif user.can_update_configuration == true
-        can :manage, Company
-    elsif user.can_update_users == true
-        can :manage, User
-    elsif user.can_view_reports == true
-        # can :manage, Report
-
-    elsif user.can_update_sale_discount == true
-
-    elsif user.can_remove_sales == true
-        can :manage, Sale
     end
+
+    if user.is_cashier?
+      can :manage, Sale
+      can :manage, LineItem
+      can :manage, Payment
+    end
+
+    if user.is_inventory_manager? || user.is_warehouse_manager?
+      can :manage, [Item , ItemCategory , Expense]
+    end
+
+    # if user.can_update_configuration == true
+    #     can :manage, Company
+    # elsif user.can_update_users == true
+    #     can :manage, User
+    # elsif user.can_view_reports == true
+    #     # can :manage, Report
+    #
+    # elsif user.can_update_sale_discount == true
+    #
+    # elsif user.can_remove_sales == true
+    #     can :manage, Sale
+    # end
 
 
 

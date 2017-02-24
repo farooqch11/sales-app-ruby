@@ -1,4 +1,6 @@
 class LineItemsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   before_action :find_sale , only: [:set_line_item ,:create , :new]
 

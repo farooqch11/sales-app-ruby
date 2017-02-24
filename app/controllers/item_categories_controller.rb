@@ -1,4 +1,7 @@
 class ItemCategoriesController < ApplicationController
+
+  load_and_authorize_resource
+
   before_action :set_item_category, only: [:show, :update, :destroy]
 
   def index

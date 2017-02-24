@@ -1,6 +1,8 @@
 class LocationsController < ApplicationController
+
+  load_and_authorize_resource
+
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  #BreadCrumbs
   add_breadcrumb "LOCATIONS", "#" , options: { title: "LOCATIONS"}
 
   def index
@@ -35,8 +37,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /locations/1
-  # PATCH/PUT /locations/1.json
   def update
     respond_to do |format|
       if @location.update(location_params)
@@ -49,8 +49,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  # DELETE /locations/1
-  # DELETE /locations/1.json
   def destroy
     @location.published = false
     @location.save
@@ -61,14 +59,11 @@ class LocationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_location
       @location = current_company.locations.published.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
       params.require(:location).permit([:name, address_attributes: [:id,:address_1,:city,:state ,:zip,:country, :_destroy]])
-      # params.fetch(:location, {})
     end
 end
