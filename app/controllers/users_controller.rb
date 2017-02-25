@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def index
     @search =  current_company.users.search(params[:q])
-    @users = @search.result.includes(:role , :locations).paginate(page: params[:page], per_page: 20)
+    @users = @search.result.includes(:roles , :locations).paginate(page: params[:page], per_page: 20)
   end
 
   def show
@@ -28,23 +28,23 @@ class UsersController < ApplicationController
     @user = current_company.users.new(user_params)
     if @user.save
       flash[:success] = 'User was successfully created.'
-      redirect_to new_user_path
+      redirect_to users_url
     else
       flash[:errors] = @user.errors.full_messages
       render action: 'new'
     end
   end
 
-  def new_user
-    @user = current_company.users.new(user_params)
-    if @user.save
-      flash[:success] = 'User was successfully created.'
-      redirect_to @user
-    else
-      flash[:errors] = @user.errors.full_messages
-      render action: 'new'
-    end
-  end
+  # def new_user
+  #   @user = current_company.users.new(user_params)
+  #   if @user.save
+  #     flash[:success] = 'User was successfully created.'
+  #     redirect_to @user
+  #   else
+  #     flash[:errors] = @user.errors.full_messages
+  #     render action: 'new'
+  #   end
+  # end
 
   def update
     if user_params[:password].blank?
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       flash[:notice] = 'User was successfully updated.'
-      redirect_to @user
+      redirect_to users_url
     else
       flash[:errors] = @user.errors.full_messages
       render action: 'edit'
@@ -99,6 +99,7 @@ class UsersController < ApplicationController
                                  :can_view_reports,
                                  :can_update_sale_discount,
                                  :can_remove_sales,
+                                 role_ids: [],
                                  location_ids: [] )
   end
 

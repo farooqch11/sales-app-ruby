@@ -19,7 +19,11 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to dashboard_index_path, alert: exception.message
+    respond_to do |format|
+      format.json { head :forbidden, content_type: 'text/html' }
+      format.html { redirect_to dashboard_index_path, notice: exception.message }
+      format.js   { head :forbidden, content_type: 'text/html' }
+    end
   end
 
 
@@ -43,6 +47,8 @@ class ApplicationController < ActionController::Base
 
   def has_access? permission
     if current_user.is_owner?
+      true
+    elsif current_user.has_access?(permission)
       true
     else
       redirect_to :dashboard_index_path , notice: "Access Denied"

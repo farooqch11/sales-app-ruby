@@ -1,0 +1,68 @@
+= form_for @user , html: {class: 'bs-example form-horizontal'} do |f|
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Full Name
+      %span.text-danger *
+    .col-lg-10
+      = f.text_field :username, :class => "form-control input-md ", :placeholder => "Enter Employee Name" , required: true
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Email
+      %span.text-danger *
+    .col-lg-10
+      = f.text_field :email, required: true , :class => "form-control input-md ", :placeholder => "Email Address"
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Locations
+      %span.text-danger *
+    .col-lg-10
+      = f.collection_select :location_ids, @locations, :id, :name, {}, {:multiple => true , required: true , style:"width: 100%"}
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Salary
+      %span.text-danger
+    .col-lg-10
+      = f.number_field :salary, :class => "form-control input-md", :placeholder => "Enter Salary"
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Skills
+      %span.text-danger
+    .col-lg-10
+      = f.text_field :skills, :class => "form-control input-md", :placeholder => "Enter Employee Skills"
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Password
+      %span.text-danger *
+    .col-lg-10
+      = f.password_field :password, :class => "form-control input-md", :placeholder => "Enter Password"
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Password Confirmation
+      %span.text-danger *
+    .col-lg-10
+      = f.password_field :password, :class => "form-control input-md" , :placeholder => "Confirm Password"
+  .form-group
+    %label.col-lg-2.control-label.text-right
+      Role
+      %span.text-danger *
+    - @roles.each do |role|
+      .col-lg-offset-2.col-lg-10
+        -#.checkbox
+        -#  %label
+        -#
+        .checkbox
+          %label.checkbox-custom
+            = check_box_tag "user[role_ids][]", role.id , @user.new_record? ? false : @user.roles.map(&:id).include?(role.id)
+            -#%input{:checked => "checked", :name => "checkboxA", :type => "checkbox"}/
+            %i.fa.fa-fw.fa-square-o.checked
+            = role.name.titleize
+
+  .line.line-dashed.line-lg.pull-in
+  .form-group
+    .col-lg-offset-9.col-lg-3
+      = f.submit :class=>"btn btn-info btn-sm"
+      = button_tag "Cancel", :type => 'reset',:class=>"btn btn-sm btn-default"
+:javascript
+  $("#user_location_ids").select2({
+    placeholder: "Select a Locations"
+  });

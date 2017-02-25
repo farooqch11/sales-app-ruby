@@ -8,9 +8,19 @@ class Ability
     end
 
     if user.is_cashier?
-      can :manage, Sale
+      can :manage, [Sale , Customer]
       can :manage, LineItem
       can :manage, Payment
+    end
+
+    if user.is_store_manager?
+      can :manage, [Sale , User , Expense , Item , ItemCategory , Customer]
+      can :manage, LineItem
+      can :manage, Payment
+    end
+
+    if user.is_warehouse_manager?
+      can :manage, [Customer]
     end
 
     if user.is_inventory_manager? || user.is_warehouse_manager?

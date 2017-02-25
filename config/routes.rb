@@ -242,10 +242,8 @@ Managehub360::Application.routes.draw do
 
   # devise_for :users
   devise_for :users
-  resources :users , concern: :paginatable do
-    collection do
-      post 'new_user'
-    end
+  resources :users  do
+    get '(page/:page)', action: :index, on: :collection, as: ''
   end
 
 

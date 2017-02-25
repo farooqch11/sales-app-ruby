@@ -6,9 +6,9 @@
           .row.m-t-sm
             .col-sm-8.m-b-xs
               / <a href="#subNav" data-toggle="class:hide" class="btn btn-sm btn-default active"><i class="fa fa-caret-right text fa-lg"></i><i class="fa fa-caret-left text-active fa-lg"></i></a>
-              .btn-group
-                %button.btn.btn-sm.btn-default{:title => "Refresh", :type => "button"}
-                  %i.fa.fa-refresh
+              -#.btn-group
+              -#  %button.btn.btn-sm.btn-default{:title => "Refresh", :type => "button"}
+              -#    %i.fa.fa-refresh
               / <button type="button" class="btn btn-sm btn-default" title="Remove"><i class="fa fa-trash-o"></i></button>
               / <button type="button" class="btn btn-sm btn-default" title="Filter" data-toggle="dropdown"><i class="fa fa-filter"></i> <span class="caret"></span></button>
               / <ul class="dropdown-menu">
@@ -21,7 +21,6 @@
               %a.btn.btn.btn-sm.btn-primary{:href => new_user_path}
                 %i.fa.fa-plus
                 Create
-            / <a href="#new-item-category" data-toggle="new-item-category" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Create</a>
             .col-sm-4.m-b-xs
               = search_form_for @search do |f|
                 .input-group
@@ -54,7 +53,7 @@
                       %td= user.username
                       %td= user.locations.map(&:name).join(', ')
                       %td= user.email
-                      %td= user.role.name
+                      %td= user.roles.map(&:name).join(', ')
                       -#%td= number_to_currency(user.salary , unit: current_company.currency)
                       %td= user.confirmed? ? 'Confirmed' : 'Pending'
                       %td.text-right
@@ -73,5 +72,3 @@
         %footer.footer.bg-white.b-t
           .row.text-center-xs.pull-right{:style => "margin: 0px 2%;"}
             = will_paginate @users, renderer: BootstrapPagination::Rails
-  %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", :href => "#"}
-    / </section>

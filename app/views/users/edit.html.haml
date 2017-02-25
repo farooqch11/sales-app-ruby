@@ -1,0 +1,11 @@
+%section.scrollable.padder.m-t-lg
+  .col-sm-12
+    %section.panel.panel-default
+      %header.panel-heading{:style => "background:#FFF;"}
+        %h3{:style => "color:#717171;"} Employee Details
+      .panel-body
+        = render 'form'
+- content_for :scripts do
+  :javascript
+    $('#new_user').validate();
+    $(".location-multiple").select2();

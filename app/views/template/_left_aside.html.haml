@@ -33,7 +33,7 @@
                   %i.fa.fa-user.icon
                     %b.bg-info
                   %span EMPLOYEES
-            - if current_user.can_view_reports
+            - if true
               %li{:class => reports_active}
                 %a{:class => "reports_active", :href => reports_path}
                   %i.fa.fa-bar-chart-o.icon
@@ -132,10 +132,11 @@
                   %i.fa.fa-angle-up.text-active
                 %span SETTINGS
               %ul.nav.lt
-                %li
-                  %a{:href => "#{edit_configuration_path(current_company)}"}
-                    %i.fa.fa-angle-right
-                    %span Configuration
+                -if can? :manage , Company
+                  %li
+                    %a{:href => "#{edit_configuration_path(current_company)}"}
+                      %i.fa.fa-angle-right
+                      %span Configuration
                 - if can? :manage , Location
                   %li
                     %a{:href => locations_path}

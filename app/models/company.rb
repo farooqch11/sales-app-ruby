@@ -26,6 +26,8 @@
 #  is_activated        :boolean          default(TRUE)
 #  currency_name       :string
 #  currency_code       :string
+#  deleted_at          :datetime
+#  customers_count     :integer          default(0)
 #
 
 class Company < ActiveRecord::Base
