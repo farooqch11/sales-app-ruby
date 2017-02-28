@@ -26,27 +26,24 @@
               = f.country_select("country" ,  {prompt: 'Select Country'} ,{ class: "form-control input-lg select2-container select2-container-active" , required: true } )
             .form-group.col-md-6
               = p.label :password , class:"control-label"
-              = p.password_field :password , class: "form-control input-lg" , placeholder: "Password" , required: true , minlength: "6"
+              = p.password_field :password , class: "form-control input-lg" , placeholder: "Password" , required: true , minlength: "6" , autocomplete: "off"
             .form-group.col-md-6
               = p.label :confirm_password , class:"control-label"
-              = p.password_field :password_confirmation , class: "form-control input-lg" , placeholder: "Confirm Password"
+              = p.password_field :password_confirmation , class: "form-control input-lg" , placeholder: "Confirm Password" , autocomplete: "off"
+          .line.line-dashed.col-md-12.m-b-md
+          .form-group.col-md-6
+            %label.text-center
+              By clicking submit you agree to the
+              %a.text-info{:href => "#"} Terms and Policy of #{SITE_NAME}.
+          .form-group.col-md-6
+            = recaptcha_tags
           .line.line-dashed.col-md-12.m-b-lg
           .form-group.col-md-6
-            %label
-              By clicking submit you agree to the
-              %a.text-info{:href => "#"} Terms and Policy
-              of #{SITE_NAME}.
-          .form-group.col-md-6
-            %button.btn.btn-info.btn-lg.btn-block{:type => "submit"} Sign up
-          .line.line-dashed.col-md-12.m-b-md
-          -#.form-group.col-md-6
             %a.btn.btn-block.btn-lg.btn-facebook{:href => "#"}
               %i.fa.fa-fw.fa-facebook.pull-left
               Facebook
-          / <div class="form-group col-md-6">
-          / <a href="#" class="btn btn-twitter btn-lg btn-block"><i class="fa fa-fw fa-twitter pull-left"></i> Twitter</a>
-          / </div>
-        / footer
+          .form-group.col-md-6
+            %button.btn.btn-info.btn-lg.btn-block{:type => "submit"} Sign up
         %footer#footer
   .text-center.padder.clearfix
     %p

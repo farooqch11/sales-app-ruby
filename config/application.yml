@@ -1,7 +1,18 @@
-   gmail_username: 'faizuali4@gmail.com'
-   gmail_password: 'f8a1i8z4u'
-   mailgun_api: 'key-bcb280695a70093c5db5a5c044ffed1a'
-   mailgun_domain: 'sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org'
-   mailgun_username: 'postmaster@sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org'
-   mailgun_password: '5615a125e8ef7aea436e897598e22844'
+development:
+   FACEBOOK_APP_ID:       "1844462335818256"
+   facebook_secret:    "d861c257889e8977eac50e2f9d39d915"
+   RECAPTCHA_PUBLIC_KEY: '6LehOhcUAAAAAJwUrF6_4TPQdKxQZk5WE7_s2h3H'
+   RECAPTCHA_PRIVATE_KEY: '6LehOhcUAAAAAHE3enl-WZlaqll1p7HiIMhtgqwf'
+test:
+production:
+   gmail_username:     'faizuali4@gmail.com'
+   gmail_password:     'f8a1i8z4u'
+   mailgun_api:        'key-bcb280695a70093c5db5a5c044ffed1a'
+   mailgun_domain:     'sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org'
+   mailgun_username:   'postmaster@sandboxcc6cca2b2d1049b4a6dc8e2f2757ddf5.mailgun.org'
+   mailgun_password:   '5615a125e8ef7aea436e897598e22844'
    filepicker_api_key: "AR0LrQ7ZBRbaL4HN6BMTDz" #A1lpZ89jLQx6BUl3E27JZz
+   FACEBOOK_APP_ID:       "1844462335818256"
+   facebook_secret:    "d861c257889e8977eac50e2f9d39d915"
+   RECAPTCHA_PUBLIC_KEY: '6LehOhcUAAAAAJwUrF6_4TPQdKxQZk5WE7_s2h3H'
+   RECAPTCHA_PRIVATE_KEY: '6LehOhcUAAAAAHE3enl-WZlaqll1p7HiIMhtgqwf'

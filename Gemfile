@@ -26,7 +26,8 @@ gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 gem 'activeadmin', github: 'activeadmin'
 gem 'figaro'
 gem 'cancancan', '~> 1.9'
-
+gem 'omniauth-facebook'
+gem "recaptcha", require: "recaptcha/rails"
 
 # -----------------------------------------
 # Layout and Rendering
@@ -105,7 +106,6 @@ group :development, :test do
   gem 'factory_girl_rails', '4.6.0'
   gem 'faker', '1.6.3'
   gem 'database_cleaner', '1.5.1'
-
   gem 'capybara', '2.6.2'
 end
 

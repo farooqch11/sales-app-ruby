@@ -2,8 +2,6 @@ class CompaniesController < BaseController
   layout :set_layout , only: [:show]
   before_action :set_new_company , only: [:new]
 
-
-
   before_filter :authenticate_user! , only: [:show]
 
   def new
@@ -16,7 +14,7 @@ class CompaniesController < BaseController
   def create
 
     @company = Company.new(store_params)
-    if @company.valid? && @company.owner.valid? && @company.save
+    if verify_recaptcha(model: @company) && @company.valid? && @company.owner.valid? && @company.save
       # @company.time_zone = cookies["browser.timezone"] if cookies["browser.timezone"].present?
       flash[:success] =  "Registration Successfull. Please confirm your email In order to access your account."
       redirect_to root_path
