@@ -26,7 +26,7 @@ gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 gem 'activeadmin', github: 'activeadmin'
 gem 'figaro'
 gem 'cancancan', '~> 1.9'
-gem 'omniauth-facebook'
+# gem 'omniauth-facebook'
 gem "recaptcha", require: "recaptcha/rails"
 
 # -----------------------------------------
