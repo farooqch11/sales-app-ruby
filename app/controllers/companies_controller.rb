@@ -53,8 +53,8 @@ class CompaniesController < BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def store_params
-    params.require(:company).permit(:company_name,:business_type_id , :country , owner_attributes:[:id, :email, :password, :role_id ,  :password_confirmation])
-                                                # :store_description,
+    params.require(:company).permit(:company_name,:business_type_id , :country , owner_attributes:[:id, :email, :password, :role_id ,:username,:password_confirmation])
+                                                # :store_description
                                                 # :sub_domain,
                                                 # :address,
                                                 # :city,

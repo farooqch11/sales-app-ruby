@@ -17,7 +17,7 @@
 #  tax_rate            :decimal(8, 2)
 #  owner_id            :integer
 #  integer             :integer
-#  status              :boolean          default(FALSE)
+#  status              :integer          default(0)
 #  created_at          :datetime
 #  updated_at          :datetime
 #  low_stock_alert     :integer
@@ -26,7 +26,6 @@
 #  is_activated        :boolean          default(TRUE)
 #  currency_name       :string
 #  currency_code       :string
-#  deleted_at          :datetime
 #  customers_count     :integer          default(0)
 #
 
@@ -130,7 +129,8 @@ class Company < ActiveRecord::Base
     location.name        = self.company_name.titleize + " Head Office"
     location.address_id  = address.id
     location.save
-    self.owner.update_attributes({location_id: location.id})
+    self.owner.update_attributes!({location_id: self.locations.first.id})
   end
 
 end
+

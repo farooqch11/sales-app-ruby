@@ -4,7 +4,7 @@
 #
 #  id                     :integer          not null, primary key
 #  company_id             :integer
-#  username               :string           default(""), not null
+#  username               :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  photo                  :string
@@ -29,11 +29,9 @@
 #  skills                 :string
 #  role_id                :integer
 #  location_id            :integer
-#  deleted_at             :datetime
 #
 # Indexes
 #
-#  index_users_on_company_id            (company_id)
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email_and_company_id  (email,company_id) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
@@ -45,7 +43,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable , :confirmable, :lockable
 
-  validates :username, presence: true , if: Proc.new{ |user| user.company.present?}
+  validates :username, presence: true , if: Proc.new{ |user| !user.company.present?}
 
   belongs_to :company
   belongs_to :active_location , class_name: 'Location' , foreign_key: 'location_id'
@@ -53,7 +51,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_many :sales
 
-  before_create :set_confirm_password
   after_create :set_active_location , if: Proc.new{ |user| user.company.present?}
 
   def is_owner?
@@ -147,6 +144,6 @@ class User < ActiveRecord::Base
   private
 
     def set_active_location
-      self.update_attributes(location_id: self.locations.published.first.id)
+      self.update_attribute!(:location_id, self.locations.published.first.id)
     end
 end

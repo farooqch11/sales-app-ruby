@@ -17,11 +17,6 @@
 #  updated_at    :datetime
 #  address_id    :integer
 #  location_id   :integer
-#  deleted_at    :datetime
-#
-# Indexes
-#
-#  index_customers_on_company_id  (company_id)
 #
 
 class Customer < ActiveRecord::Base

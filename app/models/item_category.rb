@@ -12,8 +12,7 @@
 #
 # Indexes
 #
-#  index_item_categories_on_company_id  (company_id)
-#  index_item_categories_on_slug        (slug) UNIQUE
+#  index_item_categories_on_slug  (slug) UNIQUE
 #
 
 class ItemCategory < ActiveRecord::Base

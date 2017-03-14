@@ -2,21 +2,20 @@
 #
 # Table name: expenses
 #
-#  id              :integer          not null, primary key
-#  company_id      :integer
-#  attachment      :string
-#  start_date      :date
-#  end_date        :date
-#  purpose         :text
-#  paid_time       :datetime
-#  expense_type    :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  low_stock_alert :float
-#  amount          :float
-#  payment_method  :integer          default(0)
-#  ref_no          :string
-#  slug            :string
+#  id             :integer          not null, primary key
+#  company_id     :integer
+#  attachment     :string
+#  start_date     :date
+#  end_date       :date
+#  purpose        :text
+#  paid_time      :datetime
+#  expense_type   :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  amount         :float
+#  payment_method :integer          default(0)
+#  ref_no         :string
+#  slug           :string
 #
 # Indexes
 #

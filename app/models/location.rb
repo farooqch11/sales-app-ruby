@@ -11,7 +11,6 @@
 #  published  :boolean          default(TRUE)
 #  slug       :string
 #  status     :integer          default(0)
-#  deleted_at :datetime
 #
 
 class Location < ActiveRecord::Base
